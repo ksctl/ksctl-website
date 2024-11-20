@@ -20,7 +20,7 @@ import Container from "./Container.astro";
     <div class="relative pt-36 ml-auto">
       <div class="lg:w-4/5 text-center mx-auto">
         <h1
-          class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl"
+          class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl home-page"
         >
           Cloud Agnostic Kubernetes Management Tool
         </h1>
@@ -87,6 +87,26 @@ import Container from "./Container.astro";
     </div>
   </Container>
 </div>
+
+<style>
+.home-page {
+  background-image: linear-gradient(45deg, #5c9df7, #FFDDB7);
+  background-clip: text;
+  color: transparent;
+  background-size: 200%;
+  animation: bg-animation 5s infinite alternate;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+
+  100% {
+    background-position: right;
+  }
+}
+</style>
 
 <script>
   const copyButton = document.getElementById("copyButton");
