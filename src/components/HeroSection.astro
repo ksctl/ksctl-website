@@ -2,86 +2,120 @@
 import Container from "./Container.astro";
 ---
 
-<div class="relative" id="home">
+<div class="relative overflow-hidden" id="home">
   <div
     aria-hidden="true"
-    class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20"
+    class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-30 dark:opacity-20"
   >
     <div
-      class="blur-[106px] h-56 bg-gradient-to-br from-green-500 to-teal-400 dark:from-green-700"
+      class="blur-[106px] h-72 bg-gradient-to-br from-primary to-teal-400 dark:from-teal-700"
     >
     </div>
     <div
-      class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-emerald-300 dark:to-emerald-600"
+      class="blur-[106px] h-56 bg-gradient-to-r from-sky-400 to-emerald-400 dark:to-emerald-600"
     >
     </div>
   </div>
+
+  <!-- Animated dots background -->
+  <div class="absolute inset-0 w-full h-full bg-grid-pattern opacity-10 dark:opacity-5"></div>
+
   <Container>
-    <div class="relative pt-36 ml-auto">
+    <div class="relative pt-28 md:pt-36 ml-auto">
       <div class="lg:w-4/5 text-center mx-auto">
+        <span class="inline-block px-3 py-1 text-sm font-medium text-white bg-gradient-to-r from-primary to-teal-400 rounded-full mb-6 shadow-md animate-fadeIn">
+          Kubernetes Simplified
+        </span>
         <h1
-          class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl home-page"
+          class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl home-page tracking-tight"
         >
-          Cloud Agnostic Kubernetes Management Tool
+          Cloud Agnostic <span class="relative inline-block"><span class="home-underline">Kubernetes</span></span> Management
         </h1>
       </div>
       <p
-        class="lg:w-2/3 mx-auto text-center mt-8 text-gray-700 dark:text-gray-300"
+        class="lg:w-3/5 mx-auto text-center mt-8 text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
       >
-        Cost Efficient and Sustainable Cloud-Agnostic Kubernetes Management Tool.
-        Our intelligent region and instance selection features help you deploy eco-friendly
-        and cost-effective clusters without compromising performance.
+        Deploy <span class="font-semibold">cost-efficient</span> and <span class="font-semibold">sustainable</span> Kubernetes clusters across any cloud.
+        Our intelligent region and instance selection features help you create eco-friendly
+        clusters without compromising performance.
       </p>
-      <div
-        class="lg:max-w-lg my-6 mx-auto flex items-center space-x-2 bg-[#081c18] rounded-md p-2"
-      >
-        <input
-          type="text"
-          value="curl -sSfL https://get.ksctl.com | python3 -"
-          readonly
-          class="flex-grow bg-transparent border-none text-white p-2"
-        />
-        <button
-          id="copyButton"
-          class="bg-[#7c9a92] hover:bg-[#3a5a40] text-white p-2 rounded"
+
+      <div class="flex flex-col items-center justify-center mt-12">
+        <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-3">Install ksctl with one command</p>
+        <div
+          class="lg:max-w-lg w-full mx-auto flex items-center space-x-2 bg-[#081c18] rounded-xl p-2 shadow-xl transition-all hover:shadow-2xl border border-gray-800/20 group"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="h-4 w-4"
+          <input
+            type="text"
+            value="curl -sSfL https://get.ksctl.com | python3 -"
+            readonly
+            class="flex-grow bg-transparent border-none text-white p-2 font-mono text-sm md:text-base"
+          />
+          <button
+            id="copyButton"
+            class="bg-primary hover:bg-primary/80 text-white p-2 rounded-lg transition-all duration-300"
           >
-            <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
-            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
-            ></path>
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+            >
+              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+              ></path>
+            </svg>
+          </button>
+        </div>
       </div>
-      <div class="mt-10 flex flex-wrap justify-center gap-y-4 gap-x-6">
+
+      <div class="mt-14 flex flex-wrap justify-center gap-y-4 gap-x-6">
         <a
           href="https://docs.ksctl.com/docs/getting-started/"
           target="_blank"
-          class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+          class="relative flex h-12 w-full items-center justify-center px-8 overflow-hidden before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-r before:from-primary before:to-teal-500 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max group shadow-lg shadow-primary/30"
         >
-          <span class="relative text-base font-semibold text-white"
-            >Get started</span
-          >
+          <span class="relative text-base font-semibold text-white flex items-center">
+            Get started
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </span>
         </a>
         <a
           href="https://docs.ksctl.com/docs/features/"
-          class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
+          class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800/50 sm:w-max shadow-lg shadow-gray-300/10 dark:shadow-gray-800/20"
         >
           <span
-            class="relative text-base font-semibold text-primary dark:text-white"
-            >Explore Sustainability Features</span
-          >
+            class="relative text-base font-semibold text-primary dark:text-white flex items-center"
+            >Explore Features
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </span>
         </a>
+      </div>
+
+      <!-- Cloud provider logos -->
+      <div class="mt-16 mb-6">
+        <p class="text-center text-sm text-gray-600 dark:text-gray-400 mb-6">Works with all major cloud providers</p>
+        <div class="flex justify-center space-x-8 opacity-75 grayscale">
+          <div class="w-12 md:w-16 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF9900" class="w-full"><path d="M18.75 10.28c.58.6.58 1.59 0 2.19-1.32 1.38-3.4.56-3.4.56s-1.42-.8-.38-2.63l.89-.89c.55-.55 1.42-.7 2.15-.22.26.17.56.52.74.99zm-7.06 6.69-3.04-3.04 9.2-9.2c.46-.46 1.09-.73 1.77-.73h1.11c.66 0 1.27.26 1.73.73.46.46.72 1.08.72 1.73v1.11c0 .69-.26 1.32-.73 1.77l-9.2 9.2a2.63 2.63 0 0 1-1.56.63zm-5.65-5.65 9.55 9.54c.33.34.78.53 1.25.53s.92-.19 1.25-.53c.34-.33.53-.78.53-1.25s-.19-.92-.53-1.25l-9.54-9.54-3.79-1 1.28 3.5z"/></svg>
+          </div>
+          <div class="w-12 md:w-16 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0078D4" class="w-full"><path d="M0 2.62 7.92 0l.04 7.5-7.93.04L0 2.62zm7.92 8.9.04 7.5L0 16.61l.03-5.09 7.89-.01zm1.08-8.9L24 0v7.54l-15 .04V2.62zm15 8.9V24l-15-2.62-.03-5.09L24 16.1l-.05 1.51.05-4.09z"/></svg>
+          </div>
+          <div class="w-12 md:w-16 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#4285F4" class="w-full"><path d="M12 24c6.624 0 12-5.376 12-12S18.624 0 12 0 0 5.376 0 12s5.376 12 12 12zm4.283-12.857h1.718c-.154 2.516-1.4 4.718-3.33 6.17-1.348-1.05-2.246-2.623-2.511-4.417h4.123zm-9.058 0h4.125c-.266 1.792-1.164 3.366-2.511 4.417-1.931-1.452-3.176-3.654-3.33-6.17h1.716zm6.188-3.255c.356 1.54.956 2.933 1.765 4.102h-3.53c.809-1.17 1.409-2.561 1.765-4.102zm-3.318 0c.356 1.54.956 2.933 1.765 4.102h-3.53c.809-1.17 1.409-2.561 1.765-4.102zm-2.87-1.7c1.348 1.05 2.246 2.623 2.511 4.417H5.283c.154-2.516 1.4-4.718 3.33-6.17 0 0 .56.438 1.237.966.615.478 1.348 1.053 1.348 1.053h-1.046v2.438s.684-.534 1.37-1.07c.602-.47 1.122-.883 1.218-.96.096.076.616.489 1.218.96.685.537 1.37 1.07 1.37 1.07V4.688h-1.048s.735-.577 1.35-1.056c.676-.528 1.235-.964 1.235-.964 1.932 1.452 3.176 3.654 3.33 6.17h-4.123c-.266-1.792-1.164-3.366-2.511-4.417a8.637 8.637 0 0 0-.262-.202 8.72 8.72 0 0 0-.262.202c-.345.27-.67.572-.976.9a10.875 10.875 0 0 0-.976-.9 8.596 8.596 0 0 0-.263-.202 8.72 8.72 0 0 0-.262.202z"/></svg>
+          </div>
+        </div>
       </div>
     </div>
   </Container>
@@ -89,7 +123,7 @@ import Container from "./Container.astro";
 
 <style>
 .home-page {
-  background-image: linear-gradient(45deg, #5c9df7, #95d5b2, #FFDDB7);
+  background-image: linear-gradient(45deg, #3f6766, #95d5b2, #FFDDB7);
   background-clip: text;
   color: transparent;
   line-height: 1.2;
@@ -105,6 +139,50 @@ import Container from "./Container.astro";
   100% {
     background-position: right;
   }
+}
+
+.home-underline {
+  position: relative;
+}
+
+.home-underline:after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #3f6766;
+  border-radius: 4px;
+  transform: scaleX(0.3);
+  opacity: 0.7;
+  animation: underline-pulse 3s infinite;
+}
+
+@keyframes underline-pulse {
+  0%, 100% {
+    transform: scaleX(0.3);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.bg-grid-pattern {
+  background-image:
+    radial-gradient(circle, #3f6766 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out;
 }
 </style>
 

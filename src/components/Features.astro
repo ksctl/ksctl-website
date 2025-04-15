@@ -2,136 +2,153 @@
 import Container from "./Container.astro";
 ---
 
-<div id="features">
+<div id="features" class="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+  <!-- Background decorations -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white/5 to-transparent dark:from-white/[0.02]"></div>
+  </div>
+
   <Container>
-    <div class="md:w-2/3 lg:w-1/2">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        class="w-6 h-6 text-secondary"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z"
-          clip-rule="evenodd"></path>
-      </svg>
+    <div class="relative text-center max-w-3xl mx-auto mb-16">
+      <span class="bg-primary/10 dark:bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">Powerful Features</span>
 
-      <h2
-        class="my-8 text-2xl font-bold text-gray-700 dark:text-white md:text-4xl"
-      >
-        Features
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+        Smart Kubernetes Management
       </h2>
-      <p class="text-gray-600 dark:text-gray-300">Our latest releases focus on sustainability and cost optimization, helping you reduce both your cloud expenses and environmental impact.</p>
+
+      <p class="text-lg text-gray-600 dark:text-gray-300">
+        Our latest features focus on sustainability and cost optimization, helping you reduce
+        both your cloud expenses and environmental impact.
+      </p>
     </div>
-    <div
-      class="mt-16 grid divide-x divide-y divide-gray-100 dark:divide-gray-700 overflow-hidden rounded-3xl border border-gray-100 text-gray-600 dark:border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4"
-    >
-      <div
-        class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10"
-      >
-        <div class="relative space-y-8 py-12 p-8">
-          <img
-            src="./images/breakthrough.png"
-            class="w-12"
-            width="512"
-            height="512"
-            alt="Smart Region Selection"
-          />
 
-          <div class="space-y-2">
-            <h5
-              class="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary"
-            >
-              Simplified cluster setup
-            </h5>
-            <p class="text-gray-600 dark:text-gray-300">
-              Create clusters with one <b>ksctl create</b> command. Supports cloud providers and self-managed Kubernetes solutions.
-            </p>
+    <div class="grid gap-8 lg:grid-cols-2 xl:grid-cols-4">
+      <!-- Feature Card 1 -->
+      <div class="group relative bg-white dark:bg-gray-800/80 rounded-2xl transition-all duration-300
+          hover:shadow-2xl hover:shadow-primary/10 dark:hover:shadow-primary/5 overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary to-teal-400 transform origin-left scale-x-0
+            transition-transform duration-300 group-hover:scale-x-100"></div>
+        <div class="relative p-8">
+          <div class="w-14 h-14 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-6
+              group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-teal-500 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-primary group-hover:text-white transition-colors duration-300">
+              <path d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
+              <path d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z" />
+              <path d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z" />
+            </svg>
+          </div>
+
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary transition-colors">
+            Simplified Cluster Setup
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Create fully functional clusters with one command. Supports all major cloud providers and self-managed Kubernetes solutions.
+          </p>
+
+          <div class="pt-4 border-t border-gray-100 dark:border-gray-700/30">
+            <code class="text-sm bg-gray-100 dark:bg-gray-700/70 py-1 px-2 rounded font-mono">ksctl create cluster</code>
           </div>
         </div>
       </div>
-      <div
-        class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10"
-      >
-        <div class="relative space-y-8 py-12 p-8">
-          <img
-            src="./images/developer.png"
-            class="w-12"
-            width="512"
-            height="512"
-            alt="Optimized Instance Types"
-          />
-          <div class="space-y-2">
-            <h5
-              class="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary"
-            >
-              Developer Velocity
-            </h5>
-            <p class="text-gray-600 dark:text-gray-300">
-              Spin up clusters in minutes for faster workflows. Intuitive CLI reduces the learning curve for developers.
-            </p>
+
+
+      <!-- Feature Card 2 -->
+      <div class="group relative bg-white dark:bg-gray-800/80 rounded-2xl transition-all duration-300
+          hover:shadow-2xl hover:shadow-teal-400/10 dark:hover:shadow-teal-400/5 overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-400 to-emerald-400 transform origin-left scale-x-0
+            transition-transform duration-300 group-hover:scale-x-100"></div>
+        <div class="relative p-8">
+          <div class="w-14 h-14 rounded-xl bg-teal-400/10 dark:bg-teal-400/20 flex items-center justify-center mb-6
+              group-hover:bg-gradient-to-br group-hover:from-teal-400 group-hover:to-emerald-500 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-teal-500 group-hover:text-white transition-colors duration-300">
+              <path d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z" />
+            </svg>
+          </div>
+
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-teal-500 transition-colors">
+            Developer Velocity
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Spin up clusters in minutes for faster workflows. Intuitive CLI reduces the learning curve for development teams.
+          </p>
+
+          <div class="flex items-center pt-4 border-t border-gray-100 dark:border-gray-700/30">
+            <div class="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700">
+              <div class="bg-teal-500 h-2 rounded-full" style="width: 80%"></div>
+            </div>
+            <span class="ml-3 text-sm font-semibold text-gray-700 dark:text-gray-300">80% faster</span>
           </div>
         </div>
       </div>
-      <div
-        class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10"
-      >
-        <div class="relative space-y-8 py-12 p-8">
-          <img
-            src="./images/dynamic.png"
-            class="w-12"
-            width="512"
-            height="512"
-            alt="Dynamic Region Switching"
-          />
 
-          <div class="space-y-2">
-            <h5
-              class="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary"
-            >
-              Dynamic Region Switching
-            </h5>
-            <p class="text-gray-600 dark:text-gray-300">
-              Intelligently switches regions to optimize costs and reduce carbon footprint without changing your instance type specifications.
-            </p>
+      <!-- Feature Card 3 -->
+      <div class="group relative bg-white dark:bg-gray-800/80 rounded-2xl transition-all duration-300
+          hover:shadow-2xl hover:shadow-blue-400/10 dark:hover:shadow-blue-400/5 overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-400 to-indigo-400 transform origin-left scale-x-0
+            transition-transform duration-300 group-hover:scale-x-100"></div>
+        <div class="relative p-8">
+          <div class="w-14 h-14 rounded-xl bg-blue-400/10 dark:bg-blue-400/20 flex items-center justify-center mb-6
+              group-hover:bg-gradient-to-br group-hover:from-blue-400 group-hover:to-indigo-500 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-blue-500 group-hover:text-white transition-colors duration-300">
+              <path fill-rule="evenodd" d="M12 1.5a.75.75 0 01.75.75V4.5a.75.75 0 01-1.5 0V2.25A.75.75 0 0112 1.5zM5.636 4.136a.75.75 0 011.06 0l1.592 1.591a.75.75 0 01-1.061 1.06l-1.591-1.59a.75.75 0 010-1.061zm12.728 0a.75.75 0 010 1.06l-1.591 1.592a.75.75 0 01-1.06-1.061l1.59-1.591a.75.75 0 011.061 0zm-6.816 4.496a.75.75 0 01.82.311l5.228 7.917a.75.75 0 01-.777 1.148l-2.097-.43 1.045 3.9a.75.75 0 01-1.45.388l-1.044-3.899-1.601 1.42a.75.75 0 01-1.247-.606l.569-9.47a.75.75 0 01.554-.68z" clip-rule="evenodd" />
+            </svg>
+          </div>
+
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-500 transition-colors">
+            Dynamic Region Switching
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Intelligently switches regions to optimize costs and reduce carbon footprint while maintaining your workload specifications.
+          </p>
+
+          <div class="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700/30">
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-2 text-blue-500">
+                <path d="M4.5 3.75a3 3 0 00-3 3v.75h21v-.75a3 3 0 00-3-3h-15z" />
+                <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 003 3h15a3 3 0 003-3v-7.5zm-18 3.75a.75.75 0 01.75-.75h6a.75.75 0 010 1.5h-6a.75.75 0 01-.75-.75zm.75 2.25a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Cost Reduction</span>
+            </div>
+            <span class="text-sm font-semibold text-green-600 dark:text-green-400">-35%</span>
           </div>
         </div>
       </div>
-      <div
-        class="group relative bg-gray-50 dark:bg-gray-900 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10"
-      >
-        <div
-          class="relative space-y-8 py-12 p-8 h-full transition duration-300 group-hover:bg-white dark:group-hover:bg-gray-800"
-        >
-          <img
-            src="./images/save-the-planet.png"
-            class="w-12"
-            width="512"
-            height="512"
-            alt="Emissions Dashboard"
-          />
 
-          <div class="space-y-2">
-            <h5
-              class="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary"
-            >
-              Eco-friendly Infrastructure
-            </h5>
-            <p class="text-gray-600 dark:text-gray-300">
-              Prioritize eco-friendly infrastructure with cost efficiency based on data-driven metrics on carbon intensity and renewable energy usage.
-            </p>
+      <!-- Feature Card 4 -->
+      <div class="group relative bg-white dark:bg-gray-800/80 rounded-2xl transition-all duration-300
+          hover:shadow-2xl hover:shadow-green-400/10 dark:hover:shadow-green-400/5 overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-green-400 to-emerald-500 transform origin-left scale-x-0
+            transition-transform duration-300 group-hover:scale-x-100"></div>
+        <div class="relative p-8">
+          <div class="w-14 h-14 rounded-xl bg-green-400/10 dark:bg-green-400/20 flex items-center justify-center mb-6
+              group-hover:bg-gradient-to-br group-hover:from-green-400 group-hover:to-emerald-500 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-green-500 group-hover:text-white transition-colors duration-300">
+              <path fill-rule="evenodd" d="M12.963 2.286a.75.75 0 00-1.071-.136 9.742 9.742 0 00-3.539 6.177A7.547 7.547 0 016.648 6.61a.75.75 0 00-1.152.082A9 9 0 1015.68 4.534a7.46 7.46 0 01-2.717-2.248zM15.75 14.25a3.75 3.75 0 11-7.313-1.172c.628.465 1.35.81 2.133 1a5.99 5.99 0 011.925-3.545 3.75 3.75 0 013.255 3.717z" clip-rule="evenodd" />
+            </svg>
           </div>
+
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-green-500 transition-colors">
+            Eco-friendly Infrastructure
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            Prioritize eco-friendly infrastructure with data-driven metrics on carbon intensity and renewable energy usage.
+          </p>
+
           <a
             href="https://docs.ksctl.com/docs/features/"
-            class="flex items-center justify-between group-hover:text-secondary"
+            class="inline-flex items-center pt-4 border-t border-gray-100 dark:border-gray-700/30 w-full text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors font-medium"
           >
-            <span class="text-sm">Learn more</span>
+            <span>Learn more</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              class="w-5 h-5 -translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+              class="w-5 h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
             >
               <path
                 fill-rule="evenodd"
@@ -139,6 +156,70 @@ import Container from "./Container.astro";
                 clip-rule="evenodd"></path>
             </svg>
           </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLI Demo Section -->
+    <div class="mt-20 p-6 lg:p-10 bg-gray-900 rounded-2xl shadow-2xl overflow-hidden relative">
+      <div class="absolute inset-0 bg-gradient-to-tr from-gray-900 via-gray-900 to-primary/20 opacity-80"></div>
+
+      <div class="relative text-left z-10 md:flex items-center justify-between">
+        <div class="md:w-1/2 mb-8 md:mb-0 md:pr-10">
+          <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            Simple Commands, <br class="hidden md:block" />Powerful Results
+          </h3>
+          <p class="text-gray-300 text-lg mb-6">
+            Our CLI is designed for simplicity without sacrificing power. Get started with ksctl in seconds.
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-300">Create clusters across any cloud provider</span>
+            </div>
+            <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-300">Scale up and down with a single command</span>
+            </div>
+            <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-300">Intelligent resource optimization</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:w-1/2 lg:w-2/5">
+          <div class="bg-gray-800 rounded-lg shadow-xl overflow-hidden border border-gray-700">
+            <div class="flex items-center bg-gray-900 px-4 py-2 border-b border-gray-700">
+              <div class="flex space-x-1">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+              <div class="ml-4 text-gray-300 text-sm">Terminal</div>
+            </div>
+            <div class="p-4 font-mono text-sm text-gray-300">
+              <div class="mb-2">
+                <span class="text-green-400">$</span> ksctl create cluster --name=my-cluster --provider=aws
+              </div>
+              <div class="text-gray-500 mb-3">Initializing cluster creation...</div>
+              <div class="text-gray-500">✓ Validating configuration</div>
+              <div class="text-gray-500">✓ Setting up network components</div>
+              <div class="text-gray-500">✓ Provisioning control plane</div>
+              <div class="text-gray-500">✓ Adding worker nodes</div>
+              <div class="text-gray-500">✓ Installing essential services</div>
+              <div class="mt-2 text-green-400">Cluster 'my-cluster' successfully created!</div>
+              <div class="mt-3">
+                <span class="text-green-400">$</span> <span class="animate-pulse">▌</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
