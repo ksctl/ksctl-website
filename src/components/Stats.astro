@@ -12,9 +12,9 @@ import Container from "./Container.astro";
     <!-- Content -->
     <Container>
       <div class="text-center mb-12">
-        <span class="bg-primary/10 dark:bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">Powerful Simplicity</span>
+        <span class="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">Powerful Simplicity</span>
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
-          Create Kubernetes Clusters in Minutes
+          Create Kubernetes Clusters in <span class="text-green-600 dark:text-green-400">Minutes</span>
         </h2>
         <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Deploy production-ready Kubernetes with a single command - no complex configuration required
@@ -32,7 +32,9 @@ import Container from "./Container.astro";
           <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary transition-colors">One Command Setup</h3>
           <p class="text-gray-600 dark:text-gray-400">Create a fully functional production-ready Kubernetes cluster with a single command, no complex configurations needed.</p>
           <div class="mt-6 pt-4 border-t border-gray-100 dark:border-gray-700/30">
-            <code class="text-sm bg-gray-100 dark:bg-gray-700/70 py-1 px-2 rounded font-mono">ksctl create cluster</code>
+            <code class="inline-block text-sm bg-primary/10 dark:bg-primary/20 text-primary dark:text-secondary-400 py-1.5 px-3 rounded font-mono font-semibold">
+              ksctl create cluster
+            </code>
           </div>
         </div>
 
@@ -103,9 +105,9 @@ import Container from "./Container.astro";
                 <th class="text-left py-4 px-6 text-gray-700 dark:text-gray-300 font-bold">Features</th>
                 <th class="text-center py-4 px-6 bg-primary/5 dark:bg-primary/10 border-x border-gray-200 dark:border-gray-700">
                   <div class="flex flex-col items-center">
-                    <span class="text-primary text-lg font-bold">ksctl</span>
+                    <span class="text-secondary text-lg font-bold">ksctl</span>
                     <div class="mt-1 flex items-center">
-                      <span class="px-3 py-1 bg-primary/10 dark:bg-primary/20 text-primary rounded-full text-xs font-semibold">Recommended</span>
+                      <span class="px-3 py-1 bg-primary/10 dark:bg-primary/20 text-secondary rounded-full text-xs font-semibold">Recommended</span>
                     </div>
                   </div>
                 </th>
