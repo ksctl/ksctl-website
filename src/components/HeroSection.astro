@@ -27,9 +27,9 @@ import Container from "./Container.astro";
           Kubernetes Simplified
         </span>
         <h1
-          class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl home-page tracking-tight"
+          class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl tracking-tight"
         >
-          Cloud Agnostic <span class="relative inline-block"><span class="home-underline">Kubernetes</span></span> Management
+          Cloud Agnostic <span class="kubernetes-highlight relative inline-block"><span class="home-underline">Kubernetes</span></span> Management
         </h1>
       </div>
       <p
@@ -137,14 +137,19 @@ import Container from "./Container.astro";
   animation: bg-animation 5s infinite alternate;
 }
 
-@keyframes bg-animation {
-  0% {
-    background-position: left;
-  }
+.kubernetes-highlight {
+  /* color: #3f6766; */
+  color: #95d5b2;
+  font-weight: 900;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
 
-  100% {
-    background-position: right;
-  }
+.dark .kubernetes-highlight {
+  color: #95d5b2;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .home-underline {
