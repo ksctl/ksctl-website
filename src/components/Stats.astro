@@ -87,7 +87,7 @@ import Container from "./Container.astro";
         </div>
       </div>
 
-      <!-- Compare section -->
+      <!-- Compare section with improved colors and contrast -->
       <div class="mt-20 bg-white dark:bg-gray-800/30 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden relative">
         <div class="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br from-primary/10 to-teal-400/10 rounded-full filter blur-2xl"></div>
 
@@ -99,54 +99,127 @@ import Container from "./Container.astro";
         <div class="overflow-x-auto">
           <table class="min-w-full">
             <thead>
-              <tr class="border-b border-gray-200 dark:border-gray-700">
-                <th class="text-left py-4 px-6">Features</th>
-                <th class="text-center py-4 px-6">
+              <tr class="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                <th class="text-left py-4 px-6 text-gray-700 dark:text-gray-300 font-bold">Features</th>
+                <th class="text-center py-4 px-6 bg-primary/5 dark:bg-primary/10 border-x border-gray-200 dark:border-gray-700">
                   <div class="flex flex-col items-center">
-                    <span class="text-primary font-bold">ksctl</span>
+                    <span class="text-primary text-lg font-bold">ksctl</span>
                     <div class="mt-1 flex items-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span class="ml-1 text-xs text-gray-500">Recommended</span>
+                      <span class="px-3 py-1 bg-primary/10 dark:bg-primary/20 text-primary rounded-full text-xs font-semibold">Recommended</span>
                     </div>
                   </div>
                 </th>
-                <th class="text-center py-4 px-6">Other Tools</th>
+                <th class="text-center py-4 px-6 text-gray-700 dark:text-gray-300 font-bold">Other Tools</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="border-b border-gray-200 dark:border-gray-700">
-                <td class="py-4 px-6 font-medium">Setup Time</td>
-                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400">5-10 minutes</td>
-                <td class="py-4 px-6 text-center text-gray-500">30-60+ minutes</td>
-              </tr>
-              <tr class="border-b border-gray-200 dark:border-gray-700">
-                <td class="py-4 px-6 font-medium">Commands Required</td>
-                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400">Single Command</td>
-                <td class="py-4 px-6 text-center text-gray-500">Multiple Complex Commands</td>
-              </tr>
-              <tr class="border-b border-gray-200 dark:border-gray-700">
-                <td class="py-4 px-6 font-medium">Required Knowledge</td>
-                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400">Minimal</td>
-                <td class="py-4 px-6 text-center text-gray-500">Extensive</td>
-              </tr>
-              <tr>
-                <td class="py-4 px-6 font-medium">Cloud Provider Support</td>
-                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400">
-                  <div class="flex justify-center">
-                    <span>Multiple with Unified API</span>
-                    <span class="ml-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
+              <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors">
+                <td class="py-4 px-6 font-medium text-gray-900 dark:text-white">Setup Time</td>
+                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400 bg-green-50/50 dark:bg-green-900/10 border-x border-gray-200 dark:border-gray-700">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>5-10 minutes</span>
                   </div>
                 </td>
-                <td class="py-4 px-6 text-center text-gray-500">Limited or Provider-Specific</td>
+                <td class="py-4 px-6 text-center text-gray-600 dark:text-gray-400">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                    <span>30-60+ minutes</span>
+                  </div>
+                </td>
+              </tr>
+              <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors">
+                <td class="py-4 px-6 font-medium text-gray-900 dark:text-white">Commands Required</td>
+                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400 bg-green-50/50 dark:bg-green-900/10 border-x border-gray-200 dark:border-gray-700">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Single Command</span>
+                  </div>
+                </td>
+                <td class="py-4 px-6 text-center text-gray-600 dark:text-gray-400">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Multiple Complex Commands</span>
+                  </div>
+                </td>
+              </tr>
+              <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors">
+                <td class="py-4 px-6 font-medium text-gray-900 dark:text-white">Required Knowledge</td>
+                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400 bg-green-50/50 dark:bg-green-900/10 border-x border-gray-200 dark:border-gray-700">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Minimal</span>
+                  </div>
+                </td>
+                <td class="py-4 px-6 text-center text-gray-600 dark:text-gray-400">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Extensive</span>
+                  </div>
+                </td>
+              </tr>
+              <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors">
+                <td class="py-4 px-6 font-medium text-gray-900 dark:text-white">Cloud Provider Support</td>
+                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400 bg-green-50/50 dark:bg-green-900/10 border-x border-gray-200 dark:border-gray-700">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Multiple with Unified API</span>
+                  </div>
+                </td>
+                <td class="py-4 px-6 text-center text-gray-600 dark:text-gray-400">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Limited or Provider-Specific</span>
+                  </div>
+                </td>
+              </tr>
+              <tr class="hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors">
+                <td class="py-4 px-6 font-medium text-gray-900 dark:text-white">Carbon Aware Deployments</td>
+                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400 bg-green-50/50 dark:bg-green-900/10 border-x border-gray-200 dark:border-gray-700">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Built-in</span>
+                  </div>
+                </td>
+                <td class="py-4 px-6 text-center text-gray-600 dark:text-gray-400">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Not Available</span>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <!-- New call-to-action button -->
+        <div class="mt-10 text-center">
+          <a href="https://docs.ksctl.com/docs/comparisons" class="inline-flex items-center px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium transition-all">
+            <span>See Detailed Comparison</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
+          </a>
         </div>
       </div>
     </Container>
