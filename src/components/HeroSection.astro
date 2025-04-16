@@ -145,20 +145,6 @@ import Container from "./Container.astro";
   position: relative;
 }
 
-.home-underline:after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: #3f6766;
-  border-radius: 4px;
-  transform: scaleX(0.3);
-  opacity: 0.7;
-  animation: underline-pulse 3s infinite;
-}
-
 @keyframes underline-pulse {
   0%, 100% {
     transform: scaleX(0.3);
