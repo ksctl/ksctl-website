@@ -3,58 +3,244 @@ import Container from "./Container.astro";
 
 ---
 
-<div id="solution" class="py-8 bg-gradient-to-br from-sky-50 to-white dark:from-gray-900 dark:to-gray-800">
-    <Container>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-sky-500">
-        <path fill-rule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clip-rule="evenodd" />
-        <path fill-rule="evenodd" d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z" clip-rule="evenodd" />
-      </svg>
+<div id="solution" class="py-16 sm:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800/70 relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+    <div class="absolute right-0 top-20 w-64 h-64 bg-primary/5 rounded-full filter blur-3xl"></div>
+    <div class="absolute left-0 bottom-10 w-72 h-72 bg-teal-400/5 rounded-full filter blur-3xl"></div>
 
-      <div class="space-y-6 justify-between text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
-        <div class="md:5/12 lg:w-1/2">
-          <div class="relative">
-            <img
-              src="./images/developer.png"
-              alt="Simplified Kubernetes deployment"
-              loading="lazy"
-              class="w-2/4 rounded-lg z-10 relative mx-auto"
-            />
+    <!-- Content -->
+    <Container>
+      <div class="text-center mb-12">
+        <span class="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">Powerful Simplicity</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
+          Create Kubernetes Clusters in <span class="text-green-600 dark:text-green-400">Minutes</span>
+        </h2>
+        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Deploy production-ready Kubernetes with a single command - no complex configuration required
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature Card 1 -->
+        <div class="bg-white dark:bg-gray-800/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100 dark:border-gray-700/30 group">
+          <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary to-teal-500 text-white mb-6 shadow-lg shadow-primary/20">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+              <path fill-rule="evenodd" d="M12 1.5a.75.75 0 01.75.75V4.5a.75.75 0 01-1.5 0V2.25A.75.75 0 0112 1.5zM5.636 4.136a.75.75 0 011.06 0l1.592 1.591a.75.75 0 01-1.061 1.06l-1.591-1.59a.75.75 0 010-1.061zm12.728 0a.75.75 0 010 1.06l-1.591 1.592a.75.75 0 01-1.06-1.061l1.59-1.591a.75.75 0 011.061 0zm-6.816 4.496a.75.75 0 01.82.311l5.228 7.917a.75.75 0 01-.777 1.148l-2.097-.43 1.045 3.9a.75.75 0 01-1.45.388l-1.044-3.899-1.601 1.42a.75.75 0 01-1.247-.606l.569-9.47a.75.75 0 01.554-.68zM3 10.5a.75.75 0 01.75-.75H6a.75.75 0 010 1.5H3.75A.75.75 0 013 10.5zm14.25 0a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H18a.75.75 0 01-.75-.75zm-8.962 3.712a.75.75 0 010 1.061l-1.591 1.591a.75.75 0 11-1.061-1.06l1.591-1.592a.75.75 0 011.06 0z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary transition-colors">One Command Setup</h3>
+          <p class="text-gray-600 dark:text-gray-400">Create a fully functional production-ready Kubernetes cluster with a single command, no complex configurations needed.</p>
+          <div class="mt-6 pt-4 border-t border-gray-100 dark:border-gray-700/30">
+            <code class="inline-block text-sm bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 py-1.5 px-3 rounded font-mono font-semibold">
+              ksctl cluster create
+            </code>
           </div>
         </div>
-        <div class="md:7/12 lg:w-1/2">
-          <h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
-            Create a Kubernetes Cluster with Just One Command
-          </h2>
-          <p class="my-8 text-gray-600 dark:text-gray-300">
-            While other tools require significant domain knowledge to get started, ksctl simplifies the entire process.
-            With just a single command, you can deploy a fully functional Kubernetes cluster ready in 5-10 minutes. <br> <br>
-            Our streamlined approach eliminates the complexity typically associated with cluster management, allowing you to focus on your applications rather than infrastructure setup.
-          </p>
-          <div class="divide-y space-y-4 divide-gray-100 dark:divide-gray-800">
-            <div class="mt-8 flex gap-4 md:items-center">
-              <div class="w-12 h-12 flex gap-4 rounded-full bg-blue-100 dark:bg-blue-900/20">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 m-auto text-blue-500 dark:text-blue-400">
-                  <path fill-rule="evenodd" d="M4.848 2.771A49.144 49.144 0 0112 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97a48.901 48.901 0 01-3.476.383.39.39 0 00-.297.17l-2.755 4.133a.75.75 0 01-1.248 0l-2.755-4.133a.39.39 0 00-.297-.17 48.9 48.9 0 01-3.476-.384c-1.978-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.37-3.68 3.348-3.97zM6.75 8.25a.75.75 0 01.75-.75h9a.75.75 0 010 1.5h-9a.75.75 0 01-.75-.75zm.75 2.25a.75.75 0 000 1.5H12a.75.75 0 000-1.5H7.5z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <div class="w-5/6">
-                <h3 class="font-semibold text-lg text-gray-700 dark:text-blue-300">One Command Setup</h3>
-                <p class="text-gray-500 dark:text-gray-400">Create, scale, and manage Kubernetes clusters with simple commands, no complex configuration required.</p>
-              </div>
+
+        <!-- Feature Card 2 -->
+        <div class="bg-white dark:bg-gray-800/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100 dark:border-gray-700/30 group">
+          <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-emerald-500 text-white mb-6 shadow-lg shadow-teal-500/20">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+              <path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-teal-500 transition-colors">Ready in 5-10 Minutes</h3>
+          <p class="text-gray-600 dark:text-gray-400">Your Kubernetes environment is up and running in just 5-10 minutes, complete with all essential components.</p>
+          <div class="mt-6 pt-4 border-t border-gray-100 dark:border-gray-700/30 flex items-center">
+            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div class="bg-teal-500 h-2.5 rounded-full animate-pulse-slow" style="width: 70%"></div>
             </div>
-            <div class="pt-4 flex gap-4 md:items-center">
-              <div class="w-12 h-12 flex gap-4 rounded-full bg-green-100 dark:bg-green-900/20">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 m-auto text-green-600 dark:text-green-400">
-                  <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+            <span class="ml-3 text-sm font-semibold text-gray-700 dark:text-gray-300">5-10 min</span>
+          </div>
+        </div>
+
+        <!-- Feature Card 3 -->
+        <div class="bg-white dark:bg-gray-800/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100 dark:border-gray-700/30 group">
+          <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 text-white mb-6 shadow-lg shadow-blue-500/20">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+              <path d="M21 6.375c0 2.692-4.03 4.875-9 4.875S3 9.067 3 6.375 7.03 1.5 12 1.5s9 2.183 9 4.875z" />
+              <path d="M12 12.75c2.685 0 5.19-.586 7.078-1.609a8.283 8.283 0 001.897-1.384c.016.121.025.244.025.368C21 12.817 16.97 15 12 15s-9-2.183-9-4.875c0-.124.009-.247.025-.368a8.285 8.285 0 001.897 1.384C6.809 12.164 9.315 12.75 12 12.75z" />
+              <path d="M12 16.5c2.685 0 5.19-.586 7.078-1.609a8.282 8.282 0 001.897-1.384c.016.121.025.244.025.368 0 2.692-4.03 4.875-9 4.875s-9-2.183-9-4.875c0-.124.009-.247.025-.368a8.284 8.284 0 001.897 1.384C6.809 15.914 9.315 16.5 12 16.5z" />
+              <path d="M12 20.25c2.685 0 5.19-.586 7.078-1.609a8.282 8.282 0 001.897-1.384c.016.121.025.244.025.368 0 2.692-4.03 4.875-9 4.875s-9-2.183-9-4.875c0-.124.009-.247.025-.368a8.284 8.284 0 001.897 1.384C6.809 19.664 9.315 20.25 12 20.25z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-500 transition-colors">Multi-Cloud Support</h3>
+          <p class="text-gray-600 dark:text-gray-400">Deploy across AWS, Azure, GCP and other providers with consistent experience and unified management.</p>
+          <div class="mt-6 pt-4 border-t border-gray-100 dark:border-gray-700/30 flex justify-between">
+            <div class="flex space-x-3">
+              <div class="w-8 h-8 flex items-center justify-center rounded-full bg-amber-100 dark:bg-amber-900/20">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor" class="w-4 h-4 text-amber-600 dark:text-amber-500">
+                  <path d="M180.4 203c-.7 22.7 10.6 32.7 10.9 39.1a8.2 8.2 0 0 1 -4.1 6.3l-12.8 9a10.7 10.7 0 0 1 -5.6 1.9c-.4 0-8.2 1.8-20.5-25.6a78.6 78.6 0 0 1 -62.6 29.5c-16.3 .9-60.4-9.2-58.1-56.2-1.6-38.3 34.1-62.1 70.9-60.1 7.1 0 21.6 .4 47 6.3v-15.6c2.7-26.5-14.7-47-44.8-43.9-2.4 0-19.4-.5-45.8 10.1-7.4 3.4-8.3 2.8-10.8 2.8-7.4 0-4.4-21.5-2.9-24.2 5.2-6.4 35.9-18.4 65.9-18.2a76.9 76.9 0 0 1 55.7 17.3 70.3 70.3 0 0 1 17.7 52.4l0 69.3zM94 235.4c32.4-.5 46.2-20 49.3-30.5 2.5-10.1 2.1-16.4 2.1-27.4-9.7-2.3-23.6-4.9-39.6-4.9-15.2-1.1-42.8 5.6-41.7 32.3-1.2 16.8 11.1 31.4 30 30.5zm170.9 23.1c-7.9 .7-11.5-4.9-12.7-10.4l-49.8-164.7c-1-2.8-1.6-5.7-1.9-8.6a4.6 4.6 0 0 1 3.9-5.3c.2 0-2.1 0 22.3 0 8.8-.9 11.6 6 12.6 10.4l35.7 140.8 33.2-140.8c.5-3.2 2.9-11.1 12.8-10.2h17.2c2.2-.2 11.1-.5 12.7 10.4l33.4 142.6L421 80.1c.5-2.2 2.7-11.4 12.7-10.4h19.7c.9-.1 6.2-.8 5.3 8.6-.4 1.9 3.4-10.7-52.8 169.9-1.2 5.5-4.8 11.1-12.7 10.4h-18.7c-10.9 1.2-12.5-9.7-12.7-10.8L328.7 110.7l-32.8 137c-.2 1.1-1.7 11.9-12.7 10.8h-18.3zm273.5 5.6c-5.9 0-33.9-.3-57.4-12.3a12.8 12.8 0 0 1 -7.8-11.9v-10.8c0-8.5 6.2-6.9 8.8-5.9 10 4.1 16.5 7.1 28.8 9.6 36.7 7.5 52.8-2.3 56.7-4.5 13.2-7.8 14.2-25.7 5.3-35-10.5-8.8-15.5-9.1-53.1-21-4.6-1.3-43.7-13.6-43.8-52.4-.6-28.2 25.1-56.2 69.5-56 12.7 0 46.4 4.1 55.6 15.6 1.4 2.1 2 4.6 1.9 7v10.1c0 4.4-1.6 6.7-4.9 6.7-7.7-.9-21.4-11.2-49.2-10.8-6.9-.4-39.9 .9-38.4 25-.4 19 26.6 26.1 29.7 26.9 36.5 11 48.7 12.8 63.1 29.6 17.1 22.3 7.9 48.3 4.4 55.4-19.1 37.5-68.4 34.4-69.3 34.4zm40.2 104.9c-70 51.7-171.7 79.3-258.5 79.3A469.1 469.1 0 0 1 2.8 327.5c-6.5-5.9-.8-14 7.2-9.5a637.4 637.4 0 0 0 316.9 84.1 630.2 630.2 0 0 0 241.6-49.6c11.8-5 21.8 7.8 10.1 16.4zm29.2-33.3c-9-11.5-59.3-5.4-81.8-2.7-6.8 .8-7.9-5.1-1.8-9.5 40.1-28.2 105.9-20.1 113.4-10.6 7.6 9.5-2.1 75.4-39.6 106.9-5.8 4.9-11.3 2.3-8.7-4.1 8.4-21.3 27.4-68.5 18.4-80z"/>
                 </svg>
               </div>
-              <div class="w-5/6">
-                <h3 class="font-semibold text-lg text-gray-700 dark:text-green-300">Ready in 5-10 Minutes</h3>
-                <p class="text-gray-500 dark:text-gray-400">Get your production-ready Kubernetes environment up and running in minutes, not hours.</p>
+              <div class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/20">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -28.5 256 256" fill="currentColor" class="w-4 h-4 text-blue-600 dark:text-blue-500">
+                  <path d="M118.431947,187.698037 C151.322003,181.887937 178.48731,177.08008 178.799309,177.013916 L179.366585,176.893612 L148.31513,139.958881 C131.236843,119.644776 117.26369,102.945381 117.26369,102.849118 C117.26369,102.666861 149.32694,14.3716012 149.507189,14.057257 C149.567455,13.952452 171.38747,51.62411 202.400338,105.376064 C231.435152,155.699606 255.372949,197.191547 255.595444,197.580359 L255.999996,198.287301 L157.315912,198.274572 L58.6318456,198.261895 L118.431947,187.698073 L118.431947,187.698037 Z M-4.03864498e-06,176.434723 C-4.03864498e-06,176.382721 14.631291,150.983941 32.5139844,119.992969 L65.0279676,63.6457518 L102.919257,31.8473052 C123.759465,14.3581634 140.866667,0.0274832751 140.935253,0.00062917799 C141.003839,-0.0247829554 140.729691,0.665213042 140.326034,1.53468179 C139.922377,2.40415053 121.407304,42.1170321 99.1814268,89.7855264 L58.7707514,176.455514 L29.3853737,176.492355 C13.2234196,176.512639 -4.03864498e-06,176.486664 -4.03864498e-06,176.434703 L-4.03864498e-06,176.434723 Z" />
+                </svg>
+              </div>
+
+              <div class="w-8 h-8 flex items-center justify-center rounded-full bg-red-100 dark:bg-red-900/20">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 text-red-600 dark:text-red-500">
+                  <path fill-rule="evenodd" d="M11.87 3.465l-.002-.003a5.935 5.935 0 00-5.586-1.217 5.89 5.89 0 00-3.98 4.092 4.206 4.206 0 00-.149 6.792 4.255 4.255 0 002.558.87h6.52a4.234 4.234 0 004.078-2.961A4.2 4.2 0 0013.637 6.3a5.835 5.835 0 00-1.767-2.835zm-7.828 7.78c.21.095.438.16.67.16l6.518.002c.9 0 1.63-.725 1.63-1.619s-.73-1.619-1.63-1.619v-.323a3.226 3.226 0 00-1.187-2.56h-.002c-1.339-1.078-3.305-.912-4.465.354l-.014.015c.996.2 1.897.751 2.525 1.568L6.198 9.101a1.63 1.63 0 00-3.097.439 1.617 1.617 0 00.942 1.704l-.001.001z" clip-rule="evenodd">
+                  </path>
+                </svg>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Compare section with improved colors and contrast -->
+      <div class="mt-20 bg-white dark:bg-gray-800/30 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden relative">
+        <div class="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br from-primary/10 to-teal-400/10 rounded-full filter blur-2xl"></div>
+
+        <div class="text-center mb-10 relative z-10">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Why Choose ksctl?</h3>
+          <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">See how ksctl simplifies your workflow compared to other Kubernetes management tools</p>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="min-w-full">
+            <thead>
+              <tr class="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                <th class="text-left py-4 px-6 text-gray-700 dark:text-gray-300 font-bold">Features</th>
+                <th class="text-center py-4 px-6 bg-primary/5 dark:bg-primary/10 border-x border-gray-200 dark:border-gray-700">
+                  <div class="flex flex-col items-center">
+                    <span class="text-green-600 dark:text-green-400 text-lg font-bold">ksctl</span>
+                    <div class="mt-1 flex items-center">
+                      <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full text-xs font-semibold">Recommended</span>
+                      <!-- <span class="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">Powerful Simplicity</span> -->
+                    </div>
+                  </div>
+                </th>
+                <th class="text-center py-4 px-6 text-gray-700 dark:text-gray-300 font-bold">Other Tools</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors">
+                <td class="py-4 px-6 font-medium text-gray-900 dark:text-white">Setup Time</td>
+                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400 bg-green-50/50 dark:bg-green-900/10 border-x border-gray-200 dark:border-gray-700">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>5-10 minutes</span>
+                  </div>
+                </td>
+                <td class="py-4 px-6 text-center text-gray-600 dark:text-gray-400">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                    <span>30-60+ minutes</span>
+                  </div>
+                </td>
+              </tr>
+              <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors">
+                <td class="py-4 px-6 font-medium text-gray-900 dark:text-white">Commands Required</td>
+                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400 bg-green-50/50 dark:bg-green-900/10 border-x border-gray-200 dark:border-gray-700">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Single Command</span>
+                  </div>
+                </td>
+                <td class="py-4 px-6 text-center text-gray-600 dark:text-gray-400">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Multiple Complex Commands</span>
+                  </div>
+                </td>
+              </tr>
+              <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors">
+                <td class="py-4 px-6 font-medium text-gray-900 dark:text-white">Required Knowledge</td>
+                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400 bg-green-50/50 dark:bg-green-900/10 border-x border-gray-200 dark:border-gray-700">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Minimal</span>
+                  </div>
+                </td>
+                <td class="py-4 px-6 text-center text-gray-600 dark:text-gray-400">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Extensive</span>
+                  </div>
+                </td>
+              </tr>
+              <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors">
+                <td class="py-4 px-6 font-medium text-gray-900 dark:text-white">Cloud Provider Support</td>
+                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400 bg-green-50/50 dark:bg-green-900/10 border-x border-gray-200 dark:border-gray-700">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Multiple with Unified API</span>
+                  </div>
+                </td>
+                <td class="py-4 px-6 text-center text-gray-600 dark:text-gray-400">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Limited or Provider-Specific</span>
+                  </div>
+                </td>
+              </tr>
+              <tr class="hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors">
+                <td class="py-4 px-6 font-medium text-gray-900 dark:text-white">Carbon Aware Deployments</td>
+                <td class="py-4 px-6 text-center font-semibold text-green-600 dark:text-green-400 bg-green-50/50 dark:bg-green-900/10 border-x border-gray-200 dark:border-gray-700">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Built-in</span>
+                  </div>
+                </td>
+                <td class="py-4 px-6 text-center text-gray-600 dark:text-gray-400">
+                  <div class="flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Not Available</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- New call-to-action button -->
+        <div class="mt-10 text-center">
+          <a href="https://docs.ksctl.com/docs/comparisons" class="inline-flex items-center px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium transition-all">
+            <span>See Detailed Comparison</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </Container>
 </div>
+
+<style>
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+</style>

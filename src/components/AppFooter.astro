@@ -2,92 +2,126 @@
 import Container from "./Container.astro";
 ---
 
-<footer class="py-20 md:py-20">
+<footer class="relative bg-white dark:bg-gray-900 pt-16 pb-12 border-t border-gray-100 dark:border-gray-800">
+  <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+
   <Container>
-    <div class="m-auto md:w-10/12 lg:w-8/12 xl:w-6/12">
-      <div class="flex flex-wrap items-center justify-between md:flex-nowrap">
-        <div
-          class="flex w-full justify-center space-x-12 text-gray-600 dark:text-gray-300 sm:w-7/12 md:justify-start"
-        >
-          <!-- <ul class="list-inside list-disc space-y-8">
-            <li><a href="#" class="transition hover:text-primary">Home</a></li>
-
-            <li><a href="#" class="transition hover:text-primary">About</a></li>
-            <li><a href="#" class="transition hover:text-primary">Guide</a></li>
-            <li>
-              <a href="#" class="transition hover:text-primary">Blocks</a>
-            </li>
-            <li>
-              <a href="#" class="transition hover:text-primary">Contact</a>
-            </li>
-            <li>
-              <a href="#" class="transition hover:text-primary">Terms of Use</a>
-            </li>
-          </ul> -->
-
-          <ul role="list" class="space-y-8">
-            <li>
-              <a
-                href="https://github.com/ksctl"
-                class="flex items-center space-x-3 transition hover:text-primary"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  class="w-5"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-                  ></path>
-                </svg>
-                <span>Github</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://x.com/ksctl_org"
-                class="flex items-center space-x-3 transition hover:text-primary"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  class="w-5"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
-                  ></path>
-                </svg>
-                <span>Twitter</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/company/ksctl"
-                class="flex items-center space-x-3 transition hover:text-primary"
-              >
-                <svg fill="currentColor" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 310 310" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="XMLID_801_"> <path id="XMLID_802_" d="M72.16,99.73H9.927c-2.762,0-5,2.239-5,5v199.928c0,2.762,2.238,5,5,5H72.16c2.762,0,5-2.238,5-5V104.73 C77.16,101.969,74.922,99.73,72.16,99.73z"></path> <path id="XMLID_803_" d="M41.066,0.341C18.422,0.341,0,18.743,0,41.362C0,63.991,18.422,82.4,41.066,82.4 c22.626,0,41.033-18.41,41.033-41.038C82.1,18.743,63.692,0.341,41.066,0.341z"></path> <path id="XMLID_804_" d="M230.454,94.761c-24.995,0-43.472,10.745-54.679,22.954V104.73c0-2.761-2.238-5-5-5h-59.599 c-2.762,0-5,2.239-5,5v199.928c0,2.762,2.238,5,5,5h62.097c2.762,0,5-2.238,5-5v-98.918c0-33.333,9.054-46.319,32.29-46.319 c25.306,0,27.317,20.818,27.317,48.034v97.204c0,2.762,2.238,5,5,5H305c2.762,0,5-2.238,5-5V194.995 C310,145.43,300.549,94.761,230.454,94.761z"></path> </g> </g></svg>
-                <span>Linkedin</span>
-              </a>
-            </li>
-          </ul>
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-12 lg:gap-8">
+      <!-- Logo and description -->
+      <div class="md:col-span-4 lg:col-span-4">
+        <div class="flex items-center space-x-2 mb-4">
+          <img src="/ksctl-logo.svg" alt="ksctl logo" class="h-10 w-auto" />
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white">ksctl</h2>
         </div>
-        <div
-          class="m-auto mt-16 w-10/12 space-y-6 text-center sm:mt-auto sm:w-5/12 sm:text-left"
-        >
-          <span class="block text-gray-500 dark:text-gray-400">
-            By Ksctl Team
-          </span>
-
-          <span class="block text-gray-500 dark:text-gray-400"
-            >Need help? <a
-              href="https://discord.com/invite/pWjtKxVrMe"
-              class="font-semibold text-gray-600 dark:text-white"
-            >
-              Contact Us</a
-            ></span
+        <p class="text-gray-600 dark:text-gray-400 mb-6 max-w-sm">
+          A cloud-agnostic Kubernetes management tool built with sustainability and simplicity in mind.
+        </p>
+        <div class="flex space-x-4">
+          <a
+            href="https://github.com/ksctl"
+            target="_blank"
+            rel="noopener"
+            class="text-gray-500 hover:text-primary transition-colors duration-300"
+            aria-label="GitHub"
           >
+            <span class="sr-only">GitHub</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+          </a>
+          <a
+            href="https://x.com/ksctl_org"
+            target="_blank"
+            rel="noopener"
+            class="text-gray-500 hover:text-primary transition-colors duration-300"
+            aria-label="Twitter"
+          >
+            <span class="sr-only">Twitter</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 16 16">
+              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+            </svg>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/ksctl"
+            target="_blank"
+            rel="noopener"
+            class="text-gray-500 hover:text-primary transition-colors duration-300"
+            aria-label="LinkedIn"
+          >
+            <span class="sr-only">LinkedIn</span>
+            <svg fill="currentColor" class="w-6 h-6" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <a
+            href="https://discord.com/invite/pWjtKxVrMe"
+            target="_blank"
+            rel="noopener"
+            class="text-gray-500 hover:text-primary transition-colors duration-300"
+            aria-label="Discord"
+          >
+            <span class="sr-only">Discord</span>
+            <svg fill="currentColor" class="w-6 h-6" viewBox="0 0 24 24">
+              <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation links -->
+      <div class="md:col-span-2">
+        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Resources</h3>
+        <ul class="space-y-3">
+          <li><a href="https://docs.ksctl.com" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Documentation</a></li>
+          <li><a href="https://docs.ksctl.com/docs/getting-started/" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Getting Started</a></li>
+          <li><a href="https://docs.ksctl.com/docs/features/" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Features</a></li>
+          <li><a href="https://github.com/ksctl/ksctl/releases" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Releases</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Community</h3>
+        <ul class="space-y-3">
+          <li><a href="https://docs.ksctl.com/docs/contribution-guidelines/" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Contributing</a></li>
+          <li><a href="https://discord.com/invite/pWjtKxVrMe" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Discord Community</a></li>
+          <li><a href="https://github.com/ksctl/ksctl/issues" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Issues</a></li>
+          <li><a href="https://github.com/ksctl/ksctl/discussions" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Discussions</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter signup -->
+      <div class="md:col-span-4">
+        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Stay Updated</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">Get the latest news and updates about ksctl features.</p>
+
+        <form class="flex flex-col sm:flex-row gap-2">
+          <div class="relative flex-grow">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="w-full px-4 py-2.5 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="px-4 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium transition-colors duration-300 flex-shrink-0"
+          >
+            Subscribe
+          </button>
+        </form>
+        <p class="mt-3 text-xs text-gray-500 dark:text-gray-500">We respect your privacy. Unsubscribe at any time.</p>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          &copy; {new Date().getFullYear()} ksctl. All rights reserved.
+        </p>
+        <div class="mt-4 md:mt-0 flex items-center space-x-6">
+          <a href="#" class="text-sm text-gray-500 hover:text-primary dark:text-gray-400">Privacy Policy</a>
+          <a href="#" class="text-sm text-gray-500 hover:text-primary dark:text-gray-400">Terms of Service</a>
         </div>
       </div>
     </div>
