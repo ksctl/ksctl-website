@@ -1,10 +1,12 @@
 ---
 import AppFooter from "../components/AppFooter.astro";
 import AppHeader from "../components/AppHeader.astro";
+
+const { title = "ksctl - Cloud Agnostic Kubernetes Management" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="dark scroll-smooth" x-data="{ darkMode: true }">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -14,11 +16,12 @@ import AppHeader from "../components/AppHeader.astro";
       name="description"
       content="Cloud-agnostic Kubernetes management tool for cost-efficient and sustainable clusters"
     />
-    <title>ksctl - Cloud Agnostic Kubernetes Management</title>
+    <title>{title}</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7PBL3S9S8W"></script>
@@ -30,7 +33,6 @@ import AppHeader from "../components/AppHeader.astro";
     gtag('config', 'G-7PBL3S9S8W');
   </script>
   <body class="bg-white dark:bg-gray-900 font-['Inter',sans-serif] antialiased">
-    <body class="bg-white dark:bg-gray-900 font-['Inter',sans-serif] antialiased">
       <AppHeader />
       <slot />
       <AppFooter />

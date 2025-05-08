@@ -10,9 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.16.13"
+    "astro": "^4.16.13",
+    "alpinejs": "^3.13.3"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^5.1.2"
+    "@astrojs/tailwind": "^5.1.2",
+    "@astrojs/alpinejs": "^0.4.1"
   }
 }

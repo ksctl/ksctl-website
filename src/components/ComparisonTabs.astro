@@ -2,614 +2,591 @@
 import Container from "./Container.astro";
 ---
 
-<div id="comparison" class="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
-  <!-- Decorative elements -->
-  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+<div id="comparison" class="py-24 bg-white dark:bg-gray-900 relative overflow-hidden">
+  <!-- Background decorations -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-br from-primary/10 to-teal-400/5 dark:from-primary/5 dark:to-teal-400/5 blur-3xl"></div>
-    <div class="absolute -bottom-40 -right-40 w-80 h-80 rounded-full bg-gradient-to-tr from-purple-300/10 to-indigo-300/5 dark:from-purple-900/10 dark:to-indigo-900/5 blur-3xl"></div>
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+    <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-gradient-to-br from-indigo-300/10 to-purple-300/5 dark:from-indigo-700/10 dark:to-purple-700/5 blur-3xl"></div>
+    <div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-teal-300/10 to-emerald-300/5 dark:from-teal-700/10 dark:to-emerald-700/5 blur-3xl"></div>
   </div>
 
   <Container>
-    <div class="text-center mb-16">
-      <span class="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 mb-6 border border-purple-200 dark:border-purple-800/30">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 mb-6 border border-indigo-200 dark:border-indigo-800/30">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+          <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
         </svg>
-        Comparison
+        Competitive Comparison
       </span>
-      <h2 class="text-4xl font-bold text-gray-900 dark:text-white md:text-5xl lg:text-6xl tracking-tight mb-6">
-        Why <span class="bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">Choose ksctl</span>?
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+        Why <span class="bg-gradient-to-r from-primary to-indigo-500 bg-clip-text text-transparent">ksctl</span> Wins
       </h2>
-      <p class="mx-auto max-w-2xl text-xl text-gray-600 dark:text-gray-300">
-        See how ksctl compares to other Kubernetes management solutions across key dimensions
+      <p class="text-xl text-gray-600 dark:text-gray-300">
+        See how ksctl outperforms other Kubernetes management solutions across critical metrics
       </p>
     </div>
 
-    <!-- Comparison Tabs -->
-    <div class="max-w-4xl mx-auto">
+    <!-- Tabs container -->
+    <div x-data="{ activeTab: 'features' }" class="relative">
       <!-- Tab navigation -->
-      <div class="border-b border-gray-200 dark:border-gray-700 mb-6">
-        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="comparisonTabs" role="tablist">
-          <li class="mr-2" role="presentation">
-            <button 
-              class="inline-block p-4 border-b-2 border-purple-600 text-purple-600 dark:text-purple-400 dark:border-purple-400 rounded-t-lg active" 
-              id="features-tab" 
-              data-tabs-target="#features" 
-              type="button" 
-              role="tab" 
-              aria-controls="features" 
-              aria-selected="true"
-            >
-              Key Features
-            </button>
-          </li>
-          <li class="mr-2" role="presentation">
-            <button 
-              class="inline-block p-4 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300 rounded-t-lg" 
-              id="sustainability-tab" 
-              data-tabs-target="#sustainability" 
-              type="button" 
-              role="tab" 
-              aria-controls="sustainability" 
-              aria-selected="false"
-            >
-              Sustainability
-            </button>
-          </li>
-          <li class="mr-2" role="presentation">
-            <button 
-              class="inline-block p-4 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300 rounded-t-lg" 
-              id="usability-tab" 
-              data-tabs-target="#usability" 
-              type="button" 
-              role="tab" 
-              aria-controls="usability" 
-              aria-selected="false"
-            >
-              Usability
-            </button>
-          </li>
-          <li role="presentation">
-            <button 
-              class="inline-block p-4 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300 rounded-t-lg" 
-              id="costs-tab" 
-              data-tabs-target="#costs" 
-              type="button" 
-              role="tab" 
-              aria-controls="costs" 
-              aria-selected="false"
-            >
-              Cost Efficiency
-            </button>
-          </li>
-        </ul>
+      <div class="flex flex-wrap justify-center mb-8 border-b border-gray-200 dark:border-gray-700">
+        <button 
+          @click="activeTab = 'features'" 
+          :class="{ 'text-primary border-primary dark:text-primary dark:border-primary': activeTab === 'features', 'border-transparent': activeTab !== 'features' }"
+          class="px-6 py-3 text-lg font-medium border-b-2 focus:outline-none transition-colors duration-300">
+          Features
+        </button>
+        <button 
+          @click="activeTab = 'sustainability'" 
+          :class="{ 'text-green-500 border-green-500 dark:text-green-400 dark:border-green-400': activeTab === 'sustainability', 'border-transparent': activeTab !== 'sustainability' }"
+          class="px-6 py-3 text-lg font-medium border-b-2 focus:outline-none transition-colors duration-300">
+          Sustainability
+        </button>
+        <button 
+          @click="activeTab = 'cost'" 
+          :class="{ 'text-blue-500 border-blue-500 dark:text-blue-400 dark:border-blue-400': activeTab === 'cost', 'border-transparent': activeTab !== 'cost' }"
+          class="px-6 py-3 text-lg font-medium border-b-2 focus:outline-none transition-colors duration-300">
+          Cost Efficiency
+        </button>
+        <button 
+          @click="activeTab = 'ease'" 
+          :class="{ 'text-amber-500 border-amber-500 dark:text-amber-400 dark:border-amber-400': activeTab === 'ease', 'border-transparent': activeTab !== 'ease' }"
+          class="px-6 py-3 text-lg font-medium border-b-2 focus:outline-none transition-colors duration-300">
+          Ease of Use
+        </button>
       </div>
       
-      <!-- Tab content -->
-      <div id="comparisonTabContent">
-        <!-- Features Tab -->
-        <div class="p-4 rounded-lg bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/30 shadow-lg" id="features" role="tabpanel" aria-labelledby="features-tab">
-          <div class="overflow-x-auto">
-            <table class="w-full text-left">
-              <thead class="text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700">
-                <tr>
-                  <th class="px-6 py-3">Feature</th>
-                  <th class="px-6 py-3 text-center">
-                    <div class="flex flex-col items-center">
-                      <span class="text-purple-600 dark:text-purple-400 font-bold">ksctl</span>
-                      <div class="mt-1 flex items-center">
-                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full text-xs font-semibold">
-                          Our Solution
-                        </span>
-                      </div>
-                    </div>
-                  </th>
-                  <th class="px-6 py-3 text-center">Terraform + kOps</th>
-                  <th class="px-6 py-3 text-center">Managed K8s (EKS, GKE, AKS)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Multi-cloud support</td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span class="sr-only">Yes</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
-                      <span class="sr-only">Partial</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Single command setup</td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span class="sr-only">Yes</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
-                      <span class="sr-only">Partial</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Unified management API</td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span class="sr-only">Yes</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Automated optimizations</td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span class="sr-only">Yes</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
-                      <span class="sr-only">Partial</span>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+      <!-- Features tab content -->
+      <div x-show="activeTab === 'features'" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+        <!-- Comparison table -->
+        <div class="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg">
+          <table class="w-full text-left">
+            <thead class="bg-gray-50 dark:bg-gray-800">
+              <tr class="text-gray-600 dark:text-gray-300">
+                <th class="py-4 px-6 font-medium">Features</th>
+                <th class="py-4 px-6 font-medium text-primary dark:text-primary-light">ksctl</th>
+                <th class="py-4 px-6 font-medium">EKS</th>
+                <th class="py-4 px-6 font-medium">GKE</th>
+                <th class="py-4 px-6 font-medium">AKS</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+              <tr>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">Multi-Cloud Support</td>
+                <td class="py-4 px-6 text-primary dark:text-primary-light">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">Carbon-Aware Scheduling</td>
+                <td class="py-4 px-6 text-primary dark:text-primary-light">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">Partial</td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">Dynamic Region Switching</td>
+                <td class="py-4 px-6 text-primary dark:text-primary-light">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">Automated Optimization</td>
+                <td class="py-4 px-6 text-primary dark:text-primary-light">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">Partial</td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">Partial</td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">Partial</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">Day 2 Ops Automation</td>
+                <td class="py-4 px-6 text-primary dark:text-primary-light">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">Partial</td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">Partial</td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">Single Command Deploy</td>
+                <td class="py-4 px-6 text-primary dark:text-primary-light">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">Partial</td>
+                <td class="py-4 px-6 text-gray-800 dark:text-gray-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        
-        <!-- Sustainability Tab -->
-        <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/30 shadow-lg" id="sustainability" role="tabpanel" aria-labelledby="sustainability-tab">
-          <div class="overflow-x-auto">
-            <table class="w-full text-left">
-              <thead class="text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700">
-                <tr>
-                  <th class="px-6 py-3">Feature</th>
-                  <th class="px-6 py-3 text-center">
-                    <div class="flex flex-col items-center">
-                      <span class="text-purple-600 dark:text-purple-400 font-bold">ksctl</span>
-                      <div class="mt-1 flex items-center">
-                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full text-xs font-semibold">
-                          Our Solution
-                        </span>
-                      </div>
-                    </div>
-                  </th>
-                  <th class="px-6 py-3 text-center">Terraform + kOps</th>
-                  <th class="px-6 py-3 text-center">Managed K8s (EKS, GKE, AKS)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Carbon-aware region selection</td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span class="sr-only">Yes</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Energy-efficient instance selection</td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span class="sr-only">Yes</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Carbon footprint tracking</td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span class="sr-only">Yes</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
-                      <span class="sr-only">Partial</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Dynamic region switching</td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span class="sr-only">Yes</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      </div>
+
+      <!-- Sustainability tab content -->
+      <div x-show="activeTab === 'sustainability'" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <!-- Chart/graph visualization -->
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">Carbon Footprint Reduction</h3>
+            <div class="h-64 relative">
+              <!-- This would be a chart in production, using a static representation here -->
+              <div class="absolute bottom-0 left-0 w-full h-full flex items-end space-x-6 px-2">
+                <div class="relative flex flex-col items-center">
+                  <div class="h-[30%] w-12 bg-gray-200 dark:bg-gray-700 rounded-t-md"></div>
+                  <span class="absolute -top-6 text-sm font-medium text-gray-600 dark:text-gray-400">EKS</span>
+                  <span class="mt-2 text-sm font-medium text-gray-600 dark:text-gray-400">+30%</span>
+                </div>
+                <div class="relative flex flex-col items-center">
+                  <div class="h-[35%] w-12 bg-gray-200 dark:bg-gray-700 rounded-t-md"></div>
+                  <span class="absolute -top-6 text-sm font-medium text-gray-600 dark:text-gray-400">GKE</span>
+                  <span class="mt-2 text-sm font-medium text-gray-600 dark:text-gray-400">+35%</span>
+                </div>
+                <div class="relative flex flex-col items-center">
+                  <div class="h-[25%] w-12 bg-gray-200 dark:bg-gray-700 rounded-t-md"></div>
+                  <span class="absolute -top-6 text-sm font-medium text-gray-600 dark:text-gray-400">AKS</span>
+                  <span class="mt-2 text-sm font-medium text-gray-600 dark:text-gray-400">+25%</span>
+                </div>
+                <div class="relative flex flex-col items-center">
+                  <div class="h-[10%] w-12 bg-gradient-to-t from-green-500 to-green-400 rounded-t-md"></div>
+                  <span class="absolute -top-6 text-sm font-medium text-green-600 dark:text-green-500">ksctl</span>
+                  <span class="mt-2 text-sm font-medium text-green-600 dark:text-green-500">-65%</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-8">
+              <p class="text-gray-600 dark:text-gray-300">
+                ksctl reduces carbon footprint by up to <span class="font-bold text-green-600 dark:text-green-500">65%</span> compared to traditional Kubernetes deployments
+              </p>
+            </div>
           </div>
-        </div>
-        
-        <!-- Usability Tab -->
-        <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/30 shadow-lg" id="usability" role="tabpanel" aria-labelledby="usability-tab">
-          <div class="overflow-x-auto">
-            <table class="w-full text-left">
-              <thead class="text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700">
-                <tr>
-                  <th class="px-6 py-3">Feature</th>
-                  <th class="px-6 py-3 text-center">
-                    <div class="flex flex-col items-center">
-                      <span class="text-purple-600 dark:text-purple-400 font-bold">ksctl</span>
-                      <div class="mt-1 flex items-center">
-                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full text-xs font-semibold">
-                          Our Solution
-                        </span>
-                      </div>
-                    </div>
-                  </th>
-                  <th class="px-6 py-3 text-center">Terraform + kOps</th>
-                  <th class="px-6 py-3 text-center">Managed K8s (EKS, GKE, AKS)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Learning curve</td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="font-medium text-green-500">Low</span>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="font-medium text-red-500">High</span>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="font-medium text-yellow-500">Medium</span>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Setup time</td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="font-medium text-green-500">~5 minutes</span>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="font-medium text-red-500">~60+ minutes</span>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="font-medium text-yellow-500">~30 minutes</span>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Visual dashboard</td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span class="sr-only">Yes</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
-                      <span class="sr-only">Partial</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Command complexity</td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="font-medium text-green-500">Simple</span>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="font-medium text-red-500">Complex</span>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="font-medium text-yellow-500">Moderate</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        
-        <!-- Cost Efficiency Tab -->
-        <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/30 shadow-lg" id="costs" role="tabpanel" aria-labelledby="costs-tab">
-          <div class="overflow-x-auto">
-            <table class="w-full text-left">
-              <thead class="text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700">
-                <tr>
-                  <th class="px-6 py-3">Feature</th>
-                  <th class="px-6 py-3 text-center">
-                    <div class="flex flex-col items-center">
-                      <span class="text-purple-600 dark:text-purple-400 font-bold">ksctl</span>
-                      <div class="mt-1 flex items-center">
-                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-full text-xs font-semibold">
-                          Our Solution
-                        </span>
-                      </div>
-                    </div>
-                  </th>
-                  <th class="px-6 py-3 text-center">Terraform + kOps</th>
-                  <th class="px-6 py-3 text-center">Managed K8s (EKS, GKE, AKS)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Automatic cost optimization</td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span class="sr-only">Yes</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
-                      <span class="sr-only">Partial</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Resource right-sizing</td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span class="sr-only">Yes</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
-                      <span class="sr-only">Partial</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Cost-aware scaling</td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span class="sr-only">Yes</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                      <span class="sr-only">No</span>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <div class="flex justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
-                      <span class="sr-only">Partial</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Estimated monthly savings</td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="font-medium text-green-500">25-40%</span>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="font-medium text-red-500">0-5%</span>
-                  </td>
-                  <td class="px-6 py-4 text-center">
-                    <span class="font-medium text-yellow-500">10-20%</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          
+          <!-- Features list -->
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">Eco-Friendly Features</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 class="font-medium text-gray-900 dark:text-white">Renewable Energy Prioritization</h4>
+                    <p class="text-gray-600 dark:text-gray-400 mt-1">Automatically selects regions with higher renewable energy mix</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 class="font-medium text-gray-900 dark:text-white">Energy-Efficient Instance Types</h4>
+                    <p class="text-gray-600 dark:text-gray-400 mt-1">Selects most energy-efficient instance types for your workloads</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 class="font-medium text-gray-900 dark:text-white">Carbon Footprint Dashboard</h4>
+                    <p class="text-gray-600 dark:text-gray-400 mt-1">Real-time monitoring of your cluster's environmental impact</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <h4 class="font-medium text-gray-900 dark:text-white">Intelligent Workload Scheduling</h4>
+                    <p class="text-gray-600 dark:text-gray-400 mt-1">Schedules non-critical workloads during lower carbon intensity periods</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-8">
+              <a href="https://docs.ksctl.com/docs/sustainability/" class="inline-flex items-center text-green-600 dark:text-green-400 font-medium">
+                Learn more about our green initiatives
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Call to Action -->
-    <div class="mt-16 text-center">
-      <a
-        href="https://docs.ksctl.com/docs/comparison/"
-        class="inline-flex items-center px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-700 text-white font-medium shadow-lg shadow-purple-600/20 hover:shadow-xl hover:shadow-purple-600/30 hover:-translate-y-1 transition-all duration-300"
-      >
-        <span class="text-lg">See Detailed Comparison</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-        </svg>
-      </a>
+      <!-- Cost Efficiency tab content -->
+      <div x-show="activeTab === 'cost'" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg overflow-hidden">
+          <div class="p-8">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">Monthly Cost Comparison</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-8">
+              Based on a standard deployment with 5 nodes (8 vCPU, 32GB RAM each)
+            </p>
+            
+            <!-- Cost comparison bars -->
+            <div class="space-y-6">
+              <!-- EKS -->
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-700 dark:text-gray-300 font-medium">Amazon EKS</span>
+                  <span class="text-gray-700 dark:text-gray-300 font-medium">$912/mo</span>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
+                  <div class="bg-gray-400 dark:bg-gray-500 h-4 rounded-full" style="width: 96%"></div>
+                </div>
+              </div>
+              
+              <!-- GKE -->
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-700 dark:text-gray-300 font-medium">Google GKE</span>
+                  <span class="text-gray-700 dark:text-gray-300 font-medium">$876/mo</span>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
+                  <div class="bg-gray-400 dark:bg-gray-500 h-4 rounded-full" style="width: 92%"></div>
+                </div>
+              </div>
+              
+              <!-- AKS -->
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-700 dark:text-gray-300 font-medium">Azure AKS</span>
+                  <span class="text-gray-700 dark:text-gray-300 font-medium">$950/mo</span>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
+                  <div class="bg-gray-400 dark:bg-gray-500 h-4 rounded-full" style="width: 100%"></div>
+                </div>
+              </div>
+              
+              <!-- ksctl -->
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-blue-600 dark:text-blue-400 font-medium">ksctl (Optimized)</span>
+                  <span class="text-blue-600 dark:text-blue-400 font-medium">$532/mo</span>
+                </div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
+                  <div class="bg-gradient-to-r from-blue-500 to-blue-400 h-4 rounded-full" style="width: 56%"></div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Savings callout -->
+            <div class="mt-10 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/30 rounded-xl p-6">
+              <div class="flex items-start">
+                <div class="flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Average Savings with ksctl</h4>
+                  <p class="text-gray-600 dark:text-gray-400 mt-1">
+                    Our customers save an average of <span class="font-bold text-blue-600 dark:text-blue-400">44%</span> on their Kubernetes infrastructure costs through intelligent resource allocation and dynamic scaling.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Cost saving features -->
+          <div class="bg-gray-50 dark:bg-gray-800/70 border-t border-gray-200 dark:border-gray-700 p-8">
+            <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-4">How ksctl Reduces Costs</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700 dark:text-gray-300">Smart instance selection based on workload</span>
+              </div>
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700 dark:text-gray-300">Spot instance integration for non-critical workloads</span>
+              </div>
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700 dark:text-gray-300">Intelligent auto-scaling based on actual usage</span>
+              </div>
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700 dark:text-gray-300">Cross-region price optimization</span>
+              </div>
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700 dark:text-gray-300">Resource utilization optimization</span>
+              </div>
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500 mr-3 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700 dark:text-gray-300">Automatic right-sizing recommendations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ease of Use tab content -->
+      <div x-show="activeTab === 'ease'" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <!-- Left column: Deployment comparison -->
+          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-8">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">Deployment Steps Comparison</h3>
+            
+            <div class="space-y-8">
+              <!-- Traditional K8s -->
+              <div>
+                <h4 class="text-lg font-medium text-gray-900 dark:text-white flex items-center mb-4">
+                  <span class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mr-3 text-gray-600 dark:text-gray-400 text-sm">1</span>
+                  Traditional Kubernetes Setup
+                </h4>
+                <div class="ml-11 space-y-4">
+                  <div class="flex items-start">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs mr-3 flex-shrink-0">1</span>
+                    <span class="text-gray-600 dark:text-gray-400">Install vendor-specific CLI tools</span>
+                  </div>
+                  <div class="flex items-start">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs mr-3 flex-shrink-0">2</span>
+                    <span class="text-gray-600 dark:text-gray-400">Configure cloud provider credentials & access</span>
+                  </div>
+                  <div class="flex items-start">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs mr-3 flex-shrink-0">3</span>
+                    <span class="text-gray-600 dark:text-gray-400">Create VPC and networking components</span>
+                  </div>
+                  <div class="flex items-start">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs mr-3 flex-shrink-0">4</span>
+                    <span class="text-gray-600 dark:text-gray-400">Deploy storage classes and volumes</span>
+                  </div>
+                  <div class="flex items-start">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs mr-3 flex-shrink-0">5</span>
+                    <span class="text-gray-600 dark:text-gray-400">Install and configure monitoring stack</span>
+                  </div>
+                  <div class="flex items-start">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs mr-3 flex-shrink-0">6</span>
+                    <span class="text-gray-600 dark:text-gray-400">Set up RBAC and security policies</span>
+                  </div>
+                </div>
+                <div class="ml-11 mt-4 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span class="text-gray-600 dark:text-gray-400 font-medium">2-4 hours</span>
+                </div>
+              </div>
+              
+              <!-- ksctl -->
+              <div>
+                <h4 class="text-lg font-medium text-gray-900 dark:text-white flex items-center mb-4">
+                  <span class="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center mr-3 text-amber-600 dark:text-amber-400 text-sm">2</span>
+                  ksctl Setup
+                </h4>
+                <div class="ml-11 space-y-4">
+                  <div class="flex items-start">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 text-xs mr-3 flex-shrink-0">1</span>
+                    <span class="text-gray-600 dark:text-gray-400">Install ksctl CLI with single command</span>
+                  </div>
+                  <div class="flex items-start">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 text-xs mr-3 flex-shrink-0">2</span>
+                    <span class="text-gray-600 dark:text-gray-400">Run cluster create command</span>
+                  </div>
+                </div>
+                <div class="ml-11 mt-4 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span class="text-amber-600 dark:text-amber-400 font-medium">5-10 minutes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right column: Developer experience -->
+          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-8">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">Developer Experience</h3>
+            
+            <div class="space-y-6">
+              <!-- Code blocks comparison -->
+              <div>
+                <h4 class="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">Traditional K8s Setup (Multiple Tools)</h4>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-hidden shadow-md text-sm">
+                  <pre class="text-gray-300"><code># Install cloud provider CLIs
+$ curl -o aws-cli.zip https://...
+$ unzip aws-cli.zip && ./aws/install
+$ aws configure
+
+# Create VPC and networking
+$ aws ec2 create-vpc --cidr-block 10.0.0.0/16
+$ aws ec2 create-subnet --vpc-id vpc-123 --cidr-block 10.0.1.0/24
+... (dozens more commands)
+
+# Create cluster with kubectl, helm, etc.
+$ aws eks create-cluster --name production --role-arn arn:aws:...
+$ kubectl apply -f storage-class.yaml
+$ helm install monitoring prometheus-community/prometheus
+... (many more steps)</code></pre>
+                </div>
+              </div>
+              
+              <div>
+                <h4 class="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">ksctl Approach</h4>
+                <div class="bg-gray-900 rounded-lg p-4 overflow-hidden shadow-md text-sm">
+                  <pre class="text-gray-300"><code># Install ksctl
+$ curl -sSfL https://get.ksctl.com | python3 -
+
+# Create a fully configured, production-ready cluster
+$ ksctl cluster create --name=production --provider=aws \
+  --region=auto-sustainable --nodes=3</code></pre>
+                </div>
+              </div>
+              
+              <!-- Testimonial -->
+              <div class="mt-8 bg-amber-50 dark:bg-amber-900/20 rounded-xl p-6 border border-amber-100 dark:border-amber-900/30">
+                <div class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-500 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                  </svg>
+                  <div>
+                    <p class="text-gray-700 dark:text-gray-300 italic">
+                      "ksctl reduced our cluster setup time from hours to minutes. Even our junior developers can now deploy production-ready Kubernetes clusters without specialized DevOps knowledge."
+                    </p>
+                    <p class="text-right mt-4 text-gray-600 dark:text-gray-400 font-medium">
+                      — Engineering Director, Enterprise SaaS Company
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </Container>
 </div>
 
 <script>
+  // Initialize Alpine.js tab functionality on the page
   document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('[data-tabs-target]');
-    const tabContents = document.querySelectorAll('[role="tabpanel"]');
+    window.alpineData = {
+      activeTab: 'features',
+      setActiveTab(tab) {
+        this.activeTab = tab;
+        
+        // Hide all tab contents
+        document.querySelectorAll('[x-show]').forEach(el => {
+          if (el.getAttribute('x-show').includes('activeTab ===')) {
+            el.style.display = 'none';
+          }
+        });
+        
+        // Show the active tab content
+        document.querySelector(`[x-show="activeTab === '${tab}'"]`).style.display = 'block';
+        
+        // Update button classes
+        document.querySelectorAll('[x-class]').forEach(el => {
+          const tabName = el.getAttribute('x-class').match(/'([^']+)'/)[1];
+          const activeClass = el.getAttribute('x-class').match(/\{([^:]+):/)[1].trim();
+          
+          if (tabName === tab) {
+            el.classList.add(...activeClass.split(' '));
+          } else {
+            el.classList.remove(...activeClass.split(' '));
+            el.classList.add('border-transparent');
+          }
+        });
+      }
+    };
     
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = document.querySelector(tab.dataset.tabsTarget);
-        
-        tabContents.forEach(tc => {
-          tc.classList.add('hidden');
-        });
-        
-        tabs.forEach(t => {
-          t.classList.remove('border-purple-600', 'text-purple-600', 'dark:text-purple-400', 'dark:border-purple-400');
-          t.classList.add('border-transparent', 'hover:border-gray-300', 'hover:text-gray-600', 'dark:hover:text-gray-300');
-          t.setAttribute('aria-selected', 'false');
-        });
-        
-        tab.classList.remove('border-transparent', 'hover:border-gray-300', 'hover:text-gray-600', 'dark:hover:text-gray-300');
-        tab.classList.add('border-purple-600', 'text-purple-600', 'dark:text-purple-400', 'dark:border-purple-400');
-        tab.setAttribute('aria-selected', 'true');
-        
-        target.classList.remove('hidden');
+    // Setup initial active tab
+    window.alpineData.setActiveTab('features');
+    
+    // Add click handlers to tab buttons
+    document.querySelectorAll('[\\@click]').forEach(el => {
+      const tabName = el.getAttribute('@click').match(/'([^']+)'/)[1];
+      el.addEventListener('click', () => {
+        window.alpineData.setActiveTab(tabName);
       });
+    });
+    
+    // Handle transitions
+    document.querySelectorAll('[x-transition\\:enter]').forEach(el => {
+      el.classList.add('opacity-0');
+      setTimeout(() => {
+        el.classList.remove('opacity-0');
+        el.classList.add('opacity-100');
+      }, 50);
     });
   });
 </script>

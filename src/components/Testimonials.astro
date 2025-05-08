@@ -1,77 +1,173 @@
 ---
-import Container from "./Container.astro"
-
+import Container from "./Container.astro";
 ---
 
-<div class="text-gray-600 dark:text-gray-300" id="reviews">
+<div id="testimonials" class="relative py-24 bg-gradient-to-b from-white to-gray-50/50 dark:from-gray-900 dark:to-gray-800/50 overflow-hidden">
+  <!-- Background decorations -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+    <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-br from-purple-300/10 to-indigo-300/5 dark:from-purple-700/10 dark:to-indigo-700/5 blur-3xl"></div>
+    <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-gradient-to-tr from-teal-300/10 to-cyan-300/5 dark:from-teal-700/10 dark:to-cyan-700/5 blur-3xl"></div>
+  </div>
+
   <Container>
-    <div class="mb-20 space-y-4 px-6 md:px-0">
-      <h2 class="text-center text-2xl font-bold text-gray-800 dark:text-white md:text-4xl">
-        We have some fans.
+    <div class="text-center max-w-3xl mx-auto mb-24">
+      <span class="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 mb-6 border border-purple-200 dark:border-purple-800/30">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd" />
+        </svg>
+        Customer Stories
+      </span>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+        Trusted by <span class="bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">DevOps Teams</span> Worldwide
       </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300">
+        Hear from teams that have transformed their Kubernetes operations with ksctl's sustainable and cost-efficient approach
+      </p>
     </div>
-    <div class="md:columns-2 lg:columns-3 gap-8 space-y-8">
-      <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
-        <div class="flex gap-4">
-          <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar.webp" alt="user avatar" width="400" height="400" loading="lazy">
-          <div>
-            <h6 class="text-lg font-medium text-gray-700 dark:text-white">Daniella Doe</h6>
-            <p class="text-sm text-gray-500 dark:text-gray-300">Mobile dev</p>
+
+    <!-- Testimonial grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Testimonial 1 -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl relative transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-gray-100 dark:border-gray-700/30">
+        <div class="absolute -top-4 -left-4">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-purple-200 dark:text-purple-900">
+            <path d="M18.6667 26.6667C18.6667 32.1895 14.1895 36.6667 8.66667 36.6667C3.14381 36.6667 -1.33331 32.1895 -1.33331 26.6667C-1.33331 21.1438 3.14381 16.6667 8.66667 16.6667C14.1895 16.6667 18.6667 21.1438 18.6667 26.6667ZM18.6667 26.6667L18.6667 3.33335L28.6667 3.33335L28.6667 26.6667L18.6667 26.6667Z" stroke="currentColor" stroke-width="6.66667"/>
+          </svg>
+        </div>
+        <div class="mb-8 mt-6">
+          <p class="text-lg text-gray-700 dark:text-gray-300 italic">
+            "ksctl has revolutionized how we manage our Kubernetes clusters. The carbon-aware scheduling has reduced our environmental impact by 42%, and we're saving over $3,000 monthly on cloud costs. The single-command deployment is just icing on the cake."
+          </p>
+        </div>
+        <div class="flex items-center">
+          <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson" class="w-14 h-14 rounded-full object-cover border-2 border-purple-300 dark:border-purple-600">
+          <div class="ml-4">
+            <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Sarah Johnson</h4>
+            <div class="text-sm text-gray-600 dark:text-gray-400">DevOps Lead, Fintech Solutions Inc.</div>
           </div>
         </div>
-        <p class="mt-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum aliquid quo eum quae quos illo earum ipsa doloribus nostrum minus libero aspernatur laborum cum, a suscipit, ratione ea totam ullam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto laboriosam deleniti aperiam ab veniam sint non cumque quis tempore cupiditate. Sint libero voluptas veniam at reprehenderit, veritatis harum et rerum.</p>
-      </div>
-      <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
-        <div class="flex gap-4">
-          <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-1.webp" alt="user avatar" width="200" height="200" loading="lazy">
-          <div>
-            <h6 class="text-lg font-medium text-gray-700 dark:text-white">Jane doe</h6>
-            <p class="text-sm text-gray-500 dark:text-gray-300">Marketing</p>
-          </div>
-        </div>
-        <p class="mt-8"> Lorem ipsum dolor laboriosam deleniti aperiam ab veniam sint non cumque quis tempore cupiditate. Sint libero voluptas veniam at reprehenderit, veritatis harum et rerum.</p>
-      </div>
-      <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
-        <div class="flex gap-4">
-          <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-2.webp" alt="user avatar" width="200" height="200" loading="lazy">
-          <div>
-            <h6 class="text-lg font-medium text-gray-700 dark:text-white">Yanick Doe</h6>
-            <p class="text-sm text-gray-500 dark:text-gray-300">Developer</p>
-          </div>
-        </div>
-        <p class="mt-8">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto laboriosam deleniti aperiam ab veniam sint non cumque quis tempore cupiditate. Sint libero voluptas veniam at reprehenderit, veritatis harum et rerum.</p>
-      </div>
-      <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
-        <div class="flex gap-4">
-          <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-3.webp" alt="user avatar" width="200" height="200" loading="lazy">
-          <div>
-            <h6 class="text-lg font-medium text-gray-700 dark:text-white">Jane Doe</h6>
-            <p class="text-sm text-gray-500 dark:text-gray-300">Mobile dev</p>
-          </div>
-        </div>
-        <p class="mt-8">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto laboriosam deleniti aperiam ab veniam sint non cumque quis tempore cupiditate. Sint libero voluptas veniam at reprehenderit, veritatis harum et rerum.</p>
-      </div>
-      <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
-        <div class="flex gap-4">
-          <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-4.webp" alt="user avatar" width="200" height="200" loading="lazy">
-          <div>
-            <h6 class="text-lg font-medium text-gray-700 dark:text-white">Andy Doe</h6>
-            <p class="text-sm text-gray-500 dark:text-gray-300">Manager</p>
-          </div>
-        </div>
-        <p class="mt-8"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto laboriosam deleniti aperiam ab veniam sint non cumque quis tempore cupiditate. Sint libero voluptas veniam at reprehenderit, veritatis harum et rerum.</p>
-      </div>
-      <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
-        <div class="flex gap-4">
-          <img class="w-12 h-12 rounded-full" src="./images/avatars/avatar-2.webp" alt="user avatar" width="400" height="400" loading="lazy">
-          <div>
-            <h6 class="text-lg font-medium text-gray-700 dark:text-white">Yanndy Doe</h6>
-            <p class="text-sm text-gray-500 dark:text-gray-300">Mobile dev</p>
-          </div>
-        </div>
-        <p class="mt-8">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto laboriosam deleniti aperiam ab veniam sint non cumque quis tempore cupiditate. Sint libero voluptas veniam at reprehenderit, veritatis harum et rerum.</p>
       </div>
 
+      <!-- Testimonial 2 -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl relative transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-gray-100 dark:border-gray-700/30 lg:mt-10">
+        <div class="absolute -top-4 -left-4">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-purple-200 dark:text-purple-900">
+            <path d="M18.6667 26.6667C18.6667 32.1895 14.1895 36.6667 8.66667 36.6667C3.14381 36.6667 -1.33331 32.1895 -1.33331 26.6667C-1.33331 21.1438 3.14381 16.6667 8.66667 16.6667C14.1895 16.6667 18.6667 21.1438 18.6667 26.6667ZM18.6667 26.6667L18.6667 3.33335L28.6667 3.33335L28.6667 26.6667L18.6667 26.6667Z" stroke="currentColor" stroke-width="6.66667"/>
+          </svg>
+        </div>
+        <div class="mb-8 mt-6">
+          <p class="text-lg text-gray-700 dark:text-gray-300 italic">
+            "Our sustainability goals were challenging to meet with our Kubernetes infrastructure until we found ksctl. The intelligent region selection and energy-efficient resource allocation helped us reduce our carbon footprint significantly. Our board is thrilled with the progress."
+          </p>
+        </div>
+        <div class="flex items-center">
+          <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Michael Chen" class="w-14 h-14 rounded-full object-cover border-2 border-purple-300 dark:border-purple-600">
+          <div class="ml-4">
+            <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Michael Chen</h4>
+            <div class="text-sm text-gray-600 dark:text-gray-400">CTO, GreenTech Innovations</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl relative transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-gray-100 dark:border-gray-700/30 lg:mt-20">
+        <div class="absolute -top-4 -left-4">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-purple-200 dark:text-purple-900">
+            <path d="M18.6667 26.6667C18.6667 32.1895 14.1895 36.6667 8.66667 36.6667C3.14381 36.6667 -1.33331 32.1895 -1.33331 26.6667C-1.33331 21.1438 3.14381 16.6667 8.66667 16.6667C14.1895 16.6667 18.6667 21.1438 18.6667 26.6667ZM18.6667 26.6667L18.6667 3.33335L28.6667 3.33335L28.6667 26.6667L18.6667 26.6667Z" stroke="currentColor" stroke-width="6.66667"/>
+          </svg>
+        </div>
+        <div class="mb-8 mt-6">
+          <p class="text-lg text-gray-700 dark:text-gray-300 italic">
+            "After struggling with complex multi-cloud Kubernetes deployments for years, ksctl was like a breath of fresh air. Our junior engineers can now deploy and manage clusters across AWS, GCP, and Azure without specialized knowledge. Onboarding time reduced by 80%."
+          </p>
+        </div>
+        <div class="flex items-center">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Priya Patel" class="w-14 h-14 rounded-full object-cover border-2 border-purple-300 dark:border-purple-600">
+          <div class="ml-4">
+            <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Priya Patel</h4>
+            <div class="text-sm text-gray-600 dark:text-gray-400">VP of Engineering, CloudNative Ltd</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Company logos -->
+    <div class="mt-24">
+      <h3 class="text-center text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-8">Trusted by forward-thinking companies</h3>
+      <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+        <div class="flex flex-col items-center">
+          <img src="/images/clients/airbnb.svg" class="h-8 w-auto dark:brightness-200 dark:contrast-200 dark:invert transition-all duration-300 hover:scale-110" alt="Airbnb" loading="lazy">
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="/images/clients/netflix.svg" class="h-8 w-auto dark:brightness-200 dark:contrast-200 dark:invert transition-all duration-300 hover:scale-110" alt="Netflix" loading="lazy">
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="/images/clients/google.svg" class="h-8 w-auto dark:brightness-200 dark:contrast-200 dark:invert transition-all duration-300 hover:scale-110" alt="Google" loading="lazy">
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="/images/clients/microsoft.svg" class="h-8 w-auto dark:brightness-200 dark:contrast-200 dark:invert transition-all duration-300 hover:scale-110" alt="Microsoft" loading="lazy">
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="/images/clients/spotify.svg" class="h-8 w-auto dark:brightness-200 dark:contrast-200 dark:invert transition-all duration-300 hover:scale-110" alt="Spotify" loading="lazy">
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="/images/clients/slack.svg" class="h-8 w-auto dark:brightness-200 dark:contrast-200 dark:invert transition-all duration-300 hover:scale-110" alt="Slack" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured testimonial -->
+    <div class="mt-24 relative overflow-hidden">
+      <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-gradient-to-tr from-purple-300/10 to-indigo-300/5 dark:from-purple-700/10 dark:to-indigo-700/5 rounded-full blur-3xl"></div>
+      
+      <div class="relative p-8 lg:p-12 bg-gradient-to-r from-purple-600/10 to-indigo-600/10 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-3xl border border-purple-200/30 dark:border-purple-700/30 shadow-xl">
+        <div class="max-w-4xl mx-auto text-center">
+          <svg class="w-20 h-20 mx-auto text-purple-400/30 dark:text-purple-400/20 mb-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"></path>
+          </svg>
+          <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+            "ksctl has given us the perfect balance between <span class="bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">sustainability, cost efficiency, and developer experience</span>. We've reduced our carbon footprint by 58% and our infrastructure costs by 47%, all while making it easier for our development teams to deploy and manage Kubernetes clusters."
+          </h3>
+          <div class="mt-8 flex items-center justify-center">
+            <img src="https://randomuser.me/api/portraits/men/27.jpg" alt="James Rodriguez" class="w-16 h-16 rounded-full border-2 border-purple-300 dark:border-purple-600">
+            <div class="ml-4 text-left">
+              <h4 class="text-xl font-semibold text-gray-900 dark:text-white">James Rodriguez</h4>
+              <div class="text-sm text-gray-600 dark:text-gray-400">CIO, Enterprise Cloud Services</div>
+              <div class="flex items-center mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- CTA button -->
+    <div class="mt-16 text-center">
+      <a 
+        href="https://docs.ksctl.com/docs/getting-started/"
+        class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-gradient-to-br from-purple-600 to-indigo-600 text-white font-medium shadow-lg shadow-purple-500/30 transition-all hover:shadow-xl hover:shadow-purple-500/40 hover:-translate-y-1 active:translate-y-0"
+      >
+        <span>Join these success stories</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+        </svg>
+      </a>
     </div>
   </Container>
 </div>

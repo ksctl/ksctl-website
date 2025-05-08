@@ -51,7 +51,28 @@ import Container from "./Container.astro";
         </div>
         <div class="md:w-1/2 md:pl-12 hidden md:block">
           <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
-            <img src="https://placehold.co/800x400?text=Installing+ksctl" alt="Installing ksctl" class="w-full h-auto" loading="lazy" />
+            <div class="p-4">
+              <div class="bg-black rounded-lg overflow-hidden">
+                <div class="flex items-center bg-gray-800 px-4 py-2 border-b border-gray-700">
+                  <div class="flex space-x-1.5">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <div class="ml-4 text-gray-400 text-sm font-mono">terminal</div>
+                </div>
+                <div class="p-4 font-mono text-sm text-green-400 bg-gray-900">
+                  <p class="whitespace-nowrap overflow-x-auto">
+                    <span class="text-gray-500">$</span> curl -sSfL https://get.ksctl.com | python3 -<br/>
+                    <span class="text-blue-400">INFO</span> Downloading ksctl...<br/>
+                    <span class="text-blue-400">INFO</span> Installing to /usr/local/bin/ksctl...<br/>
+                    <span class="text-green-400">SUCCESS</span> ksctl installed! 🚀<br/>
+                    <span class="text-gray-500">$</span> ksctl version<br/>
+                    ksctl v1.5.2
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -60,7 +81,51 @@ import Container from "./Container.astro";
       <div class="relative z-10 flex flex-col md:flex-row items-center mb-24">
         <div class="md:w-1/2 md:pr-12 hidden md:block">
           <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
-            <img src="https://placehold.co/800x400?text=Configuring+Clusters" alt="Configuring clusters" class="w-full h-auto" loading="lazy" />
+            <div class="p-4">
+              <div class="bg-gray-50 dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                <div class="flex items-center justify-between bg-white dark:bg-gray-800 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+                  <div class="text-gray-700 dark:text-gray-300 font-medium">Cluster Configuration</div>
+                  <div class="flex items-center space-x-2">
+                    <div class="w-6 h-6 rounded bg-primary/20 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-5">
+                  <div class="space-y-4">
+                    <div>
+                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Cluster Name</label>
+                      <div class="flex items-center">
+                        <input type="text" value="production" class="block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md text-gray-800 dark:text-gray-200" />
+                      </div>
+                    </div>
+                    <div>
+                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Cloud Provider</label>
+                      <div class="flex items-center">
+                        <select class="block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md text-gray-800 dark:text-gray-200">
+                          <option>AWS</option>
+                          <option>GCP</option>
+                          <option>Azure</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div>
+                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Region</label>
+                      <div class="flex items-center">
+                        <div class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-3 py-2 rounded-md w-full flex items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                          </svg>
+                          <span>eu-west-2 (recommended for sustainability)</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="md:w-20 flex justify-center">
@@ -122,7 +187,31 @@ import Container from "./Container.astro";
         </div>
         <div class="md:w-1/2 md:pl-12 hidden md:block">
           <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
-            <img src="https://placehold.co/800x400?text=Creating+Clusters" alt="Creating clusters" class="w-full h-auto" loading="lazy" />
+            <div class="p-4">
+              <div class="bg-black rounded-lg overflow-hidden">
+                <div class="flex items-center bg-gray-800 px-4 py-2 border-b border-gray-700">
+                  <div class="flex space-x-1.5">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <div class="ml-4 text-gray-400 text-sm font-mono">deployment</div>
+                </div>
+                <div class="p-4 font-mono text-sm text-gray-300 bg-gray-900">
+                  <p class="whitespace-nowrap overflow-x-auto">
+                    <span class="text-gray-500">$</span> <span class="text-blue-400">ksctl cluster create</span> --name=production --provider=aws<br/>
+                    <span class="text-blue-400">INFO</span> Scanning for optimal deployment regions...<br/>
+                    <span class="text-blue-400">INFO</span> Selected eu-west-2 for lowest carbon intensity (67% renewable)<br/>
+                    <span class="text-blue-400">INFO</span> Creating VPC and networking components...<br/>
+                    <span class="text-blue-400">INFO</span> Deploying control plane...<br/>
+                    <span class="text-blue-400">INFO</span> Adding worker nodes...<br/>
+                    <span class="text-blue-400">INFO</span> Installing monitoring components...<br/>
+                    <span class="text-blue-400">INFO</span> Configuring auto-scaling policies...<br/>
+                    <span class="text-green-400">SUCCESS</span> Cluster 'production' is ready! 🚀
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -131,7 +220,73 @@ import Container from "./Container.astro";
       <div class="relative z-10 flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 md:pr-12 hidden md:block">
           <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
-            <img src="https://placehold.co/800x400?text=Dashboard+and+Monitoring" alt="Dashboard and monitoring" class="w-full h-auto" loading="lazy" />
+            <div class="p-4">
+              <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800">
+                <div class="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
+                  <div class="flex items-center space-x-2">
+                    <div class="h-6 w-6 rounded bg-primary/20 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                    <div class="text-gray-300 font-medium">ksctl Dashboard - Cluster Overview</div>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <div class="grid grid-cols-3 gap-4 mb-4">
+                    <div class="bg-gray-800 p-3 rounded-lg">
+                      <div class="text-xs text-gray-400 mb-1">CPU Usage</div>
+                      <div class="flex items-end">
+                        <div class="text-lg font-medium text-white">42%</div>
+                        <div class="ml-2 text-xs text-green-400">↓ 3%</div>
+                      </div>
+                      <div class="mt-2 w-full bg-gray-700 rounded-full h-1.5">
+                        <div class="bg-blue-500 h-1.5 rounded-full w-5/12"></div>
+                      </div>
+                    </div>
+                    <div class="bg-gray-800 p-3 rounded-lg">
+                      <div class="text-xs text-gray-400 mb-1">Memory</div>
+                      <div class="flex items-end">
+                        <div class="text-lg font-medium text-white">67%</div>
+                        <div class="ml-2 text-xs text-amber-400">↑ 5%</div>
+                      </div>
+                      <div class="mt-2 w-full bg-gray-700 rounded-full h-1.5">
+                        <div class="bg-amber-500 h-1.5 rounded-full w-8/12"></div>
+                      </div>
+                    </div>
+                    <div class="bg-gray-800 p-3 rounded-lg">
+                      <div class="text-xs text-gray-400 mb-1">Network</div>
+                      <div class="flex items-end">
+                        <div class="text-lg font-medium text-white">18 MB/s</div>
+                        <div class="ml-2 text-xs text-green-400">↓ 12%</div>
+                      </div>
+                      <div class="mt-2 w-full bg-gray-700 rounded-full h-1.5">
+                        <div class="bg-green-500 h-1.5 rounded-full w-3/12"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-gray-800 p-4 rounded-lg mb-4">
+                    <div class="mb-2 flex items-center justify-between">
+                      <div class="text-sm text-white">Carbon Footprint</div>
+                      <div class="text-xs text-green-400 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        -38% vs. industry average
+                      </div>
+                    </div>
+                    <div class="h-14 flex items-end">
+                      <div class="w-1/6 h-4 bg-green-500 rounded-sm"></div>
+                      <div class="w-1/6 h-6 bg-green-500 rounded-sm"></div>
+                      <div class="w-1/6 h-10 bg-green-500 rounded-sm"></div>
+                      <div class="w-1/6 h-8 bg-green-500 rounded-sm"></div>
+                      <div class="w-1/6 h-5 bg-green-500 rounded-sm"></div>
+                      <div class="w-1/6 h-3 bg-green-500 rounded-sm"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="md:w-20 flex justify-center">

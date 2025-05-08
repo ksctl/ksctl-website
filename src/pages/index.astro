@@ -1,26 +1,29 @@
 ---
-import Stats from "../components/Stats.astro";
-import Features from "../components/Features.astro";
 import HeroSection from "../components/HeroSection.astro";
-import Layout from "../layouts/Layout.astro";
-import Testimonials from "../components/Testimonials.astro";
-import CallToAction from "../components/CallToAction.astro";
-import Blog from "../components/Blog.astro";
-import SustainabilityVisual from "../components/SustainabilityVisual.astro";
-import DashboardPreview from "../components/DashboardPreview.astro";
+import Features from "../components/Features.astro";
 import HowItWorks from "../components/HowItWorks.astro";
-import FAQ from "../components/FAQ.astro";
+import DashboardPreview from "../components/DashboardPreview.astro";
+import ComparisonTabs from "../components/ComparisonTabs.astro";
+import SustainabilityVisual from "../components/SustainabilityVisual.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Stats from "../components/Stats.astro";
+import Blog from "../components/Blog.astro";
 import Pricing from "../components/Pricing.astro";
+import FAQ from "../components/FAQ.astro";
+import CallToAction from "../components/CallToAction.astro";
+import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 ---
 
-<Layout title="ksctl - Cloud Agnostic Kubernetes Management">
+<Layout title="ksctl - Sustainable, Cloud Agnostic Kubernetes Management">
   <main class="space-y-32 mb-32">
     <HeroSection />
     <Features />
     <HowItWorks />
     <DashboardPreview />
+    <ComparisonTabs />
     <SustainabilityVisual />
+    <Testimonials />
     <Stats />
     <Blog />
     <Pricing />
