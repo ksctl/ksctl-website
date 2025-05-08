@@ -31,9 +31,9 @@ import Container from "./Container.astro";
     <div class="relative z-10">
       <!-- Contributors circle with animation -->
       <div class="flex items-center justify-center -space-x-3 animate-float-slow">
-        <div class="h-14 w-14 rounded-full ring-4 ring-white dark:ring-gray-800 bg-gradient-to-br from-primary/90 to-teal-500/90 flex items-center justify-center text-white font-bold text-lg shadow-xl">
-          <span>10+</span>
-        </div>
+        <!-- <div class="h-14 w-14 rounded-full ring-4 ring-white dark:ring-gray-800 bg-gradient-to-br from-primary/90 to-teal-500/90 flex items-center justify-center text-white font-bold text-lg shadow-xl"> -->
+        <!--   <span>10+</span> -->
+        <!-- </div> -->
         <img
           loading="lazy"
           width="200"
@@ -61,14 +61,14 @@ import Container from "./Container.astro";
       </div>
       
       <!-- GitHub stars badge -->
-      <div class="mt-4 flex justify-center">
-        <div class="flex items-center gap-1 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700">
-          <svg class="h-4 w-4 text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
-          </svg>
-          <span class="text-xs font-medium text-gray-800 dark:text-gray-200">600+ GitHub Stars</span>
-        </div>
-      </div>
+      <!-- <div class="mt-4 flex justify-center"> -->
+      <!--   <div class="flex items-center gap-1 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700"> -->
+      <!--     <svg class="h-4 w-4 text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"> -->
+      <!--       <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" /> -->
+      <!--     </svg> -->
+      <!--     <span class="text-xs font-medium text-gray-800 dark:text-gray-200">600+ GitHub Stars</span> -->
+      <!--   </div> -->
+      <!-- </div> -->
       
       <div class="mt-12 m-auto space-y-8 md:w-9/12 lg:w-8/12">
         <h2
@@ -114,19 +114,19 @@ import Container from "./Container.astro";
             Discord
           </a>
           
-          <a href="https://twitter.com/ksctlHQ" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium flex items-center px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
+          <a href="https://x.com/ksctl_org" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium flex items-center px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
               <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
             </svg>
             Twitter
           </a>
           
-          <a href="https://slack.ksctl.com" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium flex items-center px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.687 8.834a2.528 2.528 0 0 1-2.521 2.521 2.527 2.527 0 0 1-2.521-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.522 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.522 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.521-2.522v-2.522h2.521zM15.165 17.687a2.527 2.527 0 0 1-2.521-2.521 2.526 2.526 0 0 1 2.521-2.521h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.522h-6.313z"/>
-            </svg>
-            Slack
-          </a>
+          <!-- <a href="https://slack.ksctl.com" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium flex items-center px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30"> -->
+          <!--   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24"> -->
+          <!--     <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.687 8.834a2.528 2.528 0 0 1-2.521 2.521 2.527 2.527 0 0 1-2.521-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.522 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.522 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.521-2.522v-2.522h2.521zM15.165 17.687a2.527 2.527 0 0 1-2.521-2.521 2.526 2.526 0 0 1 2.521-2.521h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.522h-6.313z"/> -->
+          <!--   </svg> -->
+          <!--   Slack -->
+          <!-- </a> -->
         </div>
         
         <!-- Newsletter signup -->
@@ -134,8 +134,8 @@ import Container from "./Container.astro";
           <div class="p-0.5 rounded-xl bg-gradient-to-r from-primary to-green-500 dark:from-primary/80 dark:to-green-500/80">
             <div class="bg-white dark:bg-gray-800 rounded-lg px-4 py-3">
               <div class="flex flex-col sm:flex-row gap-2">
-                <input type="email" placeholder="Enter your email" class="flex-grow px-4 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50" />
-                <button class="px-5 py-2 bg-gradient-to-r from-primary to-green-500 text-white font-medium rounded-lg shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30 transition-all">
+                <input type="email" placeholder="Enter your email" class="flex-grow px-4 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50"  disabled="true" />
+                <button class="px-5 py-2 bg-gradient-to-r from-primary to-green-500 text-white font-medium rounded-lg shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/30 transition-all" disabled="true">
                   Get Updates
                 </button>
               </div>
