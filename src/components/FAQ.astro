@@ -30,7 +30,7 @@ import Container from "./Container.astro";
       <div class="space-y-6">
         <!-- FAQ Item 1 -->
         <div class="faq-item bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
-          <button 
+          <button
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
@@ -39,16 +39,16 @@ import Container from "./Container.astro";
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="faq-answer px-6 pb-6 hidden">
+          <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300">
-              ksctl is a cloud-agnostic Kubernetes management tool designed with sustainability and simplicity as core principles. Unlike other tools, ksctl prioritizes both cost optimization and environmental impact by intelligently selecting regions and instance types based on carbon intensity and renewable energy availability. It provides a unified interface across all major cloud providers, making it easy to deploy, manage, and optimize your Kubernetes clusters regardless of where they're hosted.
+              ksctl is a cloud-agnostic Kubernetes management tool designed with sustainability and simplicity as core principles. Unlike other tools, ksctl prioritizes both cost optimization and environmental impact by intelligently selecting regions and instance types based on carbon intensity and renewable energy availability. It provides a unified interface across major cloud providers, making it easy to deploy, manage, and optimize your Kubernetes clusters regardless of where they're hosted. Can create clusters ranging from their own local machine to cloud provider managed (For ex. AKS, EKS) to Self Managed (For Ex. K3s, kubeadm), with no need for manual intervention.
             </p>
           </div>
         </div>
 
         <!-- FAQ Item 2 -->
         <div class="faq-item bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
-          <button 
+          <button
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
@@ -57,16 +57,16 @@ import Container from "./Container.astro";
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="faq-answer px-6 pb-6 hidden">
+          <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300">
-              ksctl currently supports AWS, Google Cloud Platform (GCP), Microsoft Azure, Digital Ocean, and self-managed Kubernetes deployments. Our unified API approach means you can use the same commands and workflows across all providers, making multi-cloud management seamless. We're constantly adding support for additional cloud providers based on community feedback.
+              ksctl currently supports AWS(EKS) and Azure(AKS) along with self-managed Kubernetes deployments. Our unified API approach means you can use the same commands and workflows across all providers, making multi-cloud management seamless. We're constantly adding support for additional cloud providers based on community feedback.
             </p>
           </div>
         </div>
 
         <!-- FAQ Item 3 -->
         <div class="faq-item bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
-          <button 
+          <button
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
@@ -75,22 +75,22 @@ import Container from "./Container.astro";
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="faq-answer px-6 pb-6 hidden">
+          <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300 mb-4">
               ksctl uses multiple strategies to optimize for sustainability:
             </p>
             <ul class="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
               <li><span class="font-medium">Carbon-aware region selection</span>: We analyze real-time and historical data about the carbon intensity of different cloud regions and prioritize those with higher renewable energy percentages.</li>
-              <li><span class="font-medium">Energy-efficient instance types</span>: Our algorithms select instance types that provide the best performance per watt for your specific workload requirements.</li>
+              <li><span class="font-medium">Energy-efficient instance types</span>: Our algorithms select instance types that which tries to have lower emboddied carbon and also instance-group filteration for your specific workload requirements.</li>
               <li><span class="font-medium">Dynamic region switching</span>: For non-latency-sensitive workloads, ksctl can dynamically move workloads to regions with lower carbon intensity as conditions change.</li>
-              <li><span class="font-medium">Automated scaling</span>: Intelligently scales down resources during low-demand periods to reduce unnecessary energy consumption.</li>
+              <!-- <li><span class="font-medium">Automated scaling</span>: Intelligently scales down resources during low-demand periods to reduce unnecessary energy consumption.</li> -->
             </ul>
           </div>
         </div>
 
         <!-- FAQ Item 4 -->
         <div class="faq-item bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
-          <button 
+          <button
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
@@ -99,24 +99,24 @@ import Container from "./Container.astro";
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="faq-answer px-6 pb-6 hidden">
+          <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300 mb-4">
               Savings vary depending on your specific workloads and current setup, but our users typically see:
             </p>
             <ul class="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
-              <li><span class="font-medium">20-40% cost reduction</span> through optimized instance selection and automated scaling</li>
-              <li><span class="font-medium">30-60% carbon footprint reduction</span> through intelligent region selection and workload scheduling</li>
+              <li><span class="font-medium">20-40% cost reduction</span> through optimized instance selection and scaling</li>
+              <li><span class="font-medium">30-60% carbon footprint reduction</span> through intelligent region selection and workload specific Instance Type</li>
               <li><span class="font-medium">50-70% time savings</span> on cluster management and operations</li>
             </ul>
-            <p class="text-gray-600 dark:text-gray-300 mt-4">
+            <!-- <p class="text-gray-600 dark:text-gray-300 mt-4">
               Our dashboard provides real-time insights into both your cost savings and environmental impact, making it easy to track your optimization progress.
-            </p>
+            </p> -->
           </div>
         </div>
 
-        <!-- FAQ Item 5 -->
+        <!--
         <div class="faq-item bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
-          <button 
+          <button
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
@@ -125,16 +125,17 @@ import Container from "./Container.astro";
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="faq-answer px-6 pb-6 hidden">
+          <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300">
               Absolutely! ksctl is designed for production-grade Kubernetes deployments with features like high availability, disaster recovery, and security best practices built in. Many organizations, from startups to enterprises, use ksctl to manage their production environments across multiple cloud providers. Our focus on reliability and simplicity makes it an excellent choice for mission-critical workloads.
             </p>
           </div>
         </div>
+        -->
 
         <!-- FAQ Item 6 -->
         <div class="faq-item bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
-          <button 
+          <button
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
@@ -143,13 +144,13 @@ import Container from "./Container.astro";
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div class="faq-answer px-6 pb-6 hidden">
+          <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300 mb-4">
               Getting started is simple:
             </p>
             <ol class="list-decimal pl-6 space-y-2 text-gray-600 dark:text-gray-300">
               <li>Install ksctl with our one-line installer: <code class="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">curl -sSfL https://get.ksctl.com | python3 -</code></li>
-              <li>Configure your cloud provider credentials</li>
+              <li>Configure your cloud provider credentials <code class="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">ksctl configure cloud</code></li>
               <li>Create your first cluster with <code class="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">ksctl cluster create</code></li>
             </ol>
             <p class="text-gray-600 dark:text-gray-300 mt-4">
@@ -164,8 +165,8 @@ import Container from "./Container.astro";
           Still have questions? We're here to help!
         </p>
         <div class="mt-6 flex flex-wrap justify-center gap-4">
-          <a 
-            href="https://docs.ksctl.com" 
+          <a
+            href="https://docs.ksctl.com"
             class="inline-flex items-center px-6 py-3 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-medium hover:bg-indigo-200 dark:hover:bg-indigo-800/30 transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
@@ -173,8 +174,8 @@ import Container from "./Container.astro";
             </svg>
             Check Documentation
           </a>
-          <a 
-            href="https://discord.ksctl.com" 
+          <a
+            href="https://discord.ksctl.com"
             class="inline-flex items-center px-6 py-3 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors"
           >
             <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -192,31 +193,50 @@ import Container from "./Container.astro";
   // FAQ Accordion functionality
   document.addEventListener('DOMContentLoaded', () => {
     const faqItems = document.querySelectorAll('.faq-item');
-    
+
     faqItems.forEach(item => {
       const question = item.querySelector('.faq-question');
       const answer = item.querySelector('.faq-answer');
       const icon = item.querySelector('.faq-icon');
-      
+
       question.addEventListener('click', () => {
         const expanded = question.getAttribute('aria-expanded') === 'true';
-        
+
         // Close all other items
         faqItems.forEach(otherItem => {
           if (otherItem !== item) {
             const otherQuestion = otherItem.querySelector('.faq-question');
             const otherAnswer = otherItem.querySelector('.faq-answer');
             const otherIcon = otherItem.querySelector('.faq-icon');
-            
+
             otherQuestion.setAttribute('aria-expanded', 'false');
             otherAnswer.classList.add('hidden');
             otherIcon.style.transform = 'rotate(0deg)';
           }
         });
-        
+
         // Toggle current item
         question.setAttribute('aria-expanded', !expanded);
-        answer.classList.toggle('hidden');
+        if (!expanded) {
+          // Show the answer first with zero height
+          answer.classList.remove('hidden');
+          answer.style.display = 'block';
+
+          // Force browser reflow to ensure transitions work properly
+          void answer.offsetHeight;
+
+          // Expand to full height
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+          // Collapse to zero height
+          answer.style.maxHeight = '0px';
+
+          // Hide after transition completes
+          setTimeout(() => {
+            answer.classList.add('hidden');
+            answer.style.display = 'none';
+          }, 300); // Match the transition duration
+        }
         icon.style.transform = !expanded ? 'rotate(180deg)' : 'rotate(0deg)';
       });
     });
@@ -226,6 +246,13 @@ import Container from "./Container.astro";
 <style>
   .faq-answer {
     max-height: 0;
-    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    opacity: 1;
+    will-change: max-height;
+  }
+
+  .faq-answer:not(.hidden) {
+    max-height: 1000px; /* Fallback max-height in case JS fails */
   }
 </style>
