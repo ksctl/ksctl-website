@@ -1,0 +1,258 @@
+---
+import Container from "./Container.astro";
+---
+
+<div id="faq" class="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-40 right-0 w-96 h-96 bg-gradient-to-br from-primary/10 to-teal-400/5 dark:from-primary/5 dark:to-teal-400/5 blur-3xl"></div>
+    <div class="absolute -bottom-40 -left-20 w-80 h-80 bg-gradient-to-tr from-green-300/10 to-emerald-300/5 dark:from-green-700/10 dark:to-emerald-700/5 blur-3xl"></div>
+  </div>
+
+  <Container>
+    <div class="mb-20 space-y-4 text-center">
+      <span class="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 mb-6 border border-indigo-200 dark:border-indigo-800/30">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+        </svg>
+        Common Questions
+      </span>
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white md:text-5xl lg:text-6xl tracking-tight">
+        Frequently Asked <span class="bg-gradient-to-r from-indigo-500 to-purple-500 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">Questions</span>
+      </h2>
+      <p class="mx-auto max-w-2xl text-xl text-gray-600 dark:text-gray-300">
+        Everything you need to know about ksctl and sustainable Kubernetes management
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <div class="space-y-6">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
+          <button
+            class="faq-question w-full flex items-center justify-between p-6 text-left"
+            aria-expanded="false"
+          >
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">What is ksctl and how is it different?</h3>
+            <svg class="faq-icon h-6 w-6 text-primary dark:text-primary-light transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
+            <p class="text-gray-600 dark:text-gray-300">
+              ksctl is a cloud-agnostic Kubernetes management tool designed with sustainability and simplicity as core principles. Unlike other tools, ksctl prioritizes both cost optimization and environmental impact by intelligently selecting regions and instance types based on carbon intensity and renewable energy availability. It provides a unified interface across major cloud providers, making it easy to deploy, manage, and optimize your Kubernetes clusters regardless of where they're hosted. Can create clusters ranging from their own local machine to cloud provider managed (For ex. AKS, EKS) to Self Managed (For Ex. K3s, kubeadm), with no need for manual intervention.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
+          <button
+            class="faq-question w-full flex items-center justify-between p-6 text-left"
+            aria-expanded="false"
+          >
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">What cloud providers does ksctl support?</h3>
+            <svg class="faq-icon h-6 w-6 text-primary dark:text-primary-light transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
+            <p class="text-gray-600 dark:text-gray-300">
+              ksctl currently supports AWS(EKS) and Azure(AKS) along with self-managed Kubernetes deployments. Our unified API approach means you can use the same commands and workflows across all providers, making multi-cloud management seamless. We're constantly adding support for additional cloud providers based on community feedback.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
+          <button
+            class="faq-question w-full flex items-center justify-between p-6 text-left"
+            aria-expanded="false"
+          >
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">How does ksctl optimize for sustainability?</h3>
+            <svg class="faq-icon h-6 w-6 text-primary dark:text-primary-light transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              ksctl uses multiple strategies to optimize for sustainability:
+            </p>
+            <ul class="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
+              <li><span class="font-medium">Carbon-aware region selection</span>: We analyze real-time and historical data about the carbon intensity of different cloud regions and prioritize those with higher renewable energy percentages.</li>
+              <li><span class="font-medium">Energy-efficient instance types</span>: Our algorithms select instance types that which tries to have lower emboddied carbon and also instance-group filteration for your specific workload requirements.</li>
+              <li><span class="font-medium">Dynamic region switching</span>: For non-latency-sensitive workloads, ksctl can dynamically move workloads to regions with lower carbon intensity as conditions change.</li>
+              <!-- <li><span class="font-medium">Automated scaling</span>: Intelligently scales down resources during low-demand periods to reduce unnecessary energy consumption.</li> -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
+          <button
+            class="faq-question w-full flex items-center justify-between p-6 text-left"
+            aria-expanded="false"
+          >
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">How much can I save with ksctl?</h3>
+            <svg class="faq-icon h-6 w-6 text-primary dark:text-primary-light transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Savings vary depending on your specific workloads and current setup, but our users typically see:
+            </p>
+            <ul class="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
+              <li><span class="font-medium">20-40% cost reduction</span> through optimized instance selection and scaling</li>
+              <li><span class="font-medium">30-60% carbon footprint reduction</span> through intelligent region selection and workload specific Instance Type</li>
+              <li><span class="font-medium">50-70% time savings</span> on cluster management and operations</li>
+            </ul>
+            <!-- <p class="text-gray-600 dark:text-gray-300 mt-4">
+              Our dashboard provides real-time insights into both your cost savings and environmental impact, making it easy to track your optimization progress.
+            </p> -->
+          </div>
+        </div>
+
+        <!--
+        <div class="faq-item bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
+          <button
+            class="faq-question w-full flex items-center justify-between p-6 text-left"
+            aria-expanded="false"
+          >
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Is ksctl suitable for production environments?</h3>
+            <svg class="faq-icon h-6 w-6 text-primary dark:text-primary-light transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
+            <p class="text-gray-600 dark:text-gray-300">
+              Absolutely! ksctl is designed for production-grade Kubernetes deployments with features like high availability, disaster recovery, and security best practices built in. Many organizations, from startups to enterprises, use ksctl to manage their production environments across multiple cloud providers. Our focus on reliability and simplicity makes it an excellent choice for mission-critical workloads.
+            </p>
+          </div>
+        </div>
+        -->
+
+        <!-- FAQ Item 6 -->
+        <div class="faq-item bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
+          <button
+            class="faq-question w-full flex items-center justify-between p-6 text-left"
+            aria-expanded="false"
+          >
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">How can I get started with ksctl?</h3>
+            <svg class="faq-icon h-6 w-6 text-primary dark:text-primary-light transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Getting started is simple:
+            </p>
+            <ol class="list-decimal pl-6 space-y-2 text-gray-600 dark:text-gray-300">
+              <li>Install ksctl with our one-line installer: <code class="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">curl -sSfL https://get.ksctl.com | python3 -</code></li>
+              <li>Configure your cloud provider credentials <code class="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">ksctl configure cloud</code></li>
+              <li>Create your first cluster with <code class="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">ksctl cluster create</code></li>
+            </ol>
+            <p class="text-gray-600 dark:text-gray-300 mt-4">
+              Check out our <a href="https://docs.ksctl.com/docs/getting-started/" class="text-primary hover:text-primary-dark dark:hover:text-primary-light font-medium">Getting Started guide</a> for detailed instructions and tutorials. We also offer free community support through our Discord channel.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-lg text-gray-600 dark:text-gray-300">
+          Still have questions? We're here to help!
+        </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-4">
+          <a
+            href="https://docs.ksctl.com"
+            class="inline-flex items-center px-6 py-3 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-medium hover:bg-indigo-200 dark:hover:bg-indigo-800/30 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+            </svg>
+            Check Documentation
+          </a>
+          <a
+            href="https://discord.ksctl.com"
+            class="inline-flex items-center px-6 py-3 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors"
+          >
+            <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+            </svg>
+            Join Discord Community
+          </a>
+        </div>
+      </div>
+    </div>
+  </Container>
+</div>
+
+<script>
+  // FAQ Accordion functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      const icon = item.querySelector('.faq-icon');
+
+      question.addEventListener('click', () => {
+        const expanded = question.getAttribute('aria-expanded') === 'true';
+
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            const otherQuestion = otherItem.querySelector('.faq-question');
+            const otherAnswer = otherItem.querySelector('.faq-answer');
+            const otherIcon = otherItem.querySelector('.faq-icon');
+
+            otherQuestion.setAttribute('aria-expanded', 'false');
+            otherAnswer.classList.add('hidden');
+            otherIcon.style.transform = 'rotate(0deg)';
+          }
+        });
+
+        // Toggle current item
+        question.setAttribute('aria-expanded', !expanded);
+        if (!expanded) {
+          // Show the answer first with zero height
+          answer.classList.remove('hidden');
+          answer.style.display = 'block';
+
+          // Force browser reflow to ensure transitions work properly
+          void answer.offsetHeight;
+
+          // Expand to full height
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+          // Collapse to zero height
+          answer.style.maxHeight = '0px';
+
+          // Hide after transition completes
+          setTimeout(() => {
+            answer.classList.add('hidden');
+            answer.style.display = 'none';
+          }, 300); // Match the transition duration
+        }
+        icon.style.transform = !expanded ? 'rotate(180deg)' : 'rotate(0deg)';
+      });
+    });
+  });
+</script>
+
+<style>
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    opacity: 1;
+    will-change: max-height;
+  }
+
+  .faq-answer:not(.hidden) {
+    max-height: 1000px; /* Fallback max-height in case JS fails */
+  }
+</style>

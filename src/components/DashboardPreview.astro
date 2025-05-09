@@ -1,0 +1,411 @@
+---
+import Container from "./Container.astro";
+---
+
+<div id="dashboard" class="relative py-24 overflow-hidden bg-gradient-to-b from-white via-gray-50/80 to-white dark:from-gray-900 dark:via-gray-800/80 dark:to-gray-900">
+  <!-- Top & Bottom decorative lines -->
+  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+  
+  <!-- Background decorations -->
+  <div class="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-primary/10 to-teal-400/5 rounded-full filter blur-3xl animate-float-slow"></div>
+  <div class="absolute bottom-20 left-0 w-96 h-96 bg-gradient-to-tr from-green-300/10 to-emerald-300/5 rounded-full filter blur-3xl animate-float-delayed"></div>
+
+  <Container>
+    <div class="text-center mb-16">
+      <span class="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mb-6 border border-blue-200 dark:border-blue-800/30">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+          <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+        </svg>
+        Visual Management
+      </span>
+      <h2 class="text-4xl font-bold text-gray-900 md:text-5xl lg:text-6xl dark:text-white mb-6 tracking-tight">
+        Powerful <span class="bg-gradient-to-r from-blue-500 to-teal-500 dark:from-blue-400 dark:to-teal-400 bg-clip-text text-transparent">Dashboard</span> Interface
+      </h2>
+      <p class="mx-auto max-w-2xl text-xl text-gray-600 dark:text-gray-300">
+        Monitor and manage all your clusters with real-time metrics, cost insights, and sustainability analytics
+      </p>
+    </div>
+
+    <!-- Dashboard Preview -->
+    <div class="relative max-w-6xl mx-auto">
+      <!-- Dashboard Frame -->
+      <div class="relative bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border border-gray-800/80 transition-all duration-300">
+        <!-- Top Bar -->
+        <div class="flex items-center justify-between bg-gray-800/80 px-6 py-4 border-b border-gray-700/80">
+          <div class="flex items-center space-x-4">
+            <div class="flex space-x-2">
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="flex items-center space-x-2">
+                <div class="h-8 w-8 rounded-md bg-primary/20 flex items-center justify-center">
+                  <img src="/ksctl-logo.svg" alt="ksctl logo" class="h-5 w-5 brightness-200" />
+                </div>
+                <span class="text-gray-300 text-sm md:text-base font-medium">ksctl Dashboard</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="hidden md:flex items-center space-x-4">
+            <div class="flex h-9 items-center rounded-lg bg-gray-700/50 px-3 text-gray-300 text-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M9 9a2 2 0 114 0 2 2 0 01-4 0z" />
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a4 4 0 00-3.446 6.032l-2.261 2.26a1 1 0 101.414 1.415l2.261-2.261A4 4 0 1011 5z" clip-rule="evenodd" />
+              </svg>
+              <span>Search</span>
+            </div>
+            <div class="flex h-9 items-center rounded-lg bg-primary/20 px-3 text-primary-300 text-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+              </svg>
+              <span>Last 24h</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Dashboard Content -->
+        <div class="p-6">
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <!-- Left Sidebar -->
+            <div class="hidden lg:block">
+              <div class="bg-gray-800/60 rounded-xl p-4 mb-6">
+                <h4 class="text-gray-300 text-sm font-medium mb-3">Clusters</h4>
+                <ul class="space-y-2">
+                  <li class="flex items-center justify-between p-2 rounded-lg bg-primary/20 text-primary-300">
+                    <div class="flex items-center space-x-2">
+                      <div class="h-2 w-2 rounded-full bg-green-400"></div>
+                      <span class="text-sm">prod-cluster-1</span>
+                    </div>
+                    <span class="text-xs bg-green-900/50 text-green-400 px-2 py-0.5 rounded">Healthy</span>
+                  </li>
+                  <li class="flex items-center justify-between p-2 rounded-lg text-gray-300 hover:bg-gray-700/50">
+                    <div class="flex items-center space-x-2">
+                      <div class="h-2 w-2 rounded-full bg-green-400"></div>
+                      <span class="text-sm">staging-cluster</span>
+                    </div>
+                    <span class="text-xs bg-green-900/50 text-green-400 px-2 py-0.5 rounded">Healthy</span>
+                  </li>
+                  <li class="flex items-center justify-between p-2 rounded-lg text-gray-300 hover:bg-gray-700/50">
+                    <div class="flex items-center space-x-2">
+                      <div class="h-2 w-2 rounded-full bg-yellow-400"></div>
+                      <span class="text-sm">dev-cluster</span>
+                    </div>
+                    <span class="text-xs bg-yellow-900/50 text-yellow-400 px-2 py-0.5 rounded">Warning</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-gray-800/60 rounded-xl p-4">
+                <h4 class="text-gray-300 text-sm font-medium mb-3">Actions</h4>
+                <ul class="space-y-2">
+                  <li class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700/50 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3 text-primary-300" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                    </svg>
+                    <span class="text-sm">Dashboard</span>
+                  </li>
+                  <li class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700/50 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M13 7H7v6h6V7z" />
+                      <path fill-rule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-sm">Clusters</span>
+                  </li>
+                  <li class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700/50 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-sm">Monitoring</span>
+                  </li>
+                  <li class="flex items-center p-2 rounded-lg text-gray-300 hover:bg-gray-700/50 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-3 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-sm">Settings</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="lg:col-span-3 space-y-6">
+              <!-- Status Summary Cards -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-800/60 rounded-xl p-4 hover:bg-gray-800/90 transition-colors">
+                  <div class="flex justify-between">
+                    <h4 class="text-gray-300 text-sm font-medium">Clusters</h4>
+                    <span class="text-primary-300 bg-primary/20 h-6 w-6 rounded-full flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M13 7H7v6h6V7z" />
+                        <path fill-rule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z" clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </div>
+                  <p class="text-2xl font-bold text-white mt-4">3</p>
+                  <div class="flex items-center mt-2">
+                    <span class="text-green-400 text-xs font-medium flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd" />
+                      </svg>
+                      +1 (33%)
+                    </span>
+                    <span class="text-xs text-gray-400 ml-2">vs last month</span>
+                  </div>
+                </div>
+                
+                <div class="bg-gray-800/60 rounded-xl p-4 hover:bg-gray-800/90 transition-colors">
+                  <div class="flex justify-between">
+                    <h4 class="text-gray-300 text-sm font-medium">Uptime</h4>
+                    <span class="text-green-400 bg-green-900/30 h-6 w-6 rounded-full flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </div>
+                  <p class="text-2xl font-bold text-white mt-4">99.98%</p>
+                  <div class="flex items-center mt-2">
+                    <span class="text-green-400 text-xs font-medium flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd" />
+                      </svg>
+                      +0.05%
+                    </span>
+                    <span class="text-xs text-gray-400 ml-2">vs last month</span>
+                  </div>
+                </div>
+                
+                <div class="bg-gray-800/60 rounded-xl p-4 hover:bg-gray-800/90 transition-colors">
+                  <div class="flex justify-between">
+                    <h4 class="text-gray-300 text-sm font-medium">Monthly Cost</h4>
+                    <span class="text-blue-400 bg-blue-900/30 h-6 w-6 rounded-full flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                  </div>
+                  <p class="text-2xl font-bold text-white mt-4">$427.35</p>
+                  <div class="flex items-center mt-2">
+                    <span class="text-green-400 text-xs font-medium flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                      </svg>
+                      -12.4%
+                    </span>
+                    <span class="text-xs text-gray-400 ml-2">vs last month</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Main Visualization -->
+              <div class="bg-gray-800/60 rounded-xl p-4 overflow-hidden hover:bg-gray-800/90 transition-colors">
+                <div class="flex justify-between items-center mb-4">
+                  <h4 class="text-gray-300 font-medium">Cost vs. Sustainability</h4>
+                  <div class="flex items-center space-x-2">
+                    <div class="flex items-center">
+                      <div class="h-3 w-3 rounded-full bg-primary mr-1"></div>
+                      <span class="text-xs text-gray-300">Cost ($)</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="h-3 w-3 rounded-full bg-green-500 mr-1"></div>
+                      <span class="text-xs text-gray-300">CO₂ (kg)</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="h-80 relative">
+                  <!-- Graph with data points - Simulated with static SVG -->
+                  <svg class="w-full h-full" viewBox="0 0 280 180">
+                    <!-- Grid lines -->
+                    <line x1="0" y1="0" x2="0" y2="180" stroke="#374151" stroke-width="1" />
+                    <line x1="0" y1="180" x2="280" y2="180" stroke="#374151" stroke-width="1" />
+                    <line x1="0" y1="0" x2="280" y2="0" stroke="#374151" stroke-width="0.5" opacity="0.3" />
+                    <line x1="0" y1="45" x2="280" y2="45" stroke="#374151" stroke-width="0.5" opacity="0.3" />
+                    <line x1="0" y1="90" x2="280" y2="90" stroke="#374151" stroke-width="0.5" opacity="0.3" />
+                    <line x1="0" y1="135" x2="280" y2="135" stroke="#374151" stroke-width="0.5" opacity="0.3" />
+                    
+                    <!-- Cost line (primary) -->
+                    <path d="M0,160 C20,150 40,100 70,90 C90,85 120,120 150,100 C180,80 210,50 240,45 C270,40 280,30 280,30" fill="none" stroke="#14B8A6" stroke-width="2" />
+                    
+                    <!-- Carbon line (green) -->
+                    <path d="M0,150 C30,130 60,145 90,120 C120,100 150,105 180,70 C210,40 240,35 280,25" fill="none" stroke="#22C55E" stroke-width="2" />
+                    
+                    <!-- Data points for Cost -->
+                    <circle cx="0" cy="160" r="3" fill="#14B8A6" />
+                    <circle cx="40" cy="100" r="3" fill="#14B8A6" />
+                    <circle cx="70" cy="90" r="3" fill="#14B8A6" />
+                    <circle cx="120" cy="120" r="3" fill="#14B8A6" />
+                    <circle cx="150" cy="100" r="3" fill="#14B8A6" />
+                    <circle cx="210" cy="50" r="3" fill="#14B8A6" />
+                    <circle cx="280" cy="30" r="3" fill="#14B8A6" />
+                    
+                    <!-- Data points for Carbon -->
+                    <circle cx="0" cy="150" r="3" fill="#22C55E" />
+                    <circle cx="60" cy="145" r="3" fill="#22C55E" />
+                    <circle cx="90" cy="120" r="3" fill="#22C55E" />
+                    <circle cx="150" cy="105" r="3" fill="#22C55E" />
+                    <circle cx="180" cy="70" r="3" fill="#22C55E" />
+                    <circle cx="240" cy="35" r="3" fill="#22C55E" />
+                    <circle cx="280" cy="25" r="3" fill="#22C55E" />
+                    
+                    <!-- Optimization point with highlight -->
+                    <circle cx="180" cy="70" r="8" fill="none" stroke="#FFCA28" stroke-width="2" opacity="0.8">
+                      <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.8;0.6;0.8" dur="2s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="190" y="65" font-size="8" fill="#FFCA28">Optimal Point</text>
+                  </svg>
+                  
+                  <div class="absolute left-0 bottom-0 text-xs text-gray-400">Jan</div>
+                  <div class="absolute right-0 bottom-0 text-xs text-gray-400">Dec</div>
+                </div>
+              </div>
+              
+              <!-- Additional Info -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Left Panel: Sustainability Score -->
+                <div class="bg-gray-800/60 rounded-xl p-4 hover:bg-gray-800/90 transition-colors">
+                  <h4 class="text-gray-300 text-sm font-medium mb-3">Sustainability Score</h4>
+                  <div class="flex items-center justify-between">
+                    <div class="relative w-24 h-24">
+                      <svg viewBox="0 0 36 36" class="w-full h-full">
+                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#374151" stroke-width="3" />
+                        <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#22C55E" stroke-width="3" stroke-dasharray="75, 100" />
+                      </svg>
+                      <div class="absolute inset-0 flex items-center justify-center text-xl font-semibold text-white">75%</div>
+                    </div>
+                    <div class="ml-4">
+                      <p class="text-sm text-green-400 font-medium">Good</p>
+                      <p class="mt-1 text-xs text-gray-400">Top 10% sustainable clusters.</p>
+                      <div class="mt-3 flex items-center text-xs text-gray-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Powered by 68% renewable energy</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right Panel: Recommendations -->
+                <div class="bg-gray-800/60 rounded-xl p-4 hover:bg-gray-800/90 transition-colors">
+                  <h4 class="text-gray-300 text-sm font-medium mb-3">Smart Recommendations</h4>
+                  <div class="space-y-2">
+                    <div class="flex items-start">
+                      <div class="h-6 w-6 rounded-full bg-blue-900/30 text-blue-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
+                        </svg>
+                      </div>
+                      <div class="ml-3">
+                        <p class="text-xs text-white font-medium">Switch dev-cluster to eu-west-2</p>
+                        <p class="text-xs text-gray-400">Save 23% in costs and reduce carbon by 18%</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="h-6 w-6 rounded-full bg-amber-900/30 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                      </div>
+                      <div class="ml-3">
+                        <p class="text-xs text-white font-medium">Scale down staging-cluster at night</p>
+                        <p class="text-xs text-gray-400">Save up to $142/month with automated scaling</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual Decorations -->
+      <div class="absolute bottom-4 right-4">
+        <div class="flex items-center text-xs text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span>Powered by ksctl</span>
+        </div>
+      </div>
+
+      <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-4/5 h-8 bg-black/20 blur-xl rounded-full"></div>
+    </div>
+
+    <!-- Features Section Below the Dashboard -->
+    <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white dark:bg-gray-800/50 p-6 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Real-Time Monitoring</h3>
+        <p class="text-gray-600 dark:text-gray-300">Monitor your clusters in real-time with comprehensive metrics and alert notifications.</p>
+      </div>
+      
+      <div class="bg-white dark:bg-gray-800/50 p-6 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Cost Optimization</h3>
+        <p class="text-gray-600 dark:text-gray-300">Automatically identify cost-saving opportunities and implement recommended actions.</p>
+      </div>
+      
+      <div class="bg-white dark:bg-gray-800/50 p-6 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Carbon Intelligence</h3>
+        <p class="text-gray-600 dark:text-gray-300">Understand your carbon footprint and get recommendations for greener infrastructure choices.</p>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="mt-16 text-center">
+      <a href="https://docs.ksctl.com" class="inline-flex items-center px-8 py-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-xl shadow-blue-600/20 hover:shadow-blue-600/30 hover:-translate-y-1 transition-all duration-300">
+        <span class="text-lg">View Documentation</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </Container>
+</div>
+
+<style>
+  /* Animation for the graph */
+  @keyframes float-slow {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(0, -10px); }
+  }
+  
+  @keyframes float-delayed {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(0, -15px); }
+  }
+  
+  .animate-float-slow {
+    animation: float-slow 10s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float-delayed 12s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  /* Hover effects on dashboard elements */
+  .dashboard:hover .perspective {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+  }
+</style>

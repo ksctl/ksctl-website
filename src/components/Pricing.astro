@@ -1,0 +1,305 @@
+---
+import Container from "./Container.astro";
+---
+
+<div id="pricing" class="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-gradient-to-br from-primary/10 to-teal-400/5 dark:from-primary/5 dark:to-teal-400/5 blur-3xl"></div>
+    <div class="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-gradient-to-tr from-blue-300/10 to-indigo-300/5 dark:from-blue-900/10 dark:to-indigo-900/5 blur-3xl"></div>
+  </div>
+
+  <Container>
+    <div class="text-center mb-16">
+      <span class="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mb-6 border border-blue-200 dark:border-blue-800/30">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd" />
+        </svg>
+        Simple Pricing
+      </span>
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white md:text-5xl xl:text-6xl tracking-tight mb-6">
+        Plans for <span class="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">Every Scale</span>
+      </h2>
+      <p class="mx-auto max-w-2xl text-xl text-gray-600 dark:text-gray-300">
+        Choose the right plan for your needs. All plans include our core sustainability features.
+      </p>
+
+      <!-- Pricing toggle -->
+      <div class="mt-10 flex items-center justify-center gap-4">
+        <span class="text-base font-medium text-gray-900 dark:text-white">Monthly</span>
+        <label class="relative inline-flex cursor-pointer items-center">
+          <input id="pricing-toggle" type="checkbox" value="" class="peer sr-only" checked>
+          <div class="peer h-7 w-14 rounded-full bg-gray-200 after:absolute after:left-[4px] after:top-[4px] after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow-md after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-focus:ring-4 peer-focus:ring-blue-300 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
+        </label>
+        <span class="text-base font-medium text-gray-900 dark:text-white">Annual <span class="text-xs text-green-500 font-medium">(Save 20%)</span></span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:max-w-6xl xl:mx-auto">
+      <!-- Free Plan -->
+      <div class="relative rounded-2xl bg-white shadow-xl dark:bg-gray-800/80 border border-gray-100 dark:border-gray-700/50 overflow-hidden">
+        <div class="p-8">
+          <div class="mb-5">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">Community</h3>
+            <p class="text-gray-500 dark:text-gray-400">Perfect for individual developers</p>
+          </div>
+          
+          <div class="mb-6">
+            <div class="flex items-baseline">
+              <span class="text-5xl font-bold text-gray-900 dark:text-white">$0</span>
+              <span class="text-gray-500 dark:text-gray-400 ml-2">/forever</span>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Free forever, open source</p>
+          </div>
+          
+          <a href="https://docs.ksctl.com/docs/getting-started/" class="w-full mb-8 inline-flex justify-center items-center px-5 py-3 text-base font-medium rounded-lg border-2 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 transition-all">
+            Get Started
+            <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          
+          <ul class="space-y-4 text-gray-600 dark:text-gray-300">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Single-cluster management</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Basic sustainability features</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>CLI access</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Community support</span>
+            </li>
+            <li class="flex items-center text-gray-400 dark:text-gray-500">
+              <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+              <span>Advanced carbon optimization</span>
+            </li>
+            <li class="flex items-center text-gray-400 dark:text-gray-500">
+              <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+              <span>Multi-cluster management</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pro Plan -->
+      <div class="relative rounded-2xl bg-gradient-to-b from-blue-600 to-indigo-600 shadow-xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300">
+        <!-- Popular tag -->
+        <div class="absolute top-0 right-0">
+          <div class="text-xs font-semibold bg-amber-400 text-gray-900 py-1 px-3 rounded-bl-lg">POPULAR</div>
+        </div>
+
+        <div class="p-8 text-white">
+          <div class="mb-5">
+            <h3 class="text-2xl font-bold mb-1">Pro</h3>
+            <p class="opacity-80">For growing teams</p>
+          </div>
+          
+          <div class="mb-6">
+            <div class="flex items-baseline">
+              <span class="text-5xl font-bold">$49</span>
+              <span class="ml-2 opacity-80 price-duration" data-monthly="/month" data-annual="/year">
+                /month
+              </span>
+            </div>
+            <p class="text-sm opacity-80 mt-1 price-per-unit" data-monthly="per organization" data-annual="per organization, billed annually">
+              per organization
+            </p>
+          </div>
+          
+          <a href="https://docs.ksctl.com/pricing" class="w-full mb-8 inline-flex justify-center items-center px-5 py-3 text-base font-medium rounded-lg bg-white text-blue-600 hover:bg-gray-100 focus:ring-4 focus:ring-white/30 transition-all">
+            Start free trial
+            <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          
+          <p class="text-sm font-semibold mb-4">Everything in Community, plus:</p>
+          
+          <ul class="space-y-4">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Up to 10 clusters</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Advanced carbon optimization</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Dashboard access</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Cost optimization reports</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Email support</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Enterprise Plan -->
+      <div class="relative rounded-2xl bg-white shadow-xl dark:bg-gray-800/80 border border-gray-100 dark:border-gray-700/50 overflow-hidden">
+        <div class="p-8">
+          <div class="mb-5">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">Enterprise</h3>
+            <p class="text-gray-500 dark:text-gray-400">For large organizations</p>
+          </div>
+          
+          <div class="mb-6">
+            <div class="flex items-baseline">
+              <span class="text-5xl font-bold text-gray-900 dark:text-white">Custom</span>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Contact us for pricing</p>
+          </div>
+          
+          <a href="https://docs.ksctl.com/contact" class="w-full mb-8 inline-flex justify-center items-center px-5 py-3 text-base font-medium rounded-lg border-2 border-primary text-primary dark:text-primary-light hover:bg-primary/10 dark:hover:bg-primary/10 focus:ring-4 focus:ring-primary/20 dark:focus:ring-primary/30 transition-all">
+            Contact Sales
+            <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          
+          <p class="text-sm font-semibold mb-4 text-gray-900 dark:text-white">Everything in Pro, plus:</p>
+          
+          <ul class="space-y-4 text-gray-600 dark:text-gray-300">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Unlimited clusters</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Custom integrations</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>SSO & advanced security</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Dedicated account manager</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>24/7 priority support</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>SLA guarantees</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Questions -->
+    <div class="mt-20">
+      <h3 class="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">Frequently Asked Questions</h3>
+      
+      <div class="grid gap-6 md:grid-cols-2 lg:gap-12 max-w-4xl mx-auto">
+        <div>
+          <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Are there any usage limits on the Free plan?</h4>
+          <p class="text-gray-600 dark:text-gray-300">The Community plan allows for single-cluster management with basic features. For multi-cluster environments or advanced sustainability features, we recommend our Pro or Enterprise plans.</p>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Can I upgrade or downgrade my plan anytime?</h4>
+          <p class="text-gray-600 dark:text-gray-300">Yes, you can upgrade or downgrade your plan at any time. When upgrading, we'll prorate the difference. When downgrading, the change will take effect at the start of your next billing cycle.</p>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Is there a trial period for paid plans?</h4>
+          <p class="text-gray-600 dark:text-gray-300">Yes, we offer a 14-day free trial for our Pro plan with no credit card required. This gives you full access to all Pro features to evaluate how they fit your needs.</p>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">What payment methods do you accept?</h4>
+          <p class="text-gray-600 dark:text-gray-300">We accept all major credit cards, PayPal, and for Enterprise customers, we can also accommodate wire transfers and purchase orders.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Call to Action -->
+    <div class="mt-20 text-center">
+      <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Need something custom?</h3>
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+        We understand that organizations have unique requirements. Contact us to discuss a custom plan tailored to your needs.
+      </p>
+      <a href="https://docs.ksctl.com/contact" class="inline-flex items-center px-8 py-4 text-lg font-medium rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-100 transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+        </svg>
+        Contact Sales
+      </a>
+    </div>
+  </Container>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('pricing-toggle');
+    const durationElements = document.querySelectorAll('.price-duration');
+    const perUnitElements = document.querySelectorAll('.price-per-unit');
+    
+    toggle.addEventListener('change', function() {
+      const isAnnual = this.checked;
+      
+      durationElements.forEach(el => {
+        el.textContent = isAnnual 
+          ? el.getAttribute('data-annual')
+          : el.getAttribute('data-monthly');
+      });
+      
+      perUnitElements.forEach(el => {
+        el.textContent = isAnnual 
+          ? el.getAttribute('data-annual') 
+          : el.getAttribute('data-monthly');
+      });
+    });
+  });
+</script>

@@ -2,27 +2,33 @@
 import Container from "./Container.astro"
 ---
 
-<div id="blog" class="py-16 bg-gray-50/50 dark:bg-gray-900/20 relative overflow-hidden">
+<div id="blog" class="py-24 bg-gradient-to-b from-white to-gray-50/80 dark:from-gray-900 dark:to-gray-800/50 relative overflow-hidden">
   <!-- Decorative elements -->
-  <div class="absolute -right-20 top-0 w-64 h-64 bg-primary/5 dark:bg-primary/10 rounded-full filter blur-3xl"></div>
-  <div class="absolute -left-20 bottom-0 w-72 h-72 bg-green-400/5 dark:bg-green-400/10 rounded-full filter blur-3xl"></div>
+  <div class="absolute -right-20 top-0 w-96 h-96 bg-gradient-to-br from-primary/10 to-teal-400/5 rounded-full filter blur-3xl animate-float-slow"></div>
+  <div class="absolute -left-20 bottom-0 w-96 h-96 bg-gradient-to-tr from-green-300/10 to-emerald-300/5 rounded-full filter blur-3xl animate-float-delayed"></div>
   <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent to-white/80 dark:to-gray-900/80 opacity-80"></div>
 
   <Container>
-      <div class="mb-16 space-y-4 text-center relative z-10">
-        <span class="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4">Latest Updates</span>
-        <h2 class="text-3xl font-bold text-gray-800 md:text-4xl lg:text-5xl dark:text-white tracking-tight">What's <span class="text-green-600 dark:text-green-400">New</span> in Ksctl</h2>
-        <p class="lg:mx-auto lg:max-w-2xl text-lg text-gray-600 dark:text-gray-300">
+      <div class="mb-20 space-y-4 text-center relative z-10">
+        <span class="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 mb-6 border border-green-200 dark:border-green-800/30">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zm7-10a1 1 0 01.707.293l.707.707L15.707 1a1 1 0 111.414 1.414L15.414 4l1.707 1.707a1 1 0 01-1.414 1.414L14 5.414l-1.707 1.707a1 1 0 01-1.414-1.414L12.586 4l-1.707-1.707A1 1 0 0112 1zm-7 8a1 1 0 01.707.293l.707.707L15.707 9a1 1 0 111.414 1.414l-1.707 1.707 1.707 1.707a1 1 0 01-1.414 1.414L14 13.414l-1.707 1.707a1 1 0 01-1.414-1.414l1.707-1.707-1.707-1.707A1 1 0 015 9z" clip-rule="evenodd" />
+          </svg>
+          Latest Updates
+        </span>
+        <h2 class="text-4xl font-bold text-gray-900 md:text-5xl lg:text-6xl dark:text-white tracking-tight">What's <span class="bg-gradient-to-r from-green-500 to-teal-500 dark:from-green-400 dark:to-teal-400 bg-clip-text text-transparent">New</span> in ksctl</h2>
+        <p class="mx-auto max-w-2xl text-xl text-gray-600 dark:text-gray-300">
           Discover our newest sustainability and cost optimization features that help you reduce both infrastructure costs and environmental impact
         </p>
       </div>
 
-      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-2">
+      <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-2">
         <!-- Blog post card 1 -->
-        <div class="group relative bg-white dark:bg-gray-800/70 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700/30 overflow-hidden flex flex-col">
+        <div class="group relative bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-gray-100 dark:border-gray-700/30 overflow-hidden flex flex-col">
           <!-- Version badge -->
-          <div class="absolute top-4 left-4 z-10">
-            <span class="bg-green-500/90 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">v2.5</span>
+          <div class="absolute top-5 left-5 z-10">
+            <span class="bg-gradient-to-r from-green-500 to-teal-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">v2.5</span>
           </div>
           <!-- Image container -->
           <div class="relative overflow-hidden h-64">
@@ -33,10 +39,10 @@ import Container from "./Container.astro"
               class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
             />
             <!-- Gradient overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
 
-          <div class="flex-grow p-6 sm:p-8">
+          <div class="flex-grow p-7 sm:p-9">
             <!-- Date -->
             <div class="flex items-center mb-3 text-gray-500 dark:text-gray-400 text-sm">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -46,7 +52,7 @@ import Container from "./Container.astro"
             </div>
 
             <!-- Title -->
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-green-600 transition-colors duration-300">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-green-500 transition-colors duration-300">
               Smart Region and Instance Selection
             </h3>
 
@@ -57,20 +63,20 @@ import Container from "./Container.astro"
 
             <!-- Tags -->
             <div class="flex flex-wrap gap-2 mt-auto mb-6">
-              <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-1 rounded-full dark:bg-green-900/40 dark:text-green-300 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span class="bg-gradient-to-r from-green-30 to-green-20 text-green-800 text-xs font-medium px-3 py-1.5 rounded-full dark:bg-green-900/40 dark:text-green-300 flex items-center shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 Emission Optimization
               </span>
-              <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded-full dark:bg-blue-900/40 dark:text-blue-300 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span class="bg-gradient-to-r from-blue-30 to-blue-20 text-blue-800 text-xs font-medium px-3 py-1.5 rounded-full dark:bg-blue-900/40 dark:text-blue-300 flex items-center shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Cost Efficiency
               </span>
-              <span class="bg-amber-100 text-amber-800 text-xs font-medium px-2.5 py-1 rounded-full dark:bg-amber-900/40 dark:text-amber-300 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span class="bg-gradient-to-r from-amber-30 to-amber-20 text-amber-800 text-xs font-medium px-3 py-1.5 rounded-full dark:bg-amber-900/40 dark:text-amber-300 flex items-center shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Embodied Emissions
@@ -80,10 +86,10 @@ import Container from "./Container.astro"
             <!-- Call to action -->
             <a
               href="https://docs.ksctl.com/blog/2025/04/13/ksctl-v2.5-smart-region-and-instance-selection/"
-              class="inline-flex items-center font-medium text-primary dark:text-green-400 hover:underline group/link"
+              class="inline-flex items-center px-4 py-2 rounded-lg bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 font-medium hover:bg-green-100 dark:hover:bg-green-900/30 transition-all group"
             >
               Learn more
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform group-hover/link:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
               </svg>
             </a>
@@ -91,10 +97,10 @@ import Container from "./Container.astro"
         </div>
 
         <!-- Blog post card 2 -->
-        <div class="group relative bg-white dark:bg-gray-800/70 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700/30 overflow-hidden flex flex-col">
+        <div class="group relative bg-white dark:bg-gray-800/70 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-gray-100 dark:border-gray-700/30 overflow-hidden flex flex-col">
           <!-- Version badge -->
-          <div class="absolute top-4 left-4 z-10">
-            <span class="bg-blue-500/90 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">v2.4</span>
+          <div class="absolute top-5 left-5 z-10">
+            <span class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">v2.4</span>
           </div>
           <!-- Image container -->
           <div class="relative overflow-hidden h-64">
@@ -105,10 +111,10 @@ import Container from "./Container.astro"
               class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
             />
             <!-- Gradient overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
 
-          <div class="flex-grow p-6 sm:p-8">
+          <div class="flex-grow p-7 sm:p-9">
             <!-- Date -->
             <div class="flex items-center mb-3 text-gray-500 dark:text-gray-400 text-sm">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -129,20 +135,20 @@ import Container from "./Container.astro"
 
             <!-- Tags -->
             <div class="flex flex-wrap gap-2 mt-auto mb-6">
-              <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-1 rounded-full dark:bg-green-900/40 dark:text-green-300 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span class="bg-gradient-to-r from-green-30 to-green-20 text-green-800 text-xs font-medium px-3 py-1.5 rounded-full dark:bg-green-900/40 dark:text-green-300 flex items-center shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 Carbon Reduction
               </span>
-              <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded-full dark:bg-blue-900/40 dark:text-blue-300 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span class="bg-gradient-to-r from-blue-30 to-blue-20 text-blue-800 text-xs font-medium px-3 py-1.5 rounded-full dark:bg-blue-900/40 dark:text-blue-300 flex items-center shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
                 Automatic Optimization
               </span>
-              <span class="bg-amber-100 text-amber-800 text-xs font-medium px-2.5 py-1 rounded-full dark:bg-amber-900/40 dark:text-amber-300 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span class="bg-gradient-to-r from-amber-30 to-amber-20 text-amber-800 text-xs font-medium px-3 py-1.5 rounded-full dark:bg-amber-900/40 dark:text-amber-300 flex items-center shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
                 Renewable Energy
@@ -152,10 +158,10 @@ import Container from "./Container.astro"
             <!-- Call to action -->
             <a
               href="https://docs.ksctl.com/blog/2025/04/10/ksctl-v2.4-smarter-optimization-with-dynamic-region-switching/"
-              class="inline-flex items-center font-medium text-blue-600 dark:text-blue-400 hover:underline group/link"
+              class="inline-flex items-center px-4 py-2 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 font-medium hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all group"
             >
               Learn more
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform group-hover/link:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
               </svg>
             </a>
@@ -164,13 +170,13 @@ import Container from "./Container.astro"
       </div>
 
       <!-- Call to action section -->
-      <div class="mt-16 text-center">
+      <div class="mt-20 text-center">
         <a
           href="https://docs.ksctl.com/blog/"
-          class="inline-flex items-center px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-full text-primary dark:text-white font-medium transition-all hover:bg-primary hover:text-white hover:border-primary dark:hover:bg-primary dark:hover:border-primary"
+          class="inline-flex items-center px-8 py-4 rounded-full border-2 border-primary/20 dark:border-primary/30 bg-gradient-to-r from-primary/10 to-teal-400/10 dark:from-primary/20 dark:to-teal-400/20 text-primary dark:text-white font-medium shadow-lg shadow-primary/5 dark:shadow-primary/10 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
         >
-          <span>View All Blog Posts</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+          <span class="text-lg">View All Blog Posts</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
           </svg>
         </a>
