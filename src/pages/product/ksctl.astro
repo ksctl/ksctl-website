@@ -1,0 +1,25 @@
+---
+import HeroProduct from "../../components/HeroProduct.astro";
+import Features from "../../components/Features.astro";
+import HowItWorks from "../../components/HowItWorks.astro";
+import SustainabilityVisual from "../../components/SustainabilityVisual.astro";
+import Stats from "../../components/Stats.astro";
+import Blog from "../../components/Blog.astro";
+import FAQ from "../../components/FAQ.astro";
+import CallToAction from "../../components/CallToAction.astro";
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+---
+
+<Layout title="ksctl - Sustainable, Cloud-Agnostic Kubernetes Management">
+  <main class="space-y-32 mb-32">
+    <HeroProduct />
+    <Features />
+    <HowItWorks />
+    <SustainabilityVisual />
+    <Stats />
+    <Blog />
+    <FAQ />
+    <CallToAction />
+  </main>
+</Layout>
