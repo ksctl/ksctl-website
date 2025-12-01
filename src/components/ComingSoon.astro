@@ -5,11 +5,19 @@ interface Props {
   productName: string;
   tagline: string;
   description: string;
+  features: string[];
   releaseDate?: string;
   logo?: string;
 }
 
-const { productName, tagline, description, releaseDate = "Coming Soon", logo = "/ksctl-logo.svg" } = Astro.props;
+const {
+  productName,
+  tagline,
+  description,
+  features,
+  releaseDate = "Coming Soon",
+  logo = "/ksctl-logo.svg"
+} = Astro.props;
 ---
 
 <div class="relative overflow-hidden min-h-screen flex items-center" id="coming-soon">
@@ -64,36 +72,14 @@ const { productName, tagline, description, releaseDate = "Coming Soon", logo = "
           What to Expect
         </h2>
         <ul class="space-y-4">
-          <li class="flex items-start">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700 dark:text-gray-300">Unified dashboard for all your clusters</span>
-          </li>
-          <li class="flex items-start">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700 dark:text-gray-300">Real-time monitoring and alerting</span>
-          </li>
-          <li class="flex items-start">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700 dark:text-gray-300">Policy-as-code enforcement</span>
-          </li>
-          <li class="flex items-start">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700 dark:text-gray-300">Cost tracking across environments</span>
-          </li>
-          <li class="flex items-start">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="text-gray-700 dark:text-gray-300">Integration with ksctl for sustainable deployments</span>
-          </li>
+          {features.map((feature) => (
+            <li class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-gray-700 dark:text-gray-300">{feature}</span>
+            </li>
+          ))}
         </ul>
       </div>
 
