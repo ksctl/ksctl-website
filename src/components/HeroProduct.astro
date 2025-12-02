@@ -21,26 +21,26 @@ import Container from "./Container.astro";
         <!-- Left column: Text content -->
         <div class="order-2 lg:order-1">
           <div class="lg:max-w-xl">
-            <div class="inline-flex animate-fadeIn items-center gap-1.5 rounded-full bg-primary/5 dark:bg-primary/10 px-4 py-2 text-sm font-medium text-primary dark:text-teal-300 mb-6 border border-primary/10 dark:border-primary/20">
-              <div class="flex items-center justify-center w-5 h-5 rounded-full bg-primary mr-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <span>Now with dynamic region switching for optimal sustainability</span>
+            <!-- Logo & Product Name -->
+            <div class="flex items-center mb-6 animate-fadeIn">
+              <img
+                src="/ksctl-logo.svg"
+                alt="ksctl logo"
+                class="h-16 w-auto mr-4"
+              />
+              <h3 class="text-4xl font-bold text-gray-900 dark:text-white">
+                ksctl cli
+              </h3>
             </div>
 
-            <h1 class="text-left text-gray-900 dark:text-white font-bold text-5xl md:text-6xl lg:text-6xl tracking-tight leading-[1.1] mb-6">
-              Sustainable <br class="hidden md:block">
-              <span class="relative inline-block mt-2">
-                <span class="relative z-10 bg-gradient-to-br from-primary to-green-500 dark:from-primary dark:to-green-400 bg-clip-text text-transparent">Kubernetes</span>
-                <span class="absolute -bottom-1.5 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-teal-400 rounded-full animate-underline-pulse dark:opacity-70"></span>
-              </span>
-              <br class="hidden md:block">Management
-            </h1>
+            <!-- Tagline -->
+            <p class="text-2xl font-semibold bg-gradient-to-r from-primary to-green-500 bg-clip-text text-transparent mb-6">
+              Simplify K8s cluster Ops by single command
+            </p>
 
-            <p class="text-left mt-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg">
-              Deploy <span class="font-semibold text-gray-900 dark:text-white">eco-friendly</span> and <span class="font-semibold text-gray-900 dark:text-white">cost-efficient</span> Kubernetes clusters across any cloud with our intelligent platform.
+            <!-- Description -->
+            <p class="text-left text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg mb-6">
+              One Command Highly Available Kubernetes cluster creation but also considers Cloud Region's carbon intensity and instancetype embodded carbon along with cost optimization.
             </p>
 
             <div class="mt-10 flex flex-wrap items-center gap-y-4 gap-x-4">
@@ -69,6 +69,19 @@ import Container from "./Container.astro";
                     <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
                   </svg>
                 </span>
+              </a>
+
+              <!-- GitHub Link -->
+              <a
+                href="https://github.com/ksctl/cli"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center h-14 w-14 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm transition-all hover:shadow hover:border-primary/30 dark:hover:border-primary/30 hover:translate-y-[-2px] active:translate-y-[1px] hover:text-primary dark:hover:text-primary"
+                aria-label="View on GitHub"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                </svg>
               </a>
             </div>
 

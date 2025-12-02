@@ -1,0 +1,128 @@
+---
+import Container from "./Container.astro";
+---
+
+<div class="relative overflow-hidden z-0" id="home">
+  <!-- Background elements -->
+  <div class="absolute inset-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-100 via-teal-50 to-white dark:from-green-900/20 dark:via-teal-900/10 dark:to-gray-900/50 pointer-events-none"></div>
+
+  <!-- Animated geometric shapes -->
+  <div class="absolute top-20 right-0 w-72 h-72 bg-gradient-to-br from-primary/20 to-teal-400/10 rounded-full filter blur-3xl animate-float opacity-60 dark:opacity-20"></div>
+  <div class="absolute -left-20 top-40 w-60 h-60 bg-gradient-to-br from-green-300/15 to-emerald-200/20 rounded-full filter blur-3xl animate-float-delayed opacity-60 dark:opacity-20"></div>
+  <div class="absolute bottom-0 right-10 w-80 h-80 bg-gradient-to-tr from-blue-200/15 to-cyan-200/20 rounded-full filter blur-3xl animate-float-slow opacity-60 dark:opacity-15"></div>
+
+  <!-- Grid pattern overlay -->
+  <div class="absolute inset-0 w-full h-full bg-grid-pattern opacity-[0.03] dark:opacity-[0.02] pointer-events-none"></div>
+
+  <Container>
+    <div class="relative pt-32 md:pt-40 pb-20 md:pb-28 ml-auto">
+      <div class="max-w-5xl mx-auto text-center">
+        <!-- Badge -->
+        <div class="inline-flex animate-fadeIn items-center gap-1.5 rounded-full bg-primary/5 dark:bg-primary/10 px-4 py-2 text-sm font-medium text-primary dark:text-teal-300 mb-8 border border-primary/10 dark:border-primary/20">
+          <div class="flex items-center justify-center w-5 h-5 rounded-full bg-primary mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+            </svg>
+          </div>
+          <span>Building the future of efficient solutions</span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="text-gray-900 dark:text-white font-bold text-5xl md:text-7xl lg:text-7xl tracking-tight leading-[1.1] mb-8">
+          <span class="relative inline-block">
+            <span class="relative z-10 bg-gradient-to-br from-primary to-green-500 dark:from-primary dark:to-green-400 bg-clip-text text-transparent">Fast, Efficient and Sustainable Computing</span>
+          </span>
+          <br>
+          <!-- <span class="text-gray-900 dark:text-white">Simplified</span> -->
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="mt-8 text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
+          We build <span class="font-semibold text-gray-900 dark:text-white">tools</span> that help teams deploy and manage cloud workloads with <span class="font-semibold text-gray-900 dark:text-white">minimal environmental impact</span> and <span class="font-semibold text-gray-900 dark:text-white">maximum efficiency.</span>
+        </p>
+
+        <!-- CTAs -->
+        <div class="mt-12 flex flex-wrap items-center justify-center gap-4">
+          <!-- Primary CTA -->
+          <a
+            href="/product/ksctl"
+            class="flex items-center justify-center h-14 px-8 rounded-lg bg-gradient-to-br from-primary to-teal-500 text-white font-medium shadow-lg shadow-primary/30 transition-all hover:shadow-xl hover:shadow-primary/40 hover:translate-y-[-2px] active:translate-y-[1px]"
+          >
+            <span class="flex items-center">
+              Explore Products
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Secondary CTA -->
+          <a
+            href="#mission"
+            class="flex items-center justify-center h-14 px-8 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-medium shadow-sm transition-all hover:shadow hover:border-primary/30 dark:hover:border-primary/30 hover:translate-y-[-2px] active:translate-y-[1px]"
+          >
+            <span class="flex items-center">
+              About Our Mission
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="mt-16 animate-pulse">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto text-gray-400 dark:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </Container>
+</div>
+
+<style>
+.bg-grid-pattern {
+  background-image:
+    radial-gradient(circle, rgba(63, 103, 102, 0.3) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 8s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-float-slow {
+  animation: float-slow 10s ease-in-out infinite;
+  animation-delay: 2s;
+}
+</style>

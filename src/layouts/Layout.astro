@@ -2,7 +2,7 @@
 import AppFooter from "../components/AppFooter.astro";
 import AppHeader from "../components/AppHeader.astro";
 
-const { title = "ksctl - Cloud Agnostic Kubernetes Management" } = Astro.props;
+const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computing" } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,13 +14,90 @@ const { title = "ksctl - Cloud Agnostic Kubernetes Management" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="Cloud-agnostic Kubernetes management tool for cost-efficient and sustainable clusters"
+      content="Strive towards Fast, Efficient and Sustainable Computing"
     />
     <title>{title}</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Brevo Form Styles -->
+    <style>
+      /* Override Brevo default styles */
+      #sib-container,
+      .sib-container--large,
+      .sib-container--vertical,
+      .sib-form-container {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+      }
+
+      #sib-container input:-ms-input-placeholder {
+        text-align: left;
+        font-family: 'Inter', Helvetica, sans-serif;
+        color: #9ca3af;
+      }
+      #sib-container input::placeholder {
+        text-align: left;
+        font-family: 'Inter', Helvetica, sans-serif;
+        color: #9ca3af;
+      }
+      #sib-container textarea::placeholder {
+        text-align: left;
+        font-family: 'Inter', Helvetica, sans-serif;
+        color: #9ca3af;
+      }
+
+      .sib-hide-loader-icon {
+        display: none !important;
+      }
+      .sib-show-loader-icon {
+        display: inline-block !important;
+      }
+
+      /* Style error and success messages */
+      .sib-form-message-panel {
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: start;
+        gap: 8px;
+      }
+
+      #error-message {
+        background-color: rgba(254, 226, 226, 0.5);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: #991b1b;
+      }
+
+      .dark #error-message {
+        background-color: rgba(127, 29, 29, 0.2);
+        border-color: rgba(239, 68, 68, 0.3);
+        color: #fca5a5;
+      }
+
+      #success-message {
+        background-color: rgba(220, 252, 231, 0.5);
+        border: 1px solid rgba(34, 197, 94, 0.3);
+        color: #166534;
+      }
+
+      .dark #success-message {
+        background-color: rgba(20, 83, 45, 0.2);
+        border-color: rgba(34, 197, 94, 0.3);
+        color: #86efac;
+      }
+
+      .sib-form-message-panel[style*="display: block"],
+      .sib-form-message-panel[style*="display:block"] {
+        display: flex !important;
+      }
+    </style>
+
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <!-- Google tag (gtag.js) -->
@@ -92,5 +169,35 @@ const { title = "ksctl - Cloud Agnostic Kubernetes Management" } = Astro.props;
           }
         });
       </script>
+
+      <!-- Brevo Form Scripts -->
+      <script is:inline>
+        // reCAPTCHA callback function
+        function handleCaptchaResponse() {
+          var event = new Event('captchaChange');
+          var captchaElement = document.getElementById('sib-captcha');
+          if (captchaElement) {
+            captchaElement.dispatchEvent(event);
+          }
+        }
+
+        // Brevo form configuration
+        window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+        window.LOCALE = 'en';
+        window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+        window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+        window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+        window.translation = {
+          common: {
+            selectedList: '{quantity} list selected',
+            selectedLists: '{quantity} lists selected',
+            selectedOption: '{quantity} selected',
+            selectedOptions: '{quantity} selected',
+          }
+        };
+        var AUTOHIDE = Boolean(0);
+      </script>
+      <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     </body>
   </html>

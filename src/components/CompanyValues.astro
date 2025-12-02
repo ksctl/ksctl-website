@@ -1,0 +1,73 @@
+---
+import Container from "./Container.astro";
+
+const values = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>`,
+    title: "Sustainability First",
+    description: "Every decision we make prioritizes environmental impact. From region selection to resource optimization, sustainability is baked into our core."
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>`,
+    title: "Cloud Agnosticism",
+    description: "True freedom means choice. Work with AWS, Azure, GCP, or any cloud provider without vendor lock-in or proprietary dependencies."
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>`,
+    title: "Open Source",
+    description: "Transparency and collaboration drive innovation. Our tools are open source, community-driven, and built in the open."
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>`,
+    title: "Simplicity",
+    description: "Powerful doesn't mean complicated. We abstract complexity while maintaining full control, making Kubernetes accessible to everyone."
+  }
+];
+---
+
+<section class="relative py-24">
+  <Container>
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        Our <span class="bg-gradient-to-r from-primary to-green-500 bg-clip-text text-transparent">Core Values</span>
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        The principles that guide everything we build and every decision we make
+      </p>
+    </div>
+
+    <!-- Values Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {values.map((value, index) => (
+        <div class="group relative bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700/30 p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+          <!-- Gradient Border on Hover -->
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-green-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+
+          <!-- Top Border Accent -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-16 bg-gradient-to-r from-primary to-green-500 rounded-b-full opacity-50 group-hover:opacity-100 group-hover:w-24 transition-all duration-300"></div>
+
+          <!-- Icon -->
+          <div class="relative mb-4 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <Fragment set:html={value.icon} />
+            </svg>
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary dark:group-hover:text-primary transition-colors duration-300">
+            {value.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            {value.description}
+          </p>
+
+          <!-- Decorative Element -->
+          <div class="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

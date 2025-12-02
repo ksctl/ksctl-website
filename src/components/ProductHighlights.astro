@@ -1,0 +1,160 @@
+---
+import Container from "./Container.astro";
+
+const products = [
+  {
+    name: "ksctl cli",
+    logo: "/ksctl-logo.svg",
+    tagline: "Simplify K8s cluster Ops by single command",
+    description: "One Command Highly Available Kubernetes cluster creation but also considers Cloud Region's carbonintensity and instancetype embodded carbon along with cost optimization.",
+    features: [
+      "Cloud-agnostic deployment",
+      "Carbon-aware region selection and instance type recommendations",
+      "Cost optimization recommendations",
+      "Choice of Bootstrap, CNI to monitoring add-ons"
+    ],
+    ctaText: "Explore ksctl",
+    ctaLink: "/product/ksctl",
+    available: true
+  },
+  {
+    name: "kubmin",
+    logo: "/kubmin-logo.svg",
+    tagline: "Sustainable Workload Management",
+    description: "Streamline your Workloads with eco-friendly cloud orchestration with advanced monitoring, policy enforcement, and operational excellence.",
+    features: [
+      "Multi-cluster management",
+      "Advanced monitoring & workload sustainability insights",
+      "Reduce Operational Overheads but letting you focus on your workloads",
+      "Cost and Resource optimization"
+    ],
+    ctaText: "Learn More",
+    ctaLink: "/product/kubmin",
+    available: false,
+    badge: "Coming Soon"
+  }
+];
+---
+
+<section class="relative py-24 bg-gradient-to-b from-white to-gray-50/50 dark:from-gray-900 dark:to-gray-800/50">
+  <Container>
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        Our <span class="bg-gradient-to-r from-primary to-green-500 bg-clip-text text-transparent">Products</span>
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Purpose-built tools for sustainable and efficient Kubernetes infrastructure
+      </p>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      {products.map((product) => (
+        <div class:list={[
+          "group relative rounded-2xl border p-8 md:p-10 transition-all duration-300",
+          product.available
+            ? "bg-white dark:bg-gray-800/70 border-gray-100 dark:border-gray-700/30 hover:shadow-2xl hover:-translate-y-2"
+            : "bg-gray-50 dark:bg-gray-800/40 border-gray-200 dark:border-gray-700/50"
+        ]}>
+          <!-- Top Border Accent -->
+          {product.available && (
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-green-500 rounded-t-2xl"></div>
+          )}
+
+          <!-- Badge for Coming Soon -->
+          {product.badge && (
+            <div class="absolute top-6 right-6">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-primary to-teal-500 text-white animate-pulse">
+                {product.badge}
+              </span>
+            </div>
+          )}
+
+          <!-- Logo & Name -->
+          <div class="flex items-center mb-6">
+            <img
+              src={product.logo}
+              alt={`${product.name} logo`}
+              class:list={[
+                "h-16 w-auto mr-4",
+                !product.available && "opacity-50"
+              ]}
+            />
+            <h3 class:list={[
+              "text-3xl font-bold",
+              product.available
+                ? "text-gray-900 dark:text-white"
+                : "text-gray-600 dark:text-gray-400"
+            ]}>
+              {product.name}
+            </h3>
+          </div>
+
+          <!-- Tagline -->
+          <p class:list={[
+            "text-xl font-semibold mb-4",
+            product.available
+              ? "text-primary"
+              : "text-gray-500 dark:text-gray-500"
+          ]}>
+            {product.tagline}
+          </p>
+
+          <!-- Description -->
+          <p class:list={[
+            "text-base mb-6 leading-relaxed",
+            product.available
+              ? "text-gray-700 dark:text-gray-300"
+              : "text-gray-600 dark:text-gray-500"
+          ]}>
+            {product.description}
+          </p>
+
+          <!-- Features List -->
+          <ul class="space-y-3 mb-8">
+            {product.features.map((feature) => (
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class:list={[
+                  "h-6 w-6 mr-2 flex-shrink-0 mt-0.5",
+                  product.available
+                    ? "text-primary"
+                    : "text-gray-400 dark:text-gray-600"
+                ]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class:list={[
+                  "text-base",
+                  product.available
+                    ? "text-gray-700 dark:text-gray-300"
+                    : "text-gray-600 dark:text-gray-500"
+                ]}>
+                  {feature}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- CTA Button -->
+          <a
+            href={product.ctaLink}
+            class:list={[
+              "block w-full text-center py-4 px-6 rounded-lg font-medium transition-all duration-300",
+              product.available
+                ? "bg-gradient-to-br from-primary to-teal-500 text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:translate-y-[-2px] active:translate-y-[1px]"
+                : "bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed"
+            ]}
+            aria-disabled={!product.available}
+          >
+            {product.ctaText}
+          </a>
+
+          <!-- Decorative Element for Available Products -->
+          {product.available && (
+            <div class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+          )}
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

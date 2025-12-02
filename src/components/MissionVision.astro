@@ -1,0 +1,67 @@
+---
+import Container from "./Container.astro";
+---
+
+<section id="mission" class="relative py-24 bg-gradient-to-b from-white to-gray-50/50 dark:from-gray-900 dark:to-gray-800/50">
+  <Container>
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        Our <span class="bg-gradient-to-r from-primary to-green-500 bg-clip-text text-transparent">Mission & Vision</span>
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Strive towards Fast, Efficient and Sustainable Computing
+      </p>
+    </div>
+
+    <!-- Mission & Vision Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <!-- Mission Card -->
+      <div class="group relative bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700/30 p-8 md:p-10 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+        <!-- Icon -->
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-teal-500 mb-6 shadow-lg shadow-primary/30">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+          </svg>
+        </div>
+
+        <!-- Title -->
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          Our Mission
+        </h3>
+
+        <!-- Description -->
+        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          To democratize sustainable deployment by providing tools that reduce both costs and carbon footprint, making eco-friendly infrastructure accessible to every organization irrespective of their size or technical expertise.
+        </p>
+
+        <!-- Decorative Element -->
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl"></div>
+      </div>
+
+      <!-- Vision Card -->
+      <div class="group relative bg-white dark:bg-gray-800/70 rounded-2xl border border-gray-100 dark:border-gray-700/30 p-8 md:p-10 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+        <!-- Icon -->
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 mb-6 shadow-lg shadow-green-500/30">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+          </svg>
+        </div>
+
+        <!-- Title -->
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          Our Vision
+        </h3>
+
+        <!-- Description -->
+        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          A world where every system is deployed with sustainability and efficiency as default, not an afterthought. A world where developers focus on building great applications while infrastructure automatically optimizes for cost and environmental impact.
+        </p>
+
+        <!-- Decorative Element -->
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl"></div>
+      </div>
+    </div>
+  </Container>
+</section>
