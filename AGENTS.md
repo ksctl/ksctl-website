@@ -38,28 +38,66 @@ This project uses **pnpm** as the package manager (configured in GitHub Actions)
 
 ```
 src/
-├── components/     # Astro components (all sections of the landing page)
+├── components/     # Astro components (23 components for various sections)
+│   ├── AboutCompany.astro
+│   ├── AppFooter.astro
+│   ├── AppHeader.astro (navigation with product dropdown)
+│   ├── Blog.astro
+│   ├── CallToAction.astro
+│   ├── ComingSoon.astro (reusable for unreleased products)
+│   ├── CompanyValues.astro
+│   ├── Container.astro
+│   ├── FAQ.astro
+│   ├── Features.astro
+│   ├── HeroHome.astro
+│   ├── HeroProduct.astro
+│   ├── HowItWorks.astro
+│   ├── MissionVision.astro
+│   ├── ProductHighlights.astro
+│   ├── StarButton.astro
+│   ├── Stats.astro
+│   ├── SustainabilityVisual.astro
+│   └── TeamMembers.astro
 ├── layouts/        # Layout wrapper (Layout.astro with header/footer)
-├── pages/          # Routes (currently only index.astro)
+├── pages/          # File-based routing
+│   ├── index.astro           # Home page
+│   ├── aboutus.astro         # About Us page
+│   └── product/
+│       ├── ksctl.astro       # ksctl product page
+│       └── kubmin.astro      # kubmin coming soon page
 └── styles/         # Global CSS (custom animations, theme variables)
+    └── global.css
 
 public/
 ├── images/         # Static assets
-└── *.svg, *.ico    # Favicons and logos
+│   └── avatars/    # Team member photos
+├── ksctl-logo.svg
+├── kubmin-logo.svg
+└── *.ico, *.svg    # Favicons
 ```
 
 ### Key Architecture Patterns
 
-**Single Page Application:** The site is currently a single-page marketing site (`index.astro`) that imports and composes multiple section components.
+**Multi-Page Application:** The site has evolved from a single-page to a multi-page structure with:
+- **Home page** (`index.astro`): Company mission, vision, values, and product overview
+- **Product pages** (`product/ksctl.astro`, `product/kubmin.astro`): Dedicated pages for each product with detailed features
+- **About page** (`aboutus.astro`): Company information and team members
 
-**Component Structure:** Each major section (Features, FAQ, Stats, etc.) is a standalone `.astro` component in `src/components/`. The main page at `src/pages/index.astro` assembles these sections in sequence within the `Layout.astro` wrapper.
+**Routing Structure:**
+- `/` → Home page with company overview and product highlights
+- `/aboutus` → About Us page with team members (Dipankar Das, Praful, Saiyam Pathak)
+- `/product/ksctl` → ksctl CLI product page with features, how it works, sustainability info, stats, blog, and FAQ
+- `/product/kubmin` → kubmin coming soon page
+
+**Component Structure:** Each major section is a standalone `.astro` component in `src/components/`. Pages assemble these sections in sequence within the `Layout.astro` wrapper. Components are reusable and props-based (e.g., `ComingSoon`, `HeroProduct`).
 
 **Layout System:** `Layout.astro` provides the global structure:
 - Meta tags, fonts (Inter + Urbanist), and Alpine.js CDN
-- Persistent `AppHeader` and `AppFooter` components
+- Persistent `AppHeader` (with product dropdown navigation) and `AppFooter` (with social links and resources)
 - Dark mode initialization (`darkMode: true` by default)
 - Back-to-top button with scroll visibility logic
-- Google Analytics integration (gtag.js)
+- Google Analytics integration (gtag.js with tracking ID `G-7PBL3S9S8W`)
+- Brevo newsletter form integration (production-only)
 
 **Styling Architecture:**
 - Primary color: Teal (`#14b8a6`) defined in both Tailwind config and CSS variables
@@ -69,13 +107,27 @@ public/
 - Typography: Urbanist for headings, Inter for body text
 
 **State Management:** Minimal client-side state using Alpine.js for:
-- Dark mode toggling (though currently forced to dark)
 - Scroll-based interactions (back-to-top button)
+- Mobile hamburger menu toggle in header
+- Product dropdown navigation
 - Any interactive components use `x-data` attributes
 
 ### Component Composition Pattern
 
-Components are self-contained sections that can be commented out in `index.astro` if not needed (see existing commented sections like `DashboardPreview`, `ComparisonTabs`, `Testimonials`, `Pricing`).
+Components are self-contained sections that can be composed in different page layouts:
+- **Home page**: Uses `HeroHome`, `MissionVision`, `CompanyValues`, `ProductHighlights`
+- **Product pages**: Use `HeroProduct`, `Features`, `HowItWorks`, `SustainabilityVisual`, `Stats`, `Blog`, `FAQ`
+- **About page**: Uses `AboutCompany`, `MissionVision`, `TeamMembers`
+- **Coming soon pages**: Use `ComingSoon` component with props
+
+### Navigation Structure
+
+**AppHeader** includes:
+- Logo linking to home
+- "Products" dropdown with ksctl (Available) and kubmin (Coming Soon) entries
+- "About Us" link
+- External links: Docs, Community (Google Groups), GitHub
+- Mobile-responsive hamburger menu
 
 ## Development Notes
 
@@ -118,9 +170,16 @@ Components are self-contained sections that can be commented out in `index.astro
 - Responsive breakpoints following Tailwind's defaults
 
 **External Links:**
-- Documentation: https://docs.ksctl.com/docs/getting-started/
-- GitHub repository: Links to ksctl org via StarButton component
+- Documentation: https://docs.ksctl.com/
+- GitHub: https://github.com/ksctl
+- Community: Google Groups forum
+- Social: Twitter/X (@ksctl_org), Discord (discord.ksctl.com), LinkedIn
 - Analytics: Google Analytics tracking ID `G-7PBL3S9S8W`
+- Newsletter: Brevo forms integration (production only)
+
+**Products:**
+- **ksctl**: Available - Cloud-agnostic Kubernetes CLI for multi-cloud deployments
+- **kubmin**: Coming Soon - Kubernetes management tool (planned for Q2 2025)
 
 ## TypeScript Configuration
 
