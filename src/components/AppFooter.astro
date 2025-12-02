@@ -1,5 +1,8 @@
 ---
 import Container from "./Container.astro";
+
+// Only show newsletter in production mode
+const isProduction = import.meta.env.PROD;
 ---
 
 <footer class="relative bg-white dark:bg-gray-900 pt-16 pb-12 border-t border-gray-100 dark:border-gray-800">
@@ -93,6 +96,7 @@ import Container from "./Container.astro";
         <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Stay Updated</h3>
         <p class="text-gray-600 dark:text-gray-400 mb-4">Get the latest news and updates about ksctl features.</p>
 
+        {isProduction ? (
         <!-- Brevo Form Integration -->
         <div id="sib-form-container" class="sib-form-container">
           <div id="error-message" class="sib-form-message-panel" style="font-size:14px; text-align:left; font-family:'Inter', Helvetica, sans-serif; display:none;">
@@ -165,6 +169,26 @@ import Container from "./Container.astro";
         </div>
 
         <p class="mt-3 text-xs text-gray-500 dark:text-gray-500">We respect your privacy. Unsubscribe at any time.</p>
+        ) : (
+        <div class="flex flex-col gap-2">
+          <div class="relative flex-grow">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="w-full px-4 py-2.5 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:placeholder-gray-500"
+              disabled
+            />
+          </div>
+          <button
+            type="button"
+            class="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-primary/50 text-white font-medium cursor-not-allowed"
+            disabled
+          >
+            Subscribe
+          </button>
+          <p class="mt-1 text-xs text-gray-500 dark:text-gray-500">Newsletter is disabled in development mode.</p>
+        </div>
+        )}
       </div>
     </div>
 
