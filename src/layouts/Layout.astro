@@ -51,11 +51,17 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
         color: #9ca3af;
       }
 
-      .sib-hide-loader-icon {
+      .sib-form-block__button .sib-hide-loader-icon {
         display: none !important;
       }
-      .sib-show-loader-icon {
+      .sib-form-block__button .sib-show-loader-icon {
         display: inline-block !important;
+      }
+      .sib-form-block__button[data-loading="true"] .sib-hide-loader-icon {
+        display: inline-block !important;
+      }
+      .sib-form-block__button[data-loading="true"] .sib-form-block__button-text {
+        display: none !important;
       }
 
       /* Style error and success messages */
@@ -170,22 +176,28 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
         });
       </script>
 
+      <!-- Cloudflare Turnstile -->
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
       <!-- Brevo Form Scripts -->
       <script is:inline>
-        // reCAPTCHA callback function
-        function handleCaptchaResponse() {
+        // Turnstile/reCAPTCHA callback function
+        window.handleCaptchaResponse = function(token) {
+          console.log('Captcha completed:', token);
           var event = new Event('captchaChange');
           var captchaElement = document.getElementById('sib-captcha');
           if (captchaElement) {
+            // Store the token for Brevo form validation
+            captchaElement.dataset.captchaToken = token;
             captchaElement.dispatchEvent(event);
           }
-        }
+        };
 
-        // Brevo form configuration
+        // Brevo form configuration (must be set before main.js loads)
         window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
         window.LOCALE = 'en';
         window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
-        window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+        window.REQUIRED_ERROR_MESSAGE = "Please complete the captcha verification.";
         window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
         window.translation = {
           common: {
@@ -195,9 +207,24 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
             selectedOptions: '{quantity} selected',
           }
         };
-        var AUTOHIDE = Boolean(0);
+        window.AUTOHIDE = Boolean(0);
+
+        // Load Brevo script only after DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', loadBrevoScript);
+        } else {
+          loadBrevoScript();
+        }
+
+        function loadBrevoScript() {
+          // Check if the form exists before loading the script
+          if (document.getElementById('sib-form')) {
+            var script = document.createElement('script');
+            script.src = 'https://sibforms.com/forms/end-form/build/main.js';
+            script.defer = true;
+            document.body.appendChild(script);
+          }
+        }
       </script>
-      <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     </body>
   </html>
