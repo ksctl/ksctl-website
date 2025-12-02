@@ -21,26 +21,26 @@ import Container from "./Container.astro";
         <!-- Left column: Text content -->
         <div class="order-2 lg:order-1">
           <div class="lg:max-w-xl">
-            <div class="inline-flex animate-fadeIn items-center gap-1.5 rounded-full bg-primary/5 dark:bg-primary/10 px-4 py-2 text-sm font-medium text-primary dark:text-teal-300 mb-6 border border-primary/10 dark:border-primary/20">
-              <div class="flex items-center justify-center w-5 h-5 rounded-full bg-primary mr-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <span>Now with dynamic region switching for optimal sustainability</span>
+            <!-- Logo & Product Name -->
+            <div class="flex items-center mb-6 animate-fadeIn">
+              <img
+                src="/ksctl-logo.svg"
+                alt="ksctl logo"
+                class="h-16 w-auto mr-4"
+              />
+              <h3 class="text-4xl font-bold text-gray-900 dark:text-white">
+                ksctl cli
+              </h3>
             </div>
 
-            <h1 class="text-left text-gray-900 dark:text-white font-bold text-5xl md:text-6xl lg:text-6xl tracking-tight leading-[1.1] mb-6">
-              Sustainable <br class="hidden md:block">
-              <span class="relative inline-block mt-2">
-                <span class="relative z-10 bg-gradient-to-br from-primary to-green-500 dark:from-primary dark:to-green-400 bg-clip-text text-transparent">Kubernetes</span>
-                <span class="absolute -bottom-1.5 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-teal-400 rounded-full animate-underline-pulse dark:opacity-70"></span>
-              </span>
-              <br class="hidden md:block">Management
-            </h1>
+            <!-- Tagline -->
+            <p class="text-2xl font-semibold bg-gradient-to-r from-primary to-green-500 bg-clip-text text-transparent mb-6">
+              Simplify K8s cluster Ops by single command
+            </p>
 
-            <p class="text-left mt-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg">
-              Deploy <span class="font-semibold text-gray-900 dark:text-white">eco-friendly</span> and <span class="font-semibold text-gray-900 dark:text-white">cost-efficient</span> Kubernetes clusters across any cloud with our intelligent platform.
+            <!-- Description -->
+            <p class="text-left text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg mb-6">
+              One Command Highly Available Kubernetes cluster creation but also considers Cloud Region's carbon intensity and instancetype embodded carbon along with cost optimization.
             </p>
 
             <div class="mt-10 flex flex-wrap items-center gap-y-4 gap-x-4">
