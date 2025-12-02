@@ -184,12 +184,25 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
         // Turnstile/reCAPTCHA callback function
         window.handleCaptchaResponse = function(token) {
           console.log('Captcha completed:', token);
+
+          // Set the token in the hidden input field that Brevo expects
+          var tokenInput = document.getElementById('g-recaptcha-response');
+          if (tokenInput) {
+            tokenInput.value = token;
+          }
+
+          // Trigger the captchaChange event for Brevo
           var event = new Event('captchaChange');
           var captchaElement = document.getElementById('sib-captcha');
           if (captchaElement) {
-            // Store the token for Brevo form validation
             captchaElement.dataset.captchaToken = token;
             captchaElement.dispatchEvent(event);
+          }
+
+          // Also dispatch input event on the hidden field
+          if (tokenInput) {
+            var inputEvent = new Event('input', { bubbles: true });
+            tokenInput.dispatchEvent(inputEvent);
           }
         };
 
