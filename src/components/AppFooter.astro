@@ -145,8 +145,7 @@ const isProduction = import.meta.env.PROD;
               <div class="sib-captcha sib-form-block mb-3">
                 <div class="form__entry entry_block">
                   <div class="form__label-row">
-                    <div class="cf-turnstile sib-visible-recaptcha" id="sib-captcha" data-sitekey="0x4AAAAAACEW9pOFvA0Drq8K" data-callback="handleCaptchaResponse"></div>
-                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" class="sib-captcha-token" data-required="true" />
+                    <div class="cf-turnstile g-recaptcha" data-sitekey="0x4AAAAAACEW9pOFvA0Drq8K" id="sib-captcha" data-callback="handleCaptchaResponse" data-language="en"></div>
                   </div>
                   <label class="entry__error entry__error--primary" style="font-size:14px; text-align:left; font-family:'Inter', Helvetica, sans-serif; display:none;"></label>
                 </div>

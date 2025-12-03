@@ -181,29 +181,16 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
 
       <!-- Brevo Form Scripts -->
       <script is:inline>
-        // Turnstile/reCAPTCHA callback function
+        // Turnstile callback function - matches Brevo's Cloudflare Turnstile template
         window.handleCaptchaResponse = function(token) {
           console.log('Captcha completed:', token);
 
-          // Set the token in the hidden input field that Brevo expects
-          var tokenInput = document.getElementById('g-recaptcha-response');
-          if (tokenInput) {
-            tokenInput.value = token;
-          }
-
-          // Trigger the captchaChange event for Brevo
+          // Dispatch captchaChange event for Brevo
           var event = new Event('captchaChange');
-          var captchaElement = document.getElementById('sib-captcha');
-          if (captchaElement) {
-            captchaElement.dataset.captchaToken = token;
-            captchaElement.dispatchEvent(event);
-          }
+          document.getElementById('sib-captcha').dispatchEvent(event);
 
-          // Also dispatch input event on the hidden field
-          if (tokenInput) {
-            var inputEvent = new Event('input', { bubbles: true });
-            tokenInput.dispatchEvent(inputEvent);
-          }
+          // CRITICAL: Make Turnstile masquerade as reCAPTCHA for Brevo compatibility
+          window.grecaptcha = window.turnstile;
         };
 
         // Brevo form configuration (must be set before main.js loads)
