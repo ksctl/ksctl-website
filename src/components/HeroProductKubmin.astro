@@ -92,9 +92,9 @@ import Container from "./Container.astro";
                 <!-- Header Stats -->
                 <div class="grid grid-cols-3 gap-3 mb-4">
                   <div class="bg-gray-800/50 border border-gray-700/50 rounded-lg p-3">
-                    <div class="text-gray-400 text-xs mb-1">SCI Score</div>
-                    <div class="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">8.5</div>
-                    <div class="text-xs text-green-400">Good</div>
+                    <div class="text-gray-400 text-xs mb-1">Total Emission</div>
+                    <div class="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">12000</div>
+                    <div class="text-xs text-gray-500">gCO2eq</div>
                   </div>
                   <div class="bg-gray-800/50 border border-gray-700/50 rounded-lg p-3">
                     <div class="text-gray-400 text-xs mb-1">CPU</div>
@@ -119,47 +119,47 @@ import Container from "./Container.astro";
                   <div class="space-y-2">
                     <div class="flex items-center justify-between p-2 bg-gray-800/50 rounded">
                       <div class="flex items-center flex-1">
-                        <div class="w-2 h-2 rounded-full bg-green-400 mr-2"></div>
+                        <div class="w-2 h-2 rounded-full bg-purple-400 mr-2"></div>
                         <span class="text-gray-300 text-xs">nginx:1.21</span>
                       </div>
                       <div class="flex items-center gap-1 mr-2">
-                        <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
                         <div class="w-1.5 h-1.5 rounded-full bg-gray-600"></div>
                       </div>
-                      <span class="text-green-400 text-xs">7.2</span>
-                    </div>
-
-                    <div class="flex items-center justify-between p-2 bg-gray-800/50 rounded">
-                      <div class="flex items-center flex-1">
-                        <div class="w-2 h-2 rounded-full bg-green-400 mr-2"></div>
-                        <span class="text-gray-300 text-xs">redis:7.0</span>
-                      </div>
-                      <div class="flex items-center gap-1 mr-2">
-                        <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-gray-600"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-gray-600"></div>
-                      </div>
-                      <span class="text-green-400 text-xs">6.1</span>
+                      <span class="text-purple-400 text-xs">7.2 (avg)</span>
                     </div>
 
                     <div class="flex items-center justify-between p-2 bg-gray-800/50 rounded">
                       <div class="flex items-center flex-1">
                         <div class="w-2 h-2 rounded-full bg-yellow-400 mr-2"></div>
-                        <span class="text-gray-300 text-xs">postgres:14</span>
+                        <span class="text-gray-300 text-xs">redis:7.0</span>
                       </div>
                       <div class="flex items-center gap-1 mr-2">
                         <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
                         <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
                         <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-gray-600"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-gray-600"></div>
                       </div>
-                      <span class="text-yellow-400 text-xs">8.9</span>
+                      <span class="text-yellow-400 text-xs">6.1 (avg)</span>
+                    </div>
+
+                    <div class="flex items-center justify-between p-2 bg-gray-800/50 rounded">
+                      <div class="flex items-center flex-1">
+                        <div class="w-2 h-2 rounded-full bg-blue-400 mr-2"></div>
+                        <span class="text-gray-300 text-xs">postgres:14</span>
+                      </div>
+                      <div class="flex items-center gap-1 mr-2">
+                        <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                        <div class="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                      </div>
+                      <span class="text-blue-400 text-xs">8.9 (avg)</span>
                     </div>
                   </div>
                 </div>
