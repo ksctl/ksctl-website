@@ -160,7 +160,7 @@
           <!-- Orbiting SCI score badges with functional units -->
           <div class="absolute inset-0 animate-spin-slow">
             <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div class="bg-white dark:bg-gray-800 rounded-xl p-3 shadow-lg border-2 border-purple-500/50 dark:border-purple-400/50">
+              <div class="bg-white dark:bg-gray-800 rounded-xl p-3 shadow-lg border-2 border-purple-500/50 dark:border-purple-400/50 animate-counter-spin-slow">
                 <div class="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">nginx:1.21</div>
                 <div class="text-lg font-bold bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">SCI: 6.2</div>
                 <div class="text-xs text-gray-500 dark:text-gray-400">per container-hour</div>
@@ -170,7 +170,7 @@
 
           <div class="absolute inset-0 animate-spin-reverse-slow" style="animation-delay: 1s;">
             <div class="absolute bottom-0 left-1/4 transform -translate-x-1/2 translate-y-1/2">
-              <div class="bg-white dark:bg-gray-800 rounded-xl p-3 shadow-lg border-2 border-indigo-500/50 dark:border-indigo-400/50">
+              <div class="bg-white dark:bg-gray-800 rounded-xl p-3 shadow-lg border-2 border-indigo-500/50 dark:border-indigo-400/50 animate-counter-spin-reverse-slow" style="animation-delay: 1s;">
                 <div class="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">redis:7.0</div>
                 <div class="text-lg font-bold bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">SCI: 8.1</div>
                 <div class="text-xs text-gray-500 dark:text-gray-400">per requests-hour</div>
@@ -180,7 +180,7 @@
 
           <div class="absolute inset-0 animate-spin-slow" style="animation-delay: 0.5s;">
             <div class="absolute bottom-0 right-1/4 transform translate-x-1/2 translate-y-1/2">
-              <div class="bg-white dark:bg-gray-800 rounded-xl p-3 shadow-lg border-2 border-purple-500/50 dark:border-purple-400/50">
+              <div class="bg-white dark:bg-gray-800 rounded-xl p-3 shadow-lg border-2 border-purple-500/50 dark:border-purple-400/50 animate-counter-spin-slow" style="animation-delay: 0.5s;">
                 <div class="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">postgres:14</div>
                 <div class="text-lg font-bold bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">SCI: 7.3</div>
                 <div class="text-xs text-gray-500 dark:text-gray-400">per container-hour</div>
@@ -190,7 +190,7 @@
 
           <div class="absolute inset-0 animate-spin-reverse-slow" style="animation-delay: 1.5s;">
             <div class="absolute top-1/3 left-0 transform -translate-x-1/2">
-              <div class="bg-white dark:bg-gray-800 rounded-xl p-3 shadow-lg border-2 border-indigo-500/50 dark:border-indigo-400/50">
+              <div class="bg-white dark:bg-gray-800 rounded-xl p-3 shadow-lg border-2 border-indigo-500/50 dark:border-indigo-400/50 animate-counter-spin-reverse-slow" style="animation-delay: 1.5s;">
                 <div class="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">node:18-alpine</div>
                 <div class="text-lg font-bold bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">SCI: 5.4</div>
                 <div class="text-xs text-gray-500 dark:text-gray-400">per requests-hour</div>
@@ -255,6 +255,33 @@
 
 .animate-spin-reverse-slow {
   animation: spin-reverse-slow 15s linear infinite;
+}
+
+/* Counter-rotation animations to keep badges upright */
+@keyframes counter-spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-counter-spin-slow {
+  animation: counter-spin-slow 20s linear infinite;
+}
+
+@keyframes counter-spin-reverse-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-counter-spin-reverse-slow {
+  animation: counter-spin-reverse-slow 15s linear infinite;
 }
 
 @keyframes float {
