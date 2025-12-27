@@ -1,0 +1,280 @@
+---
+// SustainabilityMetrics.astro - SCI scoring visualization for kubmin
+---
+
+<div class="relative w-full py-24 overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-50/90 via-indigo-50/50 to-white dark:from-purple-900/20 dark:via-indigo-900/10 dark:to-gray-900">
+  <!-- Background decorative elements -->
+  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-400/40 dark:via-purple-500/30 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white/80 dark:from-gray-900/60 to-transparent"></div>
+  <div class="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-gradient-to-br from-purple-300/20 to-indigo-300/10 dark:from-purple-500/10 dark:to-indigo-500/5 blur-3xl animate-float-slow"></div>
+  <div class="absolute -left-20 bottom-0 w-96 h-96 rounded-full bg-gradient-to-tr from-indigo-300/15 to-violet-300/10 dark:from-indigo-500/10 dark:to-violet-500/5 blur-3xl animate-float"></div>
+  <div class="absolute top-1/3 right-1/4 w-64 h-64 rounded-full bg-purple-200/10 dark:bg-purple-500/5 blur-3xl animate-float-delayed"></div>
+
+  <div class="container mx-auto px-4 relative max-w-7xl">
+    <div class="text-center mb-16">
+      <span class="inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 mb-6 border border-purple-200 dark:border-purple-800/30">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+        </svg>
+        SCI Specification Aligned
+      </span>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+        Track Carbon at the <span class="bg-gradient-to-r from-purple-600 to-indigo-500 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">Container Level</span>
+      </h2>
+      <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-xl leading-relaxed mb-8">
+        kubmin implements the Green Software Foundation's SCI specification to provide unprecedented visibility into your workload's carbon footprint—tracked hourly for every container image version.
+      </p>
+
+      <!-- Green Software Foundation Reference -->
+      <div class="flex justify-center">
+        <a
+          href="https://sci.greensoftware.foundation/"
+          target="_blank"
+          class="bg-white dark:bg-gray-800/70 rounded-xl p-4 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 dark:border-gray-700/30 inline-flex items-center gap-3"
+        >
+          <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            </svg>
+          </div>
+          <div class="text-left">
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">SCI Spec Compliant</p>
+            <p class="text-xs text-gray-600 dark:text-gray-400">Green Software Foundation</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!-- Left side: SCI Info Cards -->
+      <div class="relative">
+        <div class="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-gradient-to-br from-purple-200/20 to-indigo-200/10 dark:from-purple-800/10 dark:to-indigo-800/5 blur-xl"></div>
+
+        <!-- SCI metrics -->
+        <div class="space-y-10 relative">
+          <!-- Card 1: What is SCI? -->
+          <div class="bg-white dark:bg-gray-800/70 rounded-xl p-7 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 dark:border-gray-700/30">
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-purple-400/20 dark:shadow-purple-700/20">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">What is SCI?</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-3">
+                  Software Carbon Intensity (SCI) is a standard from the Green Software Foundation that measures carbon emissions per functional unit. kubmin implements the SCI spec to track container-level emissions.
+                </p>
+                <a
+                  href="https://sci.greensoftware.foundation/"
+                  target="_blank"
+                  class="inline-flex items-center text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium text-sm"
+                >
+                  Learn about SCI Spec
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Hourly Tracking -->
+          <div class="bg-white dark:bg-gray-800/70 rounded-xl p-7 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 dark:border-gray-700/30">
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-blue-400/20 dark:shadow-blue-700/20">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Hourly Tracking</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-3">
+                  Monitor SCI scores with hourly granularity for each container image version. Identify carbon hotspots and track optimization progress over time.
+                </p>
+                <div class="inline-flex items-center px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-medium">
+                  Updated Every Hour
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Actionable Insights -->
+          <div class="bg-white dark:bg-gray-800/70 rounded-xl p-7 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 dark:border-gray-700/30">
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white shadow-lg shadow-green-400/20 dark:shadow-green-700/20">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Actionable Insights</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-3">
+                  Get recommendations for reducing your workload's carbon footprint. Identify energy-intensive images and optimize deployment strategies.
+                </p>
+                <div class="flex items-center">
+                  <div class="flex-grow h-2 bg-gray-200 dark:bg-gray-700 rounded-full mr-2">
+                    <div class="h-2 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full" style="width: 35%"></div>
+                  </div>
+                  <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">30-40% Reduction</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: SCI Tracking Visualization -->
+      <div class="relative flex items-center justify-center">
+        <!-- Animated SCI system -->
+        <div class="w-full max-w-lg aspect-square relative">
+          <!-- Background glows -->
+          <div class="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-purple-200/80 via-indigo-100/70 to-violet-100/80 dark:from-purple-900/30 dark:via-indigo-900/20 dark:to-violet-900/30 animate-pulse-slow blur-md"></div>
+          <div class="absolute inset-10 -z-10 rounded-full bg-gradient-to-tr from-purple-100/40 to-indigo-100/40 dark:from-purple-900/20 dark:to-indigo-900/20 blur-md"></div>
+
+          <!-- Container icon in the center -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="relative w-48 h-48 md:w-56 md:h-56 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-4 border-purple-500/30 dark:border-purple-400/30 flex items-center justify-center">
+              <!-- Container/Docker icon -->
+              <svg viewBox="0 0 24 24" class="w-32 h-32 text-purple-500 dark:text-purple-400" fill="currentColor">
+                <path d="M20.1 4.1c-1.1-1.1-2.6-1.6-4.1-1.6H8c-1.5 0-3 .5-4.1 1.6C2.8 5.2 2.3 6.7 2.3 8.2v7.6c0 1.5.5 3 1.6 4.1 1.1 1.1 2.6 1.6 4.1 1.6h8c1.5 0 3-.5 4.1-1.6 1.1-1.1 1.6-2.6 1.6-4.1V8.2c0-1.5-.5-3-1.6-4.1zM18.9 16c0 .8-.3 1.6-.9 2.2-.6.6-1.4.9-2.2.9H8.2c-.8 0-1.6-.3-2.2-.9-.6-.6-.9-1.4-.9-2.2V8c0-.8.3-1.6.9-2.2.6-.6 1.4-.9 2.2-.9h7.6c.8 0 1.6.3 2.2.9.6.6.9 1.4.9 2.2v8z"/>
+                <path d="M7 10h2v2H7v-2zm3 0h2v2h-2v-2zm3 0h2v2h-2v-2z"/>
+              </svg>
+
+              <!-- Speech bubble with SCI message -->
+              <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 rounded-lg px-4 py-2 shadow-xl border border-purple-200 dark:border-purple-700">
+                <div class="text-sm font-semibold text-purple-600 dark:text-purple-400 whitespace-nowrap">
+                  Track Every Image!
+                </div>
+                <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white dark:border-t-gray-800"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Orbiting SCI score badges -->
+          <div class="absolute inset-0 animate-spin-slow">
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div class="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
+                <div class="text-white text-xs font-bold">SCI: 6.2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute inset-0 animate-spin-reverse-slow" style="animation-delay: 1s;">
+            <div class="absolute bottom-0 left-1/4 transform -translate-x-1/2 translate-y-1/2">
+              <div class="w-14 h-14 rounded-full bg-yellow-500 flex items-center justify-center shadow-lg">
+                <div class="text-white text-xs font-bold">SCI: 8.1</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute inset-0 animate-spin-slow" style="animation-delay: 0.5s;">
+            <div class="absolute bottom-0 right-1/4 transform translate-x-1/2 translate-y-1/2">
+              <div class="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
+                <div class="text-white text-xs font-bold">SCI: 7.3</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute inset-0 animate-spin-reverse-slow" style="animation-delay: 1.5s;">
+            <div class="absolute top-1/3 left-0 transform -translate-x-1/2">
+              <div class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center shadow-lg">
+                <div class="text-white text-xs font-bold">9.2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-16 text-center">
+      <a
+        href="https://kubmin.ksctl.com"
+        target="_blank"
+        class="inline-flex items-center px-8 py-4 rounded-lg bg-gradient-to-br from-purple-600 to-indigo-600 text-white font-medium shadow-lg shadow-purple-500/30 transition-all hover:shadow-xl hover:shadow-purple-500/40 hover:translate-y-[-2px] active:translate-y-[1px]"
+      >
+        <span>Explore Dashboard</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes spin-reverse-slow {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 15s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 8s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-float-slow {
+  animation: float-slow 10s ease-in-out infinite;
+  animation-delay: 2s;
+}
+</style>

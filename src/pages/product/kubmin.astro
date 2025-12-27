@@ -1,25 +1,23 @@
 ---
+import HeroProductKubmin from "../../components/HeroProductKubmin.astro";
+import FeaturesKubmin from "../../components/FeaturesKubmin.astro";
+import SustainabilityMetrics from "../../components/SustainabilityMetrics.astro";
+import HowItWorksKubmin from "../../components/HowItWorksKubmin.astro";
+import PricingKubmin from "../../components/PricingKubmin.astro";
+import Blog from "../../components/Blog.astro";
+import FAQKubmin from "../../components/FAQKubmin.astro";
 import Layout from "../../layouts/Layout.astro";
-import ComingSoon from "../../components/ComingSoon.astro";
 import "../../styles/global.css";
 ---
 
-<Layout title="kubmin - Coming Soon | ksctl">
-  <main>
-    <ComingSoon
-      productName="kubmin"
-      tagline="Sustainable Workload Management"
-      description="Streamline your Workloads with eco-friendly cloud orchestration with advanced monitoring, policy enforcement, and operational excellence."
-      releaseDate="Q4 2025"
-      logo="/kubmin-logo.svg"
-      features={[
-        "Unified dashboard for multi-cluster workload management",
-        "Real-time monitoring and intelligent alerting",
-        "Able to enforce and monitor sustainability events on workloads",
-        "Cost tracking and optimization across environments",
-        "Seamless integration with ksctl for sustainable deployments",
-        "Advanced workload scheduling and auto-scaling"
-      ]}
-    />
+<Layout title="kubmin - Sustainable Kubernetes Workload Management">
+  <main class="space-y-32 mb-32">
+    <HeroProductKubmin />
+    <FeaturesKubmin />
+    <SustainabilityMetrics />
+    <HowItWorksKubmin />
+    <PricingKubmin />
+    <Blog />
+    <FAQKubmin />
   </main>
 </Layout>

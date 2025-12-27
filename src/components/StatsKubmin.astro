@@ -1,0 +1,56 @@
+---
+import Container from "./Container.astro";
+---
+
+<div class="py-24 bg-white dark:bg-gray-900">
+  <Container>
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        Built on <span class="bg-gradient-to-r from-purple-600 to-indigo-500 bg-clip-text text-transparent">Modern Technology</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-2xl p-8 border border-purple-100 dark:border-purple-800/30">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Tech Stack</h3>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+          <li>• Next.js Frontend</li>
+          <li>• Go Backend</li>
+          <li>• Turso Database</li>
+          <li>• Redis Caching</li>
+          <li>• NATS Messaging</li>
+        </ul>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl p-8 border border-blue-100 dark:border-blue-800/30">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Real-time Monitoring</h3>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+          <li>• CPU & Memory tracking</li>
+          <li>• Per-image SCI scores</li>
+          <li>• Hourly data granularity</li>
+          <li>• Carbon intensity metrics</li>
+        </ul>
+      </div>
+
+      <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-8 border border-green-100 dark:border-green-800/30">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Integration</h3>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+          <li>• ksctl cluster management</li>
+          <li>• Prometheus native support</li>
+          <li>• Multi-cloud compatibility</li>
+          <li>• Authzed RBAC</li>
+        </ul>
+      </div>
+
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl p-8 border border-amber-100 dark:border-amber-800/30">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">SCI Compliance</h3>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+          <li>• Green Software Foundation</li>
+          <li>• Carbon tracking</li>
+          <li>• Optimization recommendations</li>
+          <li>• ESG reporting ready</li>
+        </ul>
+      </div>
+    </div>
+  </Container>
+</div>

@@ -1,0 +1,189 @@
+---
+import Container from "./Container.astro";
+---
+
+<div class="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+  <Container>
+    <div class="text-center mb-16">
+      <span class="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 mb-6 border border-amber-200 dark:border-amber-800/30">
+        Simple Pricing
+      </span>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+        Pay Only for What You <span class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Monitor</span>
+      </h2>
+      <p class="max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-300">
+        Transparent, predictable pricing with no hidden costs or surprise bills
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <!-- Explore Plan -->
+      <div class="bg-white dark:bg-gray-800/70 rounded-3xl shadow-xl p-8 border border-gray-200 dark:border-gray-700/30">
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Explore</h3>
+        <div class="flex items-baseline mb-6">
+          <span class="text-5xl font-bold text-gray-900 dark:text-white">$0</span>
+          <span class="text-xl text-gray-600 dark:text-gray-400 ml-2">/month</span>
+        </div>
+
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-gray-700 dark:text-gray-300">1 cluster</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-gray-700 dark:text-gray-300">1 workload</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-gray-700 dark:text-gray-300">1 team member</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-gray-700 dark:text-gray-300">SCI tracking (2 days retention)</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-gray-700 dark:text-gray-300">Community support</span>
+          </li>
+        </ul>
+
+        <a href="https://kubmin.ksctl.com" target="_blank" class="block w-full text-center px-6 py-3 rounded-lg border-2 border-purple-600 dark:border-purple-500 text-purple-600 dark:text-purple-400 font-medium hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all">
+          Get Started
+        </a>
+      </div>
+
+      <!-- Affordable Plan (Highlighted) -->
+      <div class="bg-gradient-to-br from-purple-600 to-indigo-600 rounded-3xl shadow-2xl p-8 border-2 border-purple-400 relative transform md:scale-105">
+        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+          <span class="inline-flex items-center px-4 py-1 rounded-full text-xs font-medium bg-amber-400 text-gray-900">
+            Most Popular
+          </span>
+        </div>
+
+        <h3 class="text-2xl font-bold text-white mb-2">Affordable</h3>
+        <div class="flex items-baseline mb-6">
+          <span class="text-5xl font-bold text-white">$20</span>
+          <span class="text-xl text-purple-100 ml-2">/month</span>
+        </div>
+
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-200 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-white">5 clusters</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-200 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-white">5 workloads</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-200 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-white">10 team members</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-200 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-white">SCI tracking (2 days retention)</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-200 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-white">Priority support</span>
+          </li>
+        </ul>
+
+        <a href="https://kubmin.ksctl.com" target="_blank" class="block w-full text-center px-6 py-3 rounded-lg bg-white text-purple-600 font-medium shadow-lg hover:shadow-xl transition-all">
+          Start Free Trial
+        </a>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="bg-white dark:bg-gray-800/70 rounded-3xl shadow-xl p-8 border border-gray-200 dark:border-gray-700/30">
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Premium</h3>
+        <div class="flex items-baseline mb-6">
+          <span class="text-5xl font-bold text-gray-900 dark:text-white">$50</span>
+          <span class="text-xl text-gray-600 dark:text-gray-400 ml-2">/month</span>
+        </div>
+
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-gray-700 dark:text-gray-300">20 clusters</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-gray-700 dark:text-gray-300">20 workloads</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-gray-700 dark:text-gray-300">50 team members</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-gray-700 dark:text-gray-300">SCI tracking (2 days retention)</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-gray-700 dark:text-gray-300">Dedicated support</span>
+          </li>
+        </ul>
+
+        <a href="https://kubmin.ksctl.com" target="_blank" class="block w-full text-center px-6 py-3 rounded-lg bg-gradient-to-br from-purple-600 to-indigo-600 text-white font-medium shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/40 transition-all">
+          Get Started
+        </a>
+      </div>
+    </div>
+
+    <!-- Trust badges -->
+    <div class="mt-12 max-w-4xl mx-auto">
+      <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">
+        <div class="flex items-center">
+          <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          No Hidden Fees
+        </div>
+        <div class="flex items-center">
+          <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          Cancel Anytime
+        </div>
+        <div class="flex items-center">
+          <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          All Plans Include Built-in Prometheus & Grafana
+        </div>
+      </div>
+    </div>
+  </Container>
+</div>
