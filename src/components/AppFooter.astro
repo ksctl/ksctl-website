@@ -11,7 +11,7 @@ const isProduction = import.meta.env.PROD;
   <Container>
     <div class="grid grid-cols-1 gap-12 md:grid-cols-12 lg:gap-8">
       <!-- Logo and description -->
-      <div class="md:col-span-4 lg:col-span-4">
+      <div class="md:col-span-3 lg:col-span-3">
         <div class="flex items-center space-x-2 mb-4">
           <img src="/ksctl-logo.svg" alt="ksctl logo" class="h-10 w-auto" />
           <h2 class="text-2xl font-bold text-gray-900 dark:text-white">ksctl</h2>
@@ -71,28 +71,33 @@ const isProduction = import.meta.env.PROD;
         </div>
       </div>
 
-      <!-- Navigation links -->
-      <div class="md:col-span-2">
-        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Resources</h3>
-        <ul class="space-y-3">
-          <li><a href="https://docs.ksctl.com" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Documentation</a></li>
-          <li><a href="https://docs.ksctl.com/docs/getting-started/" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Getting Started</a></li>
-          <li><a href="https://docs.ksctl.com/docs/features/" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Features</a></li>
-          <li><a href="https://github.com/ksctl/ksctl/releases" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Releases</a></li>
-        </ul>
-      </div>
-
+      <!-- Community -->
       <div class="md:col-span-2">
         <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Community</h3>
         <ul class="space-y-3">
-          <li><a href="https://docs.ksctl.com/docs/contribution-guidelines/" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Contributing</a></li>
-          <li><a href="https://github.com/ksctl/ksctl/issues" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Issues</a></li>
-          <li><a href="https://github.com/ksctl/ksctl/discussions" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Discussions</a></li>
+          <li><a href="https://discord.ksctl.com/" target="_blank" rel="noopener" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Discord</a></li>
+        </ul>
+      </div>
+
+      <!-- About Us -->
+      <div class="md:col-span-2">
+        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">About Us</h3>
+        <ul class="space-y-3">
+          <li><a href="/aboutus" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Products -->
+      <div class="md:col-span-2">
+        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Products</h3>
+        <ul class="space-y-3">
+          <li><a href="/product/ksctl" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">ksctl CLI</a></li>
+          <li><a href="/product/kubmin" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">kubmin</a></li>
         </ul>
       </div>
 
       <!-- Newsletter signup -->
-      <div class="md:col-span-4">
+      <div class="md:col-span-3">
         <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Stay Updated</h3>
         <p class="text-gray-600 dark:text-gray-400 mb-4">Get the latest news and updates about ksctl features.</p>
 
@@ -198,6 +203,7 @@ const isProduction = import.meta.env.PROD;
           &copy; {new Date().getFullYear()} ksctl. All rights reserved.
         </p>
         <div class="mt-4 md:mt-0 flex items-center space-x-6">
+          <a href="https://status.ksctl.com/" target="_blank" rel="noopener" class="text-sm text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Status</a>
           <a href="#" class="text-sm text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Privacy Policy</a>
           <a href="#" class="text-sm text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Terms of Service</a>
           <a href="#" class="text-sm text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Contact Us</a>
