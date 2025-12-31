@@ -1,5 +1,6 @@
 ---
 import Container from "./Container.astro";
+import BrowserMockup from "./BrowserMockup.astro";
 ---
 
 <div class="relative overflow-hidden z-0" id="home">
@@ -77,103 +78,13 @@ import Container from "./Container.astro";
             <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-tr from-indigo-300/20 to-violet-300/20 rounded-full blur-xl"></div>
 
             <!-- Dashboard window -->
-            <div class="relative bg-gray-900 rounded-xl shadow-2xl overflow-hidden border border-gray-700/80">
-              <div class="flex items-center bg-gray-800 px-4 py-3 border-b border-gray-700/80">
-                <div class="flex space-x-1.5">
-                  <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <div class="ml-4 text-gray-400 text-sm font-mono">kubmin.ksctl.com</div>
-              </div>
-
-              <!-- Dashboard Content -->
-              <div class="p-5 font-mono text-xs">
-                <!-- Header Stats -->
-                <div class="grid grid-cols-3 gap-3 mb-4">
-                  <div class="bg-gray-800/50 border border-gray-700/50 rounded-lg p-3">
-                    <div class="text-gray-400 text-xs mb-1">Total Emission</div>
-                    <div class="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">12000</div>
-                    <div class="text-xs text-gray-500">gCO2eq</div>
-                  </div>
-                  <div class="bg-gray-800/50 border border-gray-700/50 rounded-lg p-3">
-                    <div class="text-gray-400 text-xs mb-1">CPU</div>
-                    <div class="text-2xl font-bold text-blue-400">42%</div>
-                    <div class="text-xs text-gray-500">Avg</div>
-                  </div>
-                  <div class="bg-gray-800/50 border border-gray-700/50 rounded-lg p-3">
-                    <div class="text-gray-400 text-xs mb-1">Memory</div>
-                    <div class="text-2xl font-bold text-purple-400">1.2GB</div>
-                    <div class="text-xs text-gray-500">Used</div>
-                  </div>
-                </div>
-
-                <!-- Container Images Section -->
-                <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-3">
-                  <div class="text-gray-300 text-xs mb-3 flex items-center justify-between">
-                    <span>Container Images (Top 5)</span>
-                    <span class="text-purple-400">42 tracked</span>
-                  </div>
-
-                  <!-- Image rows -->
-                  <div class="space-y-2">
-                    <div class="flex items-center justify-between p-2 bg-gray-800/50 rounded">
-                      <div class="flex items-center flex-1">
-                        <div class="w-2 h-2 rounded-full bg-purple-400 mr-2"></div>
-                        <span class="text-gray-300 text-xs">nginx:1.21</span>
-                      </div>
-                      <div class="flex items-center gap-1 mr-2">
-                        <div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-gray-600"></div>
-                      </div>
-                      <span class="text-purple-400 text-xs">7.2 (avg)</span>
-                    </div>
-
-                    <div class="flex items-center justify-between p-2 bg-gray-800/50 rounded">
-                      <div class="flex items-center flex-1">
-                        <div class="w-2 h-2 rounded-full bg-yellow-400 mr-2"></div>
-                        <span class="text-gray-300 text-xs">redis:7.0</span>
-                      </div>
-                      <div class="flex items-center gap-1 mr-2">
-                        <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-gray-600"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-gray-600"></div>
-                      </div>
-                      <span class="text-yellow-400 text-xs">6.1 (avg)</span>
-                    </div>
-
-                    <div class="flex items-center justify-between p-2 bg-gray-800/50 rounded">
-                      <div class="flex items-center flex-1">
-                        <div class="w-2 h-2 rounded-full bg-blue-400 mr-2"></div>
-                        <span class="text-gray-300 text-xs">postgres:14</span>
-                      </div>
-                      <div class="flex items-center gap-1 mr-2">
-                        <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <div class="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
-                      </div>
-                      <span class="text-blue-400 text-xs">8.9 (avg)</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Bottom metrics -->
-                <div class="mt-4 flex items-center justify-between text-xs">
-                  <div class="flex items-center text-gray-400">
-                    <span class="inline-block w-2 h-2 rounded-full bg-purple-500 mr-2"></span>
-                    <span>15 workloads monitored</span>
-                  </div>
-                  <div class="text-gray-500">Updated 2m ago</div>
-                </div>
-              </div>
-            </div>
+            <BrowserMockup
+              imageSrc="/kubmin/list-workload-ss.png"
+              imageAlt="kubmin dashboard showing workload list with SCI scores and sustainability metrics"
+              addressBarText="kubmin.ksctl.com"
+              loading="eager"
+              className="relative z-10"
+            />
           </div>
         </div>
       </div>

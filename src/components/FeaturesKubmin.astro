@@ -1,5 +1,6 @@
 ---
 import Container from "./Container.astro";
+import BrowserMockup from "./BrowserMockup.astro";
 ---
 
 <div id="features" class="py-24 bg-gradient-to-b from-white to-gray-50/50 dark:from-gray-900 dark:to-gray-800/50 relative overflow-hidden">
@@ -212,7 +213,61 @@ import Container from "./Container.astro";
             </a>
           </div>
 
-          <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <!-- Screenshot Gallery -->
+          <div class="mt-12 space-y-8 max-w-5xl mx-auto">
+            <!-- Screenshot 1: List View -->
+            <div>
+              <h4 class="text-lg font-semibold text-white mb-3 text-center">
+                Workload Overview
+              </h4>
+              <BrowserMockup
+                imageSrc="/kubmin/list-workload-ss.png"
+                imageAlt="kubmin workload list showing container images with SCI scores"
+                addressBarText="kubmin.ksctl.com/workloads"
+                loading="lazy"
+              />
+              <p class="text-gray-400 text-sm text-center mt-3">
+                Monitor all workloads with sortable columns and filtering
+              </p>
+            </div>
+
+            <!-- Screenshots 2 & 3: Grid Layout -->
+            <div class="grid md:grid-cols-2 gap-6">
+              <!-- Graph View -->
+              <div>
+                <h4 class="text-lg font-semibold text-white mb-3 text-center">
+                  SCI Analytics
+                </h4>
+                <BrowserMockup
+                  imageSrc="/kubmin/detail-graph-workload-ss.png"
+                  imageAlt="Graph showing SCI score trends over time"
+                  addressBarText="kubmin.ksctl.com/analytics"
+                  loading="lazy"
+                />
+                <p class="text-gray-400 text-sm text-center mt-3">
+                  Track sustainability trends with time-series graphs
+                </p>
+              </div>
+
+              <!-- Image Details -->
+              <div>
+                <h4 class="text-lg font-semibold text-white mb-3 text-center">
+                  Image Details
+                </h4>
+                <BrowserMockup
+                  imageSrc="/kubmin/detail-image-workload-ss.png"
+                  imageAlt="Container image details with SCI metrics breakdown"
+                  addressBarText="kubmin.ksctl.com/images"
+                  loading="lazy"
+                />
+                <p class="text-gray-400 text-sm text-center mt-3">
+                  Drill down into per-image environmental metrics
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-12">
             <div class="flex items-start text-left">
               <div class="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 flex items-center justify-center mr-3 mt-1">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
