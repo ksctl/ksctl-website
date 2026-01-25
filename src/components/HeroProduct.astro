@@ -29,7 +29,7 @@ import Container from "./Container.astro";
                 class="h-16 w-auto mr-4"
               />
               <h3 class="text-4xl font-bold text-gray-900 dark:text-white">
-                ksctl cli
+                kli
               </h3>
             </div>
 
@@ -96,7 +96,7 @@ import Container from "./Container.astro";
               <div class="relative group/command max-w-md w-full">
                 <div class="flex bg-gray-900 rounded-lg overflow-hidden border border-gray-700/50 shadow-lg">
                   <div class="flex-grow px-4 py-3.5 font-mono text-sm text-gray-300 truncate">
-                    <span class="text-green-400">$</span> curl -sSfL https://get.ksctl.com | python3 -
+                    <span class="text-green-400">$</span> curl -sSfL https://get.kcli.ksctl.com | python3 -
                   </div>
                   <button
                     id="copyButton"
@@ -326,7 +326,7 @@ import Container from "./Container.astro";
 <script>
   const copyButton = document.getElementById("copyButton");
   const copyMessage = document.getElementById("copyMessage");
-  const url = "curl -sSfL https://get.ksctl.com | python3 -";
+  const url = "curl -sSfL https://get.kcli.ksctl.com | python3 -";
 
   if (copyButton) {
     copyButton.addEventListener("click", () => {
