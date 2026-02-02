@@ -126,7 +126,7 @@ Components are self-contained sections that can be composed in different page la
 - Logo linking to home
 - "Products" dropdown with ksctl (Available) and kubmin (Coming Soon) entries
 - "About Us" link
-- External links: Docs, Community (Google Groups), GitHub
+- External links: docs.kli, Community (Google Groups), GitHub
 - Mobile-responsive hamburger menu
 
 ## Development Notes
@@ -170,7 +170,7 @@ Components are self-contained sections that can be composed in different page la
 - Responsive breakpoints following Tailwind's defaults
 
 **External Links:**
-- Documentation: https://docs.ksctl.com/
+- Documentation: https://docs.kli.ksctl.com/
 - GitHub: https://github.com/ksctl
 - Community: Google Groups forum
 - Social: Twitter/X (@ksctl_org), Discord (discord.ksctl.com), LinkedIn
