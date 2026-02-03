@@ -19,7 +19,7 @@ import Container from "./Container.astro";
         Simple Process
       </span>
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
-        How <span class="bg-gradient-to-r from-amber-500 to-orange-500 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent">ksctl</span> Works
+        How <span class="bg-gradient-to-r from-amber-500 to-orange-500 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent">kli</span> Works
       </h2>
       <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
         From installation to production-ready Kubernetes clusters in minutes, not hours
@@ -34,13 +34,13 @@ import Container from "./Container.astro";
       <!-- Step 1 -->
       <div class="relative z-10 flex flex-col md:flex-row items-center mb-24">
         <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right">
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">1. Install ksctl</h3>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">1. Install kli</h3>
           <p class="text-lg text-gray-600 dark:text-gray-300">
             Quick installation with a single command. Works on Linux, macOS, and Windows through WSL.
           </p>
           <div class="mt-6 bg-gray-900 rounded-lg overflow-hidden border border-gray-700 shadow-md inline-block">
             <div class="px-4 py-2 font-mono text-sm text-gray-300">
-              <span class="text-green-400">$</span> curl -sSfL https://get.kcli.ksctl.com | python3 -
+              <span class="text-green-400">$</span> curl -sSfL https://get.kli.ksctl.com | python3 -
             </div>
           </div>
         </div>
@@ -63,12 +63,12 @@ import Container from "./Container.astro";
                 </div>
                 <div class="p-4 font-mono text-sm text-green-400 bg-gray-900">
                   <p class="whitespace-nowrap overflow-x-auto">
-                    <span class="text-gray-500">$</span> curl -sSfL https://get.kcli.ksctl.com | python3 -<br/>
-                    <span class="text-blue-400">INFO</span> Downloading ksctl...<br/>
-                    <span class="text-blue-400">INFO</span> Installing to /usr/local/bin/ksctl...<br/>
-                    <span class="text-green-400">SUCCESS</span> ksctl installed! 🚀<br/>
-                    <span class="text-gray-500">$</span> ksctl version<br/>
-                    ksctl v2.8.0
+                    <span class="text-gray-500">$</span> curl -sSfL https://get.kli.ksctl.com | python3 -<br/>
+                    <span class="text-blue-400">INFO</span> Downloading kli...<br/>
+                    <span class="text-blue-400">INFO</span> Installing to /usr/local/bin/kli...<br/>
+                    <span class="text-green-400">SUCCESS</span> kli installed! 🚀<br/>
+                    <span class="text-gray-500">$</span> kli version<br/>
+                    kli v2.9.0
                   </p>
                 </div>
               </div>
@@ -136,7 +136,7 @@ import Container from "./Container.astro";
         <div class="md:w-1/2 md:pl-12">
           <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">2. Define Your Cluster</h3>
           <p class="text-lg text-gray-600 dark:text-gray-300">
-            Specify your requirements with simple CLI flags or a configuration file. Let ksctl handle the complexity.
+            Specify your requirements with simple CLI flags or a configuration file. Let kli handle the complexity.
           </p>
           <div class="mt-6 space-y-2">
             <div class="flex items-center">
@@ -172,11 +172,11 @@ import Container from "./Container.astro";
         <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right">
           <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">3. Create Your Cluster</h3>
           <p class="text-lg text-gray-600 dark:text-gray-300">
-            Single command deployment with smart defaults. ksctl handles all the infrastructure provisioning.
+            Single command deployment with smart defaults. kli handles all the infrastructure provisioning.
           </p>
           <div class="mt-6 bg-gray-900 rounded-lg overflow-hidden border border-gray-700 shadow-md inline-block">
             <div class="px-4 py-2 font-mono text-sm text-gray-300">
-              <span class="text-green-400">$</span> ksctl cluster create
+              <span class="text-green-400">$</span> kli cluster create
             </div>
           </div>
         </div>
@@ -199,7 +199,7 @@ import Container from "./Container.astro";
                 </div>
                 <div class="p-4 font-mono text-sm text-gray-300 bg-gray-900">
                   <p class="whitespace-nowrap overflow-x-auto">
-                    <span class="text-gray-500">$</span> <span class="text-blue-400">ksctl cluster create</span><br/>
+                    <span class="text-gray-500">$</span> <span class="text-blue-400">kli cluster create</span><br/>
                     <span class="text-blue-400">INFO</span> Scanning for optimal deployment regions...<br/>
                     <span class="text-blue-400">INFO</span> Selected eu-west-2 for lowest carbon intensity (67% renewable)<br/>
                     <span class="text-blue-400">INFO</span> Creating VPC and networking components...<br/>
@@ -228,7 +228,7 @@ import Container from "./Container.astro";
       <!--                   <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd" /> -->
       <!--                 </svg> -->
       <!--               </div> -->
-      <!--               <div class="text-gray-300 font-medium">ksctl Dashboard - Cluster Overview</div> -->
+      <!--               <div class="text-gray-300 font-medium">kli Dashboard - Cluster Overview</div> -->
       <!--             </div> -->
       <!--           </div> -->
       <!--           <div class="p-4"> -->
@@ -452,7 +452,7 @@ import Container from "./Container.astro";
           </div>
           <div class="mt-6 bg-gray-900 rounded-lg overflow-hidden border border-gray-700 shadow-md inline-block">
             <div class="px-4 py-2 font-mono text-sm text-gray-300">
-              <span class="text-green-400">$</span> ksctl cluster summary
+              <span class="text-green-400">$</span> kli cluster summary
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ import Container from "./Container.astro";
         Frequently Asked <span class="bg-gradient-to-r from-indigo-500 to-purple-500 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">Questions</span>
       </h2>
       <p class="mx-auto max-w-2xl text-xl text-gray-600 dark:text-gray-300">
-        Everything you need to know about ksctl and sustainable Kubernetes management
+        Everything you need to know about kli and sustainable Kubernetes management
       </p>
     </div>
 
@@ -34,14 +34,14 @@ import Container from "./Container.astro";
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">What is ksctl and how is it different?</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">What is kli and how is it different?</h3>
             <svg class="faq-icon h-6 w-6 text-primary dark:text-primary-light transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
           <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300">
-              ksctl is a cloud-agnostic Kubernetes management tool designed with sustainability and simplicity as core principles. Unlike other tools, ksctl prioritizes both cost optimization and environmental impact by intelligently selecting regions and instance types based on carbon intensity and renewable energy availability. It provides a unified interface across major cloud providers, making it easy to deploy, manage, and optimize your Kubernetes clusters regardless of where they're hosted. Can create clusters ranging from their own local machine to cloud provider managed (For ex. AKS, EKS) to Self Managed (For Ex. K3s, kubeadm), with no need for manual intervention.
+              kli is a cloud-agnostic Kubernetes management tool designed with sustainability and simplicity as core principles. Unlike other tools, kli prioritizes both cost optimization and environmental impact by intelligently selecting regions and instance types based on carbon intensity and renewable energy availability. It provides a unified interface across major cloud providers, making it easy to deploy, manage, and optimize your Kubernetes clusters regardless of where they're hosted. Can create clusters ranging from their own local machine to cloud provider managed (For ex. AKS, EKS) to Self Managed (For Ex. K3s, kubeadm), with no need for manual intervention.
             </p>
           </div>
         </div>
@@ -52,14 +52,14 @@ import Container from "./Container.astro";
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">What cloud providers does ksctl support?</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">What cloud providers does kli support?</h3>
             <svg class="faq-icon h-6 w-6 text-primary dark:text-primary-light transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
           <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300">
-              ksctl currently supports AWS(EKS) and Azure(AKS) along with self-managed Kubernetes deployments. Our unified API approach means you can use the same commands and workflows across all providers, making multi-cloud management seamless. We're constantly adding support for additional cloud providers based on community feedback.
+              kli currently supports AWS(EKS) and Azure(AKS) along with self-managed Kubernetes deployments. Our unified API approach means you can use the same commands and workflows across all providers, making multi-cloud management seamless. We're constantly adding support for additional cloud providers based on community feedback.
             </p>
           </div>
         </div>
@@ -70,19 +70,19 @@ import Container from "./Container.astro";
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">How does ksctl optimize for sustainability?</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">How does kli optimize for sustainability?</h3>
             <svg class="faq-icon h-6 w-6 text-primary dark:text-primary-light transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
           <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300 mb-4">
-              ksctl uses multiple strategies to optimize for sustainability:
+              kli uses multiple strategies to optimize for sustainability:
             </p>
             <ul class="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
               <li><span class="font-medium">Carbon-aware region selection</span>: We analyze real-time and historical data about the carbon intensity of different cloud regions and prioritize those with higher renewable energy percentages.</li>
               <li><span class="font-medium">Energy-efficient instance types</span>: Our algorithms select instance types that which tries to have lower emboddied carbon and also instance-group filteration for your specific workload requirements.</li>
-              <li><span class="font-medium">Dynamic region switching</span>: For non-latency-sensitive workloads, ksctl can dynamically move workloads to regions with lower carbon intensity as conditions change.</li>
+              <li><span class="font-medium">Dynamic region switching</span>: For non-latency-sensitive workloads, kli can dynamically move workloads to regions with lower carbon intensity as conditions change.</li>
               <!-- <li><span class="font-medium">Automated scaling</span>: Intelligently scales down resources during low-demand periods to reduce unnecessary energy consumption.</li> -->
             </ul>
           </div>
@@ -94,7 +94,7 @@ import Container from "./Container.astro";
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">How much can I save with ksctl?</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">How much can I save with kli?</h3>
             <svg class="faq-icon h-6 w-6 text-primary dark:text-primary-light transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
@@ -120,14 +120,14 @@ import Container from "./Container.astro";
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Is ksctl suitable for production environments?</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Is kli suitable for production environments?</h3>
             <svg class="faq-icon h-6 w-6 text-primary dark:text-primary-light transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
           <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300">
-              Absolutely! ksctl is designed for production-grade Kubernetes deployments with features like high availability, disaster recovery, and security best practices built in. Many organizations, from startups to enterprises, use ksctl to manage their production environments across multiple cloud providers. Our focus on reliability and simplicity makes it an excellent choice for mission-critical workloads.
+              Absolutely! kli is designed for production-grade Kubernetes deployments with features like high availability, disaster recovery, and security best practices built in. Many organizations, from startups to enterprises, use kli to manage their production environments across multiple cloud providers. Our focus on reliability and simplicity makes it an excellent choice for mission-critical workloads.
             </p>
           </div>
         </div>
@@ -139,7 +139,7 @@ import Container from "./Container.astro";
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">How can I get started with ksctl?</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">How can I get started with kli?</h3>
             <svg class="faq-icon h-6 w-6 text-primary dark:text-primary-light transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
@@ -149,9 +149,9 @@ import Container from "./Container.astro";
               Getting started is simple:
             </p>
             <ol class="list-decimal pl-6 space-y-2 text-gray-600 dark:text-gray-300">
-              <li>Install ksctl with our one-line installer: <code class="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">curl -sSfL https://get.kcli.ksctl.com | python3 -</code></li>
-              <li>Configure your cloud provider credentials <code class="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">ksctl configure cloud</code></li>
-              <li>Create your first cluster with <code class="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">ksctl cluster create</code></li>
+              <li>Install kli with our one-line installer: <code class="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">curl -sSfL https://get.kli.ksctl.com | python3 -</code></li>
+              <li>Configure your cloud provider credentials <code class="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">kli configure cloud</code></li>
+              <li>Create your first cluster with <code class="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">kli cluster create</code></li>
             </ol>
             <p class="text-gray-600 dark:text-gray-300 mt-4">
               Check out our <a href="https://docs.kli.ksctl.com/docs/getting-started/" class="text-primary hover:text-primary-dark dark:hover:text-primary-light font-medium">Getting Started guide</a> for detailed instructions and tutorials. We also offer free community support through our Discord channel.

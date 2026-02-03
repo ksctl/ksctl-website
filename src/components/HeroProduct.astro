@@ -73,7 +73,7 @@ import Container from "./Container.astro";
 
               <!-- GitHub Link -->
               <a
-                href="https://github.com/ksctl/cli"
+                href="https://github.com/ksctl/kli"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="flex items-center justify-center h-14 w-14 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm transition-all hover:shadow hover:border-primary/30 dark:hover:border-primary/30 hover:translate-y-[-2px] active:translate-y-[1px] hover:text-primary dark:hover:text-primary"
@@ -139,11 +139,11 @@ import Container from "./Container.astro";
                   <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div class="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <div class="ml-4 text-gray-400 text-sm font-mono">ksctl command</div>
+                <div class="ml-4 text-gray-400 text-sm font-mono">kli command</div>
               </div>
               <div class="p-5 font-mono text-sm text-gray-300">
                 <div class="mb-3">
-                  <span class="text-green-400">$</span> ksctl cluster create
+                  <span class="text-green-400">$</span> kli cluster create
                 </div>
                 <div class="text-gray-500 mb-2">Initializing cluster...</div>
                 <div class="flex items-start mb-1.5">
@@ -326,7 +326,7 @@ import Container from "./Container.astro";
 <script>
   const copyButton = document.getElementById("copyButton");
   const copyMessage = document.getElementById("copyMessage");
-  const url = "curl -sSfL https://get.kcli.ksctl.com | python3 -";
+  const url = "curl -sSfL https://get.kli.ksctl.com | python3 -";
 
   if (copyButton) {
     copyButton.addEventListener("click", () => {
