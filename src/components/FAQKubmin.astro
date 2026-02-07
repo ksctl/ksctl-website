@@ -22,7 +22,7 @@ import Container from "./Container.astro";
         Frequently Asked <span class="bg-gradient-to-r from-purple-600 to-indigo-500 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">Questions</span>
       </h2>
       <p class="mx-auto max-w-2xl text-xl text-gray-600 dark:text-gray-300">
-        Everything you need to know about kubmin and sustainable workload management
+        Everything you need to know about finding and fixing Kubernetes waste
       </p>
     </div>
 
@@ -40,8 +40,11 @@ import Container from "./Container.astro";
             </svg>
           </button>
           <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              kubmin is a Kubernetes cost optimization and waste detection platform. It uses energy-powered analysis to find idle workloads, overprovisioned resources, and wrong instance types that are burning money in your clusters.
+            </p>
             <p class="text-gray-600 dark:text-gray-300">
-              kubmin is a sustainable workload management platform for Kubernetes. It provides per-image SCI (Software Carbon Intensity) scoring, built-in Prometheus monitoring, and multi-cluster management. kubmin helps you track, monitor, and optimize your workloads' carbon footprint with hourly granularity, making it easy to meet sustainability goals while managing resources efficiently.
+              Beyond cost savings, kubmin also tracks SCI (Software Carbon Intensity) scores for sustainability reporting, giving you both financial and environmental visibility into your infrastructure.
             </p>
           </div>
         </div>
@@ -52,18 +55,20 @@ import Container from "./Container.astro";
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">What is SCI scoring and why should I care?</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">How much money can kubmin save me?</h3>
             <svg class="faq-icon h-6 w-6 text-purple-600 dark:text-purple-400 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
           <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Software Carbon Intensity (SCI) is a standardized metric from the Green Software Foundation that measures carbon emissions per functional unit. kubmin tracks SCI at the container image level, giving you unprecedented visibility into your application's carbon footprint.
+              It depends on your cluster size and current waste levels. Typical savings range from $50-500/month per cluster. kubmin's waste detection finds three types of waste:
             </p>
-            <p class="text-gray-600 dark:text-gray-300">
-              This helps you make data-driven decisions about sustainability, meet ESG (Environmental, Social, and Governance) goals, and identify opportunities to reduce both environmental impact and costs. SCI scoring also builds trust by providing verifiable metrics for your sustainability claims.
-            </p>
+            <ul class="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
+              <li>Idle workloads that are running but not producing value</li>
+              <li>Overprovisioned resources using far less than what they've requested</li>
+              <li>Wrong instance types that could run the same workload for less</li>
+            </ul>
           </div>
         </div>
 
@@ -73,18 +78,21 @@ import Container from "./Container.astro";
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Do I need to configure Prometheus manually?</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">How is kubmin different from Kubecost?</h3>
             <svg class="faq-icon h-6 w-6 text-purple-600 dark:text-purple-400 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
           <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300 mb-4">
-              No! kubmin deploys a ready-to-use Prometheus stack automatically when you enable monitoring. All scrape targets, dashboards, and alerting rules are pre-configured for immediate insights.
+              kubmin takes a fundamentally different approach by using energy consumption data (via Kepler) alongside traditional CPU and memory metrics. This gives kubmin unique capabilities:
             </p>
-            <p class="text-gray-600 dark:text-gray-300">
-              You can customize the configuration later if needed, but it works out of the box with sensible defaults tailored for workload sustainability monitoring.
-            </p>
+            <ul class="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
+              <li>Energy-based idle detection that catches workloads traditional monitoring misses</li>
+              <li>Deployment impact tracking to compare image versions across energy, cost, and resources</li>
+              <li>DRF-based instance optimization with top 3 alternative recommendations</li>
+              <li>SCI sustainability scoring built on the Green Software Foundation specification</li>
+            </ul>
           </div>
         </div>
 
@@ -101,12 +109,12 @@ import Container from "./Container.astro";
           </button>
           <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300 mb-4">
-              We charge a fixed monthly fee. There are no hidden costs, no per-metric charges, and no surprise bills.
+              We charge a fixed monthly fee with no hidden costs or surprise bills. The free Explore tier gives you basic SCI tracking for 1 cluster.
             </p>
             <ul class="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
-              <li>Simple pricing: Pay only for what you monitor</li>
-              <li>Unlimited SCI tracking included currently 2 days</li>
-              <li>Built-in Prometheus and Grafana at no extra cost</li>
+              <li>Affordable ($19.99/mo) and Premium ($49.99/mo): Both include the complete workload view — waste analysis, instance optimization, deployment comparison, Quick Wins, regional cost comparison, and energy grading</li>
+              <li>Premium adds more clusters, workloads, team members, and priority support</li>
+              <li>Built-in Prometheus and Grafana included at no extra cost</li>
             </ul>
           </div>
         </div>
@@ -117,17 +125,17 @@ import Container from "./Container.astro";
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Can I use kubmin with my existing clusters?</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Do I need to change my deployment workflow?</h3>
             <svg class="faq-icon h-6 w-6 text-purple-600 dark:text-purple-400 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
           <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Yes! kubmin can connect to any Kubernetes cluster—EKS, AKS, GKE, or self-managed. You don't need to recreate your infrastructure.
+              No. kubmin is completely non-invasive. Just label your workloads and kubmin handles the rest. It works with your existing Prometheus setup or deploys its own stack automatically.
             </p>
             <p class="text-gray-600 dark:text-gray-300">
-              For new clusters, kubmin integrates seamlessly with kli for sustainable cluster creation.
+              kubmin connects to any Kubernetes cluster — EKS, AKS, GKE, or self-managed. You don't need to change your CI/CD pipeline, deployment tools, or infrastructure. Analysis runs alongside your existing workloads.
             </p>
           </div>
         </div>
@@ -138,25 +146,17 @@ import Container from "./Container.astro";
             class="faq-question w-full flex items-center justify-between p-6 text-left"
             aria-expanded="false"
           >
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Is kubmin production-ready?</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">How accurate are the energy measurements?</h3>
             <svg class="faq-icon h-6 w-6 text-purple-600 dark:text-purple-400 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
           <div class="faq-answer px-6 pb-6 hidden" style="display: none;">
             <p class="text-gray-600 dark:text-gray-300 mb-4">
-              kubmin is currently in MVP/Beta stage. The core features—SCI tracking, Prometheus integration, and cluster management—are stable and being used by early adopters.
+              kubmin uses Kepler (Kubernetes Efficient Power Level Exporter) for energy measurements. Kepler uses ML-based estimation models trained on real hardware data, which provides excellent accuracy for trend analysis and relative comparison between workloads.
             </p>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              We're actively developing advanced features like:
-            </p>
-            <ul class="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
-              <li>Docker Compose-like simplicity for Kubernetes</li>
-              <li>OpenTelemetry integration for distributed tracing</li>
-              <li>Enhanced security and compliance features</li>
-            </ul>
-            <p class="text-gray-600 dark:text-gray-300 mt-4">
-              Beta users get priority support and influence our roadmap. Join our early adopter community to shape kubmin's future!
+            <p class="text-gray-600 dark:text-gray-300">
+              For waste detection, kubmin combines energy data with actual resource utilization metrics (CPU, memory, network), making the waste analysis highly reliable even when individual energy readings are estimates. The pattern detection matters more than absolute numbers.
             </p>
           </div>
         </div>

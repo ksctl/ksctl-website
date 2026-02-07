@@ -9,10 +9,10 @@ import Container from "./Container.astro";
         Simple Process
       </span>
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
-        From Connection to <span class="bg-gradient-to-r from-purple-600 to-indigo-500 bg-clip-text text-transparent">Insights</span>
+        Start Saving in <span class="bg-gradient-to-r from-purple-600 to-indigo-500 bg-clip-text text-transparent">4 Steps</span>
       </h2>
       <p class="max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-300">
-        Get started with kubmin in minutes and begin tracking workload sustainability
+        Get started with kubmin in minutes and begin finding waste and saving money
       </p>
     </div>
 
@@ -83,32 +83,32 @@ import Container from "./Container.astro";
         <div class="md:w-1/2 order-2 md:order-1">
           <div class="flex items-center mb-6">
             <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 text-white flex items-center justify-center text-xl font-bold shadow-lg">3</div>
-            <h3 class="ml-4 text-2xl font-bold text-gray-900 dark:text-white">Workload Discovery</h3>
+            <h3 class="ml-4 text-2xl font-bold text-gray-900 dark:text-white">Analyze & Detect Waste</h3>
           </div>
           <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            kubmin discovers all running workloads, analyzes container images, and begins SCI tracking automatically.
+            Label and annotate the workloads you want to analyze. kubmin picks up events from your cluster and checks each workload for idle patterns, overprovisioning, and energy inefficiency. Get a waste report with dollar amounts.
           </p>
           <div class="grid grid-cols-3 gap-4">
             <div class="text-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-              <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">15</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Workloads</div>
+              <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">$142/mo</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Waste Found</div>
             </div>
             <div class="text-center p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
-              <div class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">42</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Images</div>
+              <div class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">8</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Quick Wins</div>
             </div>
             <div class="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-              <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">8</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Namespaces</div>
+              <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">3</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Idle Workloads</div>
             </div>
           </div>
         </div>
         <div class="md:w-1/2 order-1 md:order-2">
           <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-2xl border border-gray-200 dark:border-gray-700">
-            <div class="text-sm font-semibold text-green-600 dark:text-green-400 mb-3">Discovery Complete</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">✓ Found 15 deployments</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">✓ Tracking 42 container images</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">✓ SCI tracking active</div>
+            <div class="text-sm font-semibold text-green-600 dark:text-green-400 mb-3">Waste Analysis Complete</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">! Idle pattern detected ($47/mo)</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">! Overprovisioned resources ($68/mo)</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">✓ Quick Wins ready</div>
           </div>
         </div>
       </div>
@@ -117,40 +117,41 @@ import Container from "./Container.astro";
       <div class="flex flex-col md:flex-row gap-12 items-center">
         <div class="md:w-1/2">
           <div class="bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl p-6 shadow-2xl text-white">
-            <div class="text-lg font-semibold mb-4">kubmin.ksctl.com</div>
-            <div class="space-y-2 text-sm">
-              <div class="flex justify-between"><span>nginx:1.21</span><span>SCI: 7.2</span></div>
-              <div class="flex justify-between"><span>redis:7.0</span><span>SCI: 6.1</span></div>
-              <div class="flex justify-between"><span>postgres:14</span><span>SCI: 8.9</span></div>
+            <div class="text-lg font-semibold mb-4">kubmin Quick Wins</div>
+            <div class="space-y-2 text-sm font-mono">
+              <div class="text-purple-200">$ kubectl set resources deploy/redis-cache --limits=cpu=250m,memory=256Mi</div>
+              <div class="text-green-300">→ Save $27/mo (overprovisioned)</div>
+              <div class="text-purple-200 mt-3">$ kubectl scale deploy/legacy-worker --replicas=1</div>
+              <div class="text-green-300">→ Save $41/mo (scale down idle replicas)</div>
             </div>
           </div>
         </div>
         <div class="md:w-1/2">
           <div class="flex items-center mb-6">
             <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 text-white flex items-center justify-center text-xl font-bold shadow-lg">4</div>
-            <h3 class="ml-4 text-2xl font-bold text-gray-900 dark:text-white">Monitor & Optimize</h3>
+            <h3 class="ml-4 text-2xl font-bold text-gray-900 dark:text-white">Optimize & Save</h3>
           </div>
           <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Access kubmin.ksctl.com for real-time monitoring. Track SCI scores, CPU/memory metrics, and get optimization recommendations.
+            Act on Quick Wins with ready-to-use kubectl commands. Compare deployment versions. Switch to recommended instance types. Track your savings over time.
           </p>
           <ul class="space-y-3">
             <li class="flex items-start">
               <svg class="h-6 w-6 text-purple-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <span class="text-gray-700 dark:text-gray-300">Real-time SCI tracking</span>
+              <span class="text-gray-700 dark:text-gray-300">Quick Wins with kubectl commands</span>
             </li>
             <li class="flex items-start">
               <svg class="h-6 w-6 text-purple-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <span class="text-gray-700 dark:text-gray-300">Resource utilization alerts</span>
+              <span class="text-gray-700 dark:text-gray-300">Instance type recommendations</span>
             </li>
             <li class="flex items-start">
               <svg class="h-6 w-6 text-purple-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              <span class="text-gray-700 dark:text-gray-300">Carbon hotspot identification</span>
+              <span class="text-gray-700 dark:text-gray-300">Deployment impact comparison</span>
             </li>
           </ul>
         </div>
