@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import Container from "../../components/Container.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Layout title="Blog — ksctl">
+  <main class="py-28 bg-ksctl-bg min-h-screen">
+    <Container>
+      <div class="max-w-4xl mx-auto space-y-12">
+        <h1 class="text-4xl font-mono font-bold text-ksctl-text-primary uppercase tracking-tight">Blog</h1>
+        <div class="space-y-8">
+          {posts.map((post) => <BlogCard post={post} />)}
+        </div>
+      </div>
+    </Container>
+  </main>
+</Layout>

@@ -1,21 +1,23 @@
 ---
 import HeroHome from "../components/HeroHome.astro";
-import MissionVision from "../components/MissionVision.astro";
-import CompanyValues from "../components/CompanyValues.astro";
-import ProductHighlights from "../components/ProductHighlights.astro";
-// import Stats from "../components/Stats.astro";
-import CallToAction from "../components/CallToAction.astro";
+import PainPoints from "../components/PainPoints.astro";
+import ProductDemo from "../components/ProductDemo.astro";
+import HowItWorksKubmin from "../components/HowItWorksKubmin.astro";
+import Differentiators from "../components/Differentiators.astro";
+import PricingInline from "../components/PricingInline.astro";
+import FooterCTA from "../components/FooterCTA.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 ---
 
-<Layout title="ksctl - Efficient and Sustainable Cloud Tooling">
-  <main class="space-y-32 mb-32">
+<Layout title="Kubmin by ksctl — Stop Wasting Money and Energy on Kubernetes">
+  <main class="space-y-24 mb-24 bg-ksctl-bg min-h-screen">
     <HeroHome />
-    <MissionVision />
-    <CompanyValues />
-    <ProductHighlights />
-    <!-- <Stats /> -->
-    <!-- <CallToAction /> -->
+    <PainPoints />
+    <ProductDemo />
+    <HowItWorksKubmin />
+    <Differentiators />
+    <PricingInline />
+    <FooterCTA />
   </main>
 </Layout>

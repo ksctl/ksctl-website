@@ -1,0 +1,36 @@
+---
+import Container from "./Container.astro";
+---
+
+<section id="differentiators" class="py-16 sm:py-24">
+  <Container>
+    <div class="text-center mb-16">
+      <h2 class="text-2xl sm:text-3xl font-mono font-bold text-ksctl-text-primary mb-4">
+        "I already have monitoring. Why do I need Kubmin?"
+      </h2>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="p-6 rounded-lg border border-gray-800 bg-[#0d1117] hover:border-primary/50 transition-colors group">
+        <h3 class="text-lg font-mono font-bold text-primary mb-4 uppercase">SCI + SEE Dual Metrics</h3>
+        <p class="text-ksctl-text-secondary font-mono text-sm leading-relaxed">
+          Carbon + efficiency in one view. Traditional APMs track utilization; Kubmin tracks the real environmental impact of every CPU cycle.
+        </p>
+      </div>
+      
+      <div class="p-6 rounded-lg border border-gray-800 bg-[#0d1117] hover:border-primary/50 transition-colors group">
+        <h3 class="text-lg font-mono font-bold text-primary mb-4 uppercase">Temporal Waste Detection</h3>
+        <p class="text-ksctl-text-secondary font-mono text-sm leading-relaxed">
+          Finds idle periods that APMs miss. We analyze patterns over time to identify workloads that are "active" but functionally wasting resources.
+        </p>
+      </div>
+      
+      <div class="p-6 rounded-lg border border-gray-800 bg-[#0d1117] hover:border-primary/50 transition-colors group">
+        <h3 class="text-lg font-mono font-bold text-primary mb-4 uppercase">GSF-Compliant Out of the Box</h3>
+        <p class="text-ksctl-text-secondary font-mono text-sm leading-relaxed">
+          Enterprise sustainability reporting ready. Export compliant metrics directly to your ESG platform without custom Prometheus queries.
+        </p>
+      </div>
+    </div>
+  </Container>
+</section>

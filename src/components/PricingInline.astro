@@ -1,0 +1,94 @@
+---
+import Container from "./Container.astro";
+---
+
+<section id="pricing" class="py-16 sm:py-24">
+  <Container>
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-mono font-bold text-ksctl-text-primary mb-4">Pricing</h2>
+      <p class="text-ksctl-text-secondary font-mono">Simple, node-based pricing for teams of all sizes.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- Free Tier -->
+      <div class="p-8 rounded-lg border border-gray-800 bg-[#0d1117] flex flex-col h-full">
+        <h3 class="text-xl font-mono font-bold text-ksctl-text-primary mb-2">Free</h3>
+        <div class="text-3xl font-mono font-bold text-primary mb-6">$0<span class="text-sm text-ksctl-text-secondary font-normal">/mo</span></div>
+        
+        <ul class="space-y-4 mb-8 flex-grow">
+          <li class="flex items-center gap-3 text-ksctl-text-secondary font-mono text-sm">
+            <svg class="w-4 h-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Up to 3 nodes
+          </li>
+          <li class="flex items-center gap-3 text-ksctl-text-secondary font-mono text-sm">
+            <svg class="w-4 h-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            7-day retention
+          </li>
+          <li class="flex items-center gap-3 text-ksctl-text-secondary font-mono text-sm">
+            <svg class="w-4 h-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            SCI + SEE metrics
+          </li>
+          <li class="flex items-center gap-3 text-ksctl-text-secondary font-mono text-sm">
+            <svg class="w-4 h-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Single cluster
+          </li>
+        </ul>
+        
+        <a href="#" class="block text-center py-3 rounded border border-primary text-primary font-mono font-bold hover:bg-primary/10 transition-colors">
+          Get Started
+        </a>
+      </div>
+      
+      <!-- Pro Tier -->
+      <div class="p-8 rounded-lg border-2 border-primary bg-[#0d1117] flex flex-col h-full relative overflow-hidden">
+        <div class="absolute top-0 right-0 bg-primary text-black font-mono font-bold text-[10px] px-2 py-1 uppercase tracking-wider">
+          Recommended
+        </div>
+        <h3 class="text-xl font-mono font-bold text-ksctl-text-primary mb-2">Pro</h3>
+        <div class="text-3xl font-mono font-bold text-primary mb-6">$49<span class="text-sm text-ksctl-text-secondary font-normal">/mo</span></div>
+        
+        <ul class="space-y-4 mb-8 flex-grow">
+          <li class="flex items-center gap-3 text-ksctl-text-secondary font-mono text-sm font-bold">
+            Everything in Free +
+          </li>
+          <li class="flex items-center gap-3 text-ksctl-text-secondary font-mono text-sm">
+            <svg class="w-4 h-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Unlimited nodes
+          </li>
+          <li class="flex items-center gap-3 text-ksctl-text-secondary font-mono text-sm">
+            <svg class="w-4 h-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            90-day retention
+          </li>
+          <li class="flex items-center gap-3 text-ksctl-text-secondary font-mono text-sm">
+            <svg class="w-4 h-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Multi-cluster support
+          </li>
+          <li class="flex items-center gap-3 text-ksctl-text-secondary font-mono text-sm">
+            <svg class="w-4 h-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Efficiency regression alerts
+          </li>
+        </ul>
+        
+        <a href="#" class="block text-center py-3 rounded bg-primary text-black font-mono font-bold hover:bg-primary/90 transition-colors">
+          Start Trial
+        </a>
+      </div>
+    </div>
+  </Container>
+</section>

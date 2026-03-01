@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import PricingInline from "../components/PricingInline.astro";
+import FAQ from "../components/FAQ.astro";
+import "../styles/global.css";
+---
+
+<Layout title="Pricing — ksctl">
+  <main class="py-28 bg-ksctl-bg min-h-screen">
+    <Container>
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <h1 class="text-4xl font-mono font-bold text-ksctl-text-primary uppercase tracking-tight">Simple Pricing</h1>
+        <p class="text-lg text-ksctl-text-secondary font-mono">
+          Start for free, scale as you grow. No hidden fees.
+        </p>
+      </div>
+    </Container>
+    <PricingInline />
+    <Container>
+      <div class="max-w-4xl mx-auto pt-16">
+        <h2 class="text-2xl font-mono font-bold text-ksctl-text-primary mb-8 uppercase tracking-tight text-center">Frequently Asked Questions</h2>
+        <FAQ />
+      </div>
+    </Container>
+  </main>
+</Layout>

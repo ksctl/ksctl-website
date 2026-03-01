@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Container from '../../components/Container.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={`${post.data.title} — ksctl`}>
+  <main class="py-28 bg-ksctl-bg min-h-screen">
+    <Container>
+      <article class="max-w-3xl mx-auto space-y-12">
+        <div class="space-y-4">
+          <div class="flex items-center gap-4 text-xs font-mono text-ksctl-text-secondary uppercase">
+            <time datetime={post.data.date.toISOString()}>
+              {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </time>
+            <span>•</span>
+            <span>{post.data.author}</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl font-mono font-bold text-ksctl-text-primary leading-tight">
+            {post.data.title}
+          </h1>
+        </div>
+        
+        <div class="prose prose-invert prose-primary max-w-none font-mono text-ksctl-text-secondary leading-relaxed
+          prose-headings:text-ksctl-text-primary prose-headings:font-bold prose-headings:font-mono
+          prose-strong:text-ksctl-text-primary prose-code:text-primary prose-a:text-primary">
+          <Content />
+        </div>
+      </article>
+    </Container>
+  </main>
+</Layout>

@@ -1,0 +1,36 @@
+---
+import Container from "./Container.astro";
+---
+
+<section id="pain-points" class="relative py-16 sm:py-24">
+  <Container>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
+      <div class="space-y-4">
+        <h3 class="text-xl font-mono font-bold text-primary uppercase tracking-tight">
+          Overprovisioned Resources
+        </h3>
+        <p class="text-ksctl-text-secondary leading-relaxed font-mono text-sm sm:text-base">
+          You're paying for idle CPU and memory every month. Most teams overprovision by 40-60% and have no visibility into the waste.
+        </p>
+      </div>
+      
+      <div class="space-y-4">
+        <h3 class="text-xl font-mono font-bold text-primary uppercase tracking-tight">
+          Blind to Energy Costs
+        </h3>
+        <p class="text-ksctl-text-secondary leading-relaxed font-mono text-sm sm:text-base">
+          Without real energy data from your workloads, sustainability reporting is guesswork. Compliance deadlines don't wait for guesses.
+        </p>
+      </div>
+      
+      <div class="space-y-4">
+        <h3 class="text-xl font-mono font-bold text-primary uppercase tracking-tight">
+          Efficiency Regressions Hide in Deploys
+        </h3>
+        <p class="text-ksctl-text-secondary leading-relaxed font-mono text-sm sm:text-base">
+          You ship code, resource consumption creeps up, nobody notices until the bill arrives. Traditional monitoring doesn't track efficiency over time.
+        </p>
+      </div>
+    </div>
+  </Container>
+</section>

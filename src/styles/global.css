@@ -2,20 +2,20 @@
 
 /* Base variables */
 :root {
-  --primary-color: #14b8a6;
-  --primary-color-dark: #0f766e;
-  --primary-color-light: #5eead4;
+  --primary-color: #22c55e;
+  --primary-color-dark: #16a34a;
+  --primary-color-light: #4ade80;
   
-  --text-color: #333333;
-  --text-color-light: #6b7280;
-  --text-color-dark: #111827;
+  --text-color: #e6edf3;
+  --text-color-light: #8b949e;
+  --text-color-dark: #ffffff;
   
-  --bg-color: #ffffff;
-  --bg-color-dark: #0a181a;
-  --bg-color-light: #f9fafb;
+  --bg-color: #0a0a0a;
+  --bg-color-dark: #000000;
+  --bg-color-light: #0d1117;
   
-  --font-heading: 'Bricolage Grotesque', sans-serif;
-  --font-body: 'Bricolage Grotesque', sans-serif;
+  --font-heading: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+  --font-body: 'JetBrains Mono', 'IBM Plex Mono', monospace;
 }
 
 /* Custom animations */
@@ -45,14 +45,14 @@
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, var(--primary-color), #34d399);
+  background: linear-gradient(90deg, var(--primary-color), #4ade80);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
 .gradient-bg {
-  background: linear-gradient(120deg, var(--primary-color), #34d399);
+  background: linear-gradient(120deg, var(--primary-color), #4ade80);
   background-size: 200% 200%;
   animation: gradient-shift 8s ease infinite;
 }
@@ -88,7 +88,7 @@
 }
 
 .dark .gradient-text {
-  background: linear-gradient(90deg, var(--primary-color-light), #34d399);
+  background: linear-gradient(90deg, var(--primary-color-light), #4ade80);
   background-clip: text;
   -webkit-background-clip: text;
 }
@@ -130,15 +130,15 @@ img {
 
 /* Custom code block styling */
 code {
-  font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
+  font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
   padding: 0.2em 0.4em;
   border-radius: 0.25em;
-  background-color: rgba(20, 184, 166, 0.1);
-  color: var(--primary-color-dark);
+  background-color: rgba(34, 197, 94, 0.1);
+  color: var(--primary-color-light);
 }
 
 .dark code {
-  background-color: rgba(20, 184, 166, 0.2);
+  background-color: rgba(34, 197, 94, 0.2);
   color: var(--primary-color-light);
 }
 
@@ -156,7 +156,7 @@ code {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.3), transparent);
 }
 
 /* Custom button hover effect */

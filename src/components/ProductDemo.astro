@@ -1,0 +1,72 @@
+---
+import Container from "./Container.astro";
+---
+
+<section id="demo" class="py-16 sm:py-24">
+  <Container>
+    <div class="relative mx-auto max-w-5xl">
+      <!-- Terminal Window -->
+      <div class="rounded-lg bg-[#0d1117] border border-gray-800 shadow-2xl overflow-hidden font-mono text-sm sm:text-base">
+        <!-- Terminal Header -->
+        <div class="flex items-center gap-2 px-4 py-3 bg-[#161b22] border-b border-gray-800">
+          <div class="flex gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+          </div>
+          <div class="text-xs text-ksctl-text-secondary mx-auto pr-10">bash — kubmin analysis</div>
+        </div>
+        
+        <!-- Terminal Content -->
+        <div class="p-6 sm:p-8 space-y-4">
+          <div class="flex gap-3">
+            <span class="text-primary">$</span>
+            <span class="text-ksctl-text-primary">kubmin analyze --namespace production</span>
+          </div>
+          
+          <div class="space-y-2 text-ksctl-text-primary">
+            <p class="text-ksctl-text-secondary">Analyzing 42 workloads across 3 clusters...</p>
+            <div class="grid grid-cols-1 gap-1">
+              <div class="flex justify-between items-center border-l-2 border-primary pl-3 py-1 bg-primary/5">
+                <span>→ <span class="text-primary font-bold">SCI Score: 84/100</span> (Efficient)</span>
+                <span class="text-ksctl-text-secondary text-xs">Per Workload Avg</span>
+              </div>
+              <div class="flex justify-between items-center border-l-2 border-red-500 pl-3 py-1 bg-red-500/5 mt-2">
+                <span>→ <span class="text-red-500 font-bold">Energy Waste Detected: 340W idle</span></span>
+                <span class="text-ksctl-text-secondary text-xs">Total Cluster Idle</span>
+              </div>
+              <div class="flex justify-between items-center border-l-2 border-primary pl-3 py-1 bg-primary/5 mt-2">
+                <span>→ <span class="text-primary font-bold">Cost Savings: $127/mo identified</span></span>
+                <span class="text-ksctl-text-secondary text-xs">Recommended Fixes</span>
+              </div>
+            </div>
+            
+            <p class="pt-4 text-primary font-bold underline">Recommendations:</p>
+            <p class="text-sm">1. Scale down 'billing-api' replicas (currently 8, 4 idle)</p>
+            <p class="text-sm">2. Update CPU requests for 'worker-v2' (overprovisioned by 450m)</p>
+          </div>
+          
+          <div class="flex gap-3">
+            <span class="text-primary">$</span>
+            <span class="animate-pulse w-2 h-5 bg-primary/50"></span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Callouts / Annotations -->
+      <div class="hidden lg:block">
+        <div class="absolute -right-8 top-1/4 max-w-[200px] p-3 rounded border border-primary/30 bg-[#0a0a0a]/80 backdrop-blur-sm">
+          <p class="text-xs font-mono text-ksctl-text-secondary">
+            <span class="text-primary font-bold">SCI score</span> per workload tracks real carbon impact.
+          </p>
+        </div>
+        
+        <div class="absolute -left-12 bottom-1/4 max-w-[200px] p-3 rounded border border-red-500/30 bg-[#0a0a0a]/80 backdrop-blur-sm">
+          <p class="text-xs font-mono text-ksctl-text-secondary">
+            Detect <span class="text-red-500 font-bold">temporal waste</span> that APMs miss.
+          </p>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

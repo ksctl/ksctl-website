@@ -2,11 +2,14 @@
 import AppFooter from "../components/AppFooter.astro";
 import AppHeader from "../components/AppHeader.astro";
 
-const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computing" } = Astro.props;
+const { 
+  title = "ksctl - Efficient and Sustainable Cloud Tooling",
+  description = "Stop Wasting Money and Energy on Kubernetes with Kubmin by ksctl"
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark scroll-smooth" x-data="{ darkMode: true }">
+<html lang="en" class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -14,13 +17,25 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="Strive towards Fast, Efficient and Sustainable Computing"
+      content={description}
     />
     <title>{title}</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+
+    <link rel="canonical" href={Astro.url.href} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/ksctl-logo.svg', Astro.url.origin)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url.href} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL('/ksctl-logo.svg', Astro.url.origin)} />
 
     <!-- Brevo Form Styles -->
     <style>
@@ -103,8 +118,6 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
         display: flex !important;
       }
     </style>
-
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7PBL3S9S8W"></script>
@@ -115,7 +128,7 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
 
     gtag('config', 'G-7PBL3S9S8W');
   </script>
-  <body class="bg-white dark:bg-gray-900 font-['Bricolage_Grotesque',sans-serif] antialiased">
+  <body class="bg-ksctl-bg text-ksctl-text-primary font-mono antialiased selection:bg-primary/30">
       <AppHeader />
       <slot />
       <AppFooter />
@@ -124,7 +137,7 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
       <div class="fixed bottom-8 right-8 z-40 opacity-0 transition-opacity duration-300" id="backToTop">
         <button 
           onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-          class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/90 hover:bg-primary text-white shadow-lg hover:shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1"
+          class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/90 hover:bg-primary text-black shadow-lg hover:shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1"
           aria-label="Back to top"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -135,8 +148,8 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
     
       <style>
         :root {
-          --font-heading: 'Bricolage Grotesque', sans-serif;
-          --font-body: 'Bricolage Grotesque', sans-serif;
+          --font-heading: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+          --font-body: 'JetBrains Mono', 'IBM Plex Mono', monospace;
         }
       
         html {
@@ -146,6 +159,7 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
 
         body {
           margin: 0;
+          background-color: #0a0a0a;
         }
       
         h1, h2, h3, h4, h5, h6 {
@@ -153,12 +167,8 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
         }
       
         ::selection {
-          background-color: rgba(20, 184, 166, 0.2);
+          background-color: rgba(34, 197, 94, 0.3);
           color: inherit;
-        }
-      
-        .dark ::selection {
-          background-color: rgba(20, 184, 166, 0.3);
         }
       </style>
     

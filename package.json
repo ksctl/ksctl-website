@@ -10,7 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "alpinejs": "^3.15.2",
+    "@astrojs/sitemap": "^3.7.0",
+    "alpinejs": "^3.15.8",
     "astro": "^5.16.16"
   },
   "devDependencies": {

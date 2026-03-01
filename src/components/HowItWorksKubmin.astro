@@ -2,169 +2,57 @@
 import Container from "./Container.astro";
 ---
 
-<div id="how-it-works" class="py-24 bg-white dark:bg-gray-900 relative overflow-hidden">
+<section id="how-it-works" class="py-16 sm:py-24">
   <Container>
-    <div class="text-center mb-20">
-      <span class="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 mb-6 border border-indigo-200 dark:border-indigo-800/30">
-        Simple Process
-      </span>
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
-        Start Saving in <span class="bg-gradient-to-r from-purple-600 to-indigo-500 bg-clip-text text-transparent">4 Steps</span>
-      </h2>
-      <p class="max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-300">
-        Get started with kubmin in minutes and begin finding waste and saving money
-      </p>
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-mono font-bold text-ksctl-text-primary uppercase tracking-tight">How it works</h2>
     </div>
-
-    <div class="max-w-4xl mx-auto space-y-24">
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+      <!-- Connection Lines (desktop) -->
+      <div class="hidden md:block absolute top-12 left-[20%] right-[20%] h-[1px] bg-gray-800 -z-10"></div>
+      
       <!-- Step 1 -->
-      <div class="flex flex-col md:flex-row gap-12 items-center">
-        <div class="md:w-1/2 order-2 md:order-1">
-          <div class="flex items-center mb-6">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 text-white flex items-center justify-center text-xl font-bold shadow-lg">1</div>
-            <h3 class="ml-4 text-2xl font-bold text-gray-900 dark:text-white">Connect Your Clusters</h3>
-          </div>
-          <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Use the kubmin web dashboard to connect your existing Kubernetes clusters or create new ones via ksctl. Works with EKS, AKS, and self-managed clusters.
-          </p>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <svg class="h-6 w-6 text-purple-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="text-gray-700 dark:text-gray-300">Import from cloud providers</span>
-            </li>
-            <li class="flex items-start">
-              <svg class="h-6 w-6 text-purple-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="text-gray-700 dark:text-gray-300">Or create via ksctl integration</span>
-            </li>
-            <li class="flex items-start">
-              <svg class="h-6 w-6 text-purple-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="text-gray-700 dark:text-gray-300">Automatic RBAC setup</span>
-            </li>
-          </ul>
+      <div class="space-y-6 text-center">
+        <div class="w-12 h-12 rounded-full bg-primary text-black font-mono font-bold text-xl flex items-center justify-center mx-auto ring-8 ring-[#0a0a0a]">
+          1
         </div>
-        <div class="md:w-1/2 order-1 md:order-2">
-          <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-2xl border border-gray-200 dark:border-gray-700">
-            <div class="text-sm font-semibold text-purple-600 dark:text-purple-400 mb-3">kubmin Dashboard</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400 mb-2">✓ Cluster 'production-eks' connected</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">✓ Ready to monitor workloads</div>
+        <div class="space-y-4">
+          <h3 class="text-xl font-mono font-bold text-ksctl-text-primary">Install in One Command</h3>
+          <div class="bg-[#0d1117] p-3 rounded border border-gray-800 text-xs font-mono text-primary text-left">
+            kubectl apply -f kubmin.yaml
           </div>
+          <p class="text-ksctl-text-secondary font-mono text-sm leading-relaxed">
+            No agents, no sidecars, no config files. Runs as a lightweight service in your cluster.
+          </p>
         </div>
       </div>
-
+      
       <!-- Step 2 -->
-      <div class="flex flex-col md:flex-row gap-12 items-center">
-        <div class="md:w-1/2">
-          <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-2xl border border-gray-200 dark:border-gray-700">
-            <div class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-3">Prometheus Setup</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">✓ Prometheus deployed</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">✓ Grafana configured</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">✓ Metrics collection active</div>
-          </div>
+      <div class="space-y-6 text-center">
+        <div class="w-12 h-12 rounded-full bg-primary text-black font-mono font-bold text-xl flex items-center justify-center mx-auto ring-8 ring-[#0a0a0a]">
+          2
         </div>
-        <div class="md:w-1/2">
-          <div class="flex items-center mb-6">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 text-white flex items-center justify-center text-xl font-bold shadow-lg">2</div>
-            <h3 class="ml-4 text-2xl font-bold text-gray-900 dark:text-white">Deploy Prometheus Stack</h3>
-          </div>
-          <p class="text-lg text-gray-600 dark:text-gray-300">
-            kubmin automatically deploys and configures Prometheus and Grafana via the dashboard. Monitoring starts in minutes with zero manual configuration.
+        <div class="space-y-4">
+          <h3 class="text-xl font-mono font-bold text-ksctl-text-primary">Metrics Start Flowing</h3>
+          <p class="text-ksctl-text-secondary font-mono text-sm leading-relaxed pt-2">
+            Kubmin collects CPU, memory, and energy consumption data using RAPL and kernel-level instrumentation.
           </p>
         </div>
       </div>
-
+      
       <!-- Step 3 -->
-      <div class="flex flex-col md:flex-row gap-12 items-center">
-        <div class="md:w-1/2 order-2 md:order-1">
-          <div class="flex items-center mb-6">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 text-white flex items-center justify-center text-xl font-bold shadow-lg">3</div>
-            <h3 class="ml-4 text-2xl font-bold text-gray-900 dark:text-white">Analyze & Detect Waste</h3>
-          </div>
-          <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Label and annotate the workloads you want to analyze. kubmin picks up events from your cluster and checks each workload for idle patterns, overprovisioning, and energy inefficiency. Get a waste report with dollar amounts.
-          </p>
-          <div class="grid grid-cols-3 gap-4">
-            <div class="text-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-              <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">$142/mo</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Waste Found</div>
-            </div>
-            <div class="text-center p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
-              <div class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">8</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Quick Wins</div>
-            </div>
-            <div class="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-              <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">3</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Idle Workloads</div>
-            </div>
-          </div>
+      <div class="space-y-6 text-center">
+        <div class="w-12 h-12 rounded-full bg-primary text-black font-mono font-bold text-xl flex items-center justify-center mx-auto ring-8 ring-[#0a0a0a]">
+          3
         </div>
-        <div class="md:w-1/2 order-1 md:order-2">
-          <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-2xl border border-gray-200 dark:border-gray-700">
-            <div class="text-sm font-semibold text-green-600 dark:text-green-400 mb-3">Waste Analysis Complete</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">! Idle pattern detected ($47/mo)</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">! Overprovisioned resources ($68/mo)</div>
-            <div class="text-sm text-gray-600 dark:text-gray-400">✓ Quick Wins ready</div>
-          </div>
+        <div class="space-y-4">
+          <h3 class="text-xl font-mono font-bold text-ksctl-text-primary">See What You're Wasting</h3>
+          <p class="text-ksctl-text-secondary font-mono text-sm leading-relaxed pt-2">
+            Real-time dashboards show SCI scores, efficiency trends, and cost savings opportunities per workload.
+          </p>
         </div>
       </div>
-
-      <!-- Step 4 -->
-      <div class="flex flex-col md:flex-row gap-12 items-center">
-        <div class="md:w-1/2">
-          <div class="bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl p-6 shadow-2xl text-white">
-            <div class="text-lg font-semibold mb-4">kubmin Quick Wins</div>
-            <div class="space-y-2 text-sm font-mono">
-              <div class="text-purple-200">$ kubectl set resources deploy/redis-cache --limits=cpu=250m,memory=256Mi</div>
-              <div class="text-green-300">→ Save $27/mo (overprovisioned)</div>
-              <div class="text-purple-200 mt-3">$ kubectl scale deploy/legacy-worker --replicas=1</div>
-              <div class="text-green-300">→ Save $41/mo (scale down idle replicas)</div>
-            </div>
-          </div>
-        </div>
-        <div class="md:w-1/2">
-          <div class="flex items-center mb-6">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 text-white flex items-center justify-center text-xl font-bold shadow-lg">4</div>
-            <h3 class="ml-4 text-2xl font-bold text-gray-900 dark:text-white">Optimize & Save</h3>
-          </div>
-          <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Act on Quick Wins with ready-to-use kubectl commands. Compare deployment versions. Switch to recommended instance types. Track your savings over time.
-          </p>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <svg class="h-6 w-6 text-purple-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="text-gray-700 dark:text-gray-300">Quick Wins with kubectl commands</span>
-            </li>
-            <li class="flex items-start">
-              <svg class="h-6 w-6 text-purple-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="text-gray-700 dark:text-gray-300">Instance type recommendations</span>
-            </li>
-            <li class="flex items-start">
-              <svg class="h-6 w-6 text-purple-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span class="text-gray-700 dark:text-gray-300">Deployment impact comparison</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-20 text-center">
-      <a href="https://kubmin.ksctl.com" target="_blank" class="inline-flex items-center px-8 py-4 rounded-lg bg-gradient-to-br from-purple-600 to-indigo-600 text-white font-medium shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/40 hover:translate-y-[-2px] transition-all">
-        Get Started
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
-        </svg>
-      </a>
     </div>
   </Container>
-</div>
+</section>
