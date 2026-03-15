@@ -1,82 +1,241 @@
 /* ================================================================
-   KUBMIN — Cinematic Terminal Design System
+   KUBMIN — Precise Clarity Design System
+   Clean, data-rich, purposeful. Every element earns its place.
    ================================================================ */
 
 /* --- Design Tokens --- */
 :root {
-  --km-accent: #4ade80;
-  --km-accent-dim: rgba(74, 222, 128, 0.15);
-  --km-accent-glow: rgba(74, 222, 128, 0.4);
-  --km-bg-void: #050507;
-  --km-bg-base: #09090b;
-  --km-bg-raised: #0c0c0f;
-  --km-bg-card: #131316;
-  --km-bg-card-hover: #1a1a1f;
-  --km-border: rgba(255, 255, 255, 0.06);
-  --km-border-hover: rgba(255, 255, 255, 0.12);
-  --km-border-accent: rgba(74, 222, 128, 0.2);
-  --km-text-primary: #f4f4f5;
-  --km-text-secondary: #a1a1aa;
-  --km-text-muted: #52525b;
-  --km-font-display: 'Instrument Serif', Georgia, serif;
-  --km-font-body: 'Bricolage Grotesque', sans-serif;
+  /* Backgrounds — deep neutral */
+  --km-bg-deep:    #0b0b0e;
+  --km-bg-base:    #111114;
+  --km-bg-surface: #19191d;
+  --km-bg-hover:   #222228;
+
+  /* Text — warm off-white */
+  --km-text:       #f0f0f3;
+  --km-text-2:     #9898a3;
+  --km-text-3:     #5a5a68;
+
+  /* Accent — refined emerald */
+  --km-accent:     #10b981;
+  --km-accent-hover: #059669;
+  --km-accent-dim: rgba(16, 185, 129, 0.12);
+
+  /* Borders — "border-light" technique */
+  --km-border:     rgba(255, 255, 255, 0.07);
+  --km-border-hover: rgba(255, 255, 255, 0.13);
+
+  /* Spacing — strict 8px grid */
   --km-section-py: clamp(5rem, 10vw, 8rem);
+  --km-radius:     12px;
+  --km-radius-sm:  8px;
+
+  /* Typography */
+  --km-font-display: 'Instrument Serif', Georgia, serif;
+  --km-font-body:    'Bricolage Grotesque', sans-serif;
+  --km-font-mono:    'SF Mono', 'Cascadia Code', ui-monospace, monospace;
+
+  /* Layout */
   --km-container: 1200px;
-  --km-radius: 12px;
 }
 
-/* --- Theme body overrides (header/footer/back-to-top) --- */
+/* ================================================================
+   THEME BODY — Global overrides for kubmin pages
+   ================================================================ */
 body.theme-kubmin {
-  background: var(--km-bg-void) !important;
+  background: var(--km-bg-deep) !important;
+  scrollbar-width: thin;
+  scrollbar-color: var(--km-accent-dim) transparent;
+}
+
+body.theme-kubmin::-webkit-scrollbar { width: 6px; }
+body.theme-kubmin::-webkit-scrollbar-track { background: transparent; }
+body.theme-kubmin::-webkit-scrollbar-thumb {
+  background: var(--km-accent-dim);
+  border-radius: 3px;
+}
+body.theme-kubmin::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.25);
 }
 
 body.theme-kubmin ::selection {
-  background-color: rgba(74, 222, 128, 0.25);
+  background-color: rgba(16, 185, 129, 0.25);
 }
 
-/* Header: transparent noir */
+/* --- Scroll Progress Bar --- */
+.km-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--km-accent);
+  z-index: 99999;
+  transition: width 0.05s linear;
+}
+
+/* ================================================================
+   HEADER — Transparent glass with emerald accents
+   ================================================================ */
 body.theme-kubmin header nav {
-  background: rgba(5, 5, 7, 0.6) !important;
-  backdrop-filter: blur(20px) saturate(180%);
-  border-bottom-color: rgba(255, 255, 255, 0.04) !important;
+  background: rgba(11, 11, 14, 0.65) !important;
+  backdrop-filter: blur(24px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  transition: background 0.3s ease, border-color 0.3s ease !important;
 }
 
-/* Footer: match the void */
+/* Scrolled state — slightly more opaque */
+body.theme-kubmin.km-scrolled header nav {
+  background: rgba(11, 11, 14, 0.85) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Nav links */
+body.theme-kubmin header nav a,
+body.theme-kubmin header nav button {
+  transition: color 0.2s ease !important;
+}
+
+body.theme-kubmin header nav a:hover,
+body.theme-kubmin header nav button:hover {
+  color: var(--km-accent) !important;
+}
+
+/* Active/current page link */
+body.theme-kubmin header nav .text-primary,
+body.theme-kubmin header nav [class*="text-primary"] {
+  color: var(--km-accent) !important;
+}
+
+/* Logo */
+body.theme-kubmin header nav span.text-xl {
+  color: var(--km-text) !important;
+}
+
+/* Dropdown */
+body.theme-kubmin header nav .absolute.left-0 {
+  background: rgba(17, 17, 20, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(20px) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04) !important;
+}
+
+body.theme-kubmin header nav .absolute.left-0 a:hover {
+  background: var(--km-accent-dim) !important;
+}
+
+/* Mobile nav overlay */
+body.theme-kubmin #navLayer {
+  background: rgba(11, 11, 14, 0.95) !important;
+}
+
+body.theme-kubmin #navlinks {
+  background: rgba(17, 17, 20, 0.98) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+@media (min-width: 1024px) {
+  body.theme-kubmin #navlinks {
+    background: transparent !important;
+    border-color: transparent !important;
+  }
+}
+
+/* Hamburger lines */
+body.theme-kubmin #hamburger #line,
+body.theme-kubmin #hamburger #line2 {
+  background: var(--km-text-2) !important;
+}
+
+/* ================================================================
+   FOOTER — Clean dark with emerald accents
+   ================================================================ */
 body.theme-kubmin footer {
-  background: var(--km-bg-void) !important;
-  border-top-color: rgba(255, 255, 255, 0.04) !important;
+  background: var(--km-bg-deep) !important;
+  border-top: none !important;
 }
 
-body.theme-kubmin footer .absolute {
-  background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.1), transparent) !important;
+body.theme-kubmin footer > .absolute {
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(16, 185, 129, 0.08),
+    transparent
+  ) !important;
 }
 
-/* Back-to-top button: match accent */
+body.theme-kubmin footer h2,
+body.theme-kubmin footer h3 {
+  color: var(--km-text) !important;
+}
+
+body.theme-kubmin footer p,
+body.theme-kubmin footer li a,
+body.theme-kubmin footer .text-gray-600,
+body.theme-kubmin footer .text-gray-500,
+body.theme-kubmin footer [class*="text-gray-4"],
+body.theme-kubmin footer [class*="text-gray-5"],
+body.theme-kubmin footer [class*="text-gray-6"] {
+  color: var(--km-text-3) !important;
+}
+
+body.theme-kubmin footer a:hover {
+  color: var(--km-accent) !important;
+}
+
+body.theme-kubmin footer svg {
+  color: var(--km-text-3) !important;
+}
+
+body.theme-kubmin footer a:hover svg {
+  color: var(--km-accent) !important;
+}
+
+body.theme-kubmin footer .border-t,
+body.theme-kubmin footer .border-gray-200,
+body.theme-kubmin footer [class*="border-gray"] {
+  border-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Footer input */
+body.theme-kubmin footer input {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  color: var(--km-text) !important;
+}
+
+body.theme-kubmin footer input::placeholder {
+  color: var(--km-text-3) !important;
+}
+
+body.theme-kubmin footer input:focus {
+  border-color: rgba(16, 185, 129, 0.25) !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.08) !important;
+  outline: none !important;
+}
+
+body.theme-kubmin footer button[type="submit"],
+body.theme-kubmin footer .sib-form-block__button {
+  background: var(--km-accent) !important;
+  color: var(--km-bg-deep) !important;
+}
+
+/* Back-to-top button */
 body.theme-kubmin #backToTop button {
   background: var(--km-accent) !important;
-  color: #050507 !important;
-  box-shadow: 0 4px 24px rgba(74, 222, 128, 0.25) !important;
+  color: var(--km-bg-deep) !important;
+  box-shadow: 0 4px 24px rgba(16, 185, 129, 0.25) !important;
+  border-radius: 12px !important;
 }
 
-/* --- Noise Texture Overlay --- */
-.km-noise::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 256px 256px;
-}
-
-/* --- Scroll Reveal --- */
+/* ================================================================
+   SCROLL REVEAL — Snappy, purposeful
+   ================================================================ */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reveal-on-scroll.revealed {
@@ -84,7 +243,11 @@ body.theme-kubmin #backToTop button {
   transform: translateY(0);
 }
 
-/* --- Hero Staggered Entry --- */
+/* ================================================================
+   HERO ANIMATIONS
+   ================================================================ */
+
+/* Staggered entry for hero text children */
 .hero-stagger > * {
   opacity: 0;
   transform: translateY(20px);
@@ -98,6 +261,7 @@ body.theme-kubmin #backToTop button {
 .hero-stagger > *:nth-child(5) { animation-delay: 0.7s; }
 .hero-stagger > *:nth-child(6) { animation-delay: 0.85s; }
 .hero-stagger > *:nth-child(7) { animation-delay: 1.0s; }
+.hero-stagger > *:nth-child(8) { animation-delay: 1.15s; }
 
 @keyframes heroEntry {
   to {
@@ -110,7 +274,7 @@ body.theme-kubmin #backToTop button {
 .hero-screenshot {
   opacity: 0;
   transform: translateY(40px) scale(0.97);
-  animation: screenshotEntry 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+  animation: screenshotEntry 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
 }
 
 @keyframes screenshotEntry {
@@ -120,60 +284,75 @@ body.theme-kubmin #backToTop button {
   }
 }
 
-/* --- Ambient Glow Orbs --- */
-.km-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  pointer-events: none;
-}
+/* ================================================================
+   SECTION BACKGROUNDS
+   ================================================================ */
+.km-section--deep    { background: var(--km-bg-deep); }
+.km-section--base    { background: var(--km-bg-base); }
+.km-section--surface { background: var(--km-bg-surface); }
+.km-section--hover   { background: var(--km-bg-hover); }
 
-.km-glow--green {
-  background: radial-gradient(circle, rgba(74, 222, 128, 0.15), transparent 70%);
-}
-
-.km-glow--blue {
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.08), transparent 70%);
-}
-
-/* --- Dot Grid Pattern --- */
-.km-dotgrid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* --- Section Backgrounds --- */
-.km-section--void { background: var(--km-bg-void); }
-.km-section--base { background: var(--km-bg-base); }
-.km-section--raised { background: var(--km-bg-raised); }
-.km-section--card { background: var(--km-bg-card); }
-
-/* --- Card System --- */
+/* ================================================================
+   CARD SYSTEM — Border-light technique, mouse-tracking
+   ================================================================ */
 .km-card {
-  background: var(--km-bg-card);
+  background: var(--km-bg-surface);
   border: 1px solid var(--km-border);
   border-radius: var(--km-radius);
-  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .km-card:hover {
   border-color: var(--km-border-hover);
-  background: var(--km-bg-card-hover);
+  background: var(--km-bg-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 /* Card with accent glow on hover */
 .km-card--glow:hover {
-  border-color: var(--km-border-accent);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
-              0 0 0 1px rgba(74, 222, 128, 0.05);
+  border-color: rgba(16, 185, 129, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06),
+              0 8px 32px rgba(0, 0, 0, 0.3),
+              0 0 0 1px rgba(16, 185, 129, 0.06);
 }
 
-/* --- Section Label (monospace for technical feel) --- */
+/* Mouse-tracking card glow */
+.km-card--tracked {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  position: relative;
+}
+
+.km-card--tracked::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    500px circle at var(--mouse-x) var(--mouse-y),
+    rgba(16, 185, 129, 0.06),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.km-card--tracked:hover::before {
+  opacity: 1;
+}
+
+/* ================================================================
+   TYPOGRAPHY SYSTEM
+   ================================================================ */
+
+/* Section label — monospace for technical feel */
 .km-label {
   color: var(--km-accent);
-  font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', ui-monospace, monospace;
+  font-family: var(--km-font-mono);
   font-size: 0.6875rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -181,16 +360,16 @@ body.theme-kubmin #backToTop button {
   margin-bottom: 1.25rem;
 }
 
-/* --- Section Heading --- */
+/* Section heading */
 .km-heading {
-  color: var(--km-text-primary);
+  color: var(--km-text);
   font-family: var(--km-font-body);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.08;
 }
 
-/* Display heading (hero + editorial) — the serif moment */
+/* Display heading — the serif moment */
 .km-heading--display {
   font-family: var(--km-font-display);
   font-weight: 400;
@@ -198,7 +377,9 @@ body.theme-kubmin #backToTop button {
   line-height: 1.02;
 }
 
-/* --- Animated Gradient Border (pricing popular card) --- */
+/* ================================================================
+   ANIMATED GRADIENT BORDER (pricing popular card)
+   ================================================================ */
 @property --angle {
   syntax: '<angle>';
   initial-value: 0deg;
@@ -232,7 +413,7 @@ body.theme-kubmin #backToTop button {
   position: absolute;
   inset: 1px;
   border-radius: calc(var(--km-radius) - 1px);
-  background: var(--km-bg-card);
+  background: var(--km-bg-surface);
   z-index: -1;
 }
 
@@ -240,7 +421,9 @@ body.theme-kubmin #backToTop button {
   to { --angle: 360deg; }
 }
 
-/* --- FAQ Accordion --- */
+/* ================================================================
+   FAQ ACCORDION — Native <details>/<summary>
+   ================================================================ */
 .km-faq details {
   border-bottom: 1px solid var(--km-border);
 }
@@ -254,7 +437,7 @@ body.theme-kubmin #backToTop button {
   padding: 1.5rem 0;
   font-weight: 600;
   font-size: 1.05rem;
-  color: var(--km-text-primary);
+  color: var(--km-text);
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -274,7 +457,7 @@ body.theme-kubmin #backToTop button {
   content: '+';
   font-size: 1.5rem;
   font-weight: 300;
-  color: var(--km-text-muted);
+  color: var(--km-text-3);
   transition: color 0.2s ease, transform 0.3s ease;
   flex-shrink: 0;
   margin-left: 1rem;
@@ -288,18 +471,22 @@ body.theme-kubmin #backToTop button {
 
 .km-faq details .faq-answer {
   padding: 0 0 1.5rem;
-  color: var(--km-text-secondary);
+  color: var(--km-text-2);
   line-height: 1.75;
   font-size: 0.9375rem;
 }
 
-/* --- Horizontal Divider --- */
+/* ================================================================
+   DIVIDERS — Clean 1px lines
+   ================================================================ */
 .km-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--km-border), transparent);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-/* --- CTA Button --- */
+/* ================================================================
+   BUTTONS — CTA with shimmer, ghost variant
+   ================================================================ */
 .km-cta {
   display: inline-flex;
   align-items: center;
@@ -307,7 +494,7 @@ body.theme-kubmin #backToTop button {
   padding: 0.875rem 1.75rem;
   border-radius: 10px;
   background: var(--km-accent);
-  color: #050507;
+  color: var(--km-bg-deep);
   font-weight: 700;
   font-size: 0.875rem;
   letter-spacing: -0.01em;
@@ -317,12 +504,16 @@ body.theme-kubmin #backToTop button {
 }
 
 .km-cta:hover {
-  background: #22c55e;
-  box-shadow: 0 0 32px rgba(74, 222, 128, 0.3);
-  transform: translateY(-1px);
+  background: var(--km-accent-hover);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.2);
+  transform: translateY(-2px);
 }
 
-/* Shimmer effect on CTA */
+.km-cta:active {
+  transform: translateY(0);
+}
+
+/* Shimmer sweep */
 .km-cta::before {
   content: '';
   position: absolute;
@@ -330,8 +521,8 @@ body.theme-kubmin #backToTop button {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s ease;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transition: left 0.6s ease;
 }
 
 .km-cta:hover::before {
@@ -341,18 +532,20 @@ body.theme-kubmin #backToTop button {
 /* Ghost CTA */
 .km-cta--ghost {
   background: transparent;
-  color: var(--km-text-secondary);
+  color: var(--km-text-2);
   border: 1px solid var(--km-border);
 }
 
 .km-cta--ghost:hover {
   background: rgba(255, 255, 255, 0.04);
-  color: var(--km-text-primary);
+  color: var(--km-text);
   border-color: var(--km-border-hover);
   box-shadow: none;
 }
 
-/* --- Table Styles --- */
+/* ================================================================
+   TABLE STYLES — Comparison table with kubmin highlight
+   ================================================================ */
 .km-table {
   width: 100%;
   border-collapse: separate;
@@ -365,26 +558,24 @@ body.theme-kubmin #backToTop button {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--km-text-muted);
+  color: var(--km-text-3);
   border-bottom: 1px solid var(--km-border);
   text-align: center;
 }
 
-.km-table th:first-child {
-  text-align: left;
-}
+.km-table th:first-child { text-align: left; }
 
 .km-table td {
   padding: 0.875rem 1rem;
   font-size: 0.875rem;
-  color: var(--km-text-secondary);
+  color: var(--km-text-2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
   text-align: center;
 }
 
 .km-table td:first-child {
   text-align: left;
-  color: var(--km-text-primary);
+  color: var(--km-text);
   font-weight: 500;
 }
 
@@ -396,52 +587,60 @@ body.theme-kubmin #backToTop button {
   background-color: rgba(255, 255, 255, 0.02);
 }
 
-/* Kubmin column highlight */
 .km-table .km-col-highlight {
-  background: rgba(74, 222, 128, 0.04);
+  background: rgba(16, 185, 129, 0.04);
 }
 
 .km-table thead .km-col-highlight {
   color: var(--km-accent);
   font-weight: 700;
-  background: rgba(74, 222, 128, 0.06);
+  background: rgba(16, 185, 129, 0.06);
 }
 
-/* --- Stat Counter --- */
+/* ================================================================
+   STAT COUNTER — Serif number display (THE signature element)
+   ================================================================ */
 .km-stat-num {
   font-family: var(--km-font-display);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 400;
-  color: var(--km-text-primary);
+  color: var(--km-text);
   line-height: 1;
 }
 
-/* --- Insight Callout --- */
+/* ================================================================
+   INSIGHT CALLOUT — Emerald left border
+   ================================================================ */
 .km-insight {
   border-left: 3px solid var(--km-accent);
-  background: linear-gradient(135deg, rgba(74, 222, 128, 0.06), rgba(74, 222, 128, 0.02));
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.06), rgba(16, 185, 129, 0.02));
   border-radius: 0 var(--km-radius) var(--km-radius) 0;
   padding: 1.5rem;
 }
 
-/* --- Step connector line --- */
+/* ================================================================
+   STEP CONNECTOR — For How It Works
+   ================================================================ */
 .km-step-line {
   position: absolute;
   top: 1.75rem;
   height: 2px;
   background: linear-gradient(90deg,
-    var(--km-border-accent),
-    rgba(74, 222, 128, 0.08),
-    var(--km-border-accent)
+    rgba(16, 185, 129, 0.2),
+    rgba(16, 185, 129, 0.08),
+    rgba(16, 185, 129, 0.2)
   );
 }
 
-/* --- Browser Chrome (inline) --- */
+/* ================================================================
+   BROWSER CHROME — Inline screenshot frame
+   ================================================================ */
 .km-browser {
   border-radius: var(--km-radius);
   overflow: hidden;
   border: 1px solid var(--km-border);
-  background: var(--km-bg-card);
+  background: var(--km-bg-surface);
+  transition: border-color 0.2s ease;
 }
 
 .km-browser:hover {
@@ -453,7 +652,7 @@ body.theme-kubmin #backToTop button {
   align-items: center;
   gap: 0.5rem;
   padding: 0.875rem 1rem;
-  background: var(--km-bg-card);
+  background: var(--km-bg-surface);
   border-bottom: 1px solid var(--km-border);
 }
 
@@ -463,7 +662,36 @@ body.theme-kubmin #backToTop button {
   border-radius: 50%;
 }
 
-/* --- Responsive container --- */
+/* ================================================================
+   SCREENSHOT GLOW — Subtle hover effect
+   ================================================================ */
+.km-screenshot-glow {
+  position: relative;
+}
+
+.km-screenshot-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--km-radius) + 2px);
+  background: linear-gradient(135deg,
+    rgba(16, 185, 129, 0.12),
+    transparent 30%,
+    transparent 70%,
+    rgba(16, 185, 129, 0.06)
+  );
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.km-screenshot-glow:hover::before {
+  opacity: 1;
+}
+
+/* ================================================================
+   RESPONSIVE CONTAINER
+   ================================================================ */
 .km-container {
   max-width: var(--km-container);
   margin-left: auto;
@@ -479,56 +707,14 @@ body.theme-kubmin #backToTop button {
   }
 }
 
-/* --- Mouse-Tracking Card Glow (the premium interaction) --- */
-.km-card--tracked {
-  --mouse-x: 50%;
-  --mouse-y: 50%;
-  position: relative;
-}
-
-.km-card--tracked::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    500px circle at var(--mouse-x) var(--mouse-y),
-    rgba(74, 222, 128, 0.08),
-    transparent 40%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.km-card--tracked:hover::before {
-  opacity: 1;
-}
-
-/* --- Animated Hero Mesh Background --- */
-@keyframes meshDrift {
-  0%   { background-position: 0% 0%, 100% 100%, 50% 50%; }
-  33%  { background-position: 100% 30%, 0% 70%, 80% 20%; }
-  66%  { background-position: 40% 100%, 60% 0%, 20% 80%; }
-  100% { background-position: 0% 0%, 100% 100%, 50% 50%; }
-}
-
-.km-mesh {
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(74, 222, 128, 0.07) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(56, 189, 248, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(74, 222, 128, 0.03) 0%, transparent 50%);
-  background-size: 150% 150%, 120% 120%, 180% 180%;
-  animation: meshDrift 25s ease-in-out infinite;
-}
-
-/* --- Per-element stagger via CSS custom property --- */
+/* ================================================================
+   PER-ELEMENT STAGGER — CSS custom property
+   ================================================================ */
 .km-stagger {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: calc(var(--i, 0) * 100ms);
 }
 

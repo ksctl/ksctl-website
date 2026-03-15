@@ -21,7 +21,10 @@ import FinalCTA from "../../components/kubmin/FinalCTA.astro";
   description="Kubmin reveals per-workload cost, energy consumption, and SCI scores across your Kubernetes clusters. Detect idle resources, compare deployments, and get actionable fixes. Free tier available."
   theme="kubmin"
 >
-  <main class="km-noise">
+  <!-- Scroll progress bar -->
+  <div class="km-scroll-progress" id="scrollProgress"></div>
+
+  <main>
     <HeroKubmin />
     <ProblemStatement />
     <ProductDemo />
@@ -36,6 +39,7 @@ import FinalCTA from "../../components/kubmin/FinalCTA.astro";
   </main>
 
   <script>
+    // --- Scroll Reveal ---
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -52,7 +56,7 @@ import FinalCTA from "../../components/kubmin/FinalCTA.astro";
       observer.observe(el);
     });
 
-    // Mouse-tracking card glow
+    // --- Mouse-tracking card glow ---
     document.querySelectorAll(".km-card--tracked").forEach((card) => {
       card.addEventListener("mousemove", (e) => {
         const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
@@ -60,5 +64,35 @@ import FinalCTA from "../../components/kubmin/FinalCTA.astro";
         (e.currentTarget as HTMLElement).style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
       });
     });
+
+    // --- Scroll Progress Bar ---
+    const progressBar = document.getElementById("scrollProgress");
+    function updateScrollProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if (progressBar) {
+        progressBar.style.width = `${progress}%`;
+      }
+    }
+
+    // --- Header scroll state ---
+    function updateScrollState() {
+      if (window.scrollY > 50) {
+        document.body.classList.add("km-scrolled");
+      } else {
+        document.body.classList.remove("km-scrolled");
+      }
+    }
+
+    // Combined scroll handler
+    window.addEventListener("scroll", () => {
+      updateScrollProgress();
+      updateScrollState();
+    }, { passive: true });
+
+    // Init
+    updateScrollProgress();
+    updateScrollState();
   </script>
 </Layout>

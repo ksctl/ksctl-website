@@ -1,12 +1,13 @@
 ---
 ---
 
-<section class="km-section--raised relative reveal-on-scroll overflow-hidden">
-  <!-- Ambient glow -->
-  <div class="km-glow km-glow--green w-[500px] h-[500px] top-20 left-1/2 -translate-x-1/2 opacity-20 pointer-events-none"></div>
+<section class="km-section--surface relative reveal-on-scroll overflow-hidden">
+  <div class="km-divider"></div>
 
   <div class="km-container relative z-10" style="padding-top: var(--km-section-py); padding-bottom: var(--km-section-py);">
-    <p class="km-label">See It In Action</p>
+    <div class="mb-4">
+      <p class="km-label">See It In Action</p>
+    </div>
     <h2 class="km-heading text-[clamp(1.75rem,4vw,3rem)] mb-4 max-w-[650px]">
       Three Redis versions. Same workload. Wildly different efficiency.
     </h2>
@@ -14,25 +15,24 @@
       We ran redis-benchmark across versions 8.6.1, 8.4.0, and 8.2.1. Here's what kubmin found — no other tool surfaces this.
     </p>
 
-    <!-- Screenshot in cinematic frame -->
+    <!-- Screenshot in browser frame -->
     <div class="relative mb-12">
-      <!-- Glow behind -->
-      <div class="absolute inset-0 scale-105 blur-3xl opacity-15 bg-gradient-to-br from-[#4ade80]/20 via-transparent to-[#38bdf8]/10 pointer-events-none"></div>
-
-      <div class="km-browser relative" style="box-shadow: 0 32px 64px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);">
-        <div class="km-browser-bar">
-          <span class="km-browser-dot bg-[#ff5f57]/80"></span>
-          <span class="km-browser-dot bg-[#febc2e]/80"></span>
-          <span class="km-browser-dot bg-[#28c840]/80"></span>
-          <span class="ml-4 text-[11px] text-zinc-600 font-mono tracking-wide">kubmin.ksctl.com/workloads/compare</span>
-        </div>
-        <div class="overflow-x-auto">
-          <img
-            src="/kubmin/workload-compare-image.png"
-            alt="Kubmin multi-version comparison showing CPU, memory, energy, SCI, SEE, and cost differences across Redis 8.6.1, 8.4.0, and 8.2.1"
-            loading="lazy"
-            class="w-full block min-w-[600px]"
-          />
+      <div class="km-screenshot-glow">
+        <div class="km-browser relative" style="box-shadow: 0 32px 64px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);">
+          <div class="km-browser-bar">
+            <span class="km-browser-dot bg-[#ff5f57]/80"></span>
+            <span class="km-browser-dot bg-[#febc2e]/80"></span>
+            <span class="km-browser-dot bg-[#28c840]/80"></span>
+            <span class="ml-4 text-[11px] text-zinc-600 font-mono tracking-wide">kubmin.ksctl.com/workloads/compareall</span>
+          </div>
+          <div class="overflow-x-auto">
+            <img
+              src="/kubmin/kubmin-workload-redis.png"
+              alt="Kubmin multi-version comparison showing CPU, memory, energy, SCI, SEE, and cost differences across Redis 8.6.1, 8.4.0, and 8.2.1"
+              loading="lazy"
+              class="w-full block min-w-[600px]"
+            />
+          </div>
         </div>
       </div>
     </div>
