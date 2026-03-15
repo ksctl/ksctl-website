@@ -271,6 +271,14 @@ code {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
+@utility shadow-km-browser {
+  box-shadow: 0 32px 64px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+@utility shadow-km-browser-hero {
+  box-shadow: 0 32px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+}
+
 @theme inline {
   --font-sans:     'Geist Variable', sans-serif;
   --color-sidebar-ring:     var(--sidebar-ring);
