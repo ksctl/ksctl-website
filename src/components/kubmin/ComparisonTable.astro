@@ -1,0 +1,95 @@
+---
+const rows = [
+  { cap: "Per-container cost tracking",     aws: "EC2 only",  kc: "Est.",    prom: "Manual",    km: true },
+  { cap: "Energy consumption per workload", aws: false,       kc: false,     prom: false,       km: true },
+  { cap: "Idle workload detection",         aws: false,       kc: "Basic",   prom: "Manual",    km: "Auto" },
+  { cap: "Deployment version comparison",   aws: false,       kc: false,     prom: false,       km: true },
+  { cap: "SCI + SEE sustainability scoring",aws: false,       kc: false,     prom: false,       km: true },
+  { cap: "Regional cost comparison",        aws: "Partial",   kc: false,     prom: false,       km: true },
+  { cap: "Ready-to-use kubectl fixes",      aws: false,       kc: false,     prom: false,       km: true },
+  { cap: "Instance type optimization",      aws: false,       kc: false,     prom: false,       km: true },
+  { cap: "Setup time",                      aws: "N/A",       kc: "~30 min", prom: "Hours/Days",km: "~10 min", isTime: true },
+];
+
+function fmt(val: any) {
+  if (val === true) return { text: "\u2713", cls: "text-[#4ade80] font-semibold" };
+  if (val === false) return { text: "\u2717", cls: "text-zinc-700" };
+  if (val === "Auto") return { text: "\u2713 Auto", cls: "text-[#4ade80] font-semibold" };
+  if (val === "Est.") return { text: "\u2713 Est.", cls: "text-zinc-400" };
+  return { text: val, cls: "text-zinc-400" };
+}
+---
+
+<section class="km-section--raised relative reveal-on-scroll">
+  <div class="km-container" style="padding-top: var(--km-section-py); padding-bottom: var(--km-section-py);">
+    <div class="text-center max-w-[600px] mx-auto mb-14">
+      <p class="km-label">The Gap</p>
+      <h2 class="km-heading text-[clamp(1.75rem,4vw,3rem)]">
+        What your current tools can't tell you
+      </h2>
+    </div>
+
+    <!-- Desktop table -->
+    <div class="hidden md:block">
+      <table class="km-table">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>AWS Cost Explorer</th>
+            <th>Kubecost</th>
+            <th>Prometheus + Grafana</th>
+            <th class="km-col-highlight">kubmin</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => {
+            const a = fmt(r.aws); const k = fmt(r.kc); const p = fmt(r.prom); const m = fmt(r.km);
+            return (
+              <tr>
+                <td>{r.cap}</td>
+                <td class={a.cls}>{a.text}</td>
+                <td class={k.cls}>{k.text}</td>
+                <td class={p.cls}>{p.text}</td>
+                <td class={`km-col-highlight ${m.cls}`}>{m.text}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile cards -->
+    <div class="md:hidden space-y-4">
+      {rows.map((r) => {
+        const a = fmt(r.aws); const k = fmt(r.kc); const p = fmt(r.prom); const m = fmt(r.km);
+        return (
+          <div class="km-card p-5">
+            <p class="text-[0.9rem] font-semibold text-white mb-4">{r.cap}</p>
+            <div class="space-y-2 text-[13px]">
+              <div class="flex justify-between items-center">
+                <span class="text-zinc-600">AWS Cost Explorer</span>
+                <span class={a.cls}>{a.text}</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-zinc-600">Kubecost</span>
+                <span class={k.cls}>{k.text}</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-zinc-600">Prom + Grafana</span>
+                <span class={p.cls}>{p.text}</span>
+              </div>
+              <div class="flex justify-between items-center pt-2 border-t border-white/[0.04]">
+                <span class="text-[#4ade80] font-semibold">kubmin</span>
+                <span class={`font-semibold ${m.cls}`}>{m.text}</span>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <p class="text-[13px] text-zinc-600 text-center mt-10 max-w-[550px] mx-auto italic">
+      Kubmin doesn't replace your monitoring stack. It sees what your monitoring stack can't — the energy layer that drives real waste.
+    </p>
+  </div>
+</section>

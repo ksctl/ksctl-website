@@ -1,0 +1,59 @@
+---
+---
+
+<section class="km-section--base relative reveal-on-scroll">
+  <div class="km-container" style="padding-top: var(--km-section-py); padding-bottom: var(--km-section-py);">
+    <div class="text-center max-w-[700px] mx-auto mb-16">
+      <p class="km-label">The Problem</p>
+      <h2 class="km-heading text-[clamp(1.75rem,4vw,3rem)]">
+        You're spending thousands on Kubernetes. But do you know what each workload actually costs?
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <!-- Card 1 -->
+      <div class="km-card km-card--glow km-card--tracked km-stagger p-7 md:p-8 group" style="--i:0">
+        <div class="w-12 h-12 rounded-xl bg-[#4ade80]/8 border border-[#4ade80]/10 flex items-center justify-center mb-5 group-hover:border-[#4ade80]/25 transition-colors">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-70">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="4" y1="4" x2="20" y2="20"></line>
+            <path d="M12 8v4M12 16h.01"></path>
+          </svg>
+        </div>
+        <h3 class="text-[1.1rem] font-bold text-white mb-3 tracking-tight">No Per-Container Visibility</h3>
+        <p class="text-[0.875rem] text-zinc-500 leading-relaxed">
+          AWS Cost Explorer shows you EC2 bills. Kubecost estimates pod costs. Neither tells you what a single container actually consumes in energy and compute — the real drivers of your bill.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="km-card km-card--glow km-card--tracked km-stagger p-7 md:p-8 group" style="--i:1">
+        <div class="w-12 h-12 rounded-xl bg-[#4ade80]/8 border border-[#4ade80]/10 flex items-center justify-center mb-5 group-hover:border-[#4ade80]/25 transition-colors">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-70">
+            <rect x="2" y="3" width="20" height="18" rx="2"></rect>
+            <path d="M7 8h10M7 12h6M7 16h8"></path>
+            <path d="M17 14l3 3-3 3" opacity="0.5"></path>
+          </svg>
+        </div>
+        <h3 class="text-[1.1rem] font-bold text-white mb-3 tracking-tight">Overprovisioned and Flying Blind</h3>
+        <p class="text-[0.875rem] text-zinc-500 leading-relaxed">
+          Most teams request 2-4x the resources their workloads actually use. Without per-workload waste detection, you're paying for idle CPU and memory every hour of every day.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="km-card km-card--glow km-card--tracked km-stagger p-7 md:p-8 group" style="--i:2">
+        <div class="w-12 h-12 rounded-xl bg-[#4ade80]/8 border border-[#4ade80]/10 flex items-center justify-center mb-5 group-hover:border-[#4ade80]/25 transition-colors">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-70">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+            <polyline points="16 7 22 7 22 13"></polyline>
+          </svg>
+        </div>
+        <h3 class="text-[1.1rem] font-bold text-white mb-3 tracking-tight">Deploys Make It Worse (Silently)</h3>
+        <p class="text-[0.875rem] text-zinc-500 leading-relaxed">
+          You ship a new image version. CPU goes up 15%. Memory creeps up. Nobody notices because no tool tracks efficiency changes between deployments. The waste compounds with every release.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

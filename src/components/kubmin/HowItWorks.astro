@@ -1,0 +1,64 @@
+---
+---
+
+<section id="how-it-works" class="km-section--base relative reveal-on-scroll">
+  <div class="km-container" style="padding-top: var(--km-section-py); padding-bottom: var(--km-section-py);">
+    <div class="text-center max-w-[550px] mx-auto mb-16">
+      <p class="km-label">Get Started</p>
+      <h2 class="km-heading text-[clamp(1.75rem,4vw,3rem)]">
+        Three steps to see what you're wasting
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 relative max-w-[1000px] mx-auto">
+      <!-- Connecting line (desktop) -->
+      <div class="hidden md:block km-step-line left-[calc(16.67%+28px)] right-[calc(16.67%+28px)]"></div>
+
+      <!-- Step 1 -->
+      <div class="relative text-center">
+        <div class="w-14 h-14 rounded-2xl bg-[#4ade80]/8 border border-[#4ade80]/15 flex items-center justify-center mx-auto mb-6 relative z-10">
+          <span class="text-[#4ade80] font-bold text-lg font-mono">1</span>
+        </div>
+        <h3 class="text-[1.1rem] font-bold text-white mb-3 tracking-tight">Sign Up & Create a Cluster</h3>
+        <p class="text-[0.875rem] text-zinc-500 leading-relaxed">
+          Sign up at kubmin.ksctl.com and create your Kubernetes cluster from the dashboard. Kubmin provisions the full monitoring stack automatically — Prometheus, Kepler, and the kubmin agent. You don't install anything manually.
+        </p>
+        <p class="text-[12px] text-zinc-700 mt-3">
+          Works with: EKS, AKS, GKE, K3s, Kubeadm — cloud managed and self-managed clusters via ksctl.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="relative text-center">
+        <div class="w-14 h-14 rounded-2xl bg-[#4ade80]/8 border border-[#4ade80]/15 flex items-center justify-center mx-auto mb-6 relative z-10">
+          <span class="text-[#4ade80] font-bold text-lg font-mono">2</span>
+        </div>
+        <h3 class="text-[1.1rem] font-bold text-white mb-3 tracking-tight">Label Your Workloads</h3>
+        <p class="text-[0.875rem] text-zinc-500 leading-relaxed">
+          Add one label and one annotation to the Deployments, StatefulSets, or DaemonSets you want to monitor. The dashboard shows you exactly what to add. That's the only configuration you do.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="relative text-center">
+        <div class="w-14 h-14 rounded-2xl bg-[#4ade80]/8 border border-[#4ade80]/15 flex items-center justify-center mx-auto mb-6 relative z-10">
+          <span class="text-[#4ade80] font-bold text-lg font-mono">3</span>
+        </div>
+        <h3 class="text-[1.1rem] font-bold text-white mb-3 tracking-tight">See Your Results</h3>
+        <p class="text-[0.875rem] text-zinc-500 leading-relaxed">
+          Kubmin aggregates data hourly and surfaces waste analysis, efficiency grades, cost breakdowns, and Quick Wins automatically. Open the dashboard and start saving.
+        </p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-14">
+      <a href="https://kubmin.ksctl.com" target="_blank" rel="noopener" class="km-cta">
+        Start Free <span aria-hidden="true">&rarr;</span>
+      </a>
+      <p class="text-[12px] text-zinc-600 mt-5 max-w-[440px] mx-auto">
+        Currently, clusters are created via ksctl. Support for importing existing clusters is coming soon.
+      </p>
+    </div>
+  </div>
+</section>

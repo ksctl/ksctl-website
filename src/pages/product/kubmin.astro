@@ -1,21 +1,64 @@
 ---
-import HeroProductKubmin from "../../components/HeroProductKubmin.astro";
-import FeaturesKubmin from "../../components/FeaturesKubmin.astro";
-import SustainabilityMetrics from "../../components/SustainabilityMetrics.astro";
-import HowItWorksKubmin from "../../components/HowItWorksKubmin.astro";
-import PricingKubmin from "../../components/PricingKubmin.astro";
-import FAQKubmin from "../../components/FAQKubmin.astro";
 import Layout from "../../layouts/Layout.astro";
 import "../../styles/global.css";
+import "../../styles/kubmin.css";
+
+import HeroKubmin from "../../components/kubmin/HeroKubmin.astro";
+import ProblemStatement from "../../components/kubmin/ProblemStatement.astro";
+import ProductDemo from "../../components/kubmin/ProductDemo.astro";
+import CoreFeatures from "../../components/kubmin/CoreFeatures.astro";
+import WhyEnergy from "../../components/kubmin/WhyEnergy.astro";
+import HowItWorks from "../../components/kubmin/HowItWorks.astro";
+import ComparisonTable from "../../components/kubmin/ComparisonTable.astro";
+import Pricing from "../../components/kubmin/Pricing.astro";
+import TrustSignals from "../../components/kubmin/TrustSignals.astro";
+import FAQ from "../../components/kubmin/FAQ.astro";
+import FinalCTA from "../../components/kubmin/FinalCTA.astro";
 ---
 
-<Layout title="kubmin - Sustainable Kubernetes Workload Management">
-  <main class="space-y-32 mb-32">
-    <HeroProductKubmin />
-    <FeaturesKubmin />
-    <SustainabilityMetrics />
-    <HowItWorksKubmin />
-    <PricingKubmin />
-    <FAQKubmin />
+<Layout
+  title="Kubmin — Track What Each Deploy Costs in Money and Efficiency"
+  description="Kubmin reveals per-workload cost, energy consumption, and SCI scores across your Kubernetes clusters. Detect idle resources, compare deployments, and get actionable fixes. Free tier available."
+  theme="kubmin"
+>
+  <main class="km-noise">
+    <HeroKubmin />
+    <ProblemStatement />
+    <ProductDemo />
+    <CoreFeatures />
+    <WhyEnergy />
+    <HowItWorks />
+    <ComparisonTable />
+    <Pricing />
+    <TrustSignals />
+    <FAQ />
+    <FinalCTA />
   </main>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+      observer.observe(el);
+    });
+
+    // Mouse-tracking card glow
+    document.querySelectorAll(".km-card--tracked").forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+        (e.currentTarget as HTMLElement).style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+        (e.currentTarget as HTMLElement).style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+      });
+    });
+  </script>
 </Layout>

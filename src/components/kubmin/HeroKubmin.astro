@@ -1,0 +1,75 @@
+---
+---
+
+<section class="km-section--void relative overflow-hidden min-h-screen flex items-center">
+  <!-- Animated mesh background -->
+  <div class="absolute inset-0 km-mesh"></div>
+
+  <!-- Ambient glow orbs -->
+  <div class="km-glow km-glow--green w-[600px] h-[600px] -top-40 -right-40 opacity-40"></div>
+  <div class="km-glow km-glow--blue w-[400px] h-[400px] top-1/2 -left-32 opacity-30"></div>
+
+  <!-- Dot grid background -->
+  <div class="absolute inset-0 km-dotgrid opacity-40"></div>
+
+  <div class="km-container relative z-10 pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:gap-16">
+      <!-- Left: Text -->
+      <div class="lg:w-[58%] hero-stagger">
+        <span class="inline-flex items-center w-fit px-3.5 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-widest bg-[#4ade80]/8 text-[#4ade80] border border-[#4ade80]/15 mb-8">
+          Beta — Free to Start
+        </span>
+
+        <h1 class="km-heading km-heading--display text-[clamp(2.5rem,6vw,4.5rem)] mb-6 max-w-[620px]">
+          Ship fast. But know what each deploy costs in money and efficiency.
+        </h1>
+
+        <p class="text-[clamp(1rem,2vw,1.25rem)] text-[#4ade80]/80 mb-5 max-w-[520px] leading-relaxed font-medium">
+          Version 2.1 uses 30% more energy than 2.0. Your monitoring didn't catch that. Kubmin would have.
+        </p>
+
+        <p class="text-[15px] text-zinc-500 mb-10 max-w-[500px] leading-[1.7]">
+          Per-workload efficiency tracking across deployments, automated waste detection, and ready-to-use kubectl fixes. The layer between your workloads and your cloud bill that's been missing.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
+          <a href="https://kubmin.ksctl.com" target="_blank" rel="noopener" class="km-cta">
+            Start Free <span aria-hidden="true">&rarr;</span>
+          </a>
+          <a href="#how-it-works" class="text-sm text-zinc-500 hover:text-[#4ade80] transition-colors duration-200 flex items-center gap-1.5">
+            See how it works
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+        </div>
+
+        <p class="text-[11px] text-zinc-600 tracking-wide max-w-[450px]">
+          Built on Kepler (CNCF) &middot; SCI-aligned (Green Software Foundation) &middot; Powered by ksctl
+        </p>
+      </div>
+
+      <!-- Right: Screenshot with cinematic treatment -->
+      <div class="lg:w-[42%] mt-12 lg:mt-0 hero-screenshot relative">
+        <!-- Glow behind screenshot -->
+        <div class="absolute inset-0 scale-110 blur-3xl opacity-20 bg-gradient-to-br from-[#4ade80]/30 via-transparent to-[#38bdf8]/20 pointer-events-none"></div>
+
+        <div class="km-browser relative" style="box-shadow: 0 32px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);">
+          <div class="km-browser-bar">
+            <span class="km-browser-dot bg-[#ff5f57]/80"></span>
+            <span class="km-browser-dot bg-[#febc2e]/80"></span>
+            <span class="km-browser-dot bg-[#28c840]/80"></span>
+            <span class="ml-4 text-[11px] text-zinc-600 font-mono tracking-wide">kubmin.ksctl.com</span>
+          </div>
+          <img
+            src="/kubmin/workload-compare-image.png"
+            alt="Kubmin deployment comparison dashboard showing cost, energy, and efficiency metrics across workload versions"
+            loading="lazy"
+            class="w-full block"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom fade into next section -->
+  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#09090b] to-transparent pointer-events-none"></div>
+</section>
