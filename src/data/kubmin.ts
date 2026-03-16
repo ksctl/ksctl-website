@@ -29,8 +29,8 @@ export const images = {
 // ---- HERO ----
 export const hero = {
   headline: "Ship fast. But know what each deploy costs in money and efficiency.",
-  sub_heading: "Version 2.1 uses 30% more energy than 2.0. Your monitoring didn't catch that. Kubmin would have.",
-  body: "Per-workload efficiency tracking across deployments, automated waste detection, and ready-to-use kubectl fixes. The layer between your workloads and your cloud bill that's been missing.",
+  punchline: "Everyone's shipping faster with AI. Nobody's checking what that speed costs in resources and money. Kubmin does.",
+  explain: "Per-workload efficiency tracking across deployments, automated waste detection, and ready-to-use kubectl fixes. The layer between your workloads and your cloud bill that's been missing.",
   cta: { text: "Start Free", href: links.app },
   secondaryCta: { text: "GitHub", href: links.github },
   trustBadges: [
@@ -61,7 +61,7 @@ export const problemStatement = {
     },
     {
       title: "Deploys Make It Worse (Silently)",
-      body: "You ship a new image version. CPU goes up 15%. Memory creeps up. Nobody notices because no tool tracks efficiency changes between deployments. The waste compounds with every release.",
+      body: "You ship a new image version — maybe AI-generated, maybe hand-written. CPU goes up 15%. Memory creeps up. Nobody notices because no tool tracks efficiency changes between deployments. The waste compounds with every release.",
     },
   ],
 };

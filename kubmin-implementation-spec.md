@@ -104,10 +104,11 @@ import FinalCTA from "../../components/kubmin/FinalCTA.astro";
 │  │  and efficiency.              │  │   │  compare-image.png    │ │  │
 │  │   ^ h1, largest text          │  │   │  or version table     │ │  │
 │  │                               │  │   │                      │ │  │
-│  │  Version 2.1 uses 30% more    │  │   └──────────────────────┘ │  │
-│  │  energy than 2.0. Your        │  │                            │  │
-│  │  monitoring didn't catch      │  └────────────────────────────┘  │
-│  │  that. Kubmin would have.     │                                  │
+│  │  Everyone's shipping faster    │  │   └──────────────────────┘ │  │
+│  │  with AI. Nobody's checking   │  │                            │  │
+│  │  what that speed costs in     │  └────────────────────────────┘  │
+│  │  resources and money.         │                                  │
+│  │  Kubmin does.                 │                                  │
 │  │   ^ punch line, medium text   │                                  │
 │  │                               │                                  │
 │  │  Per-workload efficiency      │                                  │
@@ -144,10 +145,11 @@ import FinalCTA from "../../components/kubmin/FinalCTA.astro";
 │  each deploy costs in money    │
 │  and efficiency.               │
 │                                │
-│  Version 2.1 uses 30% more    │
-│  energy than 2.0. Your        │
-│  monitoring didn't catch      │
-│  that. Kubmin would have.     │
+│  Everyone's shipping faster    │
+│  with AI. Nobody's checking   │
+│  what that speed costs in     │
+│  resources and money.         │
+│  Kubmin does.                 │
 │                                │
 │  Per-workload efficiency...    │
 │  ...cloud bill that's been     │
@@ -170,7 +172,7 @@ import FinalCTA from "../../components/kubmin/FinalCTA.astro";
 ```
 BADGE:    "Beta — Free to Start"
 H1:       "Ship fast. But know what each deploy costs in money and efficiency."
-PUNCH:    "Version 2.1 uses 30% more energy than 2.0. Your monitoring didn't catch that. Kubmin would have."
+PUNCH:    "Everyone's shipping faster with AI. Nobody's checking what that speed costs in resources and money. Kubmin does."
 EXPLAIN:  "Per-workload efficiency tracking across deployments, automated waste detection, and ready-to-use kubectl fixes. The layer between your workloads and your cloud bill that's been missing."
 CTA1:     "Start Free →"          → https://kubmin.ksctl.com
 CTA2:     "See how it works ↓"    → #how-it-works (smooth scroll)
@@ -263,7 +265,7 @@ CARD2_TITLE: "Overprovisioned and Flying Blind"
 CARD2_BODY:  "Most teams request 2-4x the resources their workloads actually use. Without per-workload waste detection, you're paying for idle CPU and memory every hour of every day."
 
 CARD3_TITLE: "Deploys Make It Worse (Silently)"
-CARD3_BODY:  "You ship a new image version. CPU goes up 15%. Memory creeps up. Nobody notices because no tool tracks efficiency changes between deployments. The waste compounds with every release."
+CARD3_BODY:  "You ship a new image version — maybe AI-generated, maybe hand-written. CPU goes up 15%. Memory creeps up. Nobody notices because no tool tracks efficiency changes between deployments. The waste compounds with every release."
 ```
 
 ### Behavioral Rules

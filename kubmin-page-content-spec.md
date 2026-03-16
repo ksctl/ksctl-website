@@ -29,8 +29,8 @@ Ship fast. But know what each deploy costs in money and efficiency.
 
 **Punch (one-liner that lands the problem):**
 ```
-Version 2.1 uses 30% more energy than 2.0. Your monitoring didn't
-catch that. Kubmin would have.
+Everyone's shipping faster with AI. Nobody's checking what that
+speed costs in resources and money. Kubmin does.
 ```
 
 **Explain (what kubmin actually does):**
@@ -95,9 +95,9 @@ and memory every hour of every day.
 
 **Card 3: Deploys Make It Worse (Silently)**
 ```
-You ship a new image version. CPU goes up 15%. Memory creeps up.
-Nobody notices because no tool tracks efficiency changes between
-deployments. The waste compounds with every release.
+You ship a new image version — maybe AI-generated, maybe hand-written.
+CPU goes up 15%. Memory creeps up. Nobody notices because no tool tracks
+efficiency changes between deployments. The waste compounds with every release.
 ```
 
 ### Design Notes
