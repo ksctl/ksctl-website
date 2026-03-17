@@ -1,0 +1,89 @@
+---
+import Container from "./Container.astro";
+import { sustainabilityVisual } from "@/data/kli";
+---
+
+<section id="sustainability" class="py-24 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+  
+  <Container>
+    <div class="text-center mb-16 relative z-10">
+      <span class="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-kli-eco-muted text-kli-eco mb-6 border border-kli-eco/20">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+        {sustainabilityVisual.badge}
+      </span>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+        {sustainabilityVisual.heading.split(' ').slice(0, 2).join(' ')} <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{sustainabilityVisual.heading.split(' ').slice(2).join(' ')}</span>
+      </h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        {sustainabilityVisual.subheading}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      {sustainabilityVisual.metrics.map((metric, index) => (
+        <div class="bg-card rounded-2xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-border group">
+          <div class:list={[
+            "w-14 h-14 flex items-center justify-center rounded-xl mb-6 shadow-lg",
+            index === 0 ? "bg-kli-eco text-white shadow-kli-eco/20" : 
+            index === 1 ? "bg-kli-tech text-white shadow-kli-tech/20" : 
+            "bg-kli-step text-white shadow-kli-step/20"
+          ]}>
+            {index === 0 && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+              </svg>
+            )}
+            {index === 1 && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            )}
+            {index === 2 && (
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            )}
+          </div>
+          <h3 class:list={[
+            "text-xl font-bold mb-3 transition-colors",
+            index === 0 ? "group-hover:text-kli-eco" : index === 1 ? "group-hover:text-kli-tech" : "group-hover:text-kli-step"
+          ]}>
+            {metric.title}
+          </h3>
+          <p class="text-muted-foreground mb-6">{metric.description}</p>
+          <div class="mt-auto">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm font-semibold text-muted-foreground">{metric.label}</span>
+              <span class:list={[
+                "text-sm font-bold",
+                index === 0 ? "text-kli-eco" : index === 1 ? "text-kli-tech" : "text-kli-step"
+              ]}>{metric.percentage}%</span>
+            </div>
+            <div class="w-full bg-muted rounded-full h-2">
+              <div class:list={[
+                "h-2 rounded-full",
+                index === 0 ? "bg-kli-eco" : index === 1 ? "bg-kli-tech" : "bg-kli-step"
+              ]} style={`width: ${metric.percentage}%`}></div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <a
+        href={sustainabilityVisual.cta.href}
+        class="inline-flex items-center px-8 py-3 rounded-lg bg-primary hover:bg-secondary text-white font-medium transition-all shadow-lg shadow-primary/20"
+      >
+        <span>{sustainabilityVisual.cta.text}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </Container>
+</section>

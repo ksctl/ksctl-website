@@ -6,18 +6,19 @@ import MissionVision from "../components/MissionVision.astro";
 import TeamMembers from "../components/TeamMembers.astro";
 import CallToAction from "../components/CallToAction.astro";
 import "../styles/global.css";
+import { meta } from "@/data/about";
 ---
 
-<Layout title="About Us - ksctl | Sustainable Cloud Infrastructure">
-  <main class="space-y-32 mb-32 pt-28">
+<Layout title={meta.title}>
+  <main class="pt-28">
     <!-- Page Header -->
     <Container>
       <div class="text-center max-w-3xl mx-auto">
-        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-          About <span class="bg-gradient-to-r from-primary to-green-500 bg-clip-text text-transparent">ksctl</span>
+        <h1 class="text-5xl md:text-6xl font-bold text-foreground mb-6">
+          {meta.heading} <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{meta.headingHighlight}</span>
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300">
-          Strive towards Fast, Efficient and Sustainable Computing for a better tomorrow
+        <p class="text-xl text-muted-foreground">
+          {meta.subheading}
         </p>
       </div>
     </Container>

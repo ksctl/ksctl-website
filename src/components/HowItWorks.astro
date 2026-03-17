@@ -1,56 +1,57 @@
 ---
 import Container from "./Container.astro";
+import { howItWorks } from "@/data/kli";
 ---
 
-<div id="how-it-works" class="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+<div id="how-it-works" class="py-24 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
   <!-- Decorative elements -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-br from-primary/10 to-teal-400/5 dark:from-primary/5 dark:to-teal-400/5 blur-3xl"></div>
-    <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-gradient-to-tr from-blue-300/10 to-cyan-300/5 dark:from-blue-700/10 dark:to-cyan-700/5 blur-3xl"></div>
+    <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-br from-primary/10 to-secondary/5 blur-3xl"></div>
+    <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-gradient-to-tr from-accent/10 to-muted/5 blur-3xl"></div>
     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
   </div>
 
   <Container>
     <div class="text-center mb-20 relative z-10">
-      <span class="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 mb-6 border border-amber-200 dark:border-amber-800/30">
+      <span class="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium bg-kli-step-muted text-kli-step mb-6 border border-kli-step/20">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
         </svg>
-        Simple Process
+        {howItWorks.badge}
       </span>
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
-        How <span class="bg-gradient-to-r from-amber-500 to-orange-500 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent">kli</span> Works
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+        {howItWorks.heading.split(' ')[0]} <span class="bg-gradient-to-r from-kli-step to-primary bg-clip-text text-transparent">{howItWorks.heading.split(' ')[1]}</span> {howItWorks.heading.split(' ').slice(2).join(' ')}
       </h2>
-      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-        From installation to production-ready Kubernetes clusters in minutes, not hours
+      <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+        {howItWorks.subheading}
       </p>
     </div>
 
     <!-- Steps Container -->
     <div class="relative">
       <!-- Connecting line -->
-      <div class="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-500 to-orange-400 dark:from-amber-400 dark:to-orange-300 transform -translate-x-1/2 hidden md:block"></div>
+      <div class="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-kli-step to-primary opacity-30 transform -translate-x-1/2 hidden md:block"></div>
 
       <!-- Step 1 -->
       <div class="relative z-10 flex flex-col md:flex-row items-center mb-24">
         <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right">
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">1. Install kli</h3>
-          <p class="text-lg text-gray-600 dark:text-gray-300">
-            Quick installation with a single command. Works on Linux, macOS, and Windows through WSL.
+          <h3 class="text-2xl font-bold text-foreground mb-4">1. {howItWorks.steps[0].title}</h3>
+          <p class="text-lg text-muted-foreground">
+            {howItWorks.steps[0].description}
           </p>
           <div class="mt-6 bg-gray-900 rounded-lg overflow-hidden border border-gray-700 shadow-md inline-block">
             <div class="px-4 py-2 font-mono text-sm text-gray-300">
-              <span class="text-green-400">$</span> curl -sSfL https://get.kli.ksctl.com | python3 -
+              <span class="text-green-400">$</span> {howItWorks.steps[0].command}
             </div>
           </div>
         </div>
         <div class="md:w-20 flex justify-center">
-          <div class="h-16 w-16 bg-gradient-to-br from-amber-500 to-orange-500 dark:from-amber-400 dark:to-orange-400 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-amber-500/30 dark:shadow-amber-400/30 border-4 border-white dark:border-gray-900">
+          <div class="h-16 w-16 bg-gradient-to-br from-kli-step to-primary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-kli-step/30 border-4 border-background">
             1
           </div>
         </div>
         <div class="md:w-1/2 md:pl-12 hidden md:block">
-          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
+          <div class="bg-card rounded-xl shadow-xl border border-border overflow-hidden">
             <div class="p-4">
               <div class="bg-black rounded-lg overflow-hidden">
                 <div class="flex items-center bg-gray-800 px-4 py-2 border-b border-gray-700">
@@ -63,12 +64,10 @@ import Container from "./Container.astro";
                 </div>
                 <div class="p-4 font-mono text-sm text-green-400 bg-gray-900">
                   <p class="whitespace-nowrap overflow-x-auto">
-                    <span class="text-gray-500">$</span> curl -sSfL https://get.kli.ksctl.com | python3 -<br/>
-                    <span class="text-blue-400">INFO</span> Downloading kli...<br/>
-                    <span class="text-blue-400">INFO</span> Installing to /usr/local/bin/kli...<br/>
-                    <span class="text-green-400">SUCCESS</span> kli installed! 🚀<br/>
-                    <span class="text-gray-500">$</span> kli version<br/>
-                    kli v2.9.0
+                    <span class="text-gray-500">$</span> {howItWorks.steps[0].command}<br/>
+                    {howItWorks.steps[0].terminal?.map((line) => (
+                      <><span class={line.color === 'blue' ? 'text-kli-tech' : line.color === 'green' ? 'text-green-400' : 'text-gray-300'}>{line.text.split(' ')[0]}</span> {line.text.split(' ').slice(1).join(' ')}<br/></>
+                    ))}
                   </p>
                 </div>
               </div>
@@ -80,11 +79,11 @@ import Container from "./Container.astro";
       <!-- Step 2 -->
       <div class="relative z-10 flex flex-col md:flex-row items-center mb-24">
         <div class="md:w-1/2 md:pr-12 hidden md:block">
-          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
+          <div class="bg-card rounded-xl shadow-xl border border-border overflow-hidden">
             <div class="p-4">
-              <div class="bg-gray-50 dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
-                <div class="flex items-center justify-between bg-white dark:bg-gray-800 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
-                  <div class="text-gray-700 dark:text-gray-300 font-medium">Cluster Configuration</div>
+              <div class="bg-muted/30 rounded-lg overflow-hidden border border-border">
+                <div class="flex items-center justify-between bg-card px-4 py-3 border-b border-border">
+                  <div class="text-muted-foreground font-medium">Cluster Configuration</div>
                   <div class="flex items-center space-x-2">
                     <div class="w-6 h-6 rounded bg-primary/20 flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" viewBox="0 0 20 20" fill="currentColor">
@@ -96,15 +95,15 @@ import Container from "./Container.astro";
                 <div class="p-5">
                   <div class="space-y-4">
                     <div>
-                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Cluster Name</label>
+                      <label class="block text-sm font-medium text-muted-foreground mb-1">Cluster Name</label>
                       <div class="flex items-center">
-                        <input type="text" value="production" disabled="true" class="block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md text-gray-800 dark:text-gray-200" />
+                        <input type="text" value="production" disabled="true" class="block w-full px-3 py-2 bg-card border border-border rounded-md text-foreground" />
                       </div>
                     </div>
                     <div>
-                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Cloud Provider</label>
+                      <label class="block text-sm font-medium text-muted-foreground mb-1">Cloud Provider</label>
                       <div class="flex items-center">
-                        <select class="block w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md text-gray-800 dark:text-gray-200" disabled="true">
+                        <select class="block w-full px-3 py-2 bg-card border border-border rounded-md text-foreground" disabled="true">
                           <option>AWS</option>
                           <option>GCP</option>
                           <option>Azure</option>
@@ -112,9 +111,9 @@ import Container from "./Container.astro";
                       </div>
                     </div>
                     <div>
-                      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Region</label>
+                      <label class="block text-sm font-medium text-muted-foreground mb-1">Region</label>
                       <div class="flex items-center">
-                        <div class="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-3 py-2 rounded-md w-full flex items-center">
+                        <div class="bg-accent text-primary px-3 py-2 rounded-md w-full flex items-center">
                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                           </svg>
@@ -129,40 +128,26 @@ import Container from "./Container.astro";
           </div>
         </div>
         <div class="md:w-20 flex justify-center">
-          <div class="h-16 w-16 bg-gradient-to-br from-amber-500 to-orange-500 dark:from-amber-400 dark:to-orange-400 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-amber-500/30 dark:shadow-amber-400/30 border-4 border-white dark:border-gray-900">
+          <div class="h-16 w-16 bg-gradient-to-br from-kli-step to-primary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-kli-step/30 border-4 border-background">
             2
           </div>
         </div>
         <div class="md:w-1/2 md:pl-12">
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">2. Define Your Cluster</h3>
-          <p class="text-lg text-gray-600 dark:text-gray-300">
-            Specify your requirements with simple CLI flags or a configuration file. Let kli handle the complexity.
+          <h3 class="text-2xl font-bold text-foreground mb-4">2. {howItWorks.steps[1].title}</h3>
+          <p class="text-lg text-muted-foreground">
+            {howItWorks.steps[1].description}
           </p>
           <div class="mt-6 space-y-2">
-            <div class="flex items-center">
-              <div class="h-5 w-5 rounded-full bg-amber-400/20 flex items-center justify-center mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
+            {howItWorks.steps[1].bullets?.map((bullet) => (
+              <div class="flex items-center">
+                <div class="h-5 w-5 rounded-full bg-kli-step-muted flex items-center justify-center mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-kli-step" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <span class="text-muted-foreground">{bullet}</span>
               </div>
-              <span class="text-gray-700 dark:text-gray-300">Select your cloud provider</span>
-            </div>
-            <div class="flex items-center">
-              <div class="h-5 w-5 rounded-full bg-amber-400/20 flex items-center justify-center mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <span class="text-gray-700 dark:text-gray-300">Choose eco-friendly regions</span>
-            </div>
-            <div class="flex items-center">
-              <div class="h-5 w-5 rounded-full bg-amber-400/20 flex items-center justify-center mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <span class="text-gray-700 dark:text-gray-300">Set node counts and sizes</span>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -170,23 +155,23 @@ import Container from "./Container.astro";
       <!-- Step 3 -->
       <div class="relative z-10 flex flex-col md:flex-row items-center mb-24">
         <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right">
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">3. Create Your Cluster</h3>
-          <p class="text-lg text-gray-600 dark:text-gray-300">
-            Single command deployment with smart defaults. kli handles all the infrastructure provisioning.
+          <h3 class="text-2xl font-bold text-foreground mb-4">3. {howItWorks.steps[2].title}</h3>
+          <p class="text-lg text-muted-foreground">
+            {howItWorks.steps[2].description}
           </p>
           <div class="mt-6 bg-gray-900 rounded-lg overflow-hidden border border-gray-700 shadow-md inline-block">
             <div class="px-4 py-2 font-mono text-sm text-gray-300">
-              <span class="text-green-400">$</span> kli cluster create
+              <span class="text-green-400">$</span> {howItWorks.steps[2].command}
             </div>
           </div>
         </div>
         <div class="md:w-20 flex justify-center">
-          <div class="h-16 w-16 bg-gradient-to-br from-amber-500 to-orange-500 dark:from-amber-400 dark:to-orange-400 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-amber-500/30 dark:shadow-amber-400/30 border-4 border-white dark:border-gray-900">
+          <div class="h-16 w-16 bg-gradient-to-br from-kli-step to-primary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-kli-step/30 border-4 border-background">
             3
           </div>
         </div>
         <div class="md:w-1/2 md:pl-12 hidden md:block">
-          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
+          <div class="bg-card rounded-xl shadow-xl border border-border overflow-hidden">
             <div class="p-4">
               <div class="bg-black rounded-lg overflow-hidden">
                 <div class="flex items-center bg-gray-800 px-4 py-2 border-b border-gray-700">
@@ -199,14 +184,10 @@ import Container from "./Container.astro";
                 </div>
                 <div class="p-4 font-mono text-sm text-gray-300 bg-gray-900">
                   <p class="whitespace-nowrap overflow-x-auto">
-                    <span class="text-gray-500">$</span> <span class="text-blue-400">kli cluster create</span><br/>
-                    <span class="text-blue-400">INFO</span> Scanning for optimal deployment regions...<br/>
-                    <span class="text-blue-400">INFO</span> Selected eu-west-2 for lowest carbon intensity (67% renewable)<br/>
-                    <span class="text-blue-400">INFO</span> Creating VPC and networking components...<br/>
-                    <span class="text-blue-400">INFO</span> Deploying control plane...<br/>
-                    <span class="text-blue-400">INFO</span> Adding worker nodes...<br/>
-                    <span class="text-blue-400">INFO</span> Installing monitoring components...<br/>
-                    <span class="text-green-400">SUCCESS</span> Cluster 'production' is ready! 🚀
+                    <span class="text-gray-500">$</span> <span class="text-kli-tech">{howItWorks.steps[2].command}</span><br/>
+                    {howItWorks.steps[2].terminal?.map((line) => (
+                      <><span class={line.color === 'blue' ? 'text-kli-tech' : line.color === 'green' ? 'text-green-400' : 'text-gray-300'}>{line.text.split(' ')[0]}</span> {line.text.split(' ').slice(1).join(' ')}<br/></>
+                    ))}
                   </p>
                 </div>
               </div>
@@ -216,129 +197,9 @@ import Container from "./Container.astro";
       </div>
 
       <!-- Step 4 -->
-      <!-- <div class="relative z-10 flex flex-col md:flex-row items-center"> -->
-      <!--   <div class="md:w-1/2 md:pr-12 hidden md:block"> -->
-      <!--     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden"> -->
-      <!--       <div class="p-4"> -->
-      <!--         <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800"> -->
-      <!--           <div class="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700"> -->
-      <!--             <div class="flex items-center space-x-2"> -->
-      <!--               <div class="h-6 w-6 rounded bg-primary/20 flex items-center justify-center"> -->
-      <!--                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" viewBox="0 0 20 20" fill="currentColor"> -->
-      <!--                   <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd" /> -->
-      <!--                 </svg> -->
-      <!--               </div> -->
-      <!--               <div class="text-gray-300 font-medium">kli Dashboard - Cluster Overview</div> -->
-      <!--             </div> -->
-      <!--           </div> -->
-      <!--           <div class="p-4"> -->
-      <!--             <div class="grid grid-cols-3 gap-4 mb-4"> -->
-      <!--               <div class="bg-gray-800 p-3 rounded-lg"> -->
-      <!--                 <div class="text-xs text-gray-400 mb-1">CPU Usage</div> -->
-      <!--                 <div class="flex items-end"> -->
-      <!--                   <div class="text-lg font-medium text-white">42%</div> -->
-      <!--                   <div class="ml-2 text-xs text-green-400">↓ 3%</div> -->
-      <!--                 </div> -->
-      <!--                 <div class="mt-2 w-full bg-gray-700 rounded-full h-1.5"> -->
-      <!--                   <div class="bg-blue-500 h-1.5 rounded-full w-5/12"></div> -->
-      <!--                 </div> -->
-      <!--               </div> -->
-      <!--               <div class="bg-gray-800 p-3 rounded-lg"> -->
-      <!--                 <div class="text-xs text-gray-400 mb-1">Memory</div> -->
-      <!--                 <div class="flex items-end"> -->
-      <!--                   <div class="text-lg font-medium text-white">67%</div> -->
-      <!--                   <div class="ml-2 text-xs text-amber-400">↑ 5%</div> -->
-      <!--                 </div> -->
-      <!--                 <div class="mt-2 w-full bg-gray-700 rounded-full h-1.5"> -->
-      <!--                   <div class="bg-amber-500 h-1.5 rounded-full w-8/12"></div> -->
-      <!--                 </div> -->
-      <!--               </div> -->
-      <!--               <div class="bg-gray-800 p-3 rounded-lg"> -->
-      <!--                 <div class="text-xs text-gray-400 mb-1">Network</div> -->
-      <!--                 <div class="flex items-end"> -->
-      <!--                   <div class="text-lg font-medium text-white">18 MB/s</div> -->
-      <!--                   <div class="ml-2 text-xs text-green-400">↓ 12%</div> -->
-      <!--                 </div> -->
-      <!--                 <div class="mt-2 w-full bg-gray-700 rounded-full h-1.5"> -->
-      <!--                   <div class="bg-green-500 h-1.5 rounded-full w-3/12"></div> -->
-      <!--                 </div> -->
-      <!--               </div> -->
-      <!--             </div> -->
-      <!--             <div class="bg-gray-800 p-4 rounded-lg mb-4"> -->
-      <!--               <div class="mb-2 flex items-center justify-between"> -->
-      <!--                 <div class="text-sm text-white">Carbon Footprint</div> -->
-      <!--                 <div class="text-xs text-green-400 flex items-center"> -->
-      <!--                   <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor"> -->
-      <!--                     <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" /> -->
-      <!--                   </svg> -->
-      <!--                   -38% vs. industry average -->
-      <!--                 </div> -->
-      <!--               </div> -->
-      <!--               <div class="h-14 flex items-end"> -->
-      <!--                 <div class="w-1/6 h-4 bg-green-500 rounded-sm"></div> -->
-      <!--                 <div class="w-1/6 h-6 bg-green-500 rounded-sm"></div> -->
-      <!--                 <div class="w-1/6 h-10 bg-green-500 rounded-sm"></div> -->
-      <!--                 <div class="w-1/6 h-8 bg-green-500 rounded-sm"></div> -->
-      <!--                 <div class="w-1/6 h-5 bg-green-500 rounded-sm"></div> -->
-      <!--                 <div class="w-1/6 h-3 bg-green-500 rounded-sm"></div> -->
-      <!--               </div> -->
-      <!--             </div> -->
-      <!--           </div> -->
-      <!--         </div> -->
-      <!--       </div> -->
-      <!--     </div> -->
-      <!--   </div> -->
-      <!--   <div class="md:w-20 flex justify-center"> -->
-      <!--     <div class="h-16 w-16 bg-gradient-to-br from-amber-500 to-orange-500 dark:from-amber-400 dark:to-orange-400 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-amber-500/30 dark:shadow-amber-400/30 border-4 border-white dark:border-gray-900"> -->
-      <!--       4 -->
-      <!--     </div> -->
-      <!--   </div> -->
-      <!--   <div class="md:w-1/2 md:pl-12"> -->
-      <!--     <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">4. Manage & Optimize</h3> -->
-      <!--     <p class="text-lg text-gray-600 dark:text-gray-300"> -->
-      <!--       Monitor performance, costs, and sustainability. Get smart recommendations for continuous optimization. -->
-      <!--     </p> -->
-      <!--     <div class="mt-6 space-y-2"> -->
-      <!--       <div class="flex items-center"> -->
-      <!--         <div class="h-5 w-5 rounded-full bg-amber-400/20 flex items-center justify-center mr-3"> -->
-      <!--           <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor"> -->
-      <!--             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /> -->
-      <!--           </svg> -->
-      <!--         </div> -->
-      <!--         <span class="text-gray-700 dark:text-gray-300">Real-time performance monitoring</span> -->
-      <!--       </div> -->
-      <!--       <div class="flex items-center"> -->
-      <!--         <div class="h-5 w-5 rounded-full bg-amber-400/20 flex items-center justify-center mr-3"> -->
-      <!--           <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor"> -->
-      <!--             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /> -->
-      <!--           </svg> -->
-      <!--         </div> -->
-      <!--         <span class="text-gray-700 dark:text-gray-300">Cost optimization suggestions</span> -->
-      <!--       </div> -->
-      <!--       <div class="flex items-center"> -->
-      <!--         <div class="h-5 w-5 rounded-full bg-amber-400/20 flex items-center justify-center mr-3"> -->
-      <!--           <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor"> -->
-      <!--             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /> -->
-      <!--           </svg> -->
-      <!--         </div> -->
-      <!--         <span class="text-gray-700 dark:text-gray-300">One-click scaling</span> -->
-      <!--       </div> -->
-      <!--       <div class="flex items-center"> -->
-      <!--         <div class="h-5 w-5 rounded-full bg-amber-400/20 flex items-center justify-center mr-3"> -->
-      <!--           <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor"> -->
-      <!--             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /> -->
-      <!--           </svg> -->
-      <!--         </div> -->
-      <!--         <span class="text-gray-700 dark:text-gray-300">Carbon footprint tracking</span> -->
-      <!--       </div> -->
-      <!--     </div> -->
-      <!--   </div> -->
-      <!-- </div> -->
-
-      <!-- Alternative Step 4 - Cluster Summary -->
       <div class="relative z-10 flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 md:pr-12 hidden md:block">
-          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700/30 overflow-hidden">
+          <div class="bg-card rounded-xl shadow-xl border border-border overflow-hidden">
             <div class="p-4">
               <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800">
                 <div class="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
@@ -378,7 +239,7 @@ import Container from "./Container.astro";
                   </div>
                   <div>
                     <div class="text-white font-medium mb-2">🚩 Problems</div>
-                    <div class="bg-gray-800 p-3 rounded-lg text-amber-400">
+                    <div class="bg-gray-800 p-3 rounded-lg text-kli-step">
                       <div class="flex items-start mb-1">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                           <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
@@ -399,60 +260,30 @@ import Container from "./Container.astro";
           </div>
         </div>
         <div class="md:w-20 flex justify-center">
-          <div class="h-16 w-16 bg-gradient-to-br from-amber-500 to-orange-500 dark:from-amber-400 dark:to-orange-400 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-amber-500/30 dark:shadow-amber-400/30 border-4 border-white dark:border-gray-900">
+          <div class="h-16 w-16 bg-gradient-to-br from-kli-step to-primary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-kli-step/30 border-4 border-background">
             4
           </div>
         </div>
         <div class="md:w-1/2 md:pl-12">
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">4. Get Cluster Insights</h3>
-          <p class="text-lg text-gray-600 dark:text-gray-300">
-            Use the powerful Cluster Summary feature to get a comprehensive view of your cluster's health, performance, and potential issues.
+          <h3 class="text-2xl font-bold text-foreground mb-4">4. {howItWorks.steps[3].title}</h3>
+          <p class="text-lg text-muted-foreground">
+            {howItWorks.steps[3].description}
           </p>
           <div class="mt-6 space-y-2">
-            <div class="flex items-center">
-              <div class="h-5 w-5 rounded-full bg-amber-400/20 flex items-center justify-center mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
+            {howItWorks.steps[3].bullets?.map((bullet) => (
+              <div class="flex items-center">
+                <div class="h-5 w-5 rounded-full bg-kli-step-muted flex items-center justify-center mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-kli-step" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <span class="text-muted-foreground">{bullet}</span>
               </div>
-              <span class="text-gray-700 dark:text-gray-300">Real-time cluster health assessment</span>
-            </div>
-            <div class="flex items-center">
-              <div class="h-5 w-5 rounded-full bg-amber-400/20 flex items-center justify-center mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <span class="text-gray-700 dark:text-gray-300">Detailed node and workload metrics</span>
-            </div>
-            <div class="flex items-center">
-              <div class="h-5 w-5 rounded-full bg-amber-400/20 flex items-center justify-center mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <span class="text-gray-700 dark:text-gray-300">Automated problem detection</span>
-            </div>
-            <div class="flex items-center">
-              <div class="h-5 w-5 rounded-full bg-amber-400/20 flex items-center justify-center mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <span class="text-gray-700 dark:text-gray-300">Actionable recommendations for improvements</span>
-            </div>
-            <div class="flex items-center">
-              <div class="h-5 w-5 rounded-full bg-amber-400/20 flex items-center justify-center mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <span class="text-gray-700 dark:text-gray-300">Recent events and warning analysis</span>
-            </div>
+            ))}
           </div>
           <div class="mt-6 bg-gray-900 rounded-lg overflow-hidden border border-gray-700 shadow-md inline-block">
             <div class="px-4 py-2 font-mono text-sm text-gray-300">
-              <span class="text-green-400">$</span> kli cluster summary
+              <span class="text-green-400">$</span> {howItWorks.steps[3].command}
             </div>
           </div>
         </div>
@@ -462,11 +293,11 @@ import Container from "./Container.astro";
     <!-- Bottom CTA -->
     <div class="mt-20 text-center">
       <a
-        href="https://docs.kli.ksctl.com/docs/getting-started/"
-        class="inline-flex items-center px-8 py-3 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 hover:translate-y-[-2px] transition-all"
+        href={howItWorks.cta.href}
+        class="inline-flex items-center px-8 py-4 rounded-lg bg-gradient-to-r from-kli-step to-primary text-white font-medium shadow-lg shadow-kli-step/30 hover:shadow-xl hover:shadow-kli-step/40 hover:translate-y-[-2px] transition-all"
       >
         <span class="flex items-center">
-          Get Started Now
+          {howItWorks.cta.text}
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
           </svg>
@@ -475,19 +306,3 @@ import Container from "./Container.astro";
     </div>
   </Container>
 </div>
-
-<style>
-  /* Add animations */
-  @keyframes pulse-orange {
-    0%, 100% {
-      box-shadow: 0 0 0 0 rgba(251, 146, 60, 0.4);
-    }
-    50% {
-      box-shadow: 0 0 0 12px rgba(251, 146, 60, 0);
-    }
-  }
-
-  .animate-pulse-orange {
-    animation: pulse-orange 2s infinite;
-  }
-</style>

@@ -7,10 +7,11 @@ import ProductHighlights from "../components/ProductHighlights.astro";
 import CallToAction from "../components/CallToAction.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+import { meta } from "@/data/home";
 ---
 
-<Layout title="ksctl - Efficient and Sustainable Cloud Tooling">
-  <main class="space-y-32 mb-32">
+<Layout title={meta.title}>
+  <main>
     <HeroHome />
     <MissionVision />
     <CompanyValues />

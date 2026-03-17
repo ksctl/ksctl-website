@@ -68,7 +68,7 @@ const navigation = {
 
 <header>
   <nav
-    class="fixed z-40 w-full min-h-[72px] border-b border-gray-200/20 backdrop-blur-lg bg-white/70 dark:bg-gray-900/80 dark:border-gray-800/30 transition-all duration-300"
+    class="fixed z-40 w-full min-h-[72px] border-b border-border/20 backdrop-blur-lg bg-background/70 transition-all duration-300"
   >
     <Container>
       <div
@@ -82,7 +82,7 @@ const navigation = {
                 width="40"
                 height="40"
               />
-            <span class="text-xl font-bold text-gray-900 dark:text-white tracking-tight">ksctl</span>
+            <span class="text-xl font-bold text-foreground tracking-tight">ksctl</span>
           </a>
 
           <div class="relative flex max-h-10 items-center lg:hidden">
@@ -94,13 +94,13 @@ const navigation = {
               <div
                 aria-hidden="true"
                 id="line"
-                class="m-auto h-0.5 w-5 rounded bg-gray-700 transition duration-300 dark:bg-gray-300"
+                class="m-auto h-0.5 w-5 rounded bg-foreground transition duration-300"
               >
               </div>
               <div
                 aria-hidden="true"
                 id="line2"
-                class="m-auto mt-2 h-0.5 w-5 rounded bg-gray-700 transition duration-300 dark:bg-gray-300"
+                class="m-auto mt-2 h-0.5 w-5 rounded bg-foreground transition duration-300"
               >
               </div>
             </button>
@@ -109,17 +109,17 @@ const navigation = {
         <div
           id="navLayer"
           aria-hidden="true"
-          class="fixed inset-0 z-10 h-screen w-screen origin-bottom scale-y-0 bg-white/80 backdrop-blur-2xl transition duration-500 dark:bg-gray-900/90 lg:hidden"
+          class="fixed inset-0 z-10 h-screen w-screen origin-bottom scale-y-0 bg-background/80 backdrop-blur-2xl transition duration-500 lg:hidden"
         >
         </div>
         <div
           id="navlinks"
           x-data="{ dropdownOpen: false, mobileDropdownOpen: false }"
           @click.away="dropdownOpen = false"
-          class="w-max right-1 invisible absolute top-full z-20 origin-top-right translate-y-1 scale-90 flex-col flex-wrap justify-center gap-6 rounded-xl border border-gray-200 bg-white p-6 opacity-0 shadow-2xl shadow-gray-600/10 transition-all duration-300 dark:border-gray-700/50 dark:bg-gray-800/95 dark:shadow-none lg:visible lg:relative lg:flex lg:w-auto lg:translate-y-0 lg:scale-100 lg:flex-row lg:items-center lg:gap-0 lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none lg:py-3"
+          class="w-max right-1 invisible absolute top-full z-20 origin-top-right translate-y-1 scale-90 flex-col flex-wrap justify-center gap-6 rounded-xl border border-border bg-card p-6 opacity-0 shadow-2xl shadow-foreground/10 transition-all duration-300 lg:visible lg:relative lg:flex lg:w-auto lg:translate-y-0 lg:scale-100 lg:flex-row lg:items-center lg:gap-0 lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none lg:py-3"
         >
           <div
-            class="w-full text-gray-700 dark:text-gray-300 lg:w-auto lg:pr-4 lg:pt-0"
+            class="w-full text-muted-foreground lg:w-auto lg:pr-4 lg:pt-0"
           >
             <ul
               class="flex flex-col gap-6 tracking-wide lg:flex-row lg:gap-0 lg:text-sm"
@@ -134,7 +134,7 @@ const navigation = {
                           <button
                             @mouseenter="dropdownOpen = true"
                             @mouseleave="dropdownOpen = false"
-                            class="hover:text-primary flex items-center transition dark:hover:text-primary font-medium md:px-4"
+                            class="hover:text-primary flex items-center transition font-medium md:px-4"
                           >
                             <span>{link.label}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
@@ -153,26 +153,26 @@ const navigation = {
                             x-transition:leave="transition ease-in duration-150"
                             x-transition:leave-start="opacity-100 translate-y-0"
                             x-transition:leave-end="opacity-0 translate-y-1"
-                            class="absolute left-0 mt-2 w-64 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-xl overflow-hidden"
+                            class="absolute left-0 mt-2 w-64 rounded-xl bg-card border border-border shadow-xl overflow-hidden"
                             style="display: none;"
                           >
                             {link.items.map((item) => (
                               <a
                                 href={item.to}
                                 class:list={[
-                                  "block px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-200",
-                                  isActivePath(item.to) && "bg-primary/5 dark:bg-primary/10"
+                                  "block px-4 py-3 hover:bg-muted/50 transition-colors duration-200",
+                                  isActivePath(item.to) && "bg-primary/5"
                                 ]}
                               >
                                 <div class="flex items-start justify-between">
                                   <div>
                                     <div class:list={[
-                                      "font-semibold text-gray-900 dark:text-white",
+                                      "font-semibold text-foreground",
                                       isActivePath(item.to) && "text-primary"
                                     ]}>
                                       {item.label}
                                     </div>
-                                    <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                                    <div class="text-xs text-muted-foreground mt-0.5">
                                       {item.description}
                                     </div>
                                   </div>
@@ -191,7 +191,7 @@ const navigation = {
                         <div class="lg:hidden">
                           <button
                             @click="mobileDropdownOpen = !mobileDropdownOpen"
-                            class="w-full hover:text-primary flex items-center justify-between transition dark:hover:text-primary font-medium"
+                            class="w-full hover:text-primary flex items-center justify-between transition font-medium"
                           >
                             <span>{link.label}</span>
                             <svg
@@ -220,7 +220,7 @@ const navigation = {
                                   "block text-sm transition-colors duration-200",
                                   isActivePath(item.to)
                                     ? "text-primary font-semibold"
-                                    : "text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary"
+                                    : "text-muted-foreground hover:text-primary"
                                 ]}
                               >
                                 <div class="font-medium">{item.label}</div>
@@ -243,8 +243,8 @@ const navigation = {
                           class:list={[
                             "block transition font-medium md:px-4",
                             isActivePath(link.to)
-                              ? "text-primary dark:text-primary"
-                              : "hover:text-primary dark:hover:text-primary"
+                              ? "text-primary"
+                              : "hover:text-primary"
                           ]}
                         >
                           <span>{link.label}</span>
