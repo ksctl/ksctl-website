@@ -28,11 +28,11 @@ export const images = {
 
 // ---- HERO ----
 export const hero = {
-  headline: "Ship fast. But know what each deploy costs in money and efficiency.",
-  punchline: "Everyone's shipping faster with AI. Nobody's checking what that speed costs in resources and money. Kubmin does.",
-  explain: "Per-workload efficiency tracking across deployments, automated waste detection, and ready-to-use kubectl fixes. The layer between your workloads and your cloud bill that's been missing.",
+  headline: "Deploy fast and know what each one costs in money and efficiency",
+  punchline: "Everyone ships faster with AI. Nobody checks the cost. Kubmin does.",
+  explain: "Per-workload cost and efficiency tracking across deployments. The missing layer between your workloads and your bill.",
   cta: { text: "Start Free", href: links.app },
-  secondaryCta: { text: "GitHub", href: links.github },
+
   trustBadges: [
     "Kepler (CNCF)",
     "SCI-aligned (GSF)",

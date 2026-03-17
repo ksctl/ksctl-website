@@ -35,6 +35,8 @@
   --animate-spin-slow:         spin 20s linear infinite;
   --animate-spin-reverse-slow: spin-reverse 25s linear infinite;
   --animate-underline-pulse:   underline-pulse 3s ease-in-out infinite;
+  --animate-appear:            appear 0.5s ease-out forwards;
+  --animate-appear-zoom:       appear-zoom 0.5s ease-out forwards;
 
   /* Custom shadows */
   --shadow-glass:      0 8px 32px 0 rgba(31, 38, 135, 0.15);
@@ -91,6 +93,7 @@
 
   --font-heading: 'Bricolage Grotesque', sans-serif;
   --font-body:    'Bricolage Grotesque', sans-serif;
+
   --background:     oklch(1 0 0);
   --foreground:     oklch(0.145 0 0);
   --card:     oklch(1 0 0);
@@ -162,6 +165,7 @@
 
 .dark {
   color-scheme: dark;
+
   --background:     oklch(0.145 0 0);
   --foreground:     oklch(0.985 0 0);
   --card:     oklch(0.205 0 0);
@@ -201,20 +205,6 @@
   -webkit-background-clip: text;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-a, button { transition: all 0.3s ease; }
-img { max-width: 100%; height: auto; }
-
-@media (max-width: 640px) {
-  h1 { font-size: 2.25rem; }
-  h2 { font-size: 1.875rem; }
-  h3 { font-size: 1.5rem; }
-}
 
 code {
   font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
@@ -271,14 +261,6 @@ code {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
-@utility shadow-km-browser {
-  box-shadow: 0 32px 64px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);
-}
-
-@utility shadow-km-browser-hero {
-  box-shadow: 0 32px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
-}
-
 @theme inline {
   --font-sans:     'Geist Variable', sans-serif;
   --color-sidebar-ring:     var(--sidebar-ring);
@@ -330,5 +312,24 @@ code {
   }
   html {
     @apply font-sans;
+  }
+
+  /* These must be in @layer base so Tailwind utilities can override them */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  a, button {
+    transition: all 0.3s ease;
+  }
+  @media (max-width: 640px) {
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.875rem; }
+    h3 { font-size: 1.5rem; }
   }
 }
