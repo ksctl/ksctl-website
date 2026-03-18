@@ -1,0 +1,68 @@
+---
+import Container from "../Container.astro";
+import { comparisonTable } from "@/data/kubmin";
+---
+
+<section class="py-24 bg-white">
+  <Container>
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-sm font-semibold tracking-wide uppercase mb-6">
+        {comparisonTable.label}
+      </div>
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
+        {comparisonTable.heading} <br/><span class="text-teal-600">{comparisonTable.headingAccent}</span>
+      </h2>
+    </div>
+
+    <div class="max-w-5xl mx-auto overflow-x-auto pb-8">
+      <table class="w-full text-left border-collapse min-w-[800px]">
+        <thead>
+          <tr>
+            <th class="p-4 border-b-2 border-gray-200 bg-white sticky left-0 z-20 w-1/3"></th>
+            {comparisonTable.competitors.map((comp, i) => {
+              const isKubmin = i === comparisonTable.competitors.length - 1;
+              return (
+                <th class={`p-4 border-b-2 font-bold text-center w-1/6 ${isKubmin ? 'border-teal-500 bg-teal-50/50 text-teal-800 rounded-t-xl' : 'border-gray-200 text-gray-500 bg-white'}`}>
+                  {comp}
+                </th>
+              );
+            })}
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          {comparisonTable.rows.map((row) => (
+            <tr class="hover:bg-gray-50/50 transition-colors">
+              <td class="p-4 font-medium text-gray-900 bg-white sticky left-0 z-10 shadow-[2px_0_4px_rgba(0,0,0,0.02)]">{row.capability}</td>
+              {row.values.map((val, i) => {
+                const isKubmin = i === row.values.length - 1;
+                const isCheck = val.includes('✓');
+                const isCross = val.includes('✗');
+                
+                return (
+                  <td class={`p-4 text-center ${isKubmin ? 'bg-teal-50/30 font-semibold text-teal-800' : 'text-gray-500'}`}>
+                    {isCheck ? (
+                      <span class="inline-flex items-center gap-1.5 text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full text-sm">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        {val.replace('✓', '').trim()}
+                      </span>
+                    ) : isCross ? (
+                      <span class="text-gray-300">
+                        <svg class="w-5 h-5 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                      </span>
+                    ) : (
+                      <span>{val}</span>
+                    )}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      
+      <div class="mt-8 text-center text-gray-500 text-sm italic">
+        {comparisonTable.footer}
+      </div>
+    </div>
+  </Container>
+</section>

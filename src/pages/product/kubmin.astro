@@ -5,11 +5,32 @@ import Layout from "../../layouts/Layout.astro";
 import "../../styles/global.css";
 import "../../styles/kubmin.css";
 import { meta } from "@/data/kubmin";
+
+import KubminProblem from "../../components/kubmin/KubminProblem.astro";
+import KubminDemo from "../../components/kubmin/KubminDemo.astro";
+import KubminFeatures from "../../components/kubmin/KubminFeatures.astro";
+import KubminEnergy from "../../components/kubmin/KubminEnergy.astro";
+import KubminHowItWorks from "../../components/kubmin/KubminHowItWorks.astro";
+import KubminComparison from "../../components/kubmin/KubminComparison.astro";
+import KubminPricing from "../../components/kubmin/KubminPricing.astro";
+import KubminTrust from "../../components/kubmin/KubminTrust.astro";
+import KubminFAQ from "../../components/kubmin/KubminFAQ.astro";
+import KubminCTA from "../../components/kubmin/KubminCTA.astro";
 ---
 
 <Layout title={meta.title} description={meta.description} theme="kubmin">
   <AppHeader variant="dark" />
-  <main class="space-y-32 mb-32">
+  <main class="mb-0">
     <HeroKubmin />
+    <KubminProblem />
+    <KubminDemo />
+    <KubminFeatures />
+    <KubminEnergy />
+    <KubminHowItWorks />
+    <KubminComparison />
+    <KubminPricing />
+    <KubminTrust />
+    <KubminFAQ />
+    <KubminCTA />
   </main>
 </Layout>
