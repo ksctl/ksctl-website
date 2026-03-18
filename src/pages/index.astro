@@ -1,4 +1,5 @@
 ---
+import AppHeader from "../components/AppHeader.astro";
 import HeroHome from "../components/HeroHome.astro";
 import MissionVision from "../components/MissionVision.astro";
 import CompanyValues from "../components/CompanyValues.astro";
@@ -11,6 +12,7 @@ import { meta } from "@/data/home";
 ---
 
 <Layout title={meta.title}>
+  <AppHeader />
   <main>
     <HeroHome />
     <MissionVision />

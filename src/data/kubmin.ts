@@ -32,6 +32,8 @@ export const hero = {
   punchline: "Everyone ships faster with AI. Nobody checks the cost. Kubmin does.",
   explain: "Per-workload cost and efficiency tracking across deployments. The missing layer between your workloads and your bill.",
   cta: { text: "Start Free", href: links.app },
+  logo: images.logo,
+  productName: "kubmin",
 
   trustBadges: [
     "Kepler (CNCF)",

@@ -6,6 +6,7 @@ import SustainabilityMetrics from "../../components/SustainabilityMetrics.astro"
 import Stats from "../../components/Stats.astro";
 import Blog from "../../components/Blog.astro";
 import FAQ from "../../components/FAQ.astro";
+import AppHeader from "../../components/AppHeader.astro";
 import Layout from "../../layouts/Layout.astro";
 import "../../styles/global.css";
 import "../../styles/kli.css";
@@ -13,6 +14,7 @@ import { meta } from "@/data/kli";
 ---
 
 <Layout title={meta.title}>
+  <AppHeader />
   <main class="space-y-32 mb-32">
     <HeroProduct />
     <Features />

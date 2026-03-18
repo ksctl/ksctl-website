@@ -1,0 +1,15 @@
+---
+import AppHeader from "../../components/AppHeader.astro";
+import HeroKubmin from "../../components/HeroKubmin.astro";
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+import "../../styles/kubmin.css";
+import { meta } from "@/data/kubmin";
+---
+
+<Layout title={meta.title} description={meta.description} theme="kubmin">
+  <AppHeader variant="dark" />
+  <main class="space-y-32 mb-32">
+    <HeroKubmin />
+  </main>
+</Layout>

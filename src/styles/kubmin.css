@@ -1,0 +1,34 @@
+/* kubmin product page theme overrides — Indigo & Violet palette */
+@import "tailwindcss";
+
+@theme {
+  /* Brand Overrides */
+  --color-primary: #6366f1;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #8b5cf6;
+  --color-secondary-foreground: #ffffff;
+  --color-accent: #ede9fe;
+  --color-accent-foreground: #4338ca;
+  --color-ring: #6366f1;
+
+  /* Neutrals Overrides */
+  --color-background: #fafafa;
+  --color-foreground: #0f172a;
+  --color-card: #ffffff;
+  --color-card-foreground: #0f172a;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #475569;
+  --color-border: #e2e8f0;
+
+  /* Semantic Feature Colors */
+  --color-kubmin-cost: #f59e0b;
+  --color-kubmin-energy: #10b981;
+  --color-kubmin-efficiency: #6366f1;
+  --color-kubmin-compare: #ec4899;
+
+  /* Muted Feature Colors */
+  --color-kubmin-cost-muted: #fef3c7;
+  --color-kubmin-energy-muted: #d1fae5;
+  --color-kubmin-efficiency-muted: #eef2ff;
+  --color-kubmin-compare-muted: #fce7f3;
+}

@@ -4,24 +4,67 @@ import { hero } from "@/data/home";
 ---
 
 <div class="relative overflow-hidden z-0 bg-background" id="home">
-  <!-- Primary radial glow -->
-  <div class="absolute inset-0 z-0 pointer-events-none" style="background-image: radial-gradient(circle at top center, var(--primary) 0%, transparent 70%); opacity: 0.15; mix-blend-mode: multiply;"></div>
+  <!-- Animated SVG Background Paths -->
+  <div class="absolute inset-0 w-full h-full pointer-events-none">
+    <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1440 800">
+      <!-- Path 1 - wide sweeping curve -->
+      <path
+        d="M-100,400 C200,150 400,600 700,300 S1100,500 1540,200"
+        fill="none"
+        stroke="var(--primary)"
+        stroke-width="2"
+        opacity="0.18"
+        class="animate-path-drift-1"
+      />
+      <!-- Path 2 - counter curve -->
+      <path
+        d="M-50,600 C250,350 500,700 800,450 S1200,600 1540,350"
+        fill="none"
+        stroke="var(--primary)"
+        stroke-width="1.5"
+        opacity="0.14"
+        class="animate-path-drift-2"
+      />
+      <!-- Path 3 - upper arc -->
+      <path
+        d="M-100,200 C150,50 450,350 750,150 S1050,300 1540,100"
+        fill="none"
+        stroke="var(--accent)"
+        stroke-width="2"
+        opacity="0.15"
+        class="animate-path-drift-3"
+      />
+      <!-- Path 4 - lower wave -->
+      <path
+        d="M-100,650 C300,500 550,750 850,550 S1150,700 1540,500"
+        fill="none"
+        stroke="var(--primary)"
+        stroke-width="1.5"
+        opacity="0.12"
+        class="animate-path-drift-4"
+      />
+      <!-- Path 5 - subtle middle line -->
+      <path
+        d="M-100,350 C200,250 500,450 800,350 S1100,250 1540,400"
+        fill="none"
+        stroke="var(--ring)"
+        stroke-width="1"
+        opacity="0.13"
+        class="animate-path-drift-5"
+      />
+    </svg>
+  </div>
 
-  <!-- Animated geometric shapes -->
-  <div class="absolute top-20 right-0 w-72 h-72 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-full filter blur-3xl animate-float opacity-60 dark:opacity-20"></div>
-  <div class="absolute -left-20 top-40 w-60 h-60 bg-gradient-to-br from-secondary/15 to-accent/20 rounded-full filter blur-3xl animate-float-delayed opacity-60 dark:opacity-20"></div>
-  <div class="absolute bottom-0 right-10 w-80 h-80 bg-gradient-to-tr from-accent/15 to-muted/20 rounded-full filter blur-3xl animate-float-slow opacity-60 dark:opacity-15"></div>
-
-  <!-- Grid pattern overlay -->
-  <div class="absolute inset-0 w-full h-full bg-grid-pattern opacity-[0.03] dark:opacity-[0.02] pointer-events-none"></div>
+  <!-- Soft radial glow -->
+  <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(ellipse,_var(--primary)_0%,_transparent_65%)] opacity-[0.12] pointer-events-none"></div>
 
   <Container>
-    <div class="relative pt-32 md:pt-40 pb-20 md:pb-28 ml-auto">
-      <div class="max-w-5xl mx-auto text-center">
+    <div class="relative pt-32 md:pt-44 pb-24 md:pb-32">
+      <div class="max-w-4xl mx-auto text-center">
         <!-- Badge -->
-        <div class="inline-flex animate-fadeIn items-center gap-1.5 rounded-full bg-primary/5 dark:bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-8 border border-primary/10 dark:border-primary/20">
-          <div class="flex items-center justify-center w-5 h-5 rounded-full bg-primary mr-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
+        <div class="hero-stagger hero-stagger-1 inline-flex items-center gap-2 rounded-full bg-primary/[0.06] px-4 py-2 text-sm font-medium text-primary mb-8 border border-primary/10">
+          <div class="flex items-center justify-center w-5 h-5 rounded-full bg-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary-foreground" viewBox="0 0 20 20" fill="currentColor">
               <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
             </svg>
           </div>
@@ -29,42 +72,38 @@ import { hero } from "@/data/home";
         </div>
 
         <!-- Main Heading -->
-        <h1 class="text-foreground font-bold text-5xl md:text-7xl lg:text-7xl tracking-tight leading-[1.1] mb-8">
-          <span class="relative inline-block">
-            <span class="relative z-10 bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent">{hero.headline}</span>
+        <h1 class="hero-stagger hero-stagger-2 text-5xl md:text-7xl lg:text-[5.25rem] font-bold tracking-tight leading-[1.08] mb-8">
+          <span class="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient-shift">
+            {hero.headline}
           </span>
-          <br>
-          <!-- <span class="text-gray-900 dark:text-white">Simplified</span> -->
         </h1>
 
         <!-- Subtitle -->
-        <p class="mt-8 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+        <p class="hero-stagger hero-stagger-3 mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
           {hero.subheadline}
         </p>
 
         <!-- CTAs -->
-        <div class="mt-12 flex flex-wrap items-center justify-center gap-4">
-          <!-- Primary CTA -->
+        <div class="hero-stagger hero-stagger-4 mt-12 flex flex-wrap items-center justify-center gap-4">
           <a
             href={hero.primaryCta.href}
-            class="flex items-center justify-center h-14 px-8 rounded-lg bg-gradient-to-br from-primary to-secondary text-primary-foreground font-medium shadow-lg shadow-primary/30 transition-all hover:shadow-xl hover:shadow-primary/40 hover:translate-y-[-2px] active:translate-y-[1px]"
+            class="group flex items-center justify-center h-13 px-8 rounded-xl bg-primary text-primary-foreground font-medium shadow-md shadow-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:translate-y-0"
           >
-            <span class="flex items-center">
+            <span class="flex items-center gap-2">
               {hero.primaryCta.text}
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
               </svg>
             </span>
           </a>
 
-          <!-- Secondary CTA -->
           <a
             href={hero.secondaryCta.href}
-            class="flex items-center justify-center h-14 px-8 rounded-lg border border-border bg-card text-card-foreground font-medium shadow-sm transition-all hover:shadow hover:border-primary/30 hover:translate-y-[-2px] active:translate-y-[1px]"
+            class="group flex items-center justify-center h-13 px-8 rounded-xl border border-border bg-card text-card-foreground font-medium transition-all duration-300 hover:border-primary/30 hover:-translate-y-0.5 active:translate-y-0"
           >
-            <span class="flex items-center">
+            <span class="flex items-center gap-2">
               {hero.secondaryCta.text}
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
               </svg>
             </span>
@@ -72,10 +111,13 @@ import { hero } from "@/data/home";
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="mt-16 animate-pulse">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-          </svg>
+        <div class="hero-stagger hero-stagger-5 mt-20">
+          <div class="flex flex-col items-center gap-2 text-muted-foreground/50">
+            <span class="text-xs tracking-widest uppercase">Scroll</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -83,47 +125,64 @@ import { hero } from "@/data/home";
 </div>
 
 <style>
-.bg-grid-pattern {
-  background-image:
-    radial-gradient(circle, rgba(63, 103, 102, 0.3) 1px, transparent 1px);
-  background-size: 30px 30px;
+/* Staggered fade-in */
+.hero-stagger {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroFadeUp 0.7s ease-out forwards;
+}
+.hero-stagger-1 { animation-delay: 0.1s; }
+.hero-stagger-2 { animation-delay: 0.25s; }
+.hero-stagger-3 { animation-delay: 0.4s; }
+.hero-stagger-4 { animation-delay: 0.55s; }
+.hero-stagger-5 { animation-delay: 0.7s; }
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Gradient text shimmer */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient-shift {
+  animation: gradient-shift 8s ease-in-out infinite;
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.8s ease-out;
+/* Animated path drifts */
+@keyframes pathDrift1 {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-20px) translateX(10px); }
+  50% { transform: translateY(10px) translateX(-15px); }
+  75% { transform: translateY(-10px) translateX(5px); }
+}
+@keyframes pathDrift2 {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  30% { transform: translateY(15px) translateX(-10px); }
+  60% { transform: translateY(-20px) translateX(12px); }
+}
+@keyframes pathDrift3 {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  40% { transform: translateY(-15px) translateX(8px); }
+  70% { transform: translateY(12px) translateX(-6px); }
+}
+@keyframes pathDrift4 {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  35% { transform: translateY(18px) translateX(-12px); }
+  65% { transform: translateY(-8px) translateX(10px); }
+}
+@keyframes pathDrift5 {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-12px) translateX(6px); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes float-delayed {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: float-delayed 8s ease-in-out infinite;
-  animation-delay: 1s;
-}
-
-.animate-float-slow {
-  animation: float-slow 10s ease-in-out infinite;
-  animation-delay: 2s;
-}
+.animate-path-drift-1 { animation: pathDrift1 20s ease-in-out infinite; }
+.animate-path-drift-2 { animation: pathDrift2 25s ease-in-out infinite; }
+.animate-path-drift-3 { animation: pathDrift3 22s ease-in-out infinite; }
+.animate-path-drift-4 { animation: pathDrift4 28s ease-in-out infinite; }
+.animate-path-drift-5 { animation: pathDrift5 18s ease-in-out infinite; }
 </style>

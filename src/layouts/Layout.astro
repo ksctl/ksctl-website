@@ -1,13 +1,12 @@
 ---
 import AppFooter from "../components/AppFooter.astro";
-import AppHeader from "../components/AppHeader.astro";
 
 const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computing", description = "Strive towards Fast, Efficient and Sustainable Computing", theme = "default" } = Astro.props;
 const isKubmin = theme === "kubmin";
 ---
 
 <!doctype html>
-<html lang="en" class="dark scroll-smooth" x-data="{ darkMode: true }">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -123,7 +122,6 @@ const isKubmin = theme === "kubmin";
     gtag('config', 'G-7PBL3S9S8W');
   </script>
   <body class:list={["bg-background font-['Bricolage_Grotesque',sans-serif] antialiased", isKubmin && "theme-kubmin"]}>
-      <AppHeader />
       <slot />
       <AppFooter />
     

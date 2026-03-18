@@ -1,6 +1,12 @@
 ---
 import Container from "./Container.astro";
 
+interface Props {
+  variant?: "light" | "dark";
+}
+
+const { variant = "light" } = Astro.props;
+const isDark = variant === "dark";
 const currentPath = Astro.url.pathname;
 
 function isActivePath(linkPath: string) {
@@ -64,25 +70,47 @@ const navigation = {
       toggleNavlinks();
     });
   });
+
+  // Scroll-based floating nav
+  const nav = document.getElementById("mainNav");
+  const isDarkNav = nav?.dataset.variant === "dark";
+
+  function updateNav() {
+    if (!nav) return;
+    const scrolled = window.scrollY > 40;
+
+    if (scrolled) {
+      nav.classList.add("nav-floating", "backdrop-blur-xl");
+      nav.classList.add(isDarkNav ? "nav-scrolled-dark" : "nav-scrolled-light");
+    } else {
+      nav.classList.remove("nav-floating", "backdrop-blur-xl", "nav-scrolled-dark", "nav-scrolled-light");
+    }
+  }
+
+  window.addEventListener("scroll", updateNav, { passive: true });
+  updateNav();
 </script>
 
 <header>
   <nav
-    class="fixed z-40 w-full min-h-[72px] border-b border-border/20 backdrop-blur-lg bg-background/70 transition-all duration-300"
+    id="mainNav"
+    data-variant={variant}
+    class="fixed z-40 w-full transition-all duration-500 border border-transparent min-h-0"
   >
     <Container>
       <div
-        class="relative flex flex-wrap items-center justify-between gap-6 py-5 md:gap-0 md:py-6"
+        class="relative flex flex-wrap items-center justify-between gap-6 py-2.5 md:gap-0 md:py-3"
       >
         <div class="relative z-20 flex w-full justify-between md:px-0 lg:w-max">
           <a href="/" aria-label="logo" class="flex items-center space-x-2.5 group">
               <img
                 src="/ksctl-logo.svg"
                 alt="ksctl logo"
-                width="40"
-                height="40"
+                width="32"
+                height="32"
+                class:list={[isDark && "invert"]}
               />
-            <span class="text-xl font-bold text-foreground tracking-tight">ksctl</span>
+            <span class:list={["text-xl font-bold tracking-tight", isDark ? "text-white" : "text-foreground"]}>ksctl</span>
           </a>
 
           <div class="relative flex max-h-10 items-center lg:hidden">
@@ -94,13 +122,13 @@ const navigation = {
               <div
                 aria-hidden="true"
                 id="line"
-                class="m-auto h-0.5 w-5 rounded bg-foreground transition duration-300"
+                class:list={["m-auto h-0.5 w-5 rounded transition duration-300", isDark ? "bg-white" : "bg-foreground"]}
               >
               </div>
               <div
                 aria-hidden="true"
                 id="line2"
-                class="m-auto mt-2 h-0.5 w-5 rounded bg-foreground transition duration-300"
+                class:list={["m-auto mt-2 h-0.5 w-5 rounded transition duration-300", isDark ? "bg-white" : "bg-foreground"]}
               >
               </div>
             </button>
@@ -109,17 +137,22 @@ const navigation = {
         <div
           id="navLayer"
           aria-hidden="true"
-          class="fixed inset-0 z-10 h-screen w-screen origin-bottom scale-y-0 bg-background/80 backdrop-blur-2xl transition duration-500 lg:hidden"
+          class:list={["fixed inset-0 z-10 h-screen w-screen origin-bottom scale-y-0 backdrop-blur-2xl transition duration-500 lg:hidden", isDark ? "bg-black/90" : "bg-background/80"]}
         >
         </div>
         <div
           id="navlinks"
           x-data="{ dropdownOpen: false, mobileDropdownOpen: false }"
           @click.away="dropdownOpen = false"
-          class="w-max right-1 invisible absolute top-full z-20 origin-top-right translate-y-1 scale-90 flex-col flex-wrap justify-center gap-6 rounded-xl border border-border bg-card p-6 opacity-0 shadow-2xl shadow-foreground/10 transition-all duration-300 lg:visible lg:relative lg:flex lg:w-auto lg:translate-y-0 lg:scale-100 lg:flex-row lg:items-center lg:gap-0 lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none lg:py-3"
+          class:list={[
+            "w-max right-1 invisible absolute top-full z-20 origin-top-right translate-y-1 scale-90 flex-col flex-wrap justify-center gap-6 rounded-xl border p-6 opacity-0 shadow-2xl transition-all duration-300 lg:visible lg:relative lg:flex lg:w-auto lg:translate-y-0 lg:scale-100 lg:flex-row lg:items-center lg:gap-0 lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none lg:py-3",
+            isDark
+              ? "border-white/10 bg-[#1a1a1a] shadow-black/30"
+              : "border-border bg-card shadow-foreground/10"
+          ]}
         >
           <div
-            class="w-full text-muted-foreground lg:w-auto lg:pr-4 lg:pt-0"
+            class:list={["w-full lg:w-auto lg:pr-4 lg:pt-0", isDark ? "text-gray-300" : "text-muted-foreground"]}
           >
             <ul
               class="flex flex-col gap-6 tracking-wide lg:flex-row lg:gap-0 lg:text-sm"
@@ -153,26 +186,27 @@ const navigation = {
                             x-transition:leave="transition ease-in duration-150"
                             x-transition:leave-start="opacity-100 translate-y-0"
                             x-transition:leave-end="opacity-0 translate-y-1"
-                            class="absolute left-0 mt-2 w-64 rounded-xl bg-card border border-border shadow-xl overflow-hidden"
+                            class:list={["absolute left-0 mt-2 w-64 rounded-xl shadow-xl overflow-hidden", isDark ? "bg-[#1a1a1a] border border-white/10" : "bg-card border border-border"]}
                             style="display: none;"
                           >
                             {link.items.map((item) => (
                               <a
                                 href={item.to}
                                 class:list={[
-                                  "block px-4 py-3 hover:bg-muted/50 transition-colors duration-200",
-                                  isActivePath(item.to) && "bg-primary/5"
+                                  "block px-4 py-3 transition-colors duration-200",
+                                  isDark ? "hover:bg-white/[0.06]" : "hover:bg-muted/50",
+                                  isActivePath(item.to) && (isDark ? "bg-white/[0.04]" : "bg-primary/5")
                                 ]}
                               >
                                 <div class="flex items-start justify-between">
                                   <div>
                                     <div class:list={[
-                                      "font-semibold text-foreground",
-                                      isActivePath(item.to) && "text-primary"
+                                      "font-semibold",
+                                      isActivePath(item.to) ? "text-primary" : (isDark ? "text-white" : "text-foreground")
                                     ]}>
                                       {item.label}
                                     </div>
-                                    <div class="text-xs text-muted-foreground mt-0.5">
+                                    <div class:list={["text-xs mt-0.5", isDark ? "text-gray-400" : "text-muted-foreground"]}>
                                       {item.description}
                                     </div>
                                   </div>
@@ -278,5 +312,43 @@ const navigation = {
   }
   .toggled div:last-child {
     @apply -translate-y-1 -rotate-45;
+  }
+
+  /* Floating pill on scroll */
+  .nav-floating {
+    top: 12px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  }
+
+  @media (min-width: 768px) {
+    .nav-floating {
+      left: 32px;
+      right: 32px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .nav-floating {
+      left: 48px;
+      right: 48px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* Scrolled state backgrounds */
+  .nav-scrolled-light {
+    background-color: color-mix(in srgb, var(--background) 82%, transparent);
+    border-color: color-mix(in srgb, var(--border) 30%, transparent);
+  }
+  .nav-scrolled-dark {
+    background-color: rgba(10, 10, 10, 0.75);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   }
 </style>
