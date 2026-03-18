@@ -162,7 +162,7 @@ export const whyEnergy = {
   combined:
     "Combined with energy trend graphs over time, you get both the financial picture and the sustainability picture in one dashboard.",
   accuracyNote:
-    "In cloud environments, energy measurements are estimates based on ML models trained on real hardware data. They're highly reliable for relative comparison and trend analysis — which is exactly what waste detection needs. The patterns matter more than the absolute numbers.",
+    "In cloud environments, energy measurements are estimates based on ML models trained on real hardware data. They're highly reliable for relative comparison and trend analysis — which is exactly what kubmin needs. The patterns matter more than the absolute numbers.",
 };
 
 // ---- HOW IT WORKS ----
