@@ -10,7 +10,7 @@ import { comparisonTable } from "@/data/kubmin";
         {comparisonTable.label}
       </div>
       <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
-        {comparisonTable.heading} <br/><span class="text-teal-600">{comparisonTable.headingAccent}</span>
+        {comparisonTable.heading} <br/><span class="text-primary-600">{comparisonTable.headingAccent}</span>
       </h2>
     </div>
 
@@ -22,7 +22,7 @@ import { comparisonTable } from "@/data/kubmin";
             {comparisonTable.competitors.map((comp, i) => {
               const isKubmin = i === comparisonTable.competitors.length - 1;
               return (
-                <th class={`p-4 border-b-2 font-bold text-center w-1/6 ${isKubmin ? 'border-teal-500 bg-teal-50/50 text-teal-800 rounded-t-xl' : 'border-gray-200 text-gray-500 bg-white'}`}>
+                <th class={`p-4 border-b-2 font-bold text-center w-1/6 ${isKubmin ? 'border-primary-500 bg-primary-50/50 text-primary-800 rounded-t-xl' : 'border-gray-200 text-gray-500 bg-white'}`}>
                   {comp}
                 </th>
               );
@@ -39,9 +39,9 @@ import { comparisonTable } from "@/data/kubmin";
                 const isCross = val.includes('✗');
                 
                 return (
-                  <td class={`p-4 text-center ${isKubmin ? 'bg-teal-50/30 font-semibold text-teal-800' : 'text-gray-500'}`}>
+                  <td class={`p-4 text-center ${isKubmin ? 'bg-primary-50/30 font-semibold text-primary-800' : 'text-gray-500'}`}>
                     {isCheck ? (
-                      <span class="inline-flex items-center gap-1.5 text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full text-sm">
+                      <span class="inline-flex items-center gap-1.5 text-primary-600 bg-primary-50 px-2.5 py-1 rounded-full text-sm">
                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                         {val.replace('✓', '').trim()}
                       </span>

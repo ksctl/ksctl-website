@@ -12,13 +12,13 @@ import { faq } from "@/data/kubmin";
 
       <div x-data="{ active: null }" class="space-y-4">
         {faq.items.map((item, i) => (
-          <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300" :class={`active === ${i} ? 'shadow-md border-teal-200' : 'hover:border-gray-300'`}>
+          <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300" :class={`active === ${i} ? 'shadow-md border-primary-200' : 'hover:border-gray-300'`}>
             <button 
               @click={`active = active === ${i} ? null : ${i}`} 
               class="w-full flex items-center justify-between p-6 text-left focus:outline-none"
             >
               <span class="text-lg font-semibold text-gray-900 pr-8">{item.q}</span>
-              <div class="shrink-0 text-teal-600 w-6 h-6 flex items-center justify-center rounded-full bg-teal-50" :class={`active === ${i} ? 'rotate-180' : ''`} style="transition: transform 0.3s ease;">
+              <div class="shrink-0 text-primary-600 w-6 h-6 flex items-center justify-center rounded-full bg-primary-50" :class={`active === ${i} ? 'rotate-180' : ''`} style="transition: transform 0.3s ease;">
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show={`active !== ${i}`}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show={`active === ${i}`} style="display: none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
               </div>
@@ -31,7 +31,7 @@ import { faq } from "@/data/kubmin";
                 {item.a}
                 {item.link && (
                   <div class="mt-4">
-                    <a href={item.link.href} class="text-teal-600 font-medium hover:underline inline-flex items-center gap-1">
+                    <a href={item.link.href} class="text-primary-600 font-medium hover:underline inline-flex items-center gap-1">
                       {item.link.text}
                       <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     </a>

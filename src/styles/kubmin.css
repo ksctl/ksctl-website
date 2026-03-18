@@ -1,34 +1,22 @@
-/* kubmin product page theme overrides — Indigo & Violet palette */
+/* kubmin product page theme overrides */
 @import "tailwindcss";
 
 @theme {
-  /* Brand Overrides */
-  --color-primary: #6366f1;
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #8b5cf6;
-  --color-secondary-foreground: #ffffff;
-  --color-accent: #ede9fe;
-  --color-accent-foreground: #4338ca;
-  --color-ring: #6366f1;
+  /* Core brand palette (Teal/Emerald) */
+  --color-primary-50: #f0fdfa;
+  --color-primary-100: #ccfbf1;
+  --color-primary-200: #99f6e4;
+  --color-primary-300: #5eead4;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #14b8a6;
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
+  --color-primary-950: #042f2e;
 
-  /* Neutrals Overrides */
-  --color-background: #fafafa;
-  --color-foreground: #0f172a;
-  --color-card: #ffffff;
-  --color-card-foreground: #0f172a;
-  --color-muted: #f1f5f9;
-  --color-muted-foreground: #475569;
-  --color-border: #e2e8f0;
-
-  /* Semantic Feature Colors */
-  --color-kubmin-cost: #f59e0b;
-  --color-kubmin-energy: #10b981;
-  --color-kubmin-efficiency: #6366f1;
-  --color-kubmin-compare: #ec4899;
-
-  /* Muted Feature Colors */
-  --color-kubmin-cost-muted: #fef3c7;
-  --color-kubmin-energy-muted: #d1fae5;
-  --color-kubmin-efficiency-muted: #eef2ff;
-  --color-kubmin-compare-muted: #fce7f3;
+  /* Semantic feature colors */
+  --color-kubmin-cost: #f59e0b; /* amber */
+  --color-kubmin-energy: #10b981; /* emerald */
+  --color-kubmin-efficiency: #0ea5e9; /* sky */
 }
