@@ -1,6 +1,4 @@
 ---
-import AppFooter from "../components/AppFooter.astro";
-
 const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computing", description = "Strive towards Fast, Efficient and Sustainable Computing", theme = "default" } = Astro.props;
 const isKubmin = theme === "kubmin";
 ---
@@ -123,7 +121,6 @@ const isKubmin = theme === "kubmin";
   </script>
   <body class:list={["bg-background font-['Bricolage_Grotesque',sans-serif] antialiased", isKubmin && "theme-kubmin"]}>
       <slot />
-      <AppFooter />
     
       <!-- Back to top button -->
       <div class="fixed bottom-8 right-8 z-40 opacity-0 transition-opacity duration-300" id="backToTop">
