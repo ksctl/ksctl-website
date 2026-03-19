@@ -1,0 +1,21 @@
+---
+import Container from "../Container.astro";
+import { trustSignals } from "@/data/kubmin";
+---
+
+<section class="py-16 bg-white border-y border-kubmin-neutral-100">
+  <Container>
+    <p class="text-center text-sm font-semibold tracking-widest text-kubmin-neutral-400 uppercase mb-10">{trustSignals.label}</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-kubmin-neutral-100">
+      {trustSignals.items.map(item => (
+        <a href={item.href} target="_blank" rel="noopener noreferrer" class="group block md:px-8 py-4 md:py-0">
+          <h4 class="text-lg font-bold text-kubmin-neutral-900 mb-2 group-hover:text-primary-600 transition-colors flex items-center justify-center md:justify-start gap-2">
+            {item.title}
+            <svg class="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </h4>
+          <p class="text-kubmin-neutral-500 text-sm leading-relaxed">{item.body}</p>
+        </a>
+      ))}
+    </div>
+  </Container>
+</section>

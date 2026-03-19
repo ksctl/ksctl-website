@@ -1,12 +1,10 @@
 ---
-import AppFooter from "../components/AppFooter.astro";
-import AppHeader from "../components/AppHeader.astro";
-
-const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computing" } = Astro.props;
+const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computing", description = "Strive towards Fast, Efficient and Sustainable Computing", theme = "default" } = Astro.props;
+const isKubmin = theme === "kubmin";
 ---
 
 <!doctype html>
-<html lang="en" class="dark scroll-smooth" x-data="{ darkMode: true }">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -14,13 +12,19 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="Strive towards Fast, Efficient and Sustainable Computing"
+      content={description}
     />
     <title>{title}</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    {isKubmin && (
+      <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet"
+      />
+    )}
 
     <!-- Brevo Form Styles -->
     <style>
@@ -115,10 +119,8 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
 
     gtag('config', 'G-7PBL3S9S8W');
   </script>
-  <body class="bg-white dark:bg-gray-900 font-['Bricolage_Grotesque',sans-serif] antialiased">
-      <AppHeader />
+  <body class:list={["bg-background font-['Bricolage_Grotesque',sans-serif] antialiased", isKubmin && "theme-kubmin"]}>
       <slot />
-      <AppFooter />
     
       <!-- Back to top button -->
       <div class="fixed bottom-8 right-8 z-40 opacity-0 transition-opacity duration-300" id="backToTop">
@@ -153,12 +155,12 @@ const { title = "ksctl - Strive towards Fast, Efficient and Sustainable Computin
         }
       
         ::selection {
-          background-color: rgba(20, 184, 166, 0.2);
+          background-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
           color: inherit;
         }
-      
+
         .dark ::selection {
-          background-color: rgba(20, 184, 166, 0.3);
+          background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
         }
       </style>
     

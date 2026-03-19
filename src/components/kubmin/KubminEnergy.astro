@@ -1,0 +1,50 @@
+---
+import Container from "../Container.astro";
+import { whyEnergy } from "@/data/kubmin";
+---
+
+<section class="py-24 bg-white">
+  <Container>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div class="max-w-xl">
+        <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight text-kubmin-neutral-900 mb-8 leading-[1.1]">
+          {whyEnergy.heading} <br/>
+          <span class="text-primary-600">{whyEnergy.headingAccent}</span>
+        </h2>
+        <div class="prose prose-lg text-kubmin-neutral-600 max-w-none">
+          <p class="font-medium text-kubmin-neutral-900 text-xl leading-relaxed mb-6">{whyEnergy.intro}</p>
+          <p>{whyEnergy.kepler}</p>
+          
+          <div class="mt-8 p-6 bg-kubmin-amber-50 rounded-2xl border border-kubmin-amber-100">
+            <div class="flex items-start gap-4">
+              <div class="mt-1 w-8 h-8 rounded-full bg-kubmin-amber-200 flex items-center justify-center shrink-0 text-kubmin-amber-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+              </div>
+              <p class="text-sm text-kubmin-amber-900/80 leading-relaxed m-0">
+                {whyEnergy.accuracyNote}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:sticky lg:top-24 bg-kubmin-neutral-50 p-8 md:p-12 rounded-3xl border border-kubmin-neutral-100">
+        <p class="text-sm font-semibold tracking-wide text-kubmin-neutral-500 uppercase mb-8">{whyEnergy.metricsIntro}</p>
+        
+        <div class="space-y-6">
+          {whyEnergy.metrics.map(metric => (
+            <div class="bg-white p-6 rounded-2xl border border-kubmin-neutral-200 shadow-sm">
+              <div class="flex items-baseline gap-4 mb-3">
+                <span class="text-3xl font-black text-primary-600 font-mono tracking-tighter">{metric.name}</span>
+                <span class="text-lg font-semibold text-kubmin-neutral-900">{metric.full}</span>
+              </div>
+              <p class="text-kubmin-neutral-500">{metric.description}</p>
+            </div>
+          ))}
+        </div>
+        
+        <p class="mt-8 text-kubmin-neutral-500 italic border-l-2 border-kubmin-neutral-300 pl-4">{whyEnergy.combined}</p>
+      </div>
+    </div>
+  </Container>
+</section>

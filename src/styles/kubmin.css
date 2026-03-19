@@ -1,0 +1,59 @@
+/* kubmin product page theme overrides */
+@import "tailwindcss";
+
+@theme {
+  /* Core brand palette (Teal/Emerald) */
+  --color-primary-50: #f0fdfa;
+  --color-primary-100: #ccfbf1;
+  --color-primary-200: #99f6e4;
+  --color-primary-300: #5eead4;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #14b8a6;
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
+  --color-primary-950: #042f2e;
+
+  /* Semantic feature colors */
+  --color-kubmin-cost: #f59e0b; /* amber-500 */
+  --color-kubmin-energy: #10b981; /* emerald-500 */
+  --color-kubmin-efficiency: #0ea5e9; /* sky-500 */
+
+  /* Dark section background */
+  --color-kubmin-dark: #0a0a0a;
+
+  /* Neutral palette */
+  --color-kubmin-neutral-50: #f9fafb;
+  --color-kubmin-neutral-100: #f3f4f6;
+  --color-kubmin-neutral-200: #e5e7eb;
+  --color-kubmin-neutral-300: #d1d5db;
+  --color-kubmin-neutral-400: #9ca3af;
+  --color-kubmin-neutral-500: #6b7280;
+  --color-kubmin-neutral-600: #4b5563;
+  --color-kubmin-neutral-900: #111827;
+
+  /* Amber/warm palette (cost theme extended shades) */
+  --color-kubmin-amber-50: #fffbeb;
+  --color-kubmin-amber-100: #fef3c7;
+  --color-kubmin-amber-200: #fde68a;
+  --color-kubmin-amber-700: #b45309;
+  --color-kubmin-amber-900: #78350f;
+
+  /* Gradient accent colors */
+  --color-kubmin-orange: #9a3412; /* orange-800 */
+  --color-kubmin-yellow: #facc15; /* yellow-400 */
+  --color-kubmin-emerald-400: #34d399;
+  --color-kubmin-emerald-600: #059669;
+  --color-kubmin-cyan: #06b6d4; /* cyan-500 */
+  --color-kubmin-blue: #3b82f6; /* blue-500 */
+
+  /* Typography — accent / decorative font */
+  --font-kubmin-accent: 'Instrument Serif', serif;
+
+  /* Glow shadow presets (rgb values match the color tokens above) */
+  --shadow-kubmin-cost-glow: 0 0 32px rgb(245 158 11 / 0.3);
+  --shadow-kubmin-energy-glow-soft: 0 0 60px rgb(16 185 129 / 0.15);
+  --shadow-kubmin-energy-glow: 0 0 20px rgb(16 185 129 / 0.3);
+  --shadow-kubmin-primary-glow: 0 0 32px rgb(20 184 166 / 0.4);
+}

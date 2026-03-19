@@ -1,0 +1,42 @@
+---
+import Container from "../Container.astro";
+import { howItWorks } from "@/data/kubmin";
+---
+
+<section class="py-24 bg-kubmin-neutral-50 relative border-t border-kubmin-neutral-200/50">
+  <Container>
+    <div class="text-center max-w-2xl mx-auto mb-20">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 border border-primary-100 text-primary-700 text-sm font-semibold tracking-wide uppercase mb-6">
+        {howItWorks.label}
+      </div>
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-kubmin-neutral-900 text-balance mb-4">
+        {howItWorks.heading} <span class="text-primary-600">{howItWorks.headingAccent}</span>
+      </h2>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto">
+      <!-- Connecting Line -->
+      <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-[2px] bg-gradient-to-r from-primary-100 via-primary-300 to-primary-100 z-0"></div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+        {howItWorks.steps.map((step, i) => (
+          <div class="relative flex flex-col items-center text-center group">
+            <div class="w-24 h-24 rounded-full bg-white border-[6px] border-kubmin-neutral-50 flex items-center justify-center shadow-lg mb-8 group-hover:scale-110 group-hover:border-primary-50 group-hover:shadow-primary-500/20 transition-all duration-500 z-10">
+              <span class="text-3xl font-extrabold text-primary-600 font-mono drop-shadow-sm">0{i+1}</span>
+            </div>
+            <h3 class="text-xl font-bold text-kubmin-neutral-900 mb-4 px-4">{step.title}</h3>
+            <p class="text-kubmin-neutral-500 leading-relaxed px-2 md:px-0 text-[1.05rem]">{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-20 flex flex-col items-center">
+      <a href={howItWorks.cta.href} class="h-14 px-8 rounded-full bg-kubmin-neutral-900 text-white font-bold flex items-center gap-2 hover:scale-105 hover:bg-primary-600 transition-all duration-300 shadow-xl shadow-kubmin-neutral-900/20 hover:shadow-primary-600/30">
+        {howItWorks.cta.text}
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      </a>
+      <p class="mt-6 text-sm text-kubmin-neutral-400 max-w-md text-center font-medium">{howItWorks.disclaimer}</p>
+    </div>
+  </Container>
+</section>

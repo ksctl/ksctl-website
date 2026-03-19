@@ -1,0 +1,30 @@
+---
+import Container from "../Container.astro";
+import { finalCta } from "@/data/kubmin";
+---
+
+<section class="relative py-32 bg-kubmin-dark overflow-hidden text-center border-t border-white/10">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-primary-500/20 rounded-full blur-[10rem] pointer-events-none z-0"></div>
+
+  <Container class="relative z-10">
+    <div class="max-w-4xl mx-auto flex flex-col items-center gap-8">
+      <h2 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
+        {finalCta.headlinePrefix} <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-kubmin-energy">{finalCta.headlineAccent}</span>
+      </h2>
+      
+      <p class="text-xl text-kubmin-neutral-400 max-w-2xl">
+        {finalCta.subtitle}
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+        <a href={finalCta.primaryAction.href} class="h-14 px-8 rounded-full bg-gradient-to-r from-primary-500 to-kubmin-energy text-white font-bold flex items-center justify-center gap-2 hover:scale-105 hover:shadow-[--shadow-kubmin-primary-glow] transition-all duration-300 w-full sm:w-auto">
+          {finalCta.primaryAction.text}
+        </a>
+        <a href={finalCta.secondaryAction.href} class="h-14 px-8 rounded-full bg-white/10 text-white border border-white/20 font-bold flex items-center justify-center hover:bg-white/20 transition-all duration-300 w-full sm:w-auto">
+          {finalCta.secondaryAction.text}
+        </a>
+      </div>
+    </div>
+  </Container>
+</section>

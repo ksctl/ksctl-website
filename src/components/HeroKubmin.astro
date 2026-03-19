@@ -1,0 +1,168 @@
+---
+import Container from "./Container.astro";
+import BrowserMockup from "./BrowserMockup.astro";
+import { hero } from "@/data/kubmin";
+---
+
+<div class="relative min-h-screen overflow-hidden bg-kubmin-dark" id="home">
+  <!-- Gradient blobs — warm amber/emerald/teal on black, animated -->
+  <div class="flex flex-col items-end absolute -right-60 -top-10 blur-xl z-0">
+    <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-kubmin-cost to-kubmin-emerald-600 kubmin-blob kubmin-blob-1"></div>
+    <div class="h-[10rem] rounded-full w-[90rem] bg-gradient-to-b blur-[6rem] from-kubmin-orange to-kubmin-yellow kubmin-blob kubmin-blob-2"></div>
+    <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-kubmin-emerald-600 to-kubmin-cyan kubmin-blob kubmin-blob-3"></div>
+  </div>
+
+  <!-- Noise/grain texture overlay -->
+  <div class="absolute inset-0 z-0 opacity-[0.35] pointer-events-none hero-noise"></div>
+
+  <!-- Content -->
+  <div class="relative z-10">
+    <Container>
+      <div class="pt-32 md:pt-40 pb-8">
+        <div class="max-w-4xl mx-auto text-center">
+          <!-- Badge -->
+          <div class="hero-stagger hero-stagger-1 mx-auto flex max-w-fit items-center justify-center space-x-3 rounded-full bg-white/[0.08] border border-white/[0.12] px-6 py-3 backdrop-blur-sm mb-10">
+            <img src={hero.logo} alt="kubmin logo" class="h-6 w-auto" />
+            <span class="text-base font-medium text-white/90">{hero.productName}</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="hero-stagger hero-stagger-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] mb-6 text-white">
+            Deploy fast and know what each one costs in money and efficiency
+          </h1>
+
+          <!-- Punchline — serif italic -->
+          <p class="hero-stagger hero-stagger-3 text-xl md:text-2xl font-medium text-white/60 mb-5 font-kubmin-accent italic">
+            {hero.punchline}
+          </p>
+
+          <!-- Explanation -->
+          <p class="hero-stagger hero-stagger-3 text-base md:text-lg text-kubmin-neutral-400 leading-relaxed max-w-2xl mx-auto mb-10">
+            {hero.explain}
+          </p>
+
+          <!-- CTA -->
+          <div class="hero-stagger hero-stagger-4 flex items-center justify-center mb-5">
+            <a
+              href={hero.cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group h-12 rounded-full px-10 text-base font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 hero-cta-gradient hover:scale-105 hover:shadow-[--shadow-kubmin-cost-glow]"
+            >
+              {hero.cta.text}
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="hero-stagger hero-stagger-4 flex flex-wrap items-center justify-center gap-3 mb-16">
+            {hero.trustBadges.map((badge) => (
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.06] text-xs font-medium text-white/70 border border-white/[0.08]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-kubmin-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                {badge}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Floating Mockup -->
+        <div class="hero-stagger hero-stagger-5 relative max-w-6xl mx-auto">
+          <!-- White glow behind mockup -->
+          <div class="absolute inset-0 rounded bg-white blur-[10rem] opacity-[0.08]"></div>
+
+          <div class="relative hero-mockup-float">
+            <BrowserMockup
+              imageSrc={hero.screenshot.src}
+              imageAlt={hero.screenshot.alt}
+              addressBarText={hero.screenshot.browserUrl}
+              loading="eager"
+              className="shadow-2xl shadow-black/50"
+            />
+          </div>
+        </div>
+      </div>
+    </Container>
+  </div>
+</div>
+
+<style>
+/* Gradient CTA button — matches the background blobs */
+.hero-cta-gradient {
+  background: linear-gradient(135deg, var(--color-kubmin-blue), var(--color-kubmin-cost), var(--color-kubmin-energy));
+  background-size: 200% 200%;
+  animation: ctaShift 4s ease-in-out infinite;
+}
+@keyframes ctaShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Animated blob drift */
+.kubmin-blob {
+  will-change: transform;
+}
+.kubmin-blob-1 {
+  animation: blobDrift1 22s ease-in-out infinite;
+}
+.kubmin-blob-2 {
+  animation: blobDrift2 26s ease-in-out infinite;
+}
+.kubmin-blob-3 {
+  animation: blobDrift3 20s ease-in-out infinite;
+}
+
+@keyframes blobDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-150px, 60px) scale(1.2); }
+  66% { transform: translate(100px, -40px) scale(0.85); }
+}
+@keyframes blobDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(180px, -80px) scale(1.15); }
+  66% { transform: translate(-120px, 50px) scale(0.88); }
+}
+@keyframes blobDrift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-130px, -70px) scale(1.25); }
+  66% { transform: translate(160px, 40px) scale(0.82); }
+}
+
+/* Noise texture via SVG filter */
+.hero-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* Mockup perspective float */
+.hero-mockup-float {
+  transform: perspective(2000px) rotateX(5deg);
+  transition: transform 0.6s ease;
+}
+.hero-mockup-float:hover {
+  transform: perspective(2000px) rotateX(1deg);
+}
+
+/* Staggered fade-in */
+.hero-stagger {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: heroFadeUp 0.8s ease-out forwards;
+}
+.hero-stagger-1 { animation-delay: 0.05s; }
+.hero-stagger-2 { animation-delay: 0.15s; }
+.hero-stagger-3 { animation-delay: 0.28s; }
+.hero-stagger-4 { animation-delay: 0.4s; }
+.hero-stagger-5 { animation-delay: 0.55s; }
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>

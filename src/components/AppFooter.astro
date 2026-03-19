@@ -1,112 +1,160 @@
 ---
 import Container from "./Container.astro";
 
+interface Props {
+  variant?: "default" | "kubmin";
+}
+
+const { variant = "default" } = Astro.props;
+const isKubmin = variant === "kubmin";
+
 // Only show newsletter in production mode
 const isProduction = import.meta.env.PROD;
+
+// Theme-aware classes
+const footerBg = isKubmin
+  ? "bg-kubmin-dark text-white border-t border-white/10"
+  : "bg-background text-foreground border-t border-border";
+
+const headingColor = isKubmin ? "text-white" : "text-foreground";
+const mutedColor = isKubmin ? "text-kubmin-neutral-400" : "text-muted-foreground";
+const linkHover = isKubmin
+  ? "text-kubmin-neutral-400 hover:text-white"
+  : "text-muted-foreground hover:text-primary";
+const socialHover = isKubmin
+  ? "text-kubmin-neutral-500 hover:text-white"
+  : "text-muted-foreground hover:text-primary";
+const dividerColor = isKubmin ? "border-white/10" : "border-border";
+
+const inputClasses = isKubmin
+  ? "text-white bg-white/5 border border-white/10 placeholder:text-kubmin-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50"
+  : "text-foreground bg-card border border-border focus:outline-none focus:ring-2 focus:ring-primary/50";
+const buttonClasses = isKubmin
+  ? "bg-primary-500 hover:bg-primary-400 text-white"
+  : "bg-primary hover:bg-primary/90 text-white";
+
+const columns = [
+  {
+    title: "Products",
+    links: [
+      { text: "kli", href: "/product/kli" },
+      { text: "kubmin", href: "/product/kubmin" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { text: "About Us", href: "/aboutus" },
+      { text: "Status", href: "https://status.ksctl.com/", external: true },
+    ],
+  },
+  {
+    title: "Community",
+    links: [
+      { text: "Discord", href: "https://discord.ksctl.com/", external: true },
+      { text: "GitHub", href: "https://github.com/ksctl", external: true },
+    ],
+  },
+];
+
+const socials = [
+  {
+    label: "GitHub",
+    href: "https://github.com/ksctl",
+    icon: `<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>`,
+    viewBox: "0 0 16 16",
+  },
+  {
+    label: "X / Twitter",
+    href: "https://x.com/ksctl_org",
+    icon: `<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>`,
+    viewBox: "0 0 16 16",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/ksctl",
+    icon: `<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>`,
+    viewBox: "0 0 24 24",
+  },
+  {
+    label: "Discord",
+    href: "https://discord.ksctl.com",
+    icon: `<path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>`,
+    viewBox: "0 0 24 24",
+  },
+];
+
+const legalLinks = [
+  { text: "Privacy Policy", href: "#" },
+  { text: "Terms of Service", href: "#" },
+  { text: "Contact Us", href: "#" },
+];
 ---
 
-<footer class="relative bg-white dark:bg-gray-900 pt-16 pb-12 border-t border-gray-100 dark:border-gray-800">
-  <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
-
+<footer class:list={["relative pt-16 pb-8", footerBg]}>
   <Container>
-    <div class="grid grid-cols-1 gap-12 md:grid-cols-12 lg:gap-8">
-      <!-- Logo and description -->
-      <div class="md:col-span-3 lg:col-span-3">
-        <div class="flex items-center space-x-2 mb-4">
-          <img src="/ksctl-logo.svg" alt="ksctl logo" class="h-10 w-auto" />
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white">ksctl</h2>
-        </div>
-        <p class="text-gray-600 dark:text-gray-400 mb-6 max-w-sm">
-           Strive towards Fast, Efficient and Sustainable Computing
+    <!-- Main grid: Logo+tagline+social (left) | Link columns (right) -->
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
+      <!-- Brand column -->
+      <div class="lg:col-span-4">
+        <a href="/" class="flex items-center space-x-2.5 mb-5">
+          <img src="/ksctl-logo.svg" alt="ksctl logo" class="h-9 w-auto" />
+          <span class:list={["text-xl font-bold", headingColor]}>ksctl</span>
+        </a>
+        <p class:list={["text-sm leading-relaxed max-w-xs mb-8", mutedColor]}>
+          Strive towards Fast, Efficient and Sustainable Computing
         </p>
-        <div class="flex space-x-4">
-          <a
-            href="https://github.com/ksctl"
-            target="_blank"
-            rel="noopener"
-            class="text-gray-500 hover:text-primary transition-colors duration-300"
-            aria-label="GitHub"
-          >
-            <span class="sr-only">GitHub</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 16 16">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-            </svg>
-          </a>
-          <a
-            href="https://x.com/ksctl_org"
-            target="_blank"
-            rel="noopener"
-            class="text-gray-500 hover:text-primary transition-colors duration-300"
-            aria-label="Twitter"
-          >
-            <span class="sr-only">Twitter</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 16 16">
-              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
-            </svg>
-          </a>
-          <a
-            href="https://www.linkedin.com/company/ksctl"
-            target="_blank"
-            rel="noopener"
-            class="text-gray-500 hover:text-primary transition-colors duration-300"
-            aria-label="LinkedIn"
-          >
-            <span class="sr-only">LinkedIn</span>
-            <svg fill="currentColor" class="w-6 h-6" viewBox="0 0 24 24">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-            </svg>
-          </a>
-          <a
-            href="https://discord.ksctl.com"
-            target="_blank"
-            rel="noopener"
-            class="text-gray-500 hover:text-primary transition-colors duration-300"
-            aria-label="Discord"
-          >
-            <span class="sr-only">Discord</span>
-            <svg fill="currentColor" class="w-6 h-6" viewBox="0 0 24 24">
-              <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
-            </svg>
-          </a>
+        <div class="flex items-center gap-3">
+          {socials.map((social) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener"
+              class:list={["transition-colors duration-200", socialHover]}
+              aria-label={social.label}
+            >
+              <span class="sr-only">{social.label}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox={social.viewBox} set:html={social.icon} />
+            </a>
+          ))}
         </div>
       </div>
 
-      <!-- Community -->
-      <div class="md:col-span-2">
-        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Community</h3>
-        <ul class="space-y-3">
-          <li><a href="https://discord.ksctl.com/" target="_blank" rel="noopener" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Discord</a></li>
-        </ul>
+      <!-- Link columns -->
+      <div class="lg:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-8">
+        {columns.map((col) => (
+          <div>
+            <h3 class:list={["text-sm font-semibold tracking-wide mb-4", headingColor]}>{col.title}</h3>
+            <ul class="space-y-3">
+              {col.links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener" : undefined}
+                    class:list={["text-sm transition-colors duration-200", linkHover]}
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
 
-      <!-- About Us -->
-      <div class="md:col-span-2">
-        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">About Us</h3>
-        <ul class="space-y-3">
-          <li><a href="/aboutus" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">About Us</a></li>
-        </ul>
-      </div>
-
-      <!-- Products -->
-      <div class="md:col-span-2">
-        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Products</h3>
-        <ul class="space-y-3">
-          <li><a href="/product/kli" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">kli</a></li>
-          <li><a href="/product/kubmin" class="text-base text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">kubmin</a></li>
-        </ul>
-      </div>
-
-      <!-- Newsletter signup -->
-      <div class="md:col-span-3">
-        <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Stay Updated</h3>
-        <p class="text-gray-600 dark:text-gray-400 mb-4">Get the latest news and updates about ksctl features.</p>
+      <!-- Newsletter column -->
+      <div class="lg:col-span-3">
+        <h3 class:list={["text-sm font-semibold tracking-wide mb-4", headingColor]}>Stay Updated</h3>
+        <p class:list={["text-sm leading-relaxed mb-4", mutedColor]}>
+          Get the latest news and updates.
+        </p>
 
         {isProduction ? (
-        <!-- Brevo Form Integration -->
         <div id="sib-form-container" class="sib-form-container">
-          <div id="error-message" class="sib-form-message-panel" style="font-size:14px; text-align:left; font-family:'Inter', Helvetica, sans-serif; display:none;">
+          <div id="error-message" class="sib-form-message-panel" style="font-size:14px; text-align:left; font-family:'Bricolage Grotesque', Helvetica, sans-serif; display:none;">
             <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-              <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon" style="width: 20px; height: 20px;">
+              <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon w-5 h-5">
                 <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
               </svg>
               <span class="sib-form-message-panel__inner-text">
@@ -115,9 +163,9 @@ const isProduction = import.meta.env.PROD;
             </div>
           </div>
           <div></div>
-          <div id="success-message" class="sib-form-message-panel" style="font-size:14px; text-align:left; font-family:'Inter', Helvetica, sans-serif; display:none;">
+          <div id="success-message" class="sib-form-message-panel" style="font-size:14px; text-align:left; font-family:'Bricolage Grotesque', Helvetica, sans-serif; display:none;">
             <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-              <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon" style="width: 20px; height: 20px;">
+              <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon w-5 h-5">
                 <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
               </svg>
               <span class="sib-form-message-panel__inner-text">
@@ -133,7 +181,7 @@ const isProduction = import.meta.env.PROD;
                   <div class="form__label-row">
                     <div class="entry__field">
                       <input
-                        class="input w-full px-4 py-2.5 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:placeholder-gray-500"
+                        class:list={["input w-full px-3.5 py-2.5 rounded-lg text-sm", inputClasses]}
                         type="text"
                         id="EMAIL"
                         name="EMAIL"
@@ -144,7 +192,7 @@ const isProduction = import.meta.env.PROD;
                       />
                     </div>
                   </div>
-                  <label class="entry__error entry__error--primary" style="font-size:14px; text-align:left; font-family:'Inter', Helvetica, sans-serif; display:none;"></label>
+                  <label class="entry__error entry__error--primary" style="font-size:14px; text-align:left; font-family:'Bricolage Grotesque', Helvetica, sans-serif; display:none;"></label>
                 </div>
               </div>
               <div class="sib-captcha sib-form-block mb-3">
@@ -152,19 +200,19 @@ const isProduction = import.meta.env.PROD;
                   <div class="form__label-row">
                     <div class="cf-turnstile g-recaptcha" data-sitekey="0x4AAAAAACEW9pOFvA0Drq8K" id="sib-captcha" data-callback="handleCaptchaResponse" data-language="en"></div>
                   </div>
-                  <label class="entry__error entry__error--primary" style="font-size:14px; text-align:left; font-family:'Inter', Helvetica, sans-serif; display:none;"></label>
+                  <label class="entry__error entry__error--primary" style="font-size:14px; text-align:left; font-family:'Bricolage Grotesque', Helvetica, sans-serif; display:none;"></label>
                 </div>
               </div>
               <div class="sib-form-block">
                 <button
-                  class="sib-form-block__button sib-form-block__button-with-loader w-full sm:w-auto px-4 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium transition-colors duration-300 flex items-center justify-center gap-2"
+                  class:list={["sib-form-block__button sib-form-block__button-with-loader w-full px-4 py-2.5 rounded-lg font-medium text-sm transition-colors duration-200 flex items-center justify-center gap-2", buttonClasses]}
                   form="sib-form"
                   type="submit"
                 >
                   <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon hidden w-5 h-5 animate-spin" viewBox="0 0 512 512">
                     <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
                   </svg>
-                  <span class="sib-form-block__button-text">SUBSCRIBE</span>
+                  <span class="sib-form-block__button-text">Subscribe</span>
                 </button>
               </div>
               <input type="text" name="email_address_check" value="" class="input--hidden" style="display: none;">
@@ -172,42 +220,42 @@ const isProduction = import.meta.env.PROD;
             </form>
           </div>
         </div>
-
-        <p class="mt-3 text-xs text-gray-500 dark:text-gray-500">We respect your privacy. Unsubscribe at any time.</p>
+        <p class:list={["mt-3 text-xs", mutedColor]}>We respect your privacy. Unsubscribe at any time.</p>
         ) : (
         <div class="flex flex-col gap-2">
-          <div class="relative flex-grow">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              class="w-full px-4 py-2.5 rounded-lg text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:placeholder-gray-500"
-              disabled
-            />
-          </div>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class:list={["w-full px-3.5 py-2.5 rounded-lg text-sm", inputClasses]}
+            disabled
+          />
           <button
             type="button"
-            class="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-primary/50 text-white font-medium cursor-not-allowed"
+            class="w-full px-4 py-2.5 rounded-lg bg-primary/50 text-white font-medium text-sm cursor-not-allowed"
             disabled
           >
             Subscribe
           </button>
-          <p class="mt-1 text-xs text-gray-500 dark:text-gray-500">Newsletter is disabled in development mode.</p>
+          <p class:list={["mt-1 text-xs", mutedColor]}>Newsletter is disabled in development mode.</p>
         </div>
         )}
       </div>
     </div>
 
-    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <p class="text-sm text-gray-500 dark:text-gray-400">
-          &copy; {new Date().getFullYear()} ksctl. All rights reserved.
-        </p>
-        <div class="mt-4 md:mt-0 flex items-center space-x-6">
-          <a href="https://status.ksctl.com/" target="_blank" rel="noopener" class="text-sm text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Status</a>
-          <a href="#" class="text-sm text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Privacy Policy</a>
-          <a href="#" class="text-sm text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Terms of Service</a>
-          <a href="#" class="text-sm text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors duration-300">Contact Us</a>
-        </div>
+    <!-- Bottom bar -->
+    <div class:list={["mt-14 pt-6 border-t flex flex-col sm:flex-row justify-between items-center gap-4", dividerColor]}>
+      <p class:list={["text-xs", mutedColor]}>
+        &copy; {new Date().getFullYear()} ksctl. All rights reserved.
+      </p>
+      <div class="flex items-center gap-5">
+        {legalLinks.map((link) => (
+          <a
+            href={link.href}
+            class:list={["text-xs transition-colors duration-200", linkHover]}
+          >
+            {link.text}
+          </a>
+        ))}
       </div>
     </div>
   </Container>

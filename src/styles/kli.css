@@ -1,0 +1,62 @@
+/* kli product page theme overrides — Total Teal & Emerald Theme */
+@import "tailwindcss";
+
+@theme {
+  /* Brand Overrides */
+  --color-primary: #14b8a6;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #0d9488;
+  --color-secondary-foreground: #ffffff;
+  --color-accent: #f0fdfa;
+  --color-accent-foreground: #0f766e;
+  --color-ring: #14b8a6;
+
+  /* Neutrals Overrides */
+  --color-background: #f8fafc;
+  --color-foreground: #0f172a;
+  --color-card: #ffffff;
+  --color-card-foreground: #0f172a;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #475569;
+  --color-border: #e2e8f0;
+
+  /* Semantic Feature Colors */
+  --color-kli-tech: #0ea5e9; 
+  --color-kli-eco: #10b981;  
+  --color-kli-step: #6366f1; /* Indigo */
+  --color-kli-info: #8b5cf6; 
+
+  /* Muted Feature Colors */
+  --color-kli-tech-muted: #e0f2fe;
+  --color-kli-eco-muted: #d1fae5;
+  --color-kli-step-muted: #eef2ff;
+  --color-kli-info-muted: #f5f3ff;
+}
+
+.dark {
+  --color-primary: #2dd4bf;
+  --color-primary-foreground: #042f2e;
+  --color-secondary: #14b8a6;
+  --color-secondary-foreground: #f0fdfa;
+  --color-accent: #115e59;
+  --color-accent-foreground: #ccfbf1;
+  --color-ring: #2dd4bf;
+
+  --color-background: #020617; 
+  --color-foreground: #f8fafc;
+  --color-card: #0f172a;
+  --color-card-foreground: #f8fafc;
+  --color-muted: #1e293b;
+  --color-muted-foreground: #94a3b8;
+  --color-border: #334155;
+
+  --color-kli-tech: #38bdf8;
+  --color-kli-eco: #34d399;
+  --color-kli-step: #818cf8;
+  --color-kli-info: #a78bfa;
+
+  --color-kli-tech-muted: rgba(56, 189, 248, 0.15);
+  --color-kli-eco-muted: rgba(52, 211, 153, 0.15);
+  --color-kli-step-muted: rgba(129, 140, 248, 0.15);
+  --color-kli-info-muted: rgba(167, 139, 250, 0.15);
+}

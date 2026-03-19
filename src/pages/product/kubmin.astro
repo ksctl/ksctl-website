@@ -1,21 +1,38 @@
 ---
-import HeroProductKubmin from "../../components/HeroProductKubmin.astro";
-import FeaturesKubmin from "../../components/FeaturesKubmin.astro";
-import SustainabilityMetrics from "../../components/SustainabilityMetrics.astro";
-import HowItWorksKubmin from "../../components/HowItWorksKubmin.astro";
-import PricingKubmin from "../../components/PricingKubmin.astro";
-import FAQKubmin from "../../components/FAQKubmin.astro";
+import AppHeader from "../../components/AppHeader.astro";
+import AppFooter from "../../components/AppFooter.astro";
+import HeroKubmin from "../../components/HeroKubmin.astro";
 import Layout from "../../layouts/Layout.astro";
 import "../../styles/global.css";
+import "../../styles/kubmin.css";
+import { meta } from "@/data/kubmin";
+
+import KubminProblem from "../../components/kubmin/KubminProblem.astro";
+import KubminDemo from "../../components/kubmin/KubminDemo.astro";
+import KubminFeatures from "../../components/kubmin/KubminFeatures.astro";
+import KubminEnergy from "../../components/kubmin/KubminEnergy.astro";
+import KubminHowItWorks from "../../components/kubmin/KubminHowItWorks.astro";
+import KubminComparison from "../../components/kubmin/KubminComparison.astro";
+import KubminPricing from "../../components/kubmin/KubminPricing.astro";
+import KubminTrust from "../../components/kubmin/KubminTrust.astro";
+import KubminFAQ from "../../components/kubmin/KubminFAQ.astro";
+import KubminCTA from "../../components/kubmin/KubminCTA.astro";
 ---
 
-<Layout title="kubmin - Sustainable Kubernetes Workload Management">
-  <main class="space-y-32 mb-32">
-    <HeroProductKubmin />
-    <FeaturesKubmin />
-    <SustainabilityMetrics />
-    <HowItWorksKubmin />
-    <PricingKubmin />
-    <FAQKubmin />
+<Layout title={meta.title} description={meta.description} theme="kubmin">
+  <AppHeader variant="dark" />
+  <main class="mb-0">
+    <HeroKubmin />
+    <KubminProblem />
+    <KubminDemo />
+    <KubminFeatures />
+    <KubminEnergy />
+    <KubminHowItWorks />
+    <KubminComparison />
+    <KubminPricing />
+    <KubminTrust />
+    <KubminFAQ />
+    <KubminCTA />
   </main>
+  <AppFooter variant="kubmin" />
 </Layout>
