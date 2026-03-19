@@ -5,11 +5,11 @@ import { hero } from "@/data/kubmin";
 ---
 
 <div class="relative min-h-screen overflow-hidden bg-kubmin-dark" id="home">
-  <!-- Gradient blobs — warm amber/emerald/teal on black -->
+  <!-- Gradient blobs — warm amber/emerald/teal on black, animated -->
   <div class="flex flex-col items-end absolute -right-60 -top-10 blur-xl z-0">
-    <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-kubmin-cost to-kubmin-emerald-600"></div>
-    <div class="h-[10rem] rounded-full w-[90rem] bg-gradient-to-b blur-[6rem] from-kubmin-orange to-kubmin-yellow"></div>
-    <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-kubmin-emerald-600 to-kubmin-cyan"></div>
+    <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-kubmin-cost to-kubmin-emerald-600 kubmin-blob kubmin-blob-1"></div>
+    <div class="h-[10rem] rounded-full w-[90rem] bg-gradient-to-b blur-[6rem] from-kubmin-orange to-kubmin-yellow kubmin-blob kubmin-blob-2"></div>
+    <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-kubmin-emerald-600 to-kubmin-cyan kubmin-blob kubmin-blob-3"></div>
   </div>
 
   <!-- Noise/grain texture overlay -->
@@ -99,6 +99,36 @@ import { hero } from "@/data/kubmin";
 @keyframes ctaShift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
+}
+
+/* Animated blob drift */
+.kubmin-blob {
+  will-change: transform;
+}
+.kubmin-blob-1 {
+  animation: blobDrift1 22s ease-in-out infinite;
+}
+.kubmin-blob-2 {
+  animation: blobDrift2 26s ease-in-out infinite;
+}
+.kubmin-blob-3 {
+  animation: blobDrift3 20s ease-in-out infinite;
+}
+
+@keyframes blobDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-150px, 60px) scale(1.2); }
+  66% { transform: translate(100px, -40px) scale(0.85); }
+}
+@keyframes blobDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(180px, -80px) scale(1.15); }
+  66% { transform: translate(-120px, 50px) scale(0.88); }
+}
+@keyframes blobDrift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-130px, -70px) scale(1.25); }
+  66% { transform: translate(160px, 40px) scale(0.82); }
 }
 
 /* Noise texture via SVG filter */
