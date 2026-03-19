@@ -155,12 +155,12 @@ const isKubmin = theme === "kubmin";
         }
       
         ::selection {
-          background-color: rgba(20, 184, 166, 0.2);
+          background-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
           color: inherit;
         }
-      
+
         .dark ::selection {
-          background-color: rgba(20, 184, 166, 0.3);
+          background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
         }
       </style>
     

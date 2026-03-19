@@ -3,68 +3,25 @@ import Container from "./Container.astro";
 import { hero } from "@/data/home";
 ---
 
-<div class="relative overflow-hidden z-0 bg-background" id="home">
-  <!-- Animated SVG Background Paths -->
-  <div class="absolute inset-0 w-full h-full pointer-events-none">
-    <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1440 800">
-      <!-- Path 1 - wide sweeping curve -->
-      <path
-        d="M-100,400 C200,150 400,600 700,300 S1100,500 1540,200"
-        fill="none"
-        stroke="var(--primary)"
-        stroke-width="2"
-        opacity="0.18"
-        class="animate-path-drift-1"
-      />
-      <!-- Path 2 - counter curve -->
-      <path
-        d="M-50,600 C250,350 500,700 800,450 S1200,600 1540,350"
-        fill="none"
-        stroke="var(--primary)"
-        stroke-width="1.5"
-        opacity="0.14"
-        class="animate-path-drift-2"
-      />
-      <!-- Path 3 - upper arc -->
-      <path
-        d="M-100,200 C150,50 450,350 750,150 S1050,300 1540,100"
-        fill="none"
-        stroke="var(--accent)"
-        stroke-width="2"
-        opacity="0.15"
-        class="animate-path-drift-3"
-      />
-      <!-- Path 4 - lower wave -->
-      <path
-        d="M-100,650 C300,500 550,750 850,550 S1150,700 1540,500"
-        fill="none"
-        stroke="var(--primary)"
-        stroke-width="1.5"
-        opacity="0.12"
-        class="animate-path-drift-4"
-      />
-      <!-- Path 5 - subtle middle line -->
-      <path
-        d="M-100,350 C200,250 500,450 800,350 S1100,250 1540,400"
-        fill="none"
-        stroke="var(--ring)"
-        stroke-width="1"
-        opacity="0.13"
-        class="animate-path-drift-5"
-      />
-    </svg>
-  </div>
+<div class="relative overflow-hidden z-0 hero-gradient-bg" id="home">
+  <!-- Noise texture overlay for depth -->
+  <div class="absolute inset-0 opacity-[0.035] pointer-events-none mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E');"></div>
 
-  <!-- Soft radial glow -->
-  <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(ellipse,_var(--primary)_0%,_transparent_65%)] opacity-[0.12] pointer-events-none"></div>
+  <!-- Soft pulsing orbs for atmosphere -->
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1100px] h-[700px] pointer-events-none hero-orb hero-orb-1"></div>
+  <div class="absolute bottom-[-10%] left-[30%] w-[500px] h-[500px] pointer-events-none hero-orb hero-orb-2"></div>
+  <div class="absolute bottom-[-5%] right-[25%] w-[400px] h-[400px] pointer-events-none hero-orb hero-orb-3"></div>
+
+  <!-- Subtle scrim behind text for readability -->
+  <div class="absolute inset-0 pointer-events-none hero-text-scrim"></div>
 
   <Container>
     <div class="relative pt-32 md:pt-44 pb-24 md:pb-32">
       <div class="max-w-4xl mx-auto text-center">
         <!-- Badge -->
-        <div class="hero-stagger hero-stagger-1 inline-flex items-center gap-2 rounded-full bg-primary/[0.06] px-4 py-2 text-sm font-medium text-primary mb-8 border border-primary/10">
-          <div class="flex items-center justify-center w-5 h-5 rounded-full bg-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-primary-foreground" viewBox="0 0 20 20" fill="currentColor">
+        <div class="hero-stagger hero-stagger-1 inline-flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/[0.06] backdrop-blur-sm px-4 py-2 text-sm font-medium text-white/90 dark:text-primary mb-8 border border-white/15 dark:border-primary/10">
+          <div class="flex items-center justify-center w-5 h-5 rounded-full bg-white/20 dark:bg-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white dark:text-primary-foreground" viewBox="0 0 20 20" fill="currentColor">
               <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
             </svg>
           </div>
@@ -73,13 +30,13 @@ import { hero } from "@/data/home";
 
         <!-- Main Heading -->
         <h1 class="hero-stagger hero-stagger-2 text-5xl md:text-7xl lg:text-[5.25rem] font-bold tracking-tight leading-[1.08] mb-8">
-          <span class="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient-shift">
+          <span class="hero-headline-text">
             {hero.headline}
           </span>
         </h1>
 
         <!-- Subtitle -->
-        <p class="hero-stagger hero-stagger-3 mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+        <p class="hero-stagger hero-stagger-3 mt-6 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto hero-sub-text">
           {hero.subheadline}
         </p>
 
@@ -99,7 +56,7 @@ import { hero } from "@/data/home";
 
           <a
             href={hero.secondaryCta.href}
-            class="group flex items-center justify-center h-13 px-8 rounded-xl border border-border bg-card text-card-foreground font-medium transition-all duration-300 hover:border-primary/30 hover:-translate-y-0.5 active:translate-y-0"
+            class="group flex items-center justify-center h-13 px-8 rounded-xl border border-white/25 dark:border-border bg-white/10 dark:bg-card backdrop-blur-sm text-white dark:text-card-foreground font-medium transition-all duration-300 hover:border-white/40 dark:hover:border-primary/30 hover:-translate-y-0.5 active:translate-y-0"
           >
             <span class="flex items-center gap-2">
               {hero.secondaryCta.text}
@@ -112,7 +69,7 @@ import { hero } from "@/data/home";
 
         <!-- Scroll Indicator -->
         <div class="hero-stagger hero-stagger-5 mt-20">
-          <div class="flex flex-col items-center gap-2 text-muted-foreground/50">
+          <div class="flex flex-col items-center gap-2 text-white/40 dark:text-muted-foreground/50">
             <span class="text-xs tracking-widest uppercase">Scroll</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
@@ -125,6 +82,93 @@ import { hero } from "@/data/home";
 </div>
 
 <style>
+/* Warm radial gradient — uses CSS vars from company.css */
+.hero-gradient-bg {
+  background:
+    radial-gradient(
+      125% 125% at 50% 101%,
+      var(--hero-stop-1) 10.5%,
+      var(--hero-stop-2) 16%,
+      var(--hero-stop-3) 17.5%,
+      var(--hero-stop-4) 25%,
+      var(--hero-stop-5) 40%,
+      var(--hero-stop-6) 65%,
+      var(--hero-stop-7) 100%
+    );
+}
+
+/* Subtle scrim — gentle darkening behind text area for contrast */
+.hero-text-scrim {
+  background: radial-gradient(
+    ellipse 55% 45% at 50% 42%,
+    rgba(0, 0, 0, 0.18) 0%,
+    transparent 65%
+  );
+}
+.dark .hero-text-scrim {
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 45%,
+    rgba(0, 0, 0, 0.25) 0%,
+    transparent 70%
+  );
+}
+
+/* Headline text — white on gradient light, shimmer on dark */
+.hero-headline-text {
+  color: #fff;
+}
+.dark .hero-headline-text {
+  background: linear-gradient(to right, var(--color-foreground), var(--color-primary), var(--color-foreground));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+/* Subtitle text */
+.hero-sub-text {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+.dark .hero-sub-text {
+  color: var(--color-muted-foreground);
+}
+
+/* Soft pulsing atmospheric orbs */
+.hero-orb {
+  border-radius: 50%;
+  filter: blur(80px);
+}
+.hero-orb-1 {
+  background: radial-gradient(circle, var(--hero-stop-2), transparent 70%);
+  opacity: 0.2;
+  animation: orbPulse1 10s ease-in-out infinite;
+}
+.hero-orb-2 {
+  background: radial-gradient(circle, var(--hero-stop-5), transparent 70%);
+  opacity: 0.15;
+  animation: orbPulse2 14s ease-in-out infinite;
+}
+.hero-orb-3 {
+  background: radial-gradient(circle, var(--hero-stop-7), transparent 70%);
+  opacity: 0.12;
+  animation: orbPulse3 12s ease-in-out infinite;
+}
+
+@keyframes orbPulse1 {
+  0%, 100% { transform: translate(-50%, 0) scale(1); opacity: 0.25; }
+  50% { transform: translate(-50%, -20px) scale(1.05); opacity: 0.32; }
+}
+@keyframes orbPulse2 {
+  0%, 100% { transform: scale(1); opacity: 0.18; }
+  50% { transform: scale(1.08) translateY(-10px); opacity: 0.24; }
+}
+@keyframes orbPulse3 {
+  0%, 100% { transform: scale(1); opacity: 0.15; }
+  50% { transform: scale(1.06) translateY(-15px); opacity: 0.2; }
+}
+
 /* Staggered fade-in */
 .hero-stagger {
   opacity: 0;
@@ -144,45 +188,9 @@ import { hero } from "@/data/home";
   }
 }
 
-/* Gradient text shimmer */
+/* Gradient text shimmer (dark mode only) */
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
-.animate-gradient-shift {
-  animation: gradient-shift 8s ease-in-out infinite;
-}
-
-/* Animated path drifts */
-@keyframes pathDrift1 {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  25% { transform: translateY(-20px) translateX(10px); }
-  50% { transform: translateY(10px) translateX(-15px); }
-  75% { transform: translateY(-10px) translateX(5px); }
-}
-@keyframes pathDrift2 {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  30% { transform: translateY(15px) translateX(-10px); }
-  60% { transform: translateY(-20px) translateX(12px); }
-}
-@keyframes pathDrift3 {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  40% { transform: translateY(-15px) translateX(8px); }
-  70% { transform: translateY(12px) translateX(-6px); }
-}
-@keyframes pathDrift4 {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  35% { transform: translateY(18px) translateX(-12px); }
-  65% { transform: translateY(-8px) translateX(10px); }
-}
-@keyframes pathDrift5 {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  50% { transform: translateY(-12px) translateX(6px); }
-}
-
-.animate-path-drift-1 { animation: pathDrift1 20s ease-in-out infinite; }
-.animate-path-drift-2 { animation: pathDrift2 25s ease-in-out infinite; }
-.animate-path-drift-3 { animation: pathDrift3 22s ease-in-out infinite; }
-.animate-path-drift-4 { animation: pathDrift4 28s ease-in-out infinite; }
-.animate-path-drift-5 { animation: pathDrift5 18s ease-in-out infinite; }
 </style>

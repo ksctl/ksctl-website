@@ -26,11 +26,6 @@ const { items } = products;
             ? "bg-card border-border hover:shadow-2xl hover:-translate-y-2"
             : "bg-muted border-border/50"
         ]}>
-          <!-- Top Border Accent -->
-          {product.available && (
-            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary rounded-t-2xl"></div>
-          )}
-
           <!-- Badge for Coming Soon -->
           {(product as any).badge && (
             <div class="absolute top-6 right-6">
