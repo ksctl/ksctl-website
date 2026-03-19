@@ -3,21 +3,21 @@ import Container from "../Container.astro";
 import { faq } from "@/data/kubmin";
 ---
 
-<section class="py-24 bg-gray-50">
+<section class="py-24 bg-kubmin-neutral-50">
   <Container>
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-12 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-kubmin-neutral-900 mb-12 text-center">
         Frequently Asked Questions
       </h2>
 
       <div x-data="{ active: null }" class="space-y-4">
         {faq.items.map((item, i) => (
-          <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300" :class={`active === ${i} ? 'shadow-md border-primary-200' : 'hover:border-gray-300'`}>
+          <div class="bg-white border border-kubmin-neutral-200 rounded-2xl overflow-hidden transition-all duration-300" :class={`active === ${i} ? 'shadow-md border-primary-200' : 'hover:border-kubmin-neutral-300'`}>
             <button 
               @click={`active = active === ${i} ? null : ${i}`} 
               class="w-full flex items-center justify-between p-6 text-left focus:outline-none"
             >
-              <span class="text-lg font-semibold text-gray-900 pr-8">{item.q}</span>
+              <span class="text-lg font-semibold text-kubmin-neutral-900 pr-8">{item.q}</span>
               <div class="shrink-0 text-primary-600 w-6 h-6 flex items-center justify-center rounded-full bg-primary-50" :class={`active === ${i} ? 'rotate-180' : ''`} style="transition: transform 0.3s ease;">
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show={`active !== ${i}`}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show={`active === ${i}`} style="display: none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
@@ -27,7 +27,7 @@ import { faq } from "@/data/kubmin";
               x-show={`active === ${i}`} 
               style="display: none;"
             >
-              <div class="p-6 pt-0 text-gray-600 whitespace-pre-wrap leading-relaxed border-t border-gray-100">
+              <div class="p-6 pt-0 text-kubmin-neutral-600 whitespace-pre-wrap leading-relaxed border-t border-kubmin-neutral-100">
                 {item.a}
                 {item.link && (
                   <div class="mt-4">

@@ -4,12 +4,12 @@ import BrowserMockup from "./BrowserMockup.astro";
 import { hero } from "@/data/kubmin";
 ---
 
-<div class="relative min-h-screen overflow-hidden bg-[#0a0a0a]" id="home">
+<div class="relative min-h-screen overflow-hidden bg-kubmin-dark" id="home">
   <!-- Gradient blobs — warm amber/emerald/teal on black -->
   <div class="flex flex-col items-end absolute -right-60 -top-10 blur-xl z-0">
-    <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-amber-500 to-emerald-600"></div>
-    <div class="h-[10rem] rounded-full w-[90rem] bg-gradient-to-b blur-[6rem] from-orange-800 to-yellow-400"></div>
-    <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-emerald-600 to-cyan-500"></div>
+    <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-kubmin-cost to-kubmin-emerald-600"></div>
+    <div class="h-[10rem] rounded-full w-[90rem] bg-gradient-to-b blur-[6rem] from-kubmin-orange to-kubmin-yellow"></div>
+    <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-kubmin-emerald-600 to-kubmin-cyan"></div>
   </div>
 
   <!-- Noise/grain texture overlay -->
@@ -21,9 +21,9 @@ import { hero } from "@/data/kubmin";
       <div class="pt-32 md:pt-40 pb-8">
         <div class="max-w-4xl mx-auto text-center">
           <!-- Badge -->
-          <div class="hero-stagger hero-stagger-1 mx-auto flex max-w-fit items-center justify-center space-x-2.5 rounded-full bg-white/[0.08] border border-white/[0.12] px-5 py-2.5 backdrop-blur-sm mb-10">
-            <img src={hero.logo} alt="kubmin logo" class="h-5 w-auto invert" />
-            <span class="text-sm font-medium text-white/90">{hero.productName}</span>
+          <div class="hero-stagger hero-stagger-1 mx-auto flex max-w-fit items-center justify-center space-x-3 rounded-full bg-white/[0.08] border border-white/[0.12] px-6 py-3 backdrop-blur-sm mb-10">
+            <img src={hero.logo} alt="kubmin logo" class="h-6 w-auto" />
+            <span class="text-base font-medium text-white/90">{hero.productName}</span>
           </div>
 
           <!-- Headline -->
@@ -32,12 +32,12 @@ import { hero } from "@/data/kubmin";
           </h1>
 
           <!-- Punchline — serif italic -->
-          <p class="hero-stagger hero-stagger-3 text-xl md:text-2xl font-medium text-white/60 mb-5 font-['Instrument_Serif',serif] italic">
+          <p class="hero-stagger hero-stagger-3 text-xl md:text-2xl font-medium text-white/60 mb-5 font-kubmin-accent italic">
             {hero.punchline}
           </p>
 
           <!-- Explanation -->
-          <p class="hero-stagger hero-stagger-3 text-base md:text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto mb-10">
+          <p class="hero-stagger hero-stagger-3 text-base md:text-lg text-kubmin-neutral-400 leading-relaxed max-w-2xl mx-auto mb-10">
             {hero.explain}
           </p>
 
@@ -47,7 +47,7 @@ import { hero } from "@/data/kubmin";
               href={hero.cta.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="group h-12 rounded-full px-10 text-base font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 hero-cta-gradient hover:scale-105 hover:shadow-[0_0_32px_rgba(245,158,11,0.3)]"
+              class="group h-12 rounded-full px-10 text-base font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 hero-cta-gradient hover:scale-105 hover:shadow-[--shadow-kubmin-cost-glow]"
             >
               {hero.cta.text}
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
@@ -60,7 +60,7 @@ import { hero } from "@/data/kubmin";
           <div class="hero-stagger hero-stagger-4 flex flex-wrap items-center justify-center gap-3 mb-16">
             {hero.trustBadges.map((badge) => (
               <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.06] text-xs font-medium text-white/70 border border-white/[0.08]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-kubmin-emerald-400" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
                 {badge}
@@ -92,7 +92,7 @@ import { hero } from "@/data/kubmin";
 <style>
 /* Gradient CTA button — matches the background blobs */
 .hero-cta-gradient {
-  background: linear-gradient(135deg, #3b82f6, #f59e0b, #10b981);
+  background: linear-gradient(135deg, var(--color-kubmin-blue), var(--color-kubmin-cost), var(--color-kubmin-energy));
   background-size: 200% 200%;
   animation: ctaShift 4s ease-in-out infinite;
 }

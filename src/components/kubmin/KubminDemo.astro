@@ -4,11 +4,11 @@ import BrowserMockup from "../BrowserMockup.astro";
 import { productDemo } from "@/data/kubmin";
 ---
 
-<section class="py-32 relative bg-[#0a0a0a] overflow-hidden text-white">
+<section class="py-32 relative bg-kubmin-dark overflow-hidden text-white">
   <!-- Gradient blobs — matching hero section, orange/yellow/green -->
   <div class="flex flex-col items-start absolute -left-60 top-1/4 blur-xl z-0 opacity-40">
     <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-kubmin-cost to-kubmin-energy"></div>
-    <div class="h-[10rem] rounded-full w-[90rem] bg-gradient-to-b blur-[6rem] from-orange-800 to-yellow-400"></div>
+    <div class="h-[10rem] rounded-full w-[90rem] bg-gradient-to-b blur-[6rem] from-kubmin-orange to-kubmin-yellow"></div>
   </div>
 
   <div class="absolute inset-0 z-0 opacity-[0.35] pointer-events-none hero-noise"></div>
@@ -21,7 +21,7 @@ import { productDemo } from "@/data/kubmin";
       <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 text-balance">
         {productDemo.heading} <span class="text-transparent bg-clip-text bg-gradient-to-r from-kubmin-cost to-kubmin-energy">{productDemo.headingAccent}</span>
       </h2>
-      <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+      <p class="text-lg md:text-xl text-kubmin-neutral-400 max-w-2xl mx-auto">
         {productDemo.body}
       </p>
     </div>
@@ -31,7 +31,7 @@ import { productDemo } from "@/data/kubmin";
         imageSrc={productDemo.screenshot.src}
         imageAlt={productDemo.screenshot.alt}
         addressBarText={productDemo.screenshot.browserUrl}
-        className="shadow-[0_0_60px_rgba(16,185,129,0.15)] ring-1 ring-white/10"
+        className="shadow-[--shadow-kubmin-energy-glow-soft] ring-1 ring-white/10"
       />
     </div>
 
@@ -52,7 +52,7 @@ import { productDemo } from "@/data/kubmin";
               {stat.value.includes(' vs ') ? (
                 <>
                   <span>{stat.value.split(' vs ')[0]}</span>
-                  <span class="text-lg md:text-xl text-gray-500 font-sans font-medium">vs</span>
+                  <span class="text-lg md:text-xl text-kubmin-neutral-500 font-sans font-medium">vs</span>
                   <span>{stat.value.split(' vs ')[1]}</span>
                 </>
               ) : (
@@ -60,19 +60,19 @@ import { productDemo } from "@/data/kubmin";
               )}
             </div>
             <div class={`text-sm font-bold mb-1.5 tracking-wide ${color}`}>{stat.label}</div>
-            <div class="text-xs text-gray-400 font-medium">{stat.detail}</div>
+            <div class="text-xs text-kubmin-neutral-400 font-medium">{stat.detail}</div>
           </div>
         );
       })}
     </div>
 
     <div class="max-w-3xl mx-auto text-center">
-      <blockquote class="text-xl md:text-2xl font-medium text-white/80 font-['Instrument_Serif',serif] italic mb-10 border-l-2 border-kubmin-energy pl-6 text-left leading-relaxed">
+      <blockquote class="text-xl md:text-2xl font-medium text-white/80 font-kubmin-accent italic mb-10 border-l-2 border-kubmin-energy pl-6 text-left leading-relaxed">
         "{productDemo.insight}"
       </blockquote>
       <div class="flex flex-col sm:flex-row items-center justify-between gap-6 bg-white/[0.03] border border-white/10 p-6 md:p-8 rounded-3xl backdrop-blur-sm shadow-xl">
-        <p class="text-gray-400 text-sm m-0 text-left">{productDemo.caption}</p>
-        <a href={productDemo.cta.href} class="whitespace-nowrap px-8 py-4 rounded-full bg-gradient-to-r from-kubmin-cost to-kubmin-energy text-white font-bold hover:scale-105 transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+        <p class="text-kubmin-neutral-400 text-sm m-0 text-left">{productDemo.caption}</p>
+        <a href={productDemo.cta.href} class="whitespace-nowrap px-8 py-4 rounded-full bg-gradient-to-r from-kubmin-cost to-kubmin-energy text-white font-bold hover:scale-105 transition-all shadow-[--shadow-kubmin-energy-glow]">
           {productDemo.cta.text}
         </a>
       </div>

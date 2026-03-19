@@ -19,7 +19,7 @@ export const links = {
 
 // ---- IMAGES ----
 export const images = {
-  logo: "/kubmin-logo.svg",
+  logo: "/kubmin-logo-purple.svg",
   screenshots: {
     hero: "/kubmin/kubmin-workload-hero.png",
     redis: "/kubmin/kubmin-workload-redis.png",
