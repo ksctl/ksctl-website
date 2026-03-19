@@ -119,14 +119,14 @@ const isKubmin = theme === "kubmin";
 
     gtag('config', 'G-7PBL3S9S8W');
   </script>
-  <body class:list={["bg-background font-['Bricolage_Grotesque',sans-serif] antialiased", isKubmin && "theme-kubmin"]}>
+  <body class:list={["bg-global-background font-['Bricolage_Grotesque',sans-serif] antialiased", isKubmin && "theme-kubmin"]}>
       <slot />
     
       <!-- Back to top button -->
       <div class="fixed bottom-8 right-8 z-40 opacity-0 transition-opacity duration-300" id="backToTop">
         <button 
           onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
-          class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/90 hover:bg-primary text-white shadow-lg hover:shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1"
+          class="flex items-center justify-center w-12 h-12 rounded-full bg-global-primary/90 hover:bg-global-primary text-white shadow-lg hover:shadow-xl shadow-global-primary/20 hover:shadow-global-primary/40 transition-all hover:-translate-y-1"
           aria-label="Back to top"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -155,12 +155,12 @@ const isKubmin = theme === "kubmin";
         }
       
         ::selection {
-          background-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+          background-color: color-mix(in srgb, var(--color-global-primary) 20%, transparent);
           color: inherit;
         }
 
         .dark ::selection {
-          background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+          background-color: color-mix(in srgb, var(--color-global-primary) 30%, transparent);
         }
       </style>
     

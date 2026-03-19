@@ -41,49 +41,122 @@
   --shadow-2xl: var(--shadow-2xl);
 }
 
-/* Fallback color registrations — overridden by page theme CSS (kli.css, company.css, etc.)
-   IMPORTANT: Must be @theme (not @theme inline) so values emit as CSS custom properties
-   that page-specific themes can override via the cascade. */
 @theme {
-  --color-background: #fffaf6;
-  --color-foreground: #301a08;
-  --color-card: #ffffff;
-  --color-card-foreground: #301a08;
-  --color-popover: #ffffff;
-  --color-popover-foreground: #301a08;
-  --color-primary: #e85d04;
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #cab3d6;
-  --color-secondary-foreground: #3d2952;
-  --color-muted: #f5ede5;
-  --color-muted-foreground: #78685a;
-  --color-accent: #eeaeca;
-  --color-accent-foreground: #4a1e35;
-  --color-destructive: #c44040;
-  --color-destructive-foreground: #ffffff;
-  --color-border: #e6dbd0;
-  --color-input: #f0e6dc;
-  --color-ring: #e85d04;
-  --color-chart-1: #e85d04;
-  --color-chart-2: #eeaeca;
-  --color-chart-3: #94c9e9;
-  --color-chart-4: #cab3d6;
-  --color-chart-5: #f5aa64;
-  --color-sidebar: #faf4ee;
-  --color-sidebar-foreground: #301a08;
-  --color-sidebar-primary: #e85d04;
-  --color-sidebar-primary-foreground: #ffffff;
-  --color-sidebar-accent: #eeaeca;
-  --color-sidebar-accent-foreground: #4a1e35;
-  --color-sidebar-border: #e6dbd0;
-  --color-sidebar-ring: #e85d04;
+  --color-global-primary: transparent;
+  --color-global-primary-foreground: transparent;
+  --color-global-background: transparent;
+  --color-global-foreground: transparent;
+  --color-global-card: transparent;
+  --color-global-card-foreground: transparent;
+  --color-global-muted: transparent;
+  --color-global-muted-foreground: transparent;
+  --color-global-border: transparent;
+  --color-global-ring: transparent;
+  --color-global-input: transparent;
+
+  --color-ksctl-primary: transparent;
+  --color-ksctl-primary-foreground: transparent;
+  --color-ksctl-secondary: transparent;
+  --color-ksctl-secondary-foreground: transparent;
+  --color-ksctl-accent: transparent;
+  --color-ksctl-accent-foreground: transparent;
+  --color-ksctl-background: transparent;
+  --color-ksctl-foreground: transparent;
+  --color-ksctl-card: transparent;
+  --color-ksctl-card-foreground: transparent;
+  --color-ksctl-popover: transparent;
+  --color-ksctl-popover-foreground: transparent;
+  --color-ksctl-muted: transparent;
+  --color-ksctl-muted-foreground: transparent;
+  --color-ksctl-border: transparent;
+  --color-ksctl-input: transparent;
+  --color-ksctl-ring: transparent;
+  --color-ksctl-destructive: transparent;
+  --color-ksctl-destructive-foreground: transparent;
+  --color-ksctl-chart-1: transparent;
+  --color-ksctl-chart-2: transparent;
+  --color-ksctl-chart-3: transparent;
+  --color-ksctl-chart-4: transparent;
+  --color-ksctl-chart-5: transparent;
+  --color-ksctl-sidebar: transparent;
+  --color-ksctl-sidebar-foreground: transparent;
+  --color-ksctl-sidebar-primary: transparent;
+  --color-ksctl-sidebar-primary-foreground: transparent;
+  --color-ksctl-sidebar-accent: transparent;
+  --color-ksctl-sidebar-accent-foreground: transparent;
+  --color-ksctl-sidebar-border: transparent;
+  --color-ksctl-sidebar-ring: transparent;
+
+  --color-kli-primary: transparent;
+  --color-kli-primary-foreground: transparent;
+  --color-kli-secondary: transparent;
+  --color-kli-secondary-foreground: transparent;
+  --color-kli-accent: transparent;
+  --color-kli-accent-foreground: transparent;
+  --color-kli-background: transparent;
+  --color-kli-foreground: transparent;
+  --color-kli-card: transparent;
+  --color-kli-card-foreground: transparent;
+  --color-kli-muted: transparent;
+  --color-kli-muted-foreground: transparent;
+  --color-kli-border: transparent;
+  --color-kli-ring: transparent;
+  --color-kli-tech: transparent;
+  --color-kli-eco: transparent;
+  --color-kli-step: transparent;
+  --color-kli-info: transparent;
+  --color-kli-tech-muted: transparent;
+  --color-kli-eco-muted: transparent;
+  --color-kli-step-muted: transparent;
+  --color-kli-info-muted: transparent;
+
+  --color-kubmin-primary-50: transparent;
+  --color-kubmin-primary-100: transparent;
+  --color-kubmin-primary-200: transparent;
+  --color-kubmin-primary-300: transparent;
+  --color-kubmin-primary-400: transparent;
+  --color-kubmin-primary-500: transparent;
+  --color-kubmin-primary-600: transparent;
+  --color-kubmin-primary-700: transparent;
+  --color-kubmin-primary-800: transparent;
+  --color-kubmin-primary-900: transparent;
+  --color-kubmin-primary-950: transparent;
+  --color-kubmin-cost: transparent;
+  --color-kubmin-energy: transparent;
+  --color-kubmin-efficiency: transparent;
+  --color-kubmin-dark: transparent;
+  --color-kubmin-neutral-50: transparent;
+  --color-kubmin-neutral-100: transparent;
+  --color-kubmin-neutral-200: transparent;
+  --color-kubmin-neutral-300: transparent;
+  --color-kubmin-neutral-400: transparent;
+  --color-kubmin-neutral-500: transparent;
+  --color-kubmin-neutral-600: transparent;
+  --color-kubmin-neutral-900: transparent;
+  --color-kubmin-amber-50: transparent;
+  --color-kubmin-amber-100: transparent;
+  --color-kubmin-amber-200: transparent;
+  --color-kubmin-amber-700: transparent;
+  --color-kubmin-amber-900: transparent;
+  --color-kubmin-orange: transparent;
+  --color-kubmin-yellow: transparent;
+  --color-kubmin-emerald-400: transparent;
+  --color-kubmin-emerald-600: transparent;
+  --color-kubmin-cyan: transparent;
+  --color-kubmin-blue: transparent;
+
+  --font-kubmin-accent: transparent;
+  --shadow-kubmin-cost-glow: transparent;
+  --shadow-kubmin-energy-glow-soft: transparent;
+  --shadow-kubmin-energy-glow: transparent;
+  --shadow-kubmin-primary-glow: transparent;
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-global-border outline-global-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-global-background text-global-foreground;
   }
 }

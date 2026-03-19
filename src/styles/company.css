@@ -1,103 +1,111 @@
 /* Company pages theme — Warm Sunrise palette (orange / rose / lavender / sky) */
-@import "tailwindcss";
 
-@theme {
+html {
   /* Core brand — derived from hero gradient stops */
-  --color-primary: #e85d04;
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #cab3d6;
-  --color-secondary-foreground: #3d2952;
-  --color-accent: #eeaeca;
-  --color-accent-foreground: #4a1e35;
-  --color-ring: #e85d04;
-  --color-destructive: #c44040;
-  --color-destructive-foreground: #ffffff;
+  --color-ksctl-primary: #e85d04;
+  --color-ksctl-primary-foreground: #ffffff;
+  --color-ksctl-secondary: #cab3d6;
+  --color-ksctl-secondary-foreground: #3d2952;
+  --color-ksctl-accent: #eeaeca;
+  --color-ksctl-accent-foreground: #4a1e35;
+  --color-ksctl-ring: #e85d04;
+  --color-ksctl-destructive: #c44040;
+  --color-ksctl-destructive-foreground: #ffffff;
 
   /* Warm neutrals */
-  --color-background: #fffaf6;
-  --color-foreground: #301a08;
-  --color-card: #ffffff;
-  --color-card-foreground: #301a08;
-  --color-popover: #ffffff;
-  --color-popover-foreground: #301a08;
-  --color-muted: #f5ede5;
-  --color-muted-foreground: #78685a;
-  --color-border: #e6dbd0;
-  --color-input: #f0e6dc;
+  --color-ksctl-background: #fffaf6;
+  --color-ksctl-foreground: #301a08;
+  --color-ksctl-card: #ffffff;
+  --color-ksctl-card-foreground: #301a08;
+  --color-ksctl-popover: #ffffff;
+  --color-ksctl-popover-foreground: #301a08;
+  --color-ksctl-muted: #f5ede5;
+  --color-ksctl-muted-foreground: #78685a;
+  --color-ksctl-border: #e6dbd0;
+  --color-ksctl-input: #f0e6dc;
 
   /* Charts — one per gradient stop */
-  --color-chart-1: #e85d04;
-  --color-chart-2: #eeaeca;
-  --color-chart-3: #94c9e9;
-  --color-chart-4: #cab3d6;
-  --color-chart-5: #f5aa64;
+  --color-ksctl-chart-1: #e85d04;
+  --color-ksctl-chart-2: #eeaeca;
+  --color-ksctl-chart-3: #94c9e9;
+  --color-ksctl-chart-4: #cab3d6;
+  --color-ksctl-chart-5: #f5aa64;
 
   /* Sidebar */
-  --color-sidebar: #faf4ee;
-  --color-sidebar-foreground: #301a08;
-  --color-sidebar-primary: #e85d04;
-  --color-sidebar-primary-foreground: #ffffff;
-  --color-sidebar-accent: #eeaeca;
-  --color-sidebar-accent-foreground: #4a1e35;
-  --color-sidebar-border: #e6dbd0;
-  --color-sidebar-ring: #e85d04;
+  --color-ksctl-sidebar: #faf4ee;
+  --color-ksctl-sidebar-foreground: #301a08;
+  --color-ksctl-sidebar-primary: #e85d04;
+  --color-ksctl-sidebar-primary-foreground: #ffffff;
+  --color-ksctl-sidebar-accent: #eeaeca;
+  --color-ksctl-sidebar-accent-foreground: #4a1e35;
+  --color-ksctl-sidebar-border: #e6dbd0;
+  --color-ksctl-sidebar-ring: #e85d04;
+
+  /* Map global variables to company theme */
+  --color-global-primary: var(--color-ksctl-primary);
+  --color-global-primary-foreground: var(--color-ksctl-primary-foreground);
+  --color-global-background: var(--color-ksctl-background);
+  --color-global-foreground: var(--color-ksctl-foreground);
+  --color-global-card: var(--color-ksctl-card);
+  --color-global-card-foreground: var(--color-ksctl-card-foreground);
+  --color-global-muted: var(--color-ksctl-muted);
+  --color-global-muted-foreground: var(--color-ksctl-muted-foreground);
+  --color-global-border: var(--color-ksctl-border);
+  --color-global-ring: var(--color-ksctl-ring);
+  --color-global-input: var(--color-ksctl-input);
+
+  /* Hero gradient tokens — warm sunrise glow from bottom */
+  --ksctl-hero-stop-1: rgba(245, 87, 2, 1);
+  --ksctl-hero-stop-2: rgba(245, 120, 2, 1);
+  --ksctl-hero-stop-3: rgba(245, 140, 2, 1);
+  --ksctl-hero-stop-4: rgba(245, 170, 100, 1);
+  --ksctl-hero-stop-5: rgba(238, 174, 202, 1);
+  --ksctl-hero-stop-6: rgba(202, 179, 214, 1);
+  --ksctl-hero-stop-7: rgba(148, 201, 233, 1);
 }
 
-.dark {
-  --color-primary: #f58a3a;
-  --color-primary-foreground: #1a0800;
-  --color-secondary: #a78bbf;
-  --color-secondary-foreground: #f0eaf5;
-  --color-accent: #c47090;
-  --color-accent-foreground: #fce0ec;
-  --color-ring: #f58a3a;
-  --color-destructive: #e06060;
-  --color-destructive-foreground: #1a0800;
+html.dark {
+  --color-ksctl-primary: #f58a3a;
+  --color-ksctl-primary-foreground: #1a0800;
+  --color-ksctl-secondary: #a78bbf;
+  --color-ksctl-secondary-foreground: #f0eaf5;
+  --color-ksctl-accent: #c47090;
+  --color-ksctl-accent-foreground: #fce0ec;
+  --color-ksctl-ring: #f58a3a;
+  --color-ksctl-destructive: #e06060;
+  --color-ksctl-destructive-foreground: #1a0800;
 
-  --color-background: #18120c;
-  --color-foreground: #f2e8de;
-  --color-card: #221a12;
-  --color-card-foreground: #f2e8de;
-  --color-popover: #221a12;
-  --color-popover-foreground: #f2e8de;
-  --color-muted: #2a2018;
-  --color-muted-foreground: #a89888;
-  --color-border: #3a2e22;
-  --color-input: #302418;
+  --color-ksctl-background: #18120c;
+  --color-ksctl-foreground: #f2e8de;
+  --color-ksctl-card: #221a12;
+  --color-ksctl-card-foreground: #f2e8de;
+  --color-ksctl-popover: #221a12;
+  --color-ksctl-popover-foreground: #f2e8de;
+  --color-ksctl-muted: #2a2018;
+  --color-ksctl-muted-foreground: #a89888;
+  --color-ksctl-border: #3a2e22;
+  --color-ksctl-input: #302418;
 
-  --color-chart-1: #f58a3a;
-  --color-chart-2: #c47090;
-  --color-chart-3: #7bb8d8;
-  --color-chart-4: #a78bbf;
-  --color-chart-5: #d4944a;
+  --color-ksctl-chart-1: #f58a3a;
+  --color-ksctl-chart-2: #c47090;
+  --color-ksctl-chart-3: #7bb8d8;
+  --color-ksctl-chart-4: #a78bbf;
+  --color-ksctl-chart-5: #d4944a;
 
-  --color-sidebar: #14100a;
-  --color-sidebar-foreground: #f2e8de;
-  --color-sidebar-primary: #f58a3a;
-  --color-sidebar-primary-foreground: #1a0800;
-  --color-sidebar-accent: #3a2830;
-  --color-sidebar-accent-foreground: #c47090;
-  --color-sidebar-border: #302418;
-  --color-sidebar-ring: #f58a3a;
-}
+  --color-ksctl-sidebar: #14100a;
+  --color-ksctl-sidebar-foreground: #f2e8de;
+  --color-ksctl-sidebar-primary: #f58a3a;
+  --color-ksctl-sidebar-primary-foreground: #1a0800;
+  --color-ksctl-sidebar-accent: #3a2830;
+  --color-ksctl-sidebar-accent-foreground: #c47090;
+  --color-ksctl-sidebar-border: #302418;
+  --color-ksctl-sidebar-ring: #f58a3a;
 
-/* Hero gradient tokens — warm sunrise glow from bottom (from 21st.dev) */
-:root {
-  --hero-stop-1: rgba(245, 87, 2, 1);
-  --hero-stop-2: rgba(245, 120, 2, 1);
-  --hero-stop-3: rgba(245, 140, 2, 1);
-  --hero-stop-4: rgba(245, 170, 100, 1);
-  --hero-stop-5: rgba(238, 174, 202, 1);
-  --hero-stop-6: rgba(202, 179, 214, 1);
-  --hero-stop-7: rgba(148, 201, 233, 1);
-}
-
-.dark {
-  --hero-stop-1: rgba(140, 45, 0, 1);
-  --hero-stop-2: rgba(120, 55, 5, 1);
-  --hero-stop-3: rgba(100, 58, 10, 1);
-  --hero-stop-4: rgba(80, 55, 30, 1);
-  --hero-stop-5: rgba(65, 45, 55, 1);
-  --hero-stop-6: rgba(45, 38, 55, 1);
-  --hero-stop-7: rgba(27, 26, 33, 1);
+  --ksctl-hero-stop-1: rgba(140, 45, 0, 1);
+  --ksctl-hero-stop-2: rgba(120, 55, 5, 1);
+  --ksctl-hero-stop-3: rgba(100, 58, 10, 1);
+  --ksctl-hero-stop-4: rgba(80, 55, 30, 1);
+  --ksctl-hero-stop-5: rgba(65, 45, 55, 1);
+  --ksctl-hero-stop-6: rgba(45, 38, 55, 1);
+  --ksctl-hero-stop-7: rgba(27, 26, 33, 1);
 }

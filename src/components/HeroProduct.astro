@@ -11,7 +11,7 @@ import { hero } from "@/data/kli";
       <path
         d="M-100,400 C200,150 400,600 700,300 S1100,500 1540,200"
         fill="none"
-        stroke="var(--color-primary)"
+        stroke="var(--color-kli-primary)"
         stroke-width="2"
         opacity="0.18"
         class="animate-path-drift-1"
@@ -20,7 +20,7 @@ import { hero } from "@/data/kli";
       <path
         d="M-50,600 C250,350 500,700 800,450 S1200,600 1540,350"
         fill="none"
-        stroke="var(--color-primary)"
+        stroke="var(--color-kli-primary)"
         stroke-width="1.5"
         opacity="0.14"
         class="animate-path-drift-2"
@@ -29,7 +29,7 @@ import { hero } from "@/data/kli";
       <path
         d="M-100,200 C150,50 450,350 750,150 S1050,300 1540,100"
         fill="none"
-        stroke="var(--color-accent)"
+        stroke="var(--color-kli-accent)"
         stroke-width="2"
         opacity="0.15"
         class="animate-path-drift-3"
@@ -38,7 +38,7 @@ import { hero } from "@/data/kli";
       <path
         d="M-100,650 C300,500 550,750 850,550 S1150,700 1540,500"
         fill="none"
-        stroke="var(--color-primary)"
+        stroke="var(--color-kli-primary)"
         stroke-width="1.5"
         opacity="0.12"
         class="animate-path-drift-4"
@@ -47,7 +47,7 @@ import { hero } from "@/data/kli";
       <path
         d="M-100,350 C200,250 500,450 800,350 S1100,250 1540,400"
         fill="none"
-        stroke="var(--color-ring)"
+        stroke="var(--color-kli-ring)"
         stroke-width="1"
         opacity="0.13"
         class="animate-path-drift-5"
@@ -56,27 +56,27 @@ import { hero } from "@/data/kli";
   </div>
 
   <!-- Top radial glow -->
-  <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[radial-gradient(ellipse,_var(--color-primary)_0%,_transparent_65%)] opacity-[0.12] pointer-events-none"></div>
+  <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[radial-gradient(ellipse,_var(--color-kli-primary)_0%,_transparent_65%)] opacity-[0.12] pointer-events-none"></div>
 
   <Container>
     <div class="relative pt-32 md:pt-40 pb-8">
       <!-- Centered text content -->
       <div class="max-w-4xl mx-auto text-center">
         <!-- Badge -->
-        <div class="hero-stagger hero-stagger-1 inline-flex items-center gap-3 rounded-full bg-primary/[0.08] border border-primary/15 px-6 py-3 text-base font-medium text-primary mb-10">
+        <div class="hero-stagger hero-stagger-1 inline-flex items-center gap-3 rounded-full bg-kli-primary/[0.08] border border-kli-primary/15 px-6 py-3 text-base font-medium text-kli-primary mb-10">
           <img src={hero.logo} alt="kli logo" class="h-6 w-auto" />
           <span>{hero.productName}</span>
         </div>
 
         <!-- Main heading — massive display type -->
         <h1 class="hero-stagger hero-stagger-2 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] mb-8">
-          <span class="text-foreground">{hero.tagline.split('K8s')[0]}</span>
-          <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">K8s cluster Ops</span>
-          <span class="text-foreground"> by single command</span>
+          <span class="text-kli-foreground">{hero.tagline.split('K8s')[0]}</span>
+          <span class="bg-gradient-to-r from-kli-primary to-kli-secondary bg-clip-text text-transparent">K8s cluster Ops</span>
+          <span class="text-kli-foreground"> by single command</span>
         </h1>
 
         <!-- Description -->
-        <p class="hero-stagger hero-stagger-3 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10">
+        <p class="hero-stagger hero-stagger-3 text-lg md:text-xl text-kli-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10">
           {hero.description}
         </p>
 
@@ -86,7 +86,7 @@ import { hero } from "@/data/kli";
             href={hero.primaryCta.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex items-center justify-center h-13 px-8 rounded-xl bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/25 transition-all duration-300 hover:shadow-xl hover:shadow-primary/35 hover:-translate-y-0.5"
+            class="group flex items-center justify-center h-13 px-8 rounded-xl bg-kli-primary text-primary-foreground font-semibold shadow-lg shadow-kli-primary/25 transition-all duration-300 hover:shadow-xl hover:shadow-kli-primary/35 hover:-translate-y-0.5"
           >
             <span class="flex items-center gap-2">
               {hero.primaryCta.text}
@@ -100,7 +100,7 @@ import { hero } from "@/data/kli";
             href={hero.secondaryCta.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex items-center justify-center h-13 px-8 rounded-xl border border-border text-foreground font-semibold transition-all duration-300 hover:border-primary/40 hover:-translate-y-0.5"
+            class="group flex items-center justify-center h-13 px-8 rounded-xl border border-kli-border text-kli-foreground font-semibold transition-all duration-300 hover:border-kli-primary/40 hover:-translate-y-0.5"
           >
             <span class="flex items-center gap-2">
               {hero.secondaryCta.text}
@@ -114,7 +114,7 @@ import { hero } from "@/data/kli";
             href={hero.githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center h-13 w-13 rounded-xl border border-border text-foreground transition-all duration-300 hover:border-primary/40 hover:-translate-y-0.5 hover:text-primary"
+            class="flex items-center justify-center h-13 w-13 rounded-xl border border-kli-border text-kli-foreground transition-all duration-300 hover:border-kli-primary/40 hover:-translate-y-0.5 hover:text-kli-primary"
             aria-label="View on GitHub"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
@@ -151,7 +151,7 @@ import { hero } from "@/data/kli";
       <!-- Full-width Terminal Preview — floating with perspective -->
       <div class="hero-stagger hero-stagger-5 relative max-w-5xl mx-auto">
         <!-- Dramatic glow behind terminal -->
-        <div class="absolute -inset-8 bg-gradient-to-b from-primary/20 via-primary/8 to-transparent rounded-3xl blur-3xl"></div>
+        <div class="absolute -inset-8 bg-gradient-to-b from-kli-primary/20 via-kli-primary/8 to-transparent rounded-3xl blur-3xl"></div>
 
         <div class="relative hero-terminal-float">
           <!-- Terminal window -->

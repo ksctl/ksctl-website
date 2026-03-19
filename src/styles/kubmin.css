@@ -1,19 +1,18 @@
 /* kubmin product page theme overrides */
-@import "tailwindcss";
 
-@theme {
+html {
   /* Core brand palette (Teal/Emerald) */
-  --color-primary-50: #f0fdfa;
-  --color-primary-100: #ccfbf1;
-  --color-primary-200: #99f6e4;
-  --color-primary-300: #5eead4;
-  --color-primary-400: #2dd4bf;
-  --color-primary-500: #14b8a6;
-  --color-primary-600: #0d9488;
-  --color-primary-700: #0f766e;
-  --color-primary-800: #115e59;
-  --color-primary-900: #134e4a;
-  --color-primary-950: #042f2e;
+  --color-kubmin-primary-50: #f0fdfa;
+  --color-kubmin-primary-100: #ccfbf1;
+  --color-kubmin-primary-200: #99f6e4;
+  --color-kubmin-primary-300: #5eead4;
+  --color-kubmin-primary-400: #2dd4bf;
+  --color-kubmin-primary-500: #14b8a6;
+  --color-kubmin-primary-600: #0d9488;
+  --color-kubmin-primary-700: #0f766e;
+  --color-kubmin-primary-800: #115e59;
+  --color-kubmin-primary-900: #134e4a;
+  --color-kubmin-primary-950: #042f2e;
 
   /* Semantic feature colors */
   --color-kubmin-cost: #f59e0b; /* amber-500 */
@@ -56,4 +55,16 @@
   --shadow-kubmin-energy-glow-soft: 0 0 60px rgb(16 185 129 / 0.15);
   --shadow-kubmin-energy-glow: 0 0 20px rgb(16 185 129 / 0.3);
   --shadow-kubmin-primary-glow: 0 0 32px rgb(20 184 166 / 0.4);
+
+  /* Map global variables to kubmin theme (dark bg, white fg, teal primary) */
+  --color-global-primary: var(--color-kubmin-primary-500);
+  --color-global-primary-foreground: var(--color-kubmin-primary-50);
+  --color-global-background: var(--color-kubmin-dark);
+  --color-global-foreground: var(--color-kubmin-neutral-50);
+  --color-global-card: var(--color-kubmin-neutral-900);
+  --color-global-card-foreground: var(--color-kubmin-neutral-50);
+  --color-global-muted: var(--color-kubmin-neutral-600);
+  --color-global-muted-foreground: var(--color-kubmin-neutral-300);
+  --color-global-border: var(--color-kubmin-neutral-600);
+  --color-global-ring: var(--color-kubmin-primary-500);
 }

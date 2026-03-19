@@ -10,30 +10,30 @@ import { faq } from "@/data/kubmin";
         Frequently Asked Questions
       </h2>
 
-      <div x-data="{ active: null }" class="space-y-4">
+      <div class="space-y-4">
         {faq.items.map((item, i) => (
-          <div class="bg-white border border-kubmin-neutral-200 rounded-2xl overflow-hidden transition-all duration-300" :class={`active === ${i} ? 'shadow-md border-primary-200' : 'hover:border-kubmin-neutral-300'`}>
+          <div class="kubmin-faq-item bg-white border border-kubmin-neutral-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-kubmin-neutral-300">
             <button 
-              @click={`active = active === ${i} ? null : ${i}`} 
-              class="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+              class="kubmin-faq-question w-full flex items-center justify-between p-6 text-left focus:outline-none"
+              aria-expanded="false"
             >
               <span class="text-lg font-semibold text-kubmin-neutral-900 pr-8">{item.q}</span>
-              <div class="shrink-0 text-primary-600 w-6 h-6 flex items-center justify-center rounded-full bg-primary-50" :class={`active === ${i} ? 'rotate-180' : ''`} style="transition: transform 0.3s ease;">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show={`active !== ${i}`}><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show={`active === ${i}`} style="display: none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+              <div class="shrink-0 text-kubmin-primary-600 w-6 h-6 flex items-center justify-center rounded-full bg-kubmin-primary-50">
+                <svg class="kubmin-faq-icon w-4 h-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
               </div>
             </button>
-            <div 
-              x-show={`active === ${i}`} 
-              style="display: none;"
-            >
+            <div class="kubmin-faq-answer hidden">
               <div class="p-6 pt-0 text-kubmin-neutral-600 whitespace-pre-wrap leading-relaxed border-t border-kubmin-neutral-100">
                 {item.a}
                 {item.link && (
                   <div class="mt-4">
-                    <a href={item.link.href} class="text-primary-600 font-medium hover:underline inline-flex items-center gap-1">
+                    <a href={item.link.href} class="text-kubmin-primary-600 font-medium hover:underline inline-flex items-center gap-1">
                       {item.link.text}
-                      <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                      <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                      </svg>
                     </a>
                   </div>
                 )}
@@ -45,3 +45,67 @@ import { faq } from "@/data/kubmin";
     </div>
   </Container>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.kubmin-faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.kubmin-faq-question');
+      const answer = item.querySelector('.kubmin-faq-answer');
+      const icon = item.querySelector('.kubmin-faq-icon');
+
+      if (question && answer && icon) {
+        question.addEventListener('click', () => {
+          const expanded = question.getAttribute('aria-expanded') === 'true';
+
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              const otherQuestion = otherItem.querySelector('.kubmin-faq-question');
+              const otherAnswer = otherItem.querySelector('.kubmin-faq-answer');
+              const otherIcon = otherItem.querySelector('.kubmin-faq-icon');
+
+              if (otherQuestion && otherAnswer && otherIcon) {
+                otherQuestion.setAttribute('aria-expanded', 'false');
+                otherAnswer.classList.add('hidden');
+                otherIcon.style.transform = 'rotate(0deg)';
+                otherItem.classList.remove('shadow-md', 'border-kubmin-primary-200');
+              }
+            }
+          });
+
+          question.setAttribute('aria-expanded', !expanded);
+          if (!expanded) {
+            answer.classList.remove('hidden');
+            answer.style.display = 'block';
+            void answer.offsetHeight;
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            item.classList.add('shadow-md', 'border-kubmin-primary-200');
+          } else {
+            answer.style.maxHeight = '0px';
+            setTimeout(() => {
+              answer.classList.add('hidden');
+              answer.style.display = 'none';
+            }, 300);
+            item.classList.remove('shadow-md', 'border-kubmin-primary-200');
+          }
+          icon.style.transform = !expanded ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  .kubmin-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    opacity: 1;
+    will-change: max-height;
+  }
+
+  .kubmin-faq-answer:not(.hidden) {
+    max-height: 1000px;
+  }
+</style>

@@ -6,11 +6,11 @@ import { pricing } from "@/data/kubmin";
 <section class="py-24 bg-kubmin-neutral-50">
   <Container>
     <div class="text-center max-w-3xl mx-auto mb-20">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 border border-primary-100 text-primary-700 text-sm font-semibold tracking-wide uppercase mb-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kubmin-primary-50 border border-kubmin-primary-100 text-kubmin-primary-700 text-sm font-semibold tracking-wide uppercase mb-6">
         {pricing.label}
       </div>
       <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-kubmin-neutral-900 mb-6">
-        {pricing.heading} <span class="text-primary-600">{pricing.headingAccent}</span>
+        {pricing.heading} <span class="text-kubmin-primary-600">{pricing.headingAccent}</span>
       </h2>
       <p class="text-lg text-kubmin-neutral-500">
         {pricing.subheading}
@@ -19,10 +19,10 @@ import { pricing } from "@/data/kubmin";
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
       {pricing.tiers.map((tier) => (
-        <div class={`relative bg-white rounded-3xl p-8 md:p-10 flex flex-col h-full transition-transform duration-300 ${tier.popular ? 'ring-2 ring-primary-500 shadow-xl md:scale-105 z-10' : 'border border-kubmin-neutral-200 shadow-sm hover:shadow-md'}`}>
+        <div class={`relative bg-white rounded-3xl p-8 md:p-10 flex flex-col h-full transition-transform duration-300 ${tier.popular ? 'ring-2 ring-kubmin-primary-500 shadow-xl md:scale-105 z-10' : 'border border-kubmin-neutral-200 shadow-sm hover:shadow-md'}`}>
           {tier.popular && (
             <div class="absolute -top-4 left-0 right-0 flex justify-center">
-              <span class="bg-primary-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide shadow-sm">Most Popular</span>
+              <span class="bg-kubmin-primary-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide shadow-sm">Most Popular</span>
             </div>
           )}
           
@@ -37,13 +37,13 @@ import { pricing } from "@/data/kubmin";
           <ul class="space-y-4 mb-10 flex-1">
             {tier.features.map(feature => (
               <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-primary-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <svg class="w-5 h-5 text-kubmin-primary-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 <span class="text-kubmin-neutral-600">{feature}</span>
               </li>
             ))}
           </ul>
 
-          <a href="#" class={`w-full py-4 px-6 rounded-xl font-bold text-center transition-all ${tier.popular ? 'bg-gradient-to-r from-primary-500 to-kubmin-energy text-white hover:shadow-lg hover:shadow-primary-500/40 hover:-translate-y-0.5' : 'bg-kubmin-neutral-100 text-kubmin-neutral-900 hover:bg-kubmin-neutral-200'}`}>
+          <a href="#" class={`w-full py-4 px-6 rounded-xl font-bold text-center transition-all ${tier.popular ? 'bg-gradient-to-r from-kubmin-primary-500 to-kubmin-energy text-white hover:shadow-lg hover:shadow-kubmin-primary-500/40 hover:-translate-y-0.5' : 'bg-kubmin-neutral-100 text-kubmin-neutral-900 hover:bg-kubmin-neutral-200'}`}>
             {tier.cta}
           </a>
         </div>

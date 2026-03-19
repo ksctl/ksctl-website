@@ -14,24 +14,24 @@ const isProduction = import.meta.env.PROD;
 // Theme-aware classes
 const footerBg = isKubmin
   ? "bg-kubmin-dark text-white border-t border-white/10"
-  : "bg-background text-foreground border-t border-border";
+  : "bg-global-background text-global-foreground border-t border-global-border";
 
-const headingColor = isKubmin ? "text-white" : "text-foreground";
-const mutedColor = isKubmin ? "text-kubmin-neutral-400" : "text-muted-foreground";
+const headingColor = isKubmin ? "text-white" : "text-global-foreground";
+const mutedColor = isKubmin ? "text-kubmin-neutral-400" : "text-global-muted-foreground";
 const linkHover = isKubmin
   ? "text-kubmin-neutral-400 hover:text-white"
-  : "text-muted-foreground hover:text-primary";
+  : "text-global-muted-foreground hover:text-global-primary";
 const socialHover = isKubmin
   ? "text-kubmin-neutral-500 hover:text-white"
-  : "text-muted-foreground hover:text-primary";
-const dividerColor = isKubmin ? "border-white/10" : "border-border";
+  : "text-global-muted-foreground hover:text-global-primary";
+const dividerColor = isKubmin ? "border-white/10" : "border-global-border";
 
 const inputClasses = isKubmin
   ? "text-white bg-white/5 border border-white/10 placeholder:text-kubmin-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50"
-  : "text-foreground bg-card border border-border focus:outline-none focus:ring-2 focus:ring-primary/50";
+  : "text-global-foreground bg-global-card border border-global-border focus:outline-none focus:ring-2 focus:ring-global-primary/50";
 const buttonClasses = isKubmin
   ? "bg-primary-500 hover:bg-primary-400 text-white"
-  : "bg-primary hover:bg-primary/90 text-white";
+  : "bg-global-primary hover:bg-global-primary/90 text-white";
 
 const columns = [
   {
@@ -231,7 +231,7 @@ const legalLinks = [
           />
           <button
             type="button"
-            class="w-full px-4 py-2.5 rounded-lg bg-primary/50 text-white font-medium text-sm cursor-not-allowed"
+            class="w-full px-4 py-2.5 rounded-lg bg-global-primary/50 text-white font-medium text-sm cursor-not-allowed"
             disabled
           >
             Subscribe

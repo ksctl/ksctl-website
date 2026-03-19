@@ -5,14 +5,14 @@ import { products } from "@/data/home";
 const { items } = products;
 ---
 
-<section id="products" class="relative py-24 bg-gradient-to-b from-background to-muted/30">
+<section id="products" class="relative py-24 bg-gradient-to-b from-background to-ksctl-muted/30">
   <Container>
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
-        {products.heading.split(' ')[0]} <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{products.heading.split(' ').slice(1).join(' ')}</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-ksctl-foreground mb-4">
+        {products.heading.split(' ')[0]} <span class="bg-gradient-to-r from-ksctl-primary to-ksctl-secondary bg-clip-text text-transparent">{products.heading.split(' ').slice(1).join(' ')}</span>
       </h2>
-      <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+      <p class="text-lg text-ksctl-muted-foreground max-w-2xl mx-auto">
         {products.subheading}
       </p>
     </div>
@@ -23,13 +23,13 @@ const { items } = products;
         <div class:list={[
           "group relative rounded-2xl border p-8 md:p-10 transition-all duration-300",
           product.available
-            ? "bg-card border-border hover:shadow-2xl hover:-translate-y-2"
-            : "bg-muted border-border/50"
+            ? "bg-ksctl-card border-ksctl-border hover:shadow-2xl hover:-translate-y-2"
+            : "bg-ksctl-muted border-border/50"
         ]}>
           <!-- Badge for Coming Soon -->
           {(product as any).badge && (
             <div class="absolute top-6 right-6">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-primary to-secondary text-primary-foreground animate-pulse">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-ksctl-primary to-ksctl-secondary text-primary-foreground animate-pulse">
                 {(product as any).badge}
               </span>
             </div>
@@ -48,8 +48,8 @@ const { items } = products;
             <h3 class:list={[
               "text-3xl font-bold",
               product.available
-                ? "text-foreground"
-                : "text-muted-foreground"
+                ? "text-ksctl-foreground"
+                : "text-ksctl-muted-foreground"
             ]}>
               {product.name}
             </h3>
@@ -59,8 +59,8 @@ const { items } = products;
           <p class:list={[
             "text-xl font-semibold mb-4",
             product.available
-              ? "text-primary"
-              : "text-muted-foreground"
+              ? "text-ksctl-primary"
+              : "text-ksctl-muted-foreground"
           ]}>
             {product.tagline}
           </p>
@@ -69,7 +69,7 @@ const { items } = products;
           <p class:list={[
             "text-base mb-6 leading-relaxed",
             product.available
-              ? "text-muted-foreground"
+              ? "text-ksctl-muted-foreground"
               : "text-muted-foreground/70"
           ]}>
             {product.description}
@@ -82,15 +82,15 @@ const { items } = products;
                 <svg xmlns="http://www.w3.org/2000/svg" class:list={[
                   "h-6 w-6 mr-2 flex-shrink-0 mt-0.5",
                   product.available
-                    ? "text-primary"
-                    : "text-muted-foreground"
+                    ? "text-ksctl-primary"
+                    : "text-ksctl-muted-foreground"
                 ]} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
                 <span class:list={[
                   "text-base",
                   product.available
-                    ? "text-muted-foreground"
+                    ? "text-ksctl-muted-foreground"
                     : "text-muted-foreground/70"
                 ]}>
                   {feature}
@@ -105,8 +105,8 @@ const { items } = products;
             class:list={[
               "block w-full text-center py-4 px-6 rounded-lg font-medium transition-all duration-300",
               product.available
-                ? "bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:translate-y-[-2px] active:translate-y-[1px]"
-                : "bg-muted text-muted-foreground cursor-not-allowed"
+                ? "bg-gradient-to-br from-ksctl-primary to-ksctl-secondary text-primary-foreground shadow-lg shadow-ksctl-primary/30 hover:shadow-xl hover:shadow-ksctl-primary/40 hover:translate-y-[-2px] active:translate-y-[1px]"
+                : "bg-ksctl-muted text-ksctl-muted-foreground cursor-not-allowed"
             ]}
             aria-disabled={!product.available}
           >
@@ -115,7 +115,7 @@ const { items } = products;
 
           <!-- Decorative Element for Available Products -->
           {product.available && (
-            <div class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+            <div class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-ksctl-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
           )}
         </div>
       ))}

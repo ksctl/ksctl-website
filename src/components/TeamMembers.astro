@@ -9,10 +9,10 @@ const { members } = teamMembers;
   <Container>
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
-        {teamMembers.heading.split(' ')[0]} {teamMembers.heading.split(' ')[1]} <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{teamMembers.heading.split(' ').slice(2).join(' ')}</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-ksctl-foreground mb-4">
+        {teamMembers.heading.split(' ')[0]} {teamMembers.heading.split(' ')[1]} <span class="bg-gradient-to-r from-ksctl-primary to-ksctl-secondary bg-clip-text text-transparent">{teamMembers.heading.split(' ').slice(2).join(' ')}</span>
       </h2>
-      <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+      <p class="text-lg text-ksctl-muted-foreground max-w-2xl mx-auto">
         {teamMembers.subheading}
       </p>
     </div>
@@ -23,12 +23,12 @@ const { members } = teamMembers;
         <div class:list={[
           "group relative rounded-2xl border p-6 transition-all duration-300",
           member.isPlaceholder
-            ? "bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20 hover:border-primary/40"
-            : "bg-card border-border hover:shadow-2xl hover:-translate-y-2"
+            ? "bg-gradient-to-br from-ksctl-primary/5 to-ksctl-secondary/5 border-ksctl-primary/20 hover:border-ksctl-primary/40"
+            : "bg-ksctl-card border-ksctl-border hover:shadow-2xl hover:-translate-y-2"
         ]}>
           <!-- Avatar -->
           <div class="relative mb-4">
-            <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-border group-hover:border-primary transition-colors duration-300">
+            <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-ksctl-border group-hover:border-ksctl-primary transition-colors duration-300">
               <img
                 src={member.avatar}
                 alt={member.name}
@@ -37,23 +37,23 @@ const { members } = teamMembers;
             </div>
             {member.isPlaceholder && (
               <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 animate-pulse"></div>
+                <div class="w-24 h-24 rounded-full bg-gradient-to-br from-ksctl-primary/20 to-ksctl-secondary/20 animate-pulse"></div>
               </div>
             )}
           </div>
 
           <!-- Name -->
-          <h3 class="text-xl font-bold text-foreground text-center mb-1">
+          <h3 class="text-xl font-bold text-ksctl-foreground text-center mb-1">
             {member.name}
           </h3>
 
           <!-- Role -->
-          <p class="text-sm text-primary font-medium text-center mb-4">
+          <p class="text-sm text-ksctl-primary font-medium text-center mb-4">
             {member.role}
           </p>
 
           <!-- Bio -->
-          <p class="text-sm text-muted-foreground text-center mb-6 leading-relaxed">
+          <p class="text-sm text-ksctl-muted-foreground text-center mb-6 leading-relaxed">
             {member.bio}
           </p>
 
@@ -64,7 +64,7 @@ const { members } = teamMembers;
                 href={member.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-muted-foreground hover:text-primary transition-colors duration-300"
+                class="text-ksctl-muted-foreground hover:text-ksctl-primary transition-colors duration-300"
                 aria-label="GitHub"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 16 16">
@@ -77,7 +77,7 @@ const { members } = teamMembers;
                 href={member.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-muted-foreground hover:text-primary transition-colors duration-300"
+                class="text-ksctl-muted-foreground hover:text-ksctl-primary transition-colors duration-300"
                 aria-label="Twitter"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5" viewBox="0 0 16 16">
@@ -90,7 +90,7 @@ const { members } = teamMembers;
                 href={member.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-muted-foreground hover:text-primary transition-colors duration-300"
+                class="text-ksctl-muted-foreground hover:text-ksctl-primary transition-colors duration-300"
                 aria-label="LinkedIn"
               >
                 <svg fill="currentColor" class="w-5 h-5" viewBox="0 0 24 24">
@@ -102,7 +102,7 @@ const { members } = teamMembers;
 
           <!-- Decorative Element -->
           {!member.isPlaceholder && (
-            <div class="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-ksctl-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           )}
         </div>
       ))}

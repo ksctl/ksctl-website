@@ -3,12 +3,12 @@ import Container from "./Container.astro";
 import { howItWorks } from "@/data/kli";
 ---
 
-<div id="how-it-works" class="py-24 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
+<div id="how-it-works" class="py-24 bg-gradient-to-b from-background to-kli-muted/30 relative overflow-hidden">
   <!-- Decorative elements -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-br from-primary/10 to-secondary/5 blur-3xl"></div>
-    <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-gradient-to-tr from-accent/10 to-muted/5 blur-3xl"></div>
-    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+    <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-br from-kli-primary/10 to-kli-secondary/5 blur-3xl"></div>
+    <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-gradient-to-tr from-kli-accent/10 to-kli-muted/5 blur-3xl"></div>
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-kli-primary/20 to-transparent"></div>
   </div>
 
   <Container>
@@ -19,10 +19,10 @@ import { howItWorks } from "@/data/kli";
         </svg>
         {howItWorks.badge}
       </span>
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
-        {howItWorks.heading.split(' ')[0]} <span class="bg-gradient-to-r from-kli-step to-primary bg-clip-text text-transparent">{howItWorks.heading.split(' ')[1]}</span> {howItWorks.heading.split(' ').slice(2).join(' ')}
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-kli-foreground mb-6 tracking-tight">
+        {howItWorks.heading.split(' ')[0]} <span class="bg-gradient-to-r from-kli-primary to-kli-secondary bg-clip-text text-transparent">{howItWorks.heading.split(' ')[1]}</span> {howItWorks.heading.split(' ').slice(2).join(' ')}
       </h2>
-      <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+      <p class="text-xl text-kli-muted-foreground max-w-2xl mx-auto">
         {howItWorks.subheading}
       </p>
     </div>
@@ -30,13 +30,13 @@ import { howItWorks } from "@/data/kli";
     <!-- Steps Container -->
     <div class="relative">
       <!-- Connecting line -->
-      <div class="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-kli-step to-primary opacity-30 transform -translate-x-1/2 hidden md:block"></div>
+      <div class="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-kli-primary to-kli-secondary opacity-30 transform -translate-x-1/2 hidden md:block"></div>
 
       <!-- Step 1 -->
       <div class="relative z-10 flex flex-col md:flex-row items-center mb-24">
         <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right">
-          <h3 class="text-2xl font-bold text-foreground mb-4">1. {howItWorks.steps[0].title}</h3>
-          <p class="text-lg text-muted-foreground">
+          <h3 class="text-2xl font-bold text-kli-foreground mb-4">1. {howItWorks.steps[0].title}</h3>
+          <p class="text-lg text-kli-muted-foreground">
             {howItWorks.steps[0].description}
           </p>
           <div class="mt-6 bg-gray-900 rounded-lg overflow-hidden border border-gray-700 shadow-md inline-block">
@@ -46,12 +46,12 @@ import { howItWorks } from "@/data/kli";
           </div>
         </div>
         <div class="md:w-20 flex justify-center">
-          <div class="h-16 w-16 bg-gradient-to-br from-kli-step to-primary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-kli-step/30 border-4 border-background">
+          <div class="h-16 w-16 bg-gradient-to-br from-kli-primary to-kli-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-kli-step/30 border-4 border-background">
             1
           </div>
         </div>
         <div class="md:w-1/2 md:pl-12 hidden md:block">
-          <div class="bg-card rounded-xl shadow-xl border border-border overflow-hidden">
+          <div class="bg-kli-card rounded-xl shadow-xl border border-kli-border overflow-hidden">
             <div class="p-4">
               <div class="bg-black rounded-lg overflow-hidden">
                 <div class="flex items-center bg-gray-800 px-4 py-2 border-b border-gray-700">
@@ -79,14 +79,14 @@ import { howItWorks } from "@/data/kli";
       <!-- Step 2 -->
       <div class="relative z-10 flex flex-col md:flex-row items-center mb-24">
         <div class="md:w-1/2 md:pr-12 hidden md:block">
-          <div class="bg-card rounded-xl shadow-xl border border-border overflow-hidden">
+          <div class="bg-kli-card rounded-xl shadow-xl border border-kli-border overflow-hidden">
             <div class="p-4">
-              <div class="bg-muted/30 rounded-lg overflow-hidden border border-border">
-                <div class="flex items-center justify-between bg-card px-4 py-3 border-b border-border">
-                  <div class="text-muted-foreground font-medium">Cluster Configuration</div>
+              <div class="bg-kli-muted/30 rounded-lg overflow-hidden border border-kli-border">
+                <div class="flex items-center justify-between bg-kli-card px-4 py-3 border-b border-kli-border">
+                  <div class="text-kli-muted-foreground font-medium">Cluster Configuration</div>
                   <div class="flex items-center space-x-2">
-                    <div class="w-6 h-6 rounded bg-primary/20 flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                    <div class="w-6 h-6 rounded bg-kli-primary/20 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-kli-primary" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd" />
                       </svg>
                     </div>
@@ -95,15 +95,15 @@ import { howItWorks } from "@/data/kli";
                 <div class="p-5">
                   <div class="space-y-4">
                     <div>
-                      <label class="block text-sm font-medium text-muted-foreground mb-1">Cluster Name</label>
+                      <label class="block text-sm font-medium text-kli-muted-foreground mb-1">Cluster Name</label>
                       <div class="flex items-center">
-                        <input type="text" value="production" disabled="true" class="block w-full px-3 py-2 bg-card border border-border rounded-md text-foreground" />
+                        <input type="text" value="production" disabled="true" class="block w-full px-3 py-2 bg-kli-card border border-kli-border rounded-md text-kli-foreground" />
                       </div>
                     </div>
                     <div>
-                      <label class="block text-sm font-medium text-muted-foreground mb-1">Cloud Provider</label>
+                      <label class="block text-sm font-medium text-kli-muted-foreground mb-1">Cloud Provider</label>
                       <div class="flex items-center">
-                        <select class="block w-full px-3 py-2 bg-card border border-border rounded-md text-foreground" disabled="true">
+                        <select class="block w-full px-3 py-2 bg-kli-card border border-kli-border rounded-md text-kli-foreground" disabled="true">
                           <option>AWS</option>
                           <option>GCP</option>
                           <option>Azure</option>
@@ -111,9 +111,9 @@ import { howItWorks } from "@/data/kli";
                       </div>
                     </div>
                     <div>
-                      <label class="block text-sm font-medium text-muted-foreground mb-1">Region</label>
+                      <label class="block text-sm font-medium text-kli-muted-foreground mb-1">Region</label>
                       <div class="flex items-center">
-                        <div class="bg-accent text-primary px-3 py-2 rounded-md w-full flex items-center">
+                        <div class="bg-kli-accent text-kli-primary px-3 py-2 rounded-md w-full flex items-center">
                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                           </svg>
@@ -128,13 +128,13 @@ import { howItWorks } from "@/data/kli";
           </div>
         </div>
         <div class="md:w-20 flex justify-center">
-          <div class="h-16 w-16 bg-gradient-to-br from-kli-step to-primary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-kli-step/30 border-4 border-background">
+          <div class="h-16 w-16 bg-gradient-to-br from-kli-primary to-kli-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-kli-step/30 border-4 border-background">
             2
           </div>
         </div>
         <div class="md:w-1/2 md:pl-12">
-          <h3 class="text-2xl font-bold text-foreground mb-4">2. {howItWorks.steps[1].title}</h3>
-          <p class="text-lg text-muted-foreground">
+          <h3 class="text-2xl font-bold text-kli-foreground mb-4">2. {howItWorks.steps[1].title}</h3>
+          <p class="text-lg text-kli-muted-foreground">
             {howItWorks.steps[1].description}
           </p>
           <div class="mt-6 space-y-2">
@@ -145,7 +145,7 @@ import { howItWorks } from "@/data/kli";
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                   </svg>
                 </div>
-                <span class="text-muted-foreground">{bullet}</span>
+                <span class="text-kli-muted-foreground">{bullet}</span>
               </div>
             ))}
           </div>
@@ -155,8 +155,8 @@ import { howItWorks } from "@/data/kli";
       <!-- Step 3 -->
       <div class="relative z-10 flex flex-col md:flex-row items-center mb-24">
         <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0 md:text-right">
-          <h3 class="text-2xl font-bold text-foreground mb-4">3. {howItWorks.steps[2].title}</h3>
-          <p class="text-lg text-muted-foreground">
+          <h3 class="text-2xl font-bold text-kli-foreground mb-4">3. {howItWorks.steps[2].title}</h3>
+          <p class="text-lg text-kli-muted-foreground">
             {howItWorks.steps[2].description}
           </p>
           <div class="mt-6 bg-gray-900 rounded-lg overflow-hidden border border-gray-700 shadow-md inline-block">
@@ -166,12 +166,12 @@ import { howItWorks } from "@/data/kli";
           </div>
         </div>
         <div class="md:w-20 flex justify-center">
-          <div class="h-16 w-16 bg-gradient-to-br from-kli-step to-primary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-kli-step/30 border-4 border-background">
+          <div class="h-16 w-16 bg-gradient-to-br from-kli-primary to-kli-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-kli-step/30 border-4 border-background">
             3
           </div>
         </div>
         <div class="md:w-1/2 md:pl-12 hidden md:block">
-          <div class="bg-card rounded-xl shadow-xl border border-border overflow-hidden">
+          <div class="bg-kli-card rounded-xl shadow-xl border border-kli-border overflow-hidden">
             <div class="p-4">
               <div class="bg-black rounded-lg overflow-hidden">
                 <div class="flex items-center bg-gray-800 px-4 py-2 border-b border-gray-700">
@@ -199,13 +199,13 @@ import { howItWorks } from "@/data/kli";
       <!-- Step 4 -->
       <div class="relative z-10 flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 md:pr-12 hidden md:block">
-          <div class="bg-card rounded-xl shadow-xl border border-border overflow-hidden">
+          <div class="bg-kli-card rounded-xl shadow-xl border border-kli-border overflow-hidden">
             <div class="p-4">
               <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800">
                 <div class="flex items-center justify-between bg-gray-800 px-4 py-3 border-b border-gray-700">
                   <div class="flex items-center space-x-2">
-                    <div class="h-6 w-6 rounded bg-primary/20 flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                    <div class="h-6 w-6 rounded bg-kli-primary/20 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-kli-primary" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd" />
                       </svg>
                     </div>
@@ -239,7 +239,7 @@ import { howItWorks } from "@/data/kli";
                   </div>
                   <div>
                     <div class="text-white font-medium mb-2">🚩 Problems</div>
-                    <div class="bg-gray-800 p-3 rounded-lg text-kli-step">
+                    <div class="bg-gray-800 p-3 rounded-lg text-yellow-500">
                       <div class="flex items-start mb-1">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                           <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
@@ -260,13 +260,13 @@ import { howItWorks } from "@/data/kli";
           </div>
         </div>
         <div class="md:w-20 flex justify-center">
-          <div class="h-16 w-16 bg-gradient-to-br from-kli-step to-primary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-kli-step/30 border-4 border-background">
+          <div class="h-16 w-16 bg-gradient-to-br from-kli-primary to-kli-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-kli-step/30 border-4 border-background">
             4
           </div>
         </div>
         <div class="md:w-1/2 md:pl-12">
-          <h3 class="text-2xl font-bold text-foreground mb-4">4. {howItWorks.steps[3].title}</h3>
-          <p class="text-lg text-muted-foreground">
+          <h3 class="text-2xl font-bold text-kli-foreground mb-4">4. {howItWorks.steps[3].title}</h3>
+          <p class="text-lg text-kli-muted-foreground">
             {howItWorks.steps[3].description}
           </p>
           <div class="mt-6 space-y-2">
@@ -277,7 +277,7 @@ import { howItWorks } from "@/data/kli";
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                   </svg>
                 </div>
-                <span class="text-muted-foreground">{bullet}</span>
+                <span class="text-kli-muted-foreground">{bullet}</span>
               </div>
             ))}
           </div>
@@ -294,7 +294,7 @@ import { howItWorks } from "@/data/kli";
     <div class="mt-20 text-center">
       <a
         href={howItWorks.cta.href}
-        class="inline-flex items-center px-8 py-4 rounded-lg bg-gradient-to-r from-kli-step to-primary text-white font-medium shadow-lg shadow-kli-step/30 hover:shadow-xl hover:shadow-kli-step/40 hover:translate-y-[-2px] transition-all"
+        class="inline-flex items-center px-8 py-4 rounded-lg bg-gradient-to-r from-kli-primary to-kli-secondary text-white font-medium shadow-lg shadow-kli-primary/30 hover:shadow-xl hover:shadow-kli-primary/40 hover:translate-y-[-2px] transition-all"
       >
         <span class="flex items-center">
           {howItWorks.cta.text}

@@ -20,8 +20,8 @@ import { hero } from "@/data/home";
     <div class="relative pt-32 md:pt-44 pb-24 md:pb-32">
       <div class="max-w-4xl mx-auto text-center">
         <!-- Badge -->
-        <div class="hero-stagger hero-stagger-1 inline-flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/[0.06] backdrop-blur-sm px-4 py-2 text-sm font-medium text-white/90 dark:text-primary mb-8 border border-white/15 dark:border-primary/10">
-          <div class="flex items-center justify-center w-5 h-5 rounded-full bg-white/20 dark:bg-primary">
+        <div class="hero-stagger hero-stagger-1 inline-flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/[0.06] backdrop-blur-sm px-4 py-2 text-sm font-medium text-white/90 dark:text-ksctl-primary mb-8 border border-white/15 dark:border-ksctl-primary/10">
+          <div class="flex items-center justify-center w-5 h-5 rounded-full bg-white/20 dark:bg-ksctl-primary">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white dark:text-primary-foreground" viewBox="0 0 20 20" fill="currentColor">
               <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
             </svg>
@@ -45,7 +45,7 @@ import { hero } from "@/data/home";
         <div class="hero-stagger hero-stagger-4 mt-12 flex flex-wrap items-center justify-center gap-4">
           <a
             href={hero.primaryCta.href}
-            class="group flex items-center justify-center h-13 px-8 rounded-xl bg-primary text-primary-foreground font-medium shadow-md shadow-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:translate-y-0"
+            class="group flex items-center justify-center h-13 px-8 rounded-xl bg-ksctl-primary text-primary-foreground font-medium shadow-md shadow-ksctl-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-ksctl-primary/30 hover:-translate-y-0.5 active:translate-y-0"
           >
             <span class="flex items-center gap-2">
               {hero.primaryCta.text}
@@ -57,7 +57,7 @@ import { hero } from "@/data/home";
 
           <a
             href={hero.secondaryCta.href}
-            class="group flex items-center justify-center h-13 px-8 rounded-xl border border-white/25 dark:border-border bg-white/10 dark:bg-card backdrop-blur-sm text-white dark:text-card-foreground font-medium transition-all duration-300 hover:border-white/40 dark:hover:border-primary/30 hover:-translate-y-0.5 active:translate-y-0"
+            class="group flex items-center justify-center h-13 px-8 rounded-xl border border-white/25 dark:border-ksctl-border bg-white/10 dark:bg-ksctl-card backdrop-blur-sm text-white dark:text-card-foreground font-medium transition-all duration-300 hover:border-white/40 dark:hover:border-ksctl-primary/30 hover:-translate-y-0.5 active:translate-y-0"
           >
             <span class="flex items-center gap-2">
               {hero.secondaryCta.text}
@@ -89,13 +89,13 @@ import { hero } from "@/data/home";
   background:
     radial-gradient(
       125% 125% at 50% 101%,
-      var(--hero-stop-1) 10.5%,
-      var(--hero-stop-2) 16%,
-      var(--hero-stop-3) 17.5%,
-      var(--hero-stop-4) 25%,
-      var(--hero-stop-5) 40%,
-      var(--hero-stop-6) 65%,
-      var(--hero-stop-7) 100%
+      var(--ksctl-hero-stop-1) 10.5%,
+      var(--ksctl-hero-stop-2) 16%,
+      var(--ksctl-hero-stop-3) 17.5%,
+      var(--ksctl-hero-stop-4) 25%,
+      var(--ksctl-hero-stop-5) 40%,
+      var(--ksctl-hero-stop-6) 65%,
+      var(--ksctl-hero-stop-7) 100%
     );
 }
 
@@ -111,7 +111,7 @@ import { hero } from "@/data/home";
 .hero-blob-orange {
   width: 600px;
   height: 600px;
-  background: var(--hero-stop-1);
+  background: var(--ksctl-hero-stop-1);
   opacity: 0.4;
   bottom: -20%;
   left: 10%;
@@ -121,7 +121,7 @@ import { hero } from "@/data/home";
 .hero-blob-pink {
   width: 500px;
   height: 500px;
-  background: var(--hero-stop-5);
+  background: var(--ksctl-hero-stop-5);
   opacity: 0.35;
   top: 10%;
   right: 5%;
@@ -131,7 +131,7 @@ import { hero } from "@/data/home";
 .hero-blob-blue {
   width: 550px;
   height: 550px;
-  background: var(--hero-stop-7);
+  background: var(--ksctl-hero-stop-7);
   opacity: 0.3;
   top: -10%;
   left: 20%;
@@ -141,7 +141,7 @@ import { hero } from "@/data/home";
 .hero-blob-peach {
   width: 450px;
   height: 450px;
-  background: var(--hero-stop-4);
+  background: var(--ksctl-hero-stop-4);
   opacity: 0.35;
   bottom: 5%;
   right: 20%;
@@ -200,7 +200,7 @@ import { hero } from "@/data/home";
   color: #fff;
 }
 .dark .hero-headline-text {
-  background: linear-gradient(to right, var(--color-foreground), var(--color-primary), var(--color-foreground));
+  background: linear-gradient(to right, var(--color-ksctl-foreground), var(--color-ksctl-primary), var(--color-ksctl-foreground));
   background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -214,7 +214,7 @@ import { hero } from "@/data/home";
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 .dark .hero-sub-text {
-  color: var(--color-muted-foreground);
+  color: var(--color-ksctl-muted-foreground);
 }
 
 /* Staggered fade-in */

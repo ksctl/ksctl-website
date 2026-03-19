@@ -1,24 +1,23 @@
 /* kli product page theme overrides — Total Teal & Emerald Theme */
-@import "tailwindcss";
 
-@theme {
+html {
   /* Brand Overrides */
-  --color-primary: #14b8a6;
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #0d9488;
-  --color-secondary-foreground: #ffffff;
-  --color-accent: #f0fdfa;
-  --color-accent-foreground: #0f766e;
-  --color-ring: #14b8a6;
+  --color-kli-primary: #14b8a6;
+  --color-kli-primary-foreground: #ffffff;
+  --color-kli-secondary: #0d9488;
+  --color-kli-secondary-foreground: #ffffff;
+  --color-kli-accent: #f0fdfa;
+  --color-kli-accent-foreground: #0f766e;
+  --color-kli-ring: #14b8a6;
 
   /* Neutrals Overrides */
-  --color-background: #f8fafc;
-  --color-foreground: #0f172a;
-  --color-card: #ffffff;
-  --color-card-foreground: #0f172a;
-  --color-muted: #f1f5f9;
-  --color-muted-foreground: #475569;
-  --color-border: #e2e8f0;
+  --color-kli-background: #f8fafc;
+  --color-kli-foreground: #0f172a;
+  --color-kli-card: #ffffff;
+  --color-kli-card-foreground: #0f172a;
+  --color-kli-muted: #f1f5f9;
+  --color-kli-muted-foreground: #475569;
+  --color-kli-border: #e2e8f0;
 
   /* Semantic Feature Colors */
   --color-kli-tech: #0ea5e9; 
@@ -31,24 +30,37 @@
   --color-kli-eco-muted: #d1fae5;
   --color-kli-step-muted: #eef2ff;
   --color-kli-info-muted: #f5f3ff;
+
+  /* Map global variables to kli theme */
+  --color-global-primary: var(--color-kli-primary);
+  --color-global-primary-foreground: var(--color-kli-primary-foreground);
+  --color-global-background: var(--color-kli-background);
+  --color-global-foreground: var(--color-kli-foreground);
+  --color-global-card: var(--color-kli-card);
+  --color-global-card-foreground: var(--color-kli-card-foreground);
+  --color-global-muted: var(--color-kli-muted);
+  --color-global-muted-foreground: var(--color-kli-muted-foreground);
+  --color-global-border: var(--color-kli-border);
+  --color-global-ring: var(--color-kli-ring);
+  --color-global-input: transparent;
 }
 
-.dark {
-  --color-primary: #2dd4bf;
-  --color-primary-foreground: #042f2e;
-  --color-secondary: #14b8a6;
-  --color-secondary-foreground: #f0fdfa;
-  --color-accent: #115e59;
-  --color-accent-foreground: #ccfbf1;
-  --color-ring: #2dd4bf;
+html.dark {
+  --color-kli-primary: #2dd4bf;
+  --color-kli-primary-foreground: #042f2e;
+  --color-kli-secondary: #14b8a6;
+  --color-kli-secondary-foreground: #f0fdfa;
+  --color-kli-accent: #115e59;
+  --color-kli-accent-foreground: #ccfbf1;
+  --color-kli-ring: #2dd4bf;
 
-  --color-background: #020617; 
-  --color-foreground: #f8fafc;
-  --color-card: #0f172a;
-  --color-card-foreground: #f8fafc;
-  --color-muted: #1e293b;
-  --color-muted-foreground: #94a3b8;
-  --color-border: #334155;
+  --color-kli-background: #020617; 
+  --color-kli-foreground: #f8fafc;
+  --color-kli-card: #0f172a;
+  --color-kli-card-foreground: #f8fafc;
+  --color-kli-muted: #1e293b;
+  --color-kli-muted-foreground: #94a3b8;
+  --color-kli-border: #334155;
 
   --color-kli-tech: #38bdf8;
   --color-kli-eco: #34d399;

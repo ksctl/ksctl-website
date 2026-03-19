@@ -3,60 +3,60 @@ import Container from "./Container.astro";
 import { features } from "@/data/kli";
 ---
 
-<div id="features" class="py-24 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
+<div id="features" class="py-24 bg-gradient-to-b from-background to-kli-muted/30 relative overflow-hidden">
   <!-- Background decorations -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-gradient-to-br from-primary/10 to-secondary/5 blur-3xl animate-float-slow"></div>
-    <div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-secondary/10 to-accent/5 blur-3xl animate-float"></div>
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent to-muted/70 opacity-80 dark:opacity-60"></div>
-    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+    <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-gradient-to-br from-kli-primary/10 to-kli-secondary/5 blur-3xl animate-float-slow"></div>
+    <div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-kli-secondary/10 to-kli-accent/5 blur-3xl animate-float"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent to-kli-muted/70 opacity-80 dark:opacity-60"></div>
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-kli-primary/20 to-transparent"></div>
   </div>
 
   <Container>
     <div class="relative text-center max-w-3xl mx-auto mb-20">
-      <span class="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium bg-accent text-accent-foreground mb-6 border border-primary/20">
+      <span class="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium bg-kli-accent text-kli-accent-foreground mb-6 border border-kli-primary/20">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
         </svg>
         {features.badge}
       </span>
 
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
-        <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{features.heading.split(' ')[0]}</span> {features.heading.split(' ').slice(1).join(' ')}
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-kli-foreground mb-6 tracking-tight">
+        <span class="bg-gradient-to-r from-kli-primary to-kli-secondary bg-clip-text text-transparent">{features.heading.split(' ')[0]}</span> {features.heading.split(' ').slice(1).join(' ')}
       </h2>
 
-      <p class="text-xl text-muted-foreground">
+      <p class="text-xl text-kli-muted-foreground">
         {features.subheading}
       </p>
     </div>
 
     <div class="grid gap-10 lg:grid-cols-2 xl:grid-cols-4">
       <!-- Feature Card 1 -->
-      <div class="group relative bg-card rounded-2xl transition-all duration-300
-          hover:shadow-2xl hover:shadow-primary/15 dark:hover:shadow-primary/10 hover:-translate-y-1 border border-border overflow-hidden">
-        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary to-secondary transform origin-left scale-x-0
+      <div class="group relative bg-kli-card rounded-2xl transition-all duration-300
+          hover:shadow-2xl hover:shadow-kli-primary/15 dark:hover:shadow-kli-primary/10 hover:-translate-y-1 border border-kli-border overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-kli-primary to-kli-secondary transform origin-left scale-x-0
             transition-transform duration-300 group-hover:scale-x-100"></div>
         <div class="relative p-8">
-          <div class="w-16 h-16 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-6
-              group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-secondary transition-all duration-300 shadow-lg shadow-primary/5">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors duration-300">
+          <div class="w-16 h-16 rounded-xl bg-kli-primary/10 dark:bg-kli-primary/20 flex items-center justify-center mb-6
+              group-hover:bg-gradient-to-br group-hover:from-kli-primary group-hover:to-kli-secondary transition-all duration-300 shadow-lg shadow-kli-primary/5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-kli-primary group-hover:text-primary-foreground transition-colors duration-300">
               <path d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
               <path d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z" />
               <path d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z" />
             </svg>
           </div>
 
-          <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+          <h3 class="text-xl font-bold text-kli-foreground mb-3 group-hover:text-kli-primary transition-colors">
             {features.items[0].title}
           </h3>
 
-          <p class="text-muted-foreground mb-6">
+          <p class="text-kli-muted-foreground mb-6">
             {features.items[0].description}
           </p>
 
-          <div class="pt-4 border-t border-border">
+          <div class="pt-4 border-t border-kli-border">
             <div class="flex items-center justify-between">
-              <code class="inline-block text-sm bg-accent text-accent-foreground py-1.5 px-3 rounded font-mono font-semibold">
+              <code class="inline-block text-sm bg-kli-accent text-kli-accent-foreground py-1.5 px-3 rounded font-mono font-semibold">
                 {features.items[0].command}
               </code>
             </div>
@@ -66,8 +66,8 @@ import { features } from "@/data/kli";
 
 
       <!-- Feature Card 2 -->
-      <div class="group relative bg-card rounded-2xl transition-all duration-300
-          hover:shadow-2xl hover:shadow-kli-tech/15 dark:hover:shadow-kli-tech/10 hover:-translate-y-1 border border-border overflow-hidden">
+      <div class="group relative bg-kli-card rounded-2xl transition-all duration-300
+          hover:shadow-2xl hover:shadow-kli-tech/15 dark:hover:shadow-kli-tech/10 hover:-translate-y-1 border border-kli-border overflow-hidden">
         <div class="absolute inset-x-0 top-0 h-1 bg-kli-tech transform origin-left scale-x-0
             transition-transform duration-300 group-hover:scale-x-100"></div>
         <div class="relative p-8">
@@ -78,16 +78,16 @@ import { features } from "@/data/kli";
             </svg>
           </div>
 
-          <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-kli-tech transition-colors" set:html={features.items[1].title.replace(' ', ' <br>')} />
+          <h3 class="text-xl font-bold text-kli-foreground mb-3 group-hover:text-kli-tech transition-colors" set:html={features.items[1].title.replace(' ', ' <br>')} />
 
-          <p class="text-muted-foreground mb-6" set:html={features.items[1].description.replace('. ', '.<br>')} />
+          <p class="text-kli-muted-foreground mb-6" set:html={features.items[1].description.replace('. ', '.<br>')} />
 
-          <div class="flex flex-col gap-2 pt-4 border-t border-border">
+          <div class="flex flex-col gap-2 pt-4 border-t border-kli-border">
             <div class="flex items-center justify-between mb-1">
-              <span class="text-xs text-muted-foreground">{(features.items[1] as any).stats.label}</span>
+              <span class="text-xs text-kli-muted-foreground">{(features.items[1] as any).stats.label}</span>
               <span class="text-xs font-medium text-kli-tech">{(features.items[1] as any).stats.value}</span>
             </div>
-            <div class="w-full bg-muted rounded-full h-2">
+            <div class="w-full bg-kli-muted rounded-full h-2">
               <div class="bg-kli-tech h-2 rounded-full animate-pulse-slow" style={`width: ${(features.items[1] as any).stats.percentage}%`}></div>
             </div>
           </div>
@@ -95,8 +95,8 @@ import { features } from "@/data/kli";
       </div>
 
       <!-- Feature Card 3 -->
-      <div class="group relative bg-card rounded-2xl transition-all duration-300
-          hover:shadow-2xl hover:shadow-kli-info/15 dark:hover:shadow-kli-info/10 hover:-translate-y-1 border border-border overflow-hidden">
+      <div class="group relative bg-kli-card rounded-2xl transition-all duration-300
+          hover:shadow-2xl hover:shadow-kli-info/15 dark:hover:shadow-kli-info/10 hover:-translate-y-1 border border-kli-border overflow-hidden">
         <div class="absolute inset-x-0 top-0 h-1 bg-kli-info transform origin-left scale-x-0
             transition-transform duration-300 group-hover:scale-x-100"></div>
         <div class="relative p-8">
@@ -107,22 +107,22 @@ import { features } from "@/data/kli";
             </svg>
           </div>
 
-          <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-kli-info transition-colors">
+          <h3 class="text-xl font-bold text-kli-foreground mb-3 group-hover:text-kli-info transition-colors">
             {features.items[2].title}
           </h3>
 
-          <p class="text-muted-foreground mb-6">
+          <p class="text-kli-muted-foreground mb-6">
             {features.items[2].description}
           </p>
 
-          <div class="pt-4 border-t border-border">
+          <div class="pt-4 border-t border-kli-border">
             <div class="flex items-center justify-between mb-2">
               <div class="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-1.5 text-kli-info">
                   <path d="M4.5 3.75a3 3 0 00-3 3v.75h21v-.75a3 3 0 00-3-3h-15z" />
                   <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 003 3h15a3 3 0 003-3v-7.5zm-18 3.75a.75.75 0 01.75-.75h6a.75.75 0 010 1.5h-6a.75.75 0 01-.75-.75zm.75 2.25a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-sm font-medium text-muted-foreground">{(features.items[2] as any).stats[0].label}</span>
+                <span class="text-sm font-medium text-kli-muted-foreground">{(features.items[2] as any).stats[0].label}</span>
               </div>
               <div class="flex items-center px-2.5 py-0.5 rounded-full bg-kli-info-muted">
                 <span class="text-xs font-semibold text-kli-info">{(features.items[2] as any).stats[0].value}</span>
@@ -133,7 +133,7 @@ import { features } from "@/data/kli";
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 mr-1.5 text-kli-info">
                   <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM6.262 6.072a8.25 8.25 0 1010.562-.766 4.5 4.5 0 01-1.318 1.357L14.25 7.5l.165.33a.809.809 0 01-1.086 1.085l-.604-.302a1.125 1.125 0 00-1.298.21l-.132.131c-.439.44-.439 1.152 0 1.591l.296.296c.256.257.622.374.98.314l1.17-.195c.323-.054.654.036.905.245l1.33 1.108c.32.267.46.694.358 1.1a8.7 8.7 0 01-2.288 4.04l-.723.724a1.125 1.125 0 01-1.298.21l-.153-.076a1.125 1.125 0 01-.622-1.006v-1.089c0-.298-.119-.585-.33-.796l-1.347-1.347a1.125 1.125 0 01-.21-1.298L9.75 12l-1.64-1.64a6 6 0 01-1.676-3.257l-.172-1.03z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-sm font-medium text-muted-foreground">{(features.items[2] as any).stats[1].label}</span>
+                <span class="text-sm font-medium text-kli-muted-foreground">{(features.items[2] as any).stats[1].label}</span>
               </div>
               <div class="flex items-center px-2.5 py-0.5 rounded-full bg-kli-info-muted">
                 <span class="text-xs font-semibold text-kli-info">{(features.items[2] as any).stats[1].value}</span>
@@ -144,8 +144,8 @@ import { features } from "@/data/kli";
       </div>
 
       <!-- Feature Card 4 -->
-      <div class="group relative bg-card rounded-2xl transition-all duration-300
-          hover:shadow-2xl hover:shadow-kli-eco/15 dark:hover:shadow-kli-eco/10 hover:-translate-y-1 border border-border overflow-hidden">
+      <div class="group relative bg-kli-card rounded-2xl transition-all duration-300
+          hover:shadow-2xl hover:shadow-kli-eco/15 dark:hover:shadow-kli-eco/10 hover:-translate-y-1 border border-kli-border overflow-hidden">
         <div class="absolute inset-x-0 top-0 h-1 bg-kli-eco transform origin-left scale-x-0
             transition-transform duration-300 group-hover:scale-x-100"></div>
         <div class="relative p-8">
@@ -156,20 +156,20 @@ import { features } from "@/data/kli";
             </svg>
           </div>
 
-          <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-kli-eco transition-colors">
+          <h3 class="text-xl font-bold text-kli-foreground mb-3 group-hover:text-kli-eco transition-colors">
             {features.items[3].title}
           </h3>
 
-          <p class="text-muted-foreground mb-6">
+          <p class="text-kli-muted-foreground mb-6">
             {features.items[3].description}
           </p>
           
-          <div class="pt-4 border-t border-border">
+          <div class="pt-4 border-t border-kli-border">
             <div class="flex flex-col gap-2">
               {((features.items[3] as any).bullets || []).map((bullet: string) => (
                 <div class="flex items-center">
                   <div class="w-2 h-2 rounded-full bg-kli-eco mr-2"></div>
-                  <span class="text-sm text-muted-foreground">{bullet}</span>
+                  <span class="text-sm text-kli-muted-foreground">{bullet}</span>
                 </div>
               ))}
             </div>
@@ -198,17 +198,17 @@ import { features } from "@/data/kli";
 
     <!-- CLI Demo Section -->
     <div class="mt-24 rounded-3xl shadow-2xl overflow-hidden relative">
-      <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900 to-primary/30"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-60"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900 to-kli-primary/30"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-kli-primary/10 via-transparent to-transparent opacity-60"></div>
       
       <!-- Top decorative line -->
-      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-kli-primary/50 to-transparent"></div>
 
       <div class="relative z-10 p-8 md:p-12">
         <div class="max-w-screen-xl mx-auto">
           <div class="md:flex items-center justify-between gap-12">
             <div class="md:w-1/2 mb-10 md:mb-0">
-              <div class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary mb-6 border border-primary/10 dark:border-primary/30">
+              <div class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-kli-primary/10 text-kli-primary dark:bg-kli-primary/20 dark:text-kli-primary mb-6 border border-kli-primary/10 dark:border-kli-primary/30">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>

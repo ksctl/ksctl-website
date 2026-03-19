@@ -3,9 +3,9 @@ import Container from "./Container.astro";
 import { sustainabilityVisual } from "@/data/kli";
 ---
 
-<section id="sustainability" class="py-24 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
+<section id="sustainability" class="py-24 bg-gradient-to-b from-background to-kli-muted/30 relative overflow-hidden">
   <!-- Decorative elements -->
-  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-kli-primary/30 to-transparent"></div>
   
   <Container>
     <div class="text-center mb-16 relative z-10">
@@ -15,17 +15,17 @@ import { sustainabilityVisual } from "@/data/kli";
         </svg>
         {sustainabilityVisual.badge}
       </span>
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
-        {sustainabilityVisual.heading.split(' ').slice(0, 2).join(' ')} <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{sustainabilityVisual.heading.split(' ').slice(2).join(' ')}</span>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-kli-foreground mb-6 tracking-tight">
+        {sustainabilityVisual.heading.split(' ').slice(0, 2).join(' ')} <span class="bg-gradient-to-r from-kli-primary to-kli-secondary bg-clip-text text-transparent">{sustainabilityVisual.heading.split(' ').slice(2).join(' ')}</span>
       </h2>
-      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+      <p class="text-xl text-kli-muted-foreground max-w-3xl mx-auto">
         {sustainabilityVisual.subheading}
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
       {sustainabilityVisual.metrics.map((metric, index) => (
-        <div class="bg-card rounded-2xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-border group">
+        <div class="bg-kli-card rounded-2xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-kli-border group">
           <div class:list={[
             "w-14 h-14 flex items-center justify-center rounded-xl mb-6 shadow-lg",
             index === 0 ? "bg-kli-eco text-white shadow-kli-eco/20" : 
@@ -54,16 +54,16 @@ import { sustainabilityVisual } from "@/data/kli";
           ]}>
             {metric.title}
           </h3>
-          <p class="text-muted-foreground mb-6">{metric.description}</p>
+          <p class="text-kli-muted-foreground mb-6">{metric.description}</p>
           <div class="mt-auto">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-sm font-semibold text-muted-foreground">{metric.label}</span>
+              <span class="text-sm font-semibold text-kli-muted-foreground">{metric.label}</span>
               <span class:list={[
                 "text-sm font-bold",
                 index === 0 ? "text-kli-eco" : index === 1 ? "text-kli-tech" : "text-kli-step"
               ]}>{metric.percentage}%</span>
             </div>
-            <div class="w-full bg-muted rounded-full h-2">
+            <div class="w-full bg-kli-muted rounded-full h-2">
               <div class:list={[
                 "h-2 rounded-full",
                 index === 0 ? "bg-kli-eco" : index === 1 ? "bg-kli-tech" : "bg-kli-step"
@@ -77,7 +77,7 @@ import { sustainabilityVisual } from "@/data/kli";
     <div class="text-center">
       <a
         href={sustainabilityVisual.cta.href}
-        class="inline-flex items-center px-8 py-3 rounded-lg bg-primary hover:bg-secondary text-white font-medium transition-all shadow-lg shadow-primary/20"
+        class="inline-flex items-center px-8 py-3 rounded-lg bg-kli-primary hover:bg-kli-secondary text-white font-medium transition-all shadow-lg shadow-kli-primary/20"
       >
         <span>{sustainabilityVisual.cta.text}</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">

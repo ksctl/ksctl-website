@@ -3,60 +3,60 @@ import Container from "./Container.astro";
 import { stats } from "@/data/kli";
 ---
 
-<div id="solution" class="py-16 sm:py-24 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
+<div id="solution" class="py-16 sm:py-24 bg-gradient-to-b from-background to-kli-muted/30 relative overflow-hidden">
     <!-- Decorative elements -->
-    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-    <div class="absolute right-0 top-20 w-64 h-64 bg-primary/5 rounded-full filter blur-3xl"></div>
-    <div class="absolute left-0 bottom-10 w-72 h-72 bg-secondary/5 rounded-full filter blur-3xl"></div>
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-kli-primary/30 to-transparent"></div>
+    <div class="absolute right-0 top-20 w-64 h-64 bg-kli-primary/5 rounded-full filter blur-3xl"></div>
+    <div class="absolute left-0 bottom-10 w-72 h-72 bg-kli-secondary/5 rounded-full filter blur-3xl"></div>
 
     <!-- Content -->
     <Container>
       <div class="text-center mb-12">
-        <span class="bg-accent text-accent-foreground px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4 border border-primary/20">{stats.badge}</span>
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight">
-          {stats.heading.split(' ').slice(0, -1).join(' ')} <span class="text-primary">{stats.heading.split(' ').slice(-1)}</span>
+        <span class="bg-kli-accent text-kli-accent-foreground px-4 py-1.5 rounded-full text-sm font-medium inline-block mb-4 border border-kli-primary/20">{stats.badge}</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-kli-foreground mb-4 tracking-tight">
+          {stats.heading.split(' ').slice(0, -1).join(' ')} <span class="text-kli-primary">{stats.heading.split(' ').slice(-1)}</span>
         </h2>
-        <p class="text-muted-foreground max-w-2xl mx-auto text-lg">
+        <p class="text-kli-muted-foreground max-w-2xl mx-auto text-lg">
           {stats.subheading}
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Feature Card 1 -->
-        <div class="bg-card rounded-2xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-border group">
-          <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary to-secondary text-white mb-6 shadow-lg shadow-primary/20">
+        <div class="bg-kli-card rounded-2xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-kli-border group">
+          <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-kli-primary to-kli-secondary text-white mb-6 shadow-lg shadow-kli-primary/20">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
               <path fill-rule="evenodd" d="M12 1.5a.75.75 0 01.75.75V4.5a.75.75 0 01-1.5 0V2.25A.75.75 0 0112 1.5zM5.636 4.136a.75.75 0 011.06 0l1.592 1.591a.75.75 0 01-1.061 1.06l-1.591-1.59a.75.75 0 010-1.061zm12.728 0a.75.75 0 010 1.06l-1.591 1.592a.75.75 0 01-1.06-1.061l1.59-1.591a.75.75 0 011.061 0zm-6.816 4.496a.75.75 0 01.82.311l5.228 7.917a.75.75 0 01-.777 1.148l-2.097-.43 1.045 3.9a.75.75 0 01-1.45.388l-1.044-3.899-1.601 1.42a.75.75 0 01-1.247-.606l.569-9.47a.75.75 0 01.554-.68zM3 10.5a.75.75 0 01.75-.75H6a.75.75 0 010 1.5H3.75A.75.75 0 013 10.5zm14.25 0a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H18a.75.75 0 01-.75-.75zm-8.962 3.712a.75.75 0 010 1.061l-1.591 1.591a.75.75 0 11-1.061-1.06l1.591-1.592a.75.75 0 011.06 0z" clip-rule="evenodd" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{stats.cards[0].title}</h3>
-          <p class="text-muted-foreground">{stats.cards[0].description}</p>
-          <div class="mt-6 pt-4 border-t border-border">
-            <code class="inline-block text-sm bg-accent text-primary py-1.5 px-3 rounded font-mono font-semibold">
+          <h3 class="text-xl font-bold text-kli-foreground mb-3 group-hover:text-kli-primary transition-colors">{stats.cards[0].title}</h3>
+          <p class="text-kli-muted-foreground">{stats.cards[0].description}</p>
+          <div class="mt-6 pt-4 border-t border-kli-border">
+            <code class="inline-block text-sm bg-kli-accent text-kli-primary py-1.5 px-3 rounded font-mono font-semibold">
               {stats.cards[0].command}
             </code>
           </div>
         </div>
 
         <!-- Feature Card 2 -->
-        <div class="bg-card rounded-2xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-border group">
+        <div class="bg-kli-card rounded-2xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-kli-border group">
           <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-kli-eco to-emerald-600 text-white mb-6 shadow-lg shadow-kli-eco/20">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
               <path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-kli-eco transition-colors">{stats.cards[1].title}</h3>
-          <p class="text-muted-foreground">{stats.cards[1].description}</p>
-          <div class="mt-6 pt-4 border-t border-border flex items-center">
-            <div class="w-full bg-muted rounded-full h-2.5">
+          <h3 class="text-xl font-bold text-kli-foreground mb-3 group-hover:text-kli-eco transition-colors">{stats.cards[1].title}</h3>
+          <p class="text-kli-muted-foreground">{stats.cards[1].description}</p>
+          <div class="mt-6 pt-4 border-t border-kli-border flex items-center">
+            <div class="w-full bg-kli-muted rounded-full h-2.5">
               <div class="bg-kli-eco h-2.5 rounded-full animate-pulse-slow" style={`width: ${stats.cards[1].percentage}%`}></div>
             </div>
-            <span class="ml-3 text-sm font-semibold text-muted-foreground">{stats.cards[1].time}</span>
+            <span class="ml-3 text-sm font-semibold text-kli-muted-foreground">{stats.cards[1].time}</span>
           </div>
         </div>
 
         <!-- Feature Card 3 -->
-        <div class="bg-card rounded-2xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-border group">
+        <div class="bg-kli-card rounded-2xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-kli-border group">
           <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-kli-tech to-blue-600 text-white mb-6 shadow-lg shadow-kli-tech/20">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
               <path d="M21 6.375c0 2.692-4.03 4.875-9 4.875S3 9.067 3 6.375 7.03 1.5 12 1.5s9 2.183 9 4.875z" />
@@ -65,9 +65,9 @@ import { stats } from "@/data/kli";
               <path d="M12 20.25c2.685 0 5.19-.586 7.078-1.609a8.282 8.282 0 001.897-1.384c.016.121.025.244.025.368 0 2.692-4.03 4.875-9 4.875s-9-2.183-9-4.875c0-.124.009-.247.025-.368a8.284 8.284 0 001.897 1.384C6.809 19.664 9.315 20.25 12 20.25z" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-kli-tech transition-colors">{stats.cards[2].title}</h3>
-          <p class="text-muted-foreground">{stats.cards[2].description}</p>
-          <div class="mt-6 pt-4 border-t border-border flex justify-between">
+          <h3 class="text-xl font-bold text-kli-foreground mb-3 group-hover:text-kli-tech transition-colors">{stats.cards[2].title}</h3>
+          <p class="text-kli-muted-foreground">{stats.cards[2].description}</p>
+          <div class="mt-6 pt-4 border-t border-kli-border flex justify-between">
             <div class="flex space-x-3">
               <!-- AWS -->
               <div class="w-8 h-8 flex items-center justify-center rounded-full bg-kli-step-muted">
@@ -94,43 +94,43 @@ import { stats } from "@/data/kli";
       </div>
 
       <!-- Compare section -->
-      <div class="mt-20 bg-card rounded-2xl p-8 shadow-xl border border-border overflow-hidden relative transition-all duration-300 hover:border-primary/30">
-        <div class="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full filter blur-2xl"></div>
+      <div class="mt-20 bg-kli-card rounded-2xl p-8 shadow-xl border border-kli-border overflow-hidden relative transition-all duration-300 hover:border-kli-primary/30">
+        <div class="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br from-kli-primary/10 to-kli-secondary/10 rounded-full filter blur-2xl"></div>
 
         <div class="text-center mb-10 relative z-10">
-          <h3 class="text-2xl font-bold text-foreground mb-3">{stats.comparison.heading}</h3>
-          <p class="text-muted-foreground max-w-2xl mx-auto">{stats.comparison.subheading}</p>
+          <h3 class="text-2xl font-bold text-kli-foreground mb-3">{stats.comparison.heading}</h3>
+          <p class="text-kli-muted-foreground max-w-2xl mx-auto">{stats.comparison.subheading}</p>
         </div>
 
         <div class="overflow-x-auto">
           <table class="min-w-full">
             <thead>
-              <tr class="bg-muted/50 border-b border-border">
-                <th class="text-left py-4 px-6 text-muted-foreground font-bold">Features</th>
-                <th class="text-center py-4 px-6 bg-primary/5 dark:bg-primary/10 border-x border-border">
+              <tr class="bg-kli-muted/50 border-b border-kli-border">
+                <th class="text-left py-4 px-6 text-kli-muted-foreground font-bold">Features</th>
+                <th class="text-center py-4 px-6 bg-kli-primary/5 dark:bg-kli-primary/10 border-x border-kli-border">
                   <div class="flex flex-col items-center">
-                    <span class="text-primary text-lg font-bold">kli</span>
+                    <span class="text-kli-primary text-lg font-bold">kli</span>
                     <div class="mt-1 flex items-center">
-                      <span class="px-3 py-1 bg-primary text-white rounded-full text-xs font-semibold">Recommended</span>
+                      <span class="px-3 py-1 bg-kli-primary text-white rounded-full text-xs font-semibold">Recommended</span>
                     </div>
                   </div>
                 </th>
-                <th class="text-center py-4 px-6 text-muted-foreground font-bold">Other Tools</th>
+                <th class="text-center py-4 px-6 text-kli-muted-foreground font-bold">Other Tools</th>
               </tr>
             </thead>
             <tbody>
               {stats.comparison.rows.map((row) => (
-                <tr class="border-b border-border hover:bg-muted/30 transition-colors last:border-b-0">
-                  <td class="py-4 px-6 font-medium text-foreground">{row.feature}</td>
-                  <td class="py-4 px-6 text-center font-semibold text-primary bg-primary/5 border-x border-border">
+                <tr class="border-b border-kli-border hover:bg-kli-muted/30 transition-colors last:border-b-0">
+                  <td class="py-4 px-6 font-medium text-kli-foreground">{row.feature}</td>
+                  <td class="py-4 px-6 text-center font-semibold text-kli-primary bg-kli-primary/5 border-x border-kli-border">
                     <div class="flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-kli-primary" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                       </svg>
                       <span>{row.kli}</span>
                     </div>
                   </td>
-                  <td class="py-4 px-6 text-center text-muted-foreground">
+                  <td class="py-4 px-6 text-center text-kli-muted-foreground">
                     <div class="flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
@@ -145,7 +145,7 @@ import { stats } from "@/data/kli";
         </div>
 
         <div class="mt-10 text-center">
-          <a href={stats.comparison.cta.href} class="inline-flex items-center px-6 py-3 rounded-lg bg-primary hover:bg-secondary text-white font-medium transition-all shadow-lg shadow-primary/20">
+          <a href={stats.comparison.cta.href} class="inline-flex items-center px-6 py-3 rounded-lg bg-kli-primary hover:bg-kli-secondary text-white font-medium transition-all shadow-lg shadow-kli-primary/20">
             <span>{stats.comparison.cta.text}</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>

@@ -5,14 +5,14 @@ import { coreValues } from "@/data/home";
 const { values } = coreValues;
 ---
 
-<section class="relative py-24 bg-background">
+<section class="relative py-24 bg-ksctl-background">
   <Container>
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">
-        {coreValues.heading.split(' ')[0]} <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{coreValues.heading.split(' ').slice(1).join(' ')}</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-ksctl-foreground mb-4">
+        {coreValues.heading.split(' ')[0]} <span class="bg-gradient-to-r from-ksctl-primary to-ksctl-secondary bg-clip-text text-transparent">{coreValues.heading.split(' ').slice(1).join(' ')}</span>
       </h2>
-      <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+      <p class="text-lg text-ksctl-muted-foreground max-w-2xl mx-auto">
         {coreValues.subheading}
       </p>
     </div>
@@ -20,32 +20,32 @@ const { values } = coreValues;
     <!-- Values Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {values.map((value) => (
-        <div class="group relative bg-card rounded-2xl border border-border p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+        <div class="group relative bg-ksctl-card rounded-2xl border border-ksctl-border p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
           <!-- Gradient Border on Hover -->
-          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-secondary opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-ksctl-primary to-ksctl-secondary opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
 
           <!-- Top Border Accent -->
-          <div class="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-16 bg-gradient-to-r from-primary to-secondary rounded-b-full opacity-50 group-hover:opacity-100 group-hover:w-24 transition-all duration-300"></div>
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-16 bg-gradient-to-r from-ksctl-primary to-ksctl-secondary rounded-b-full opacity-50 group-hover:opacity-100 group-hover:w-24 transition-all duration-300"></div>
 
           <!-- Icon -->
-          <div class="relative mb-4 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+          <div class="relative mb-4 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-ksctl-primary/10 dark:bg-ksctl-primary/20 text-ksctl-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-ksctl-primary group-hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <Fragment set:html={value.icon} />
             </svg>
           </div>
 
           <!-- Title -->
-          <h3 class="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+          <h3 class="text-xl font-bold text-ksctl-foreground mb-3 group-hover:text-ksctl-primary transition-colors duration-300">
             {value.title}
           </h3>
 
           <!-- Description -->
-          <p class="text-muted-foreground leading-relaxed">
+          <p class="text-ksctl-muted-foreground leading-relaxed">
             {value.description}
           </p>
 
           <!-- Decorative Element -->
-          <div class="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-ksctl-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
       ))}
     </div>

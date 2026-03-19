@@ -3,12 +3,12 @@ import Container from "./Container.astro";
 import { faq } from "@/data/kli";
 ---
 
-<div id="faq" class="py-24 bg-gradient-to-b from-background to-muted relative overflow-hidden">
+<div id="faq" class="py-24 bg-gradient-to-b from-background to-kli-muted relative overflow-hidden">
   <!-- Decorative elements -->
-  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+  <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-kli-primary/30 to-transparent"></div>
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute -top-40 right-0 w-96 h-96 bg-gradient-to-br from-primary/10 to-secondary/5 blur-3xl"></div>
-    <div class="absolute -bottom-40 -left-20 w-80 h-80 bg-gradient-to-tr from-primary/10 to-secondary/5 blur-3xl"></div>
+    <div class="absolute -top-40 right-0 w-96 h-96 bg-gradient-to-br from-kli-primary/10 to-kli-secondary/5 blur-3xl"></div>
+    <div class="absolute -bottom-40 -left-20 w-80 h-80 bg-gradient-to-tr from-kli-primary/10 to-kli-secondary/5 blur-3xl"></div>
   </div>
 
   <Container>
@@ -19,10 +19,10 @@ import { faq } from "@/data/kli";
         </svg>
         {faq.badge}
       </span>
-      <h2 class="text-4xl font-bold text-foreground md:text-5xl lg:text-6xl tracking-tight">
-        {faq.heading.split(' ').slice(0, -1).join(' ')} <span class="bg-gradient-to-r from-kli-info to-primary bg-clip-text text-transparent">{faq.heading.split(' ').slice(-1)}</span>
+      <h2 class="text-4xl font-bold text-kli-foreground md:text-5xl lg:text-6xl tracking-tight">
+        {faq.heading.split(' ').slice(0, -1).join(' ')} <span class="bg-gradient-to-r from-kli-primary to-kli-secondary bg-clip-text text-transparent">{faq.heading.split(' ').slice(-1)}</span>
       </h2>
-      <p class="mx-auto max-w-2xl text-xl text-muted-foreground">
+      <p class="mx-auto max-w-2xl text-xl text-kli-muted-foreground">
         {faq.subheading}
       </p>
     </div>
@@ -30,21 +30,21 @@ import { faq } from "@/data/kli";
     <div class="max-w-3xl mx-auto">
       <div class="space-y-6">
         {faq.items.map((item) => (
-          <div class="faq-item bg-card rounded-2xl shadow-xl border border-border overflow-hidden transition-all duration-300 hover:border-primary/30">
+          <div class="faq-item bg-kli-card rounded-2xl shadow-xl border border-kli-border overflow-hidden transition-all duration-300 hover:border-kli-primary/30">
             <button
               class="faq-question w-full flex items-center justify-between p-6 text-left"
               aria-expanded="false"
             >
-              <h3 class="text-xl font-semibold text-foreground">{item.question}</h3>
-              <svg class="faq-icon h-6 w-6 text-primary transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <h3 class="text-xl font-semibold text-kli-foreground">{item.question}</h3>
+              <svg class="faq-icon h-6 w-6 text-kli-primary transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             <div class="faq-answer px-6 pb-6 hidden">
               {item.answer ? (
-                <p class="text-muted-foreground">{item.answer}</p>
+                <p class="text-kli-muted-foreground">{item.answer}</p>
               ) : (
-                <div class="text-muted-foreground" set:html={item.answerHtml} />
+                <div class="text-kli-muted-foreground" set:html={item.answerHtml} />
               )}
             </div>
           </div>
@@ -52,7 +52,7 @@ import { faq } from "@/data/kli";
       </div>
 
       <div class="mt-12 text-center">
-        <p class="text-lg text-muted-foreground">
+        <p class="text-lg text-kli-muted-foreground">
           Still have questions? We're here to help!
         </p>
         <div class="mt-6 flex flex-wrap justify-center gap-4">
