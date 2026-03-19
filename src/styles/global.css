@@ -39,8 +39,12 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+}
 
-  /* Fallback color registrations — overridden by page theme CSS */
+/* Fallback color registrations — overridden by page theme CSS (kli.css, company.css, etc.)
+   IMPORTANT: Must be @theme (not @theme inline) so values emit as CSS custom properties
+   that page-specific themes can override via the cascade. */
+@theme {
   --color-background: #fffaf6;
   --color-foreground: #301a08;
   --color-card: #ffffff;
