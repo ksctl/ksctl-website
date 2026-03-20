@@ -1,6 +1,6 @@
 ---
 import Container from "../Container.astro";
-import BrowserMockup from '../BrowserMockup.astro';
+import ModernMockup from './ModernMockup.astro';
 import { productDemo } from '@/data/kubmin';
 ---
 
@@ -27,10 +27,10 @@ import { productDemo } from '@/data/kubmin';
     </div>
 
     <div class="relative max-w-5xl mx-auto mb-20">
-      <BrowserMockup
+      <ModernMockup
         imageSrc={productDemo.screenshot.src}
         imageAlt={productDemo.screenshot.alt}
-        addressBarText={productDemo.screenshot.browserUrl}
+        glowColor="energy"
         className="shadow-[--shadow-kubmin-energy-glow-soft] ring-1 ring-white/10"
       />
     </div>

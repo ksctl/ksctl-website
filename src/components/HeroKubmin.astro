@@ -1,6 +1,6 @@
 ---
 import Container from "./Container.astro";
-import BrowserMockup from "./BrowserMockup.astro";
+import ModernMockup from "./kubmin/ModernMockup.astro";
 import { hero } from "@/data/kubmin";
 ---
 
@@ -41,7 +41,7 @@ import { hero } from "@/data/kubmin";
   <!-- Content -->
   <div class="relative z-10">
     <Container>
-      <div class="pt-32 md:pt-40 pb-8">
+      <div class="pt-24 md:pt-32 pb-8">
         <div class="max-w-4xl mx-auto text-center">
           <!-- Badge -->
           <div class="hero-stagger hero-stagger-1 mx-auto flex max-w-fit items-center justify-center space-x-3 rounded-full bg-white/[0.08] border border-white/[0.12] px-6 py-3 backdrop-blur-sm mb-10">
@@ -98,12 +98,12 @@ import { hero } from "@/data/kubmin";
           <!-- White glow behind mockup -->
           <div class="absolute inset-0 rounded bg-white blur-[10rem] opacity-[0.08]"></div>
 
-          <div class="relative hero-mockup-float">
-            <BrowserMockup
+          <div class="relative">
+            <ModernMockup
               imageSrc={hero.screenshot.src}
               imageAlt={hero.screenshot.alt}
-              addressBarText={hero.screenshot.browserUrl}
               loading="eager"
+              glowColor="cost"
               className="shadow-2xl shadow-black/50"
             />
           </div>
@@ -160,15 +160,6 @@ import { hero } from "@/data/kubmin";
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 128px 128px;
-}
-
-/* Mockup perspective float */
-.hero-mockup-float {
-  transform: perspective(2000px) rotateX(5deg);
-  transition: transform 0.6s ease;
-}
-.hero-mockup-float:hover {
-  transform: perspective(2000px) rotateX(1deg);
 }
 
 /* Staggered fade-in */

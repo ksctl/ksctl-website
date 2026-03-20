@@ -1,0 +1,65 @@
+---
+interface Props {
+  imageSrc: string;
+  imageAlt: string;
+  loading?: 'lazy' | 'eager';
+  className?: string;
+  glowColor?: 'cost' | 'energy' | 'primary' | 'none';
+}
+
+const {
+  imageSrc,
+  imageAlt,
+  loading = 'lazy',
+  className = '',
+  glowColor = 'primary',
+} = Astro.props;
+
+const glowClasses = {
+  cost: 'shadow-[0_0_50px_-12px_rgba(245,158,11,0.3)] border-kubmin-cost/30',
+  energy: 'shadow-[0_0_50px_-12px_rgba(16,185,129,0.3)] border-kubmin-energy/30',
+  primary: 'shadow-[0_0_50px_-12px_rgba(20,184,166,0.3)] border-kubmin-primary-500/30',
+  none: 'shadow-2xl border-white/10',
+};
+
+const selectedGlow = glowClasses[glowColor];
+---
+
+<div class={`relative group ${className}`}>
+  <!-- Outer Glow Effect -->
+  <div class={`absolute -inset-1 bg-gradient-to-r ${glowColor === 'cost' ? 'from-kubmin-orange to-kubmin-cost' : glowColor === 'energy' ? 'from-kubmin-energy to-kubmin-cyan' : 'from-kubmin-primary-600 to-kubmin-primary-400'} rounded-[2rem] blur-2xl opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200`}></div>
+  
+  <div class={`relative bg-kubmin-dark/80 backdrop-blur-sm rounded-[1.8rem] overflow-hidden border ${selectedGlow} transition-all duration-500 group-hover:scale-[1.01] group-hover:border-white/20`}>
+    <!-- Subtle Glass Header (Modern, no traffic lights) -->
+    <div class="h-2 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+    
+    <!-- Screenshot with subtle inner shadow -->
+    <div class="relative">
+      <div class="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.4)] pointer-events-none z-10"></div>
+      <img
+        src={imageSrc}
+        alt={imageAlt}
+        loading={loading}
+        decoding="async"
+        class="w-full h-auto block transform transition-transform duration-700 group-hover:scale-[1.02]"
+      />
+    </div>
+
+    <!-- Bottom Reflection/Glow -->
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white/5 to-transparent pointer-events-none"></div>
+  </div>
+  
+  <!-- Floating Decoration Bits (Optional, can be added per use-case) -->
+  <div class="absolute -top-6 -right-6 w-12 h-12 bg-kubmin-primary-500/20 rounded-full blur-xl animate-pulse"></div>
+  <div class="absolute -bottom-8 -left-8 w-20 h-20 bg-kubmin-cost/10 rounded-full blur-2xl animate-pulse delay-700"></div>
+</div>
+
+<style>
+  .animate-pulse {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.1); }
+  }
+</style>
