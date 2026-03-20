@@ -21,7 +21,7 @@ import { howItWorks } from "@/data/kubmin";
         {howItWorks.steps.map((step, i) => (
           <div class="relative flex flex-col items-center text-center group">
             <div class="w-24 h-24 rounded-full bg-white border-[6px] border-kubmin-neutral-50 flex items-center justify-center shadow-lg mb-8 group-hover:scale-110 group-hover:border-kubmin-primary-50 group-hover:shadow-kubmin-primary-500/20 transition-all duration-500 z-10">
-              <span class="text-3xl font-extrabold text-kubmin-primary-600 font-mono drop-shadow-sm">0{i+1}</span>
+              <span class="text-3xl font-black tracking-tighter text-kubmin-primary-600 font-sans tabular-nums drop-shadow-sm">0{i+1}</span>
             </div>
             <h3 class="text-xl font-bold text-kubmin-neutral-900 mb-4 px-4">{step.title}</h3>
             <p class="text-kubmin-neutral-500 leading-relaxed px-2 md:px-0 text-[1.05rem]">{step.body}</p>

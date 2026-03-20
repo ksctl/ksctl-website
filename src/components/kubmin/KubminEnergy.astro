@@ -35,7 +35,7 @@ import { whyEnergy } from "@/data/kubmin";
           {whyEnergy.metrics.map(metric => (
             <div class="bg-white p-6 rounded-2xl border border-kubmin-neutral-200 shadow-sm">
               <div class="flex items-baseline gap-4 mb-3">
-                <span class="text-3xl font-black text-kubmin-primary-600 font-mono tracking-tighter">{metric.name}</span>
+                <span class="text-3xl font-black tracking-tighter text-kubmin-primary-600 font-sans tabular-nums">{metric.name}</span>
                 <span class="text-lg font-semibold text-kubmin-neutral-900">{metric.full}</span>
               </div>
               <p class="text-kubmin-neutral-500">{metric.description}</p>

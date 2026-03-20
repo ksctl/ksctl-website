@@ -5,9 +5,11 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
   --font-sans: Geist, ui-sans-serif, sans-serif, system-ui;
   --font-serif: Playfair Display, ui-serif, serif;
-  --font-mono: JetBrains Mono, ui-monospace, monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --radius: 0.5rem;
   --shadow-2xs: 1px 2px 5px 1px hsl(0 0% 10.1961% / 0.03);
   --shadow-xs: 1px 2px 5px 1px hsl(0 0% 10.1961% / 0.03);
@@ -145,7 +147,7 @@
   --color-kubmin-cyan: transparent;
   --color-kubmin-blue: transparent;
 
-  --font-kubmin-accent: transparent;
+
   --shadow-kubmin-cost-glow: transparent;
   --shadow-kubmin-energy-glow-soft: transparent;
   --shadow-kubmin-energy-glow: transparent;

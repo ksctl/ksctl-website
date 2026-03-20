@@ -47,8 +47,8 @@ html {
   --color-kubmin-cyan: #06b6d4; /* cyan-500 */
   --color-kubmin-blue: #3b82f6; /* blue-500 */
 
-  /* Typography — accent / decorative font */
-  --font-kubmin-accent: 'Instrument Serif', serif;
+  /* Typography */
+
 
   /* Glow shadow presets (rgb values match the color tokens above) */
   --shadow-kubmin-cost-glow: 0 0 32px rgb(245 158 11 / 0.3);

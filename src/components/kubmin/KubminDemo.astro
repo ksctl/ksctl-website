@@ -1,7 +1,7 @@
 ---
 import Container from "../Container.astro";
-import BrowserMockup from "../BrowserMockup.astro";
-import { productDemo } from "@/data/kubmin";
+import BrowserMockup from '../BrowserMockup.astro';
+import { productDemo } from '@/data/kubmin';
 ---
 
 <section class="py-32 relative bg-kubmin-dark overflow-hidden text-white">
@@ -36,7 +36,27 @@ import { productDemo } from "@/data/kubmin";
     </div>
 
     <!-- Stats Row -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-20 max-w-5xl mx-auto">
+    <div 
+      class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-20 max-w-5xl mx-auto"
+      x-data="{ 
+        animate(target, duration, callback) {
+          const start = 0;
+          const startTime = performance.now();
+          
+          const step = (currentTime) => {
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            // Ease out cubic
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+            const current = start + (target - start) * easedProgress;
+            callback(current);
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            }
+          };
+          requestAnimationFrame(step);
+        }
+      }"
+    >
       {productDemo.stats.map((stat, i) => {
         const colors = [
           'text-kubmin-cost', 
@@ -47,17 +67,54 @@ import { productDemo } from "@/data/kubmin";
         const color = colors[i % colors.length];
         
         return (
-          <div class="flex flex-col items-center justify-center text-center p-6 md:p-8 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300 h-full">
-            <div class="text-4xl md:text-5xl font-extrabold tracking-tighter text-white mb-5 font-mono drop-shadow-sm flex flex-col items-center justify-center leading-none gap-2">
-              {stat.value.includes(' vs ') ? (
-                <>
-                  <span>{stat.value.split(' vs ')[0]}</span>
-                  <span class="text-lg md:text-xl text-kubmin-neutral-500 font-sans font-medium">vs</span>
-                  <span>{stat.value.split(' vs ')[1]}</span>
-                </>
-              ) : (
-                stat.value
-              )}
+          <div 
+            class="flex flex-col items-center justify-center text-center p-6 md:p-8 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300 h-full"
+            x-data={`{ 
+              displayValue: '${stat.value}',
+              isAnimated: false,
+              startAnimation() {
+                if (this.isAnimated) return;
+                this.isAnimated = true;
+                
+                const val = '${stat.value}';
+                if (val.includes(' vs ')) {
+                  const parts = val.split(' vs ');
+                  this.setupMulti(parts[0], parts[1]);
+                } else {
+                  this.setupSingle(val);
+                }
+              },
+              setupSingle(val) {
+                const match = val.match(/^([^\\d]*)(\\d+(?:\\.\\d+)?)([^\\d]*)$/);
+                if (match) {
+                  const prefix = match[1];
+                  const target = parseFloat(match[2]);
+                  const suffix = match[3];
+                  const isDecimal = match[2].includes('.');
+                  this.animate(target, 2000, (v) => {
+                    this.displayValue = prefix + (isDecimal ? v.toFixed(2) : Math.floor(v)) + suffix;
+                  });
+                }
+              },
+              setupMulti(v1, v2) {
+                const m1 = v1.match(/^([^\\d]*)(\\d+(?:\\.\\d+)?)([^\\d]*)$/);
+                const m2 = v2.match(/^([^\\d]*)(\\d+(?:\\.\\d+)?)([^\\d]*)$/);
+                if (m1 && m2) {
+                  const p1 = m1[1], t1 = parseFloat(m1[2]), s1 = m1[3], d1 = m1[2].includes('.');
+                  const p2 = m2[1], t2 = parseFloat(m2[2]), s2 = m2[3], d2 = m2[2].includes('.');
+                  this.animate(1, 2000, (p) => {
+                    const eased = 1 - Math.pow(1 - p, 3);
+                    const cur1 = t1 * eased;
+                    const cur2 = t2 * eased;
+                    this.displayValue = \`\${p1}\${d1 ? cur1.toFixed(2) : Math.floor(cur1)}\${s1} vs \${p2}\${d2 ? cur2.toFixed(2) : Math.floor(cur2)}\${s2}\`;
+                  });
+                }
+              }
+            }`}
+            x-intersect.once="startAnimation()"
+          >
+            <div class="text-4xl md:text-5xl font-black tracking-tighter text-white mb-5 font-sans tabular-nums drop-shadow-sm flex flex-row items-center justify-center leading-none gap-2" x-text="displayValue">
+              {stat.value}
             </div>
             <div class={`text-sm font-bold mb-1.5 tracking-wide ${color}`}>{stat.label}</div>
             <div class="text-xs text-kubmin-neutral-400 font-medium">{stat.detail}</div>
@@ -67,8 +124,8 @@ import { productDemo } from "@/data/kubmin";
     </div>
 
     <div class="max-w-3xl mx-auto text-center">
-      <blockquote class="text-xl md:text-2xl font-medium text-white/80 font-kubmin-accent italic mb-10 border-l-2 border-kubmin-energy pl-6 text-left leading-relaxed">
-        "{productDemo.insight}"
+      <blockquote class="text-xl md:text-2xl font-medium text-white/80 italic mb-10 border-l-2 border-kubmin-energy pl-6 text-left leading-relaxed">
+        {productDemo.insight}
       </blockquote>
       <div class="flex flex-col sm:flex-row items-center justify-between gap-6 bg-white/[0.03] border border-white/10 p-6 md:p-8 rounded-3xl backdrop-blur-sm shadow-xl">
         <p class="text-kubmin-neutral-400 text-sm m-0 text-left">{productDemo.caption}</p>
