@@ -10,6 +10,29 @@ import { hero } from "@/data/home";
   <div class="hero-blob hero-blob-blue"></div>
   <div class="hero-blob hero-blob-peach"></div>
 
+  <!-- Animated grid overlay -->
+  <div class="absolute inset-0 z-0 pointer-events-none hero-grid"></div>
+
+  <!-- Floating orbs with glow -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+    <div class="hero-orb hero-orb-4"></div>
+    <div class="hero-orb hero-orb-5"></div>
+    <div class="hero-orb hero-orb-6"></div>
+  </div>
+
+  <!-- Shooting meteors -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="hero-meteor hero-meteor-1"></div>
+    <div class="hero-meteor hero-meteor-2"></div>
+    <div class="hero-meteor hero-meteor-3"></div>
+  </div>
+
+  <!-- Animated aurora band -->
+  <div class="absolute inset-0 z-0 pointer-events-none hero-aurora"></div>
+
   <!-- Noise/grain texture overlay -->
   <div class="absolute inset-0 z-0 opacity-[0.35] pointer-events-none hero-noise"></div>
 
@@ -238,6 +261,136 @@ import { hero } from "@/data/home";
 
 /* Gradient text shimmer (dark mode only) */
 @keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Animated grid overlay — visible moving grid */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: gridShift 25s linear infinite;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
+}
+.dark .hero-grid {
+  background-image:
+    linear-gradient(rgba(20,184,166,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20,184,166,0.12) 1px, transparent 1px);
+}
+@keyframes gridShift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(80px, 80px); }
+}
+
+/* Floating orbs with visible glow */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform, opacity;
+}
+.hero-orb-1 {
+  width: 8px; height: 8px; left: 12%; top: 30%;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 20px 8px rgba(255,255,255,0.3), 0 0 60px 20px rgba(255,255,255,0.1);
+  animation: orbFloat 7s ease-in-out infinite;
+}
+.hero-orb-2 {
+  width: 6px; height: 6px; left: 75%; top: 20%;
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 0 16px 6px rgba(255,255,255,0.25), 0 0 50px 16px rgba(255,255,255,0.08);
+  animation: orbFloat 9s ease-in-out infinite; animation-delay: 2s;
+}
+.hero-orb-3 {
+  width: 10px; height: 10px; left: 30%; top: 65%;
+  background: rgba(255,255,255,0.6);
+  box-shadow: 0 0 24px 10px rgba(255,255,255,0.2), 0 0 70px 24px rgba(255,255,255,0.08);
+  animation: orbFloat 11s ease-in-out infinite; animation-delay: 4s;
+}
+.hero-orb-4 {
+  width: 5px; height: 5px; left: 60%; top: 50%;
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 0 14px 5px rgba(255,255,255,0.25);
+  animation: orbFloat 8s ease-in-out infinite; animation-delay: 1s;
+}
+.hero-orb-5 {
+  width: 7px; height: 7px; left: 88%; top: 45%;
+  background: rgba(255,255,255,0.6);
+  box-shadow: 0 0 18px 7px rgba(255,255,255,0.2);
+  animation: orbFloat 10s ease-in-out infinite; animation-delay: 3s;
+}
+.hero-orb-6 {
+  width: 6px; height: 6px; left: 45%; top: 15%;
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 0 16px 6px rgba(255,255,255,0.2);
+  animation: orbFloat 12s ease-in-out infinite; animation-delay: 5s;
+}
+.dark .hero-orb-1 { background: rgba(20,184,166,0.9); box-shadow: 0 0 20px 8px rgba(20,184,166,0.4), 0 0 60px 20px rgba(20,184,166,0.15); }
+.dark .hero-orb-2 { background: rgba(20,184,166,0.8); box-shadow: 0 0 16px 6px rgba(20,184,166,0.35), 0 0 50px 16px rgba(20,184,166,0.12); }
+.dark .hero-orb-3 { background: rgba(20,184,166,0.7); box-shadow: 0 0 24px 10px rgba(20,184,166,0.3), 0 0 70px 24px rgba(20,184,166,0.12); }
+.dark .hero-orb-4 { background: rgba(20,184,166,0.8); box-shadow: 0 0 14px 5px rgba(20,184,166,0.35); }
+.dark .hero-orb-5 { background: rgba(20,184,166,0.7); box-shadow: 0 0 18px 7px rgba(20,184,166,0.3); }
+.dark .hero-orb-6 { background: rgba(20,184,166,0.8); box-shadow: 0 0 16px 6px rgba(20,184,166,0.3); }
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+  25% { transform: translate(40px, -30px); opacity: 1; }
+  50% { transform: translate(-20px, -60px); opacity: 0.6; }
+  75% { transform: translate(30px, 20px); opacity: 1; }
+}
+
+/* Shooting meteor streaks */
+.hero-meteor {
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.8), transparent);
+  transform: rotate(-35deg);
+  will-change: transform, opacity;
+}
+.dark .hero-meteor {
+  background: linear-gradient(90deg, rgba(20,184,166,0.8), transparent);
+}
+.hero-meteor-1 { top: 15%; right: -120px; animation: meteorShoot 4s ease-in infinite; animation-delay: 1s; }
+.hero-meteor-2 { top: 35%; right: -120px; animation: meteorShoot 4s ease-in infinite; animation-delay: 3.5s; }
+.hero-meteor-3 { top: 55%; right: -120px; animation: meteorShoot 4s ease-in infinite; animation-delay: 6s; }
+
+@keyframes meteorShoot {
+  0% { transform: rotate(-35deg) translateX(0); opacity: 0; }
+  5% { opacity: 1; }
+  30% { opacity: 1; }
+  60% { transform: rotate(-35deg) translateX(-100vw); opacity: 0; }
+  100% { transform: rotate(-35deg) translateX(-100vw); opacity: 0; }
+}
+
+/* Aurora — wide animated color band */
+.hero-aurora {
+  background: linear-gradient(
+    110deg,
+    transparent 10%,
+    rgba(255,255,255,0.06) 30%,
+    rgba(255,255,255,0.12) 50%,
+    rgba(255,255,255,0.06) 70%,
+    transparent 90%
+  );
+  background-size: 300% 100%;
+  animation: auroraSweep 6s ease-in-out infinite;
+}
+.dark .hero-aurora {
+  background: linear-gradient(
+    110deg,
+    transparent 10%,
+    rgba(20,184,166,0.06) 30%,
+    rgba(20,184,166,0.15) 50%,
+    rgba(20,184,166,0.06) 70%,
+    transparent 90%
+  );
+  background-size: 300% 100%;
+}
+@keyframes auroraSweep {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }

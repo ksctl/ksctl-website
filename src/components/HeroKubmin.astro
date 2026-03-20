@@ -12,6 +12,29 @@ import { hero } from "@/data/kubmin";
     <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-kubmin-emerald-600 to-kubmin-cyan kubmin-blob kubmin-blob-3"></div>
   </div>
 
+  <!-- Animated grid overlay -->
+  <div class="absolute inset-0 z-0 pointer-events-none kubmin-grid"></div>
+
+  <!-- Floating orbs with glow -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="kubmin-orb kubmin-orb-1"></div>
+    <div class="kubmin-orb kubmin-orb-2"></div>
+    <div class="kubmin-orb kubmin-orb-3"></div>
+    <div class="kubmin-orb kubmin-orb-4"></div>
+    <div class="kubmin-orb kubmin-orb-5"></div>
+    <div class="kubmin-orb kubmin-orb-6"></div>
+  </div>
+
+  <!-- Shooting meteors -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="kubmin-meteor kubmin-meteor-1"></div>
+    <div class="kubmin-meteor kubmin-meteor-2"></div>
+    <div class="kubmin-meteor kubmin-meteor-3"></div>
+  </div>
+
+  <!-- Aurora band -->
+  <div class="absolute inset-0 z-0 pointer-events-none kubmin-aurora"></div>
+
   <!-- Noise/grain texture overlay -->
   <div class="absolute inset-0 z-0 opacity-[0.35] pointer-events-none hero-noise"></div>
 
@@ -164,5 +187,110 @@ import { hero } from "@/data/kubmin";
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Animated grid overlay — visible on dark bg */
+.kubmin-grid {
+  background-image:
+    linear-gradient(rgba(245,158,11,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,158,11,0.1) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: kubminGridShift 25s linear infinite;
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 20%, transparent 70%);
+}
+@keyframes kubminGridShift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(80px, 80px); }
+}
+
+/* Floating orbs — amber and emerald glow */
+.kubmin-orb {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform, opacity;
+}
+.kubmin-orb-1 {
+  width: 8px; height: 8px; left: 15%; top: 25%;
+  background: rgba(245,158,11,0.9);
+  box-shadow: 0 0 20px 8px rgba(245,158,11,0.4), 0 0 60px 20px rgba(245,158,11,0.15);
+  animation: kubminOrbFloat 7s ease-in-out infinite;
+}
+.kubmin-orb-2 {
+  width: 6px; height: 6px; left: 70%; top: 18%;
+  background: rgba(16,185,129,0.9);
+  box-shadow: 0 0 16px 6px rgba(16,185,129,0.4), 0 0 50px 16px rgba(16,185,129,0.12);
+  animation: kubminOrbFloat 9s ease-in-out infinite; animation-delay: 2s;
+}
+.kubmin-orb-3 {
+  width: 10px; height: 10px; left: 35%; top: 60%;
+  background: rgba(245,158,11,0.8);
+  box-shadow: 0 0 24px 10px rgba(245,158,11,0.3), 0 0 70px 24px rgba(245,158,11,0.1);
+  animation: kubminOrbFloat 11s ease-in-out infinite; animation-delay: 4s;
+}
+.kubmin-orb-4 {
+  width: 5px; height: 5px; left: 55%; top: 45%;
+  background: rgba(16,185,129,0.8);
+  box-shadow: 0 0 14px 5px rgba(16,185,129,0.35);
+  animation: kubminOrbFloat 8s ease-in-out infinite; animation-delay: 1s;
+}
+.kubmin-orb-5 {
+  width: 7px; height: 7px; left: 85%; top: 40%;
+  background: rgba(6,182,212,0.8);
+  box-shadow: 0 0 18px 7px rgba(6,182,212,0.3);
+  animation: kubminOrbFloat 10s ease-in-out infinite; animation-delay: 3s;
+}
+.kubmin-orb-6 {
+  width: 6px; height: 6px; left: 48%; top: 12%;
+  background: rgba(245,158,11,0.8);
+  box-shadow: 0 0 16px 6px rgba(245,158,11,0.3);
+  animation: kubminOrbFloat 12s ease-in-out infinite; animation-delay: 5s;
+}
+
+@keyframes kubminOrbFloat {
+  0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+  25% { transform: translate(40px, -30px); opacity: 1; }
+  50% { transform: translate(-20px, -60px); opacity: 0.6; }
+  75% { transform: translate(30px, 20px); opacity: 1; }
+}
+
+/* Shooting meteor streaks — amber colored */
+.kubmin-meteor {
+  position: absolute;
+  width: 140px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(245,158,11,0.9), transparent);
+  transform: rotate(-35deg);
+  will-change: transform, opacity;
+}
+.kubmin-meteor-1 { top: 12%; right: -140px; animation: kubminMeteorShoot 5s ease-in infinite; animation-delay: 0.5s; }
+.kubmin-meteor-2 { top: 30%; right: -140px; animation: kubminMeteorShoot 5s ease-in infinite; animation-delay: 3s; }
+.kubmin-meteor-3 { top: 50%; right: -140px; animation: kubminMeteorShoot 5s ease-in infinite; animation-delay: 5.5s; }
+
+@keyframes kubminMeteorShoot {
+  0% { transform: rotate(-35deg) translateX(0); opacity: 0; }
+  5% { opacity: 1; }
+  30% { opacity: 1; }
+  60% { transform: rotate(-35deg) translateX(-100vw); opacity: 0; }
+  100% { transform: rotate(-35deg) translateX(-100vw); opacity: 0; }
+}
+
+/* Aurora — amber/emerald color sweep */
+.kubmin-aurora {
+  background: linear-gradient(
+    110deg,
+    transparent 10%,
+    rgba(245,158,11,0.08) 30%,
+    rgba(16,185,129,0.12) 50%,
+    rgba(245,158,11,0.08) 70%,
+    transparent 90%
+  );
+  background-size: 300% 100%;
+  animation: kubminAuroraSweep 7s ease-in-out infinite;
+}
+@keyframes kubminAuroraSweep {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 </style>
