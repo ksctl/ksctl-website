@@ -65,9 +65,13 @@ const navigation = {
   });
 
   links.forEach((link) => {
-    link.addEventListener("click", () => {
-      isToggled = !isToggled;
-      toggleNavlinks();
+    link.addEventListener("click", (e) => {
+      // Only close menu when clicking an actual navigation link, not dropdown toggles
+      const target = e.target.closest("a[href], button");
+      if (target && target.tagName === "A") {
+        isToggled = false;
+        toggleNavlinks();
+      }
     });
   });
 
@@ -122,13 +126,13 @@ const navigation = {
               <div
                 aria-hidden="true"
                 id="line"
-                class:list={["m-auto h-0.5 w-5 rounded transition duration-300", isDark ? "bg-white" : "bg-foreground"]}
+                class:list={["m-auto h-0.5 w-5 rounded transition duration-300", isDark ? "bg-white" : "bg-global-foreground"]}
               >
               </div>
               <div
                 aria-hidden="true"
                 id="line2"
-                class:list={["m-auto mt-2 h-0.5 w-5 rounded transition duration-300", isDark ? "bg-white" : "bg-foreground"]}
+                class:list={["m-auto mt-2 h-0.5 w-5 rounded transition duration-300", isDark ? "bg-white" : "bg-global-foreground"]}
               >
               </div>
             </button>
