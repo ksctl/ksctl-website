@@ -114,12 +114,12 @@ export const cta = {
   actions: [
     {
       text: "Join the Discussion",
-      href: "https://github.com/ksctl",
+      href: "https://github.com/ksctl/vrapl/discussions/6",
       variant: "primary" as const,
     },
     {
       text: "View on GitHub",
-      href: "https://github.com/ksctl",
+      href: "https://github.com/ksctl/vrapl",
       variant: "secondary" as const,
     },
   ],
