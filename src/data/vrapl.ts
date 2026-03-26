@@ -17,7 +17,7 @@ export const hero = {
   headline: "The hardware measures it. The hypervisor has it.",
   headlineAccent: "Your VM doesn't.",
   subheadline:
-    "An open call to every cloud provider: expose real energy telemetry to tenants. Replace estimates with real measurements. Make sustainability auditable.",
+    "An open call to every cloud provider: let tenants see exactly how much energy their VMs consume in real time. Once that data exists, tools like Kepler can break it down to every container and process.",
 };
 
 // ---- THE PROBLEM ----
@@ -77,8 +77,10 @@ export const principles = {
 // ---- WHAT WE'VE BUILT ----
 export const whatWeveDone = {
   heading: "Why we wrote this",
-  description:
-    "We built kubmin — a Kubernetes observability tool that tracks per-workload cost, energy consumption, and Software Carbon Intensity scores. It works. But in cloud environments, every energy number it shows is an estimate. The ML models behind tools like Kepler are the best available — and they're still models. We have no way to validate them against ground truth because ground truth is locked inside the hypervisor. Real energy measurements would transform estimates into auditable metrics — not just for kubmin, but for every tool in the ecosystem.",
+  before: "We built ",
+  kubminLabel: "kubmin",
+  kubminHref: "/product/kubmin",
+  after: " — a Kubernetes observability tool that tracks per-workload cost, energy consumption, and Software Carbon Intensity scores. It works. But in cloud environments, every energy number it shows is an estimate. The ML models behind tools like Kepler are the best available — and they're still models. We have no way to validate them against ground truth because ground truth is locked inside the hypervisor. Real energy measurements would transform estimates into auditable metrics — not just for kubmin, but for every tool in the ecosystem.",
 };
 
 // ---- THE ASK ----
@@ -92,14 +94,6 @@ export const theAsk = {
         "Expose it as an opt-in VM configuration flag — default off, documented in public API references.",
         "Deliver readings via a secure, rate-limited channel at no more than one sample per 30 seconds with calibrated noise injection.",
         "Publish the attribution methodology, security model, and measurement source openly.",
-      ],
-    },
-    {
-      title: "To the CNCF and Green Software Foundation",
-      points: [
-        "Charter a working group on VM-level energy telemetry standards.",
-        "Define an OpenMetrics-compatible schema for energy readings.",
-        "Maintain a public test suite that validates provider implementations against the spec.",
       ],
     },
     {
@@ -174,6 +168,11 @@ export const references = {
         "Real-Time Energy and Carbon Standard for Cloud Providers",
       authors: "Green Software Foundation",
       url: "https://greensoftware.foundation/articles/real-time-cloud-ratified-a-major-step-toward-transparent-sustainable-cloud-comput/",
+    },
+    {
+      title: "EP-003: VM CPU Power Modeling for Kepler — Proposal for ML estimation when RAPL is unavailable",
+      authors: "Kepler / CNCF",
+      url: "https://github.com/sustainable-computing-io/kepler/pull/2291",
     },
   ],
 };
