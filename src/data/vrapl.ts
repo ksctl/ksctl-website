@@ -13,7 +13,6 @@ export const meta = {
 // ---- HERO ----
 export const hero = {
   label: "An Open Letter",
-  status: "Draft",
   headline: "The hardware measures it. The hypervisor has it.",
   headlineAccent: "Your VM doesn't.",
   subheadline:
