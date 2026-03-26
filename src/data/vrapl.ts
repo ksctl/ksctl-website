@@ -13,8 +13,11 @@ export const meta = {
 // ---- HERO ----
 export const hero = {
   label: "An Open Letter",
-  headline: "The hardware measures it. The hypervisor has it.",
-  headlineAccent: "Your VM doesn't.",
+  headlines: [
+    "The hardware measures it",
+    "The hypervisor has it",
+  ],
+  headlineAccent: "Your VM doesn't",
   subheadline:
     "An open call to every cloud provider: let tenants see exactly how much energy their VMs consume in real time. Once that data exists, tools like Kepler can break it down to every container and process.",
 };
