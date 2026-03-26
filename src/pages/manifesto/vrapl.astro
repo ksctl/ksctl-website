@@ -1,0 +1,267 @@
+---
+import AppHeader from "../../components/AppHeader.astro";
+import AppFooter from "../../components/AppFooter.astro";
+import Container from "../../components/Container.astro";
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+import "../../styles/kubmin.css";
+import {
+  meta,
+  hero,
+  problem,
+  principles,
+  whatWeveDone,
+  theAsk,
+  cta,
+  signatories,
+  references,
+} from "@/data/vrapl";
+---
+
+<Layout title={meta.title} description={meta.description} theme="kubmin">
+  <AppHeader variant="dark" />
+  <main class="mb-0">
+
+    <!-- HERO -->
+    <section class="relative min-h-[70vh] flex items-center overflow-hidden bg-kubmin-dark pt-32 pb-20">
+      <!-- Subtle gradient background -->
+      <div class="absolute inset-0 z-0 pointer-events-none">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[50rem] h-[50rem] bg-kubmin-energy/10 rounded-full blur-[12rem]"></div>
+        <div class="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-kubmin-primary-500/8 rounded-full blur-[10rem]"></div>
+      </div>
+
+      <!-- Grid overlay -->
+      <div class="absolute inset-0 z-0 pointer-events-none manifesto-grid"></div>
+
+      <Container class="relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <!-- Badge + Status -->
+          <div class="flex items-center justify-center gap-3 mb-8">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/[0.1] text-sm font-medium text-white/80 backdrop-blur-sm">
+              {hero.label}
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-semibold text-amber-400 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+              {hero.status}
+            </span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-white">
+            {hero.headline}<br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-kubmin-primary-400 to-kubmin-energy">
+              {hero.headlineAccent}
+            </span>
+          </h1>
+
+          <!-- Subheadline -->
+          <p class="text-lg md:text-xl text-kubmin-neutral-400 leading-relaxed max-w-3xl mx-auto">
+            {hero.subheadline}
+          </p>
+        </div>
+      </Container>
+    </section>
+
+    <!-- THE PROBLEM -->
+    <section class="py-24 bg-kubmin-dark border-t border-white/5">
+      <Container>
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-10">
+            {problem.heading}
+          </h2>
+          <div class="space-y-6">
+            {problem.paragraphs.map((p) => (
+              <p class="text-lg text-kubmin-neutral-300 leading-relaxed">{p}</p>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- PRINCIPLES -->
+    <section class="py-24 bg-kubmin-dark border-t border-white/5">
+      <Container>
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white">
+              {principles.heading}
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-kubmin-primary-400 to-kubmin-energy">
+                {" "}{principles.headingAccent}
+              </span>
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {principles.items.map((item) => (
+              <div class="group relative p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300">
+                <div class="absolute top-0 left-0 bottom-0 w-1 rounded-l-2xl bg-gradient-to-b from-kubmin-primary-400 to-kubmin-energy transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"></div>
+                <div class="flex items-start gap-4">
+                  <span class="flex-shrink-0 w-8 h-8 rounded-full bg-kubmin-primary-500/10 border border-kubmin-primary-500/20 flex items-center justify-center text-sm font-bold text-kubmin-primary-400">
+                    {item.number}
+                  </span>
+                  <div>
+                    <h3 class="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                    <p class="text-sm text-kubmin-neutral-400 leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- WHY WE WROTE THIS -->
+    <section class="py-24 bg-kubmin-dark border-t border-white/5">
+      <Container>
+        <div class="max-w-3xl mx-auto">
+          <div class="relative p-8 md:p-10 rounded-2xl border border-kubmin-primary-500/20 bg-kubmin-primary-500/[0.03]">
+            <div class="absolute -top-3 left-8">
+              <span class="px-3 py-1 bg-kubmin-dark border border-kubmin-primary-500/20 rounded-full text-xs font-semibold text-kubmin-primary-400 uppercase tracking-wider">
+                Our story
+              </span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-6 mt-2">
+              {whatWeveDone.heading}
+            </h2>
+            <p class="text-lg text-kubmin-neutral-300 leading-relaxed">
+              {whatWeveDone.description}
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- THE ASK -->
+    <section class="py-24 bg-kubmin-dark border-t border-white/5">
+      <Container>
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white text-center mb-16">
+            {theAsk.heading}
+          </h2>
+
+          <div class="space-y-10">
+            {theAsk.items.map((group) => (
+              <div class="p-6 md:p-8 rounded-2xl border border-white/[0.06] bg-white/[0.02]">
+                <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-kubmin-energy"></span>
+                  {group.title}
+                </h3>
+                <ul class="space-y-4">
+                  {group.points.map((point) => (
+                    <li class="flex items-start gap-3 text-kubmin-neutral-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-0.5 flex-shrink-0 text-kubmin-primary-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                      <span class="leading-relaxed">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- SIGNATORIES -->
+    <section class="py-20 bg-kubmin-dark border-t border-white/5">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mb-4">
+            {signatories.heading}
+          </h2>
+          <p class="text-kubmin-neutral-400 mb-10">
+            {signatories.description}
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            {signatories.list.map((s) => (
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+              >
+                <span class="font-semibold text-white">{s.name}</span>
+                <span class="text-xs text-kubmin-neutral-500">({s.role})</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative py-32 bg-kubmin-dark overflow-hidden border-t border-white/5">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-kubmin-primary-500/15 rounded-full blur-[10rem] pointer-events-none z-0"></div>
+
+      <Container class="relative z-10">
+        <div class="max-w-3xl mx-auto text-center flex flex-col items-center gap-8">
+          <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            {cta.heading}
+          </h2>
+          <p class="text-lg text-kubmin-neutral-400 max-w-2xl">
+            {cta.description}
+          </p>
+          <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+            {cta.actions.map((action) => (
+              <a
+                href={action.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class:list={[
+                  "h-14 px-8 rounded-full font-bold flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto",
+                  action.variant === "primary"
+                    ? "bg-gradient-to-r from-kubmin-primary-500 to-kubmin-energy text-white hover:scale-105 hover:shadow-[--shadow-kubmin-primary-glow]"
+                    : "bg-white/10 text-white border border-white/20 hover:bg-white/20"
+                ]}
+              >
+                {action.text}
+              </a>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- REFERENCES -->
+    <section class="py-20 bg-kubmin-dark border-t border-white/5">
+      <Container>
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-bold tracking-tight text-white mb-8">
+            {references.heading}
+          </h2>
+          <ol class="space-y-3 list-decimal list-inside">
+            {references.items.map((ref) => (
+              <li class="text-sm text-kubmin-neutral-400">
+                <a
+                  href={ref.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-kubmin-primary-400 hover:text-kubmin-primary-300 underline underline-offset-2"
+                >
+                  {ref.title}
+                </a>
+                <span class="text-kubmin-neutral-500"> — {ref.authors}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Container>
+    </section>
+
+  </main>
+  <AppFooter variant="kubmin" />
+</Layout>
+
+<style>
+  .manifesto-grid {
+    background-image:
+      linear-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black 10%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black 10%, transparent 70%);
+  }
+</style>
