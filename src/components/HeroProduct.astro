@@ -80,8 +80,20 @@ import { hero } from "@/data/kli";
           {hero.description}
         </p>
 
+        <!-- Trust pills -->
+        <div class="hero-stagger hero-stagger-4 flex flex-wrap items-center justify-center gap-3 mb-8">
+          {hero.trustPills.map((pill) => (
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-kli-primary/20 bg-kli-primary/[0.06] px-4 py-1.5 text-sm font-medium text-kli-primary/80">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-kli-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              {pill}
+            </span>
+          ))}
+        </div>
+
         <!-- CTAs -->
-        <div class="hero-stagger hero-stagger-4 flex flex-wrap items-center justify-center gap-4 mb-6">
+        <div class="hero-stagger hero-stagger-5 flex flex-wrap items-center justify-center gap-4 mb-6">
           <a
             href={hero.primaryCta.href}
             target="_blank"
@@ -124,7 +136,7 @@ import { hero } from "@/data/kli";
         </div>
 
         <!-- Install command bar — centered -->
-        <div class="hero-stagger hero-stagger-4 flex justify-center mb-14">
+        <div class="hero-stagger hero-stagger-5 flex justify-center mb-14">
           <div class="relative group/command max-w-lg w-full">
             <div class="flex bg-gray-900 rounded-lg overflow-hidden border border-gray-700/50 shadow-xl">
               <div class="flex-grow px-5 py-3.5 font-mono text-sm text-gray-300 truncate">
@@ -149,7 +161,7 @@ import { hero } from "@/data/kli";
       </div>
 
       <!-- Full-width Terminal Preview — floating with perspective -->
-      <div class="hero-stagger hero-stagger-5 relative max-w-5xl mx-auto">
+      <div class="hero-stagger hero-stagger-6 relative max-w-5xl mx-auto">
         <!-- Dramatic glow behind terminal -->
         <div class="absolute -inset-8 bg-gradient-to-b from-kli-primary/20 via-kli-primary/8 to-transparent rounded-3xl blur-3xl"></div>
 
@@ -266,7 +278,8 @@ import { hero } from "@/data/kli";
 .hero-stagger-2 { animation-delay: 0.15s; }
 .hero-stagger-3 { animation-delay: 0.3s; }
 .hero-stagger-4 { animation-delay: 0.45s; }
-.hero-stagger-5 { animation-delay: 0.6s; }
+.hero-stagger-5 { animation-delay: 0.55s; }
+.hero-stagger-6 { animation-delay: 0.65s; }
 
 @keyframes heroFadeUp {
   to {

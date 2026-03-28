@@ -11,6 +11,12 @@ export const hero = {
   productName: "kli",
   tagline: "Simplify K8s cluster Ops by single command",
   description: "One Command Highly Available Kubernetes cluster creation but also considers Cloud Region's carbon intensity and instancetype embodded carbon along with cost optimization.",
+  trustPills: [
+    "Single binary",
+    "No Terraform",
+    "No Ansible",
+    "No YAML sprawl",
+  ],
   primaryCta: { text: "Get started", href: "https://docs.kli.ksctl.com/docs/getting-started/" },
   secondaryCta: { text: "Explore Features", href: "https://docs.kli.ksctl.com/docs/features/" },
   githubLink: "https://github.com/ksctl/kli",
