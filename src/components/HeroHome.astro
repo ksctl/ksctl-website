@@ -43,9 +43,9 @@ import { hero } from "@/data/home";
     <div class="relative pt-32 md:pt-44 pb-24 md:pb-32">
       <div class="max-w-4xl mx-auto text-center">
         <!-- Badge -->
-        <div class="hero-stagger hero-stagger-1 inline-flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/[0.06] backdrop-blur-sm px-4 py-2 text-sm font-medium text-white/90 dark:text-ksctl-primary mb-8 border border-white/15 dark:border-ksctl-primary/10">
+        <div class="hero-stagger hero-stagger-1 inline-flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/[0.06] backdrop-blur-sm px-4 py-2 text-sm font-medium text-global-foreground dark:text-ksctl-primary mb-8 border border-white/15 dark:border-ksctl-primary/10">
           <div class="flex items-center justify-center w-5 h-5 rounded-full bg-white/20 dark:bg-ksctl-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white dark:text-primary-foreground" viewBox="0 0 20 20" fill="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-global-foreground dark:text-primary-foreground" viewBox="0 0 20 20" fill="currentColor">
               <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
             </svg>
           </div>
@@ -80,7 +80,7 @@ import { hero } from "@/data/home";
 
           <a
             href={hero.secondaryCta.href}
-            class="group flex items-center justify-center h-13 px-8 rounded-xl border border-white/25 dark:border-ksctl-border bg-white/10 dark:bg-ksctl-card backdrop-blur-sm text-white dark:text-card-foreground font-medium transition-all duration-300 hover:border-white/40 dark:hover:border-ksctl-primary/30 hover:-translate-y-0.5 active:translate-y-0"
+            class="group flex items-center justify-center h-13 px-8 rounded-xl border border-white/25 dark:border-ksctl-border bg-white/10 dark:bg-ksctl-card backdrop-blur-sm text-global-foreground dark:text-card-foreground font-medium transition-all duration-300 hover:border-white/40 dark:hover:border-ksctl-primary/30 hover:-translate-y-0.5 active:translate-y-0"
           >
             <span class="flex items-center gap-2">
               {hero.secondaryCta.text}
@@ -93,7 +93,7 @@ import { hero } from "@/data/home";
 
         <!-- Scroll Indicator -->
         <div class="hero-stagger hero-stagger-5 mt-20">
-          <div class="flex flex-col items-center gap-2 text-white/40 dark:text-muted-foreground/50">
+          <div class="flex flex-col items-center gap-2 text-global-foreground/40 dark:text-muted-foreground/50">
             <span class="text-xs tracking-widest uppercase">Scroll</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
@@ -218,9 +218,9 @@ import { hero } from "@/data/home";
   );
 }
 
-/* Headline text — white on gradient light, shimmer on dark */
+/* Headline text — foreground on gradient light, shimmer on dark */
 .hero-headline-text {
-  color: #fff;
+  color: var(--color-global-foreground);
 }
 .dark .hero-headline-text {
   background: linear-gradient(to right, var(--color-ksctl-foreground), var(--color-ksctl-primary), var(--color-ksctl-foreground));
@@ -233,8 +233,8 @@ import { hero } from "@/data/home";
 
 /* Subtitle text */
 .hero-sub-text {
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  color: var(--color-global-foreground);
+  text-shadow: none;
 }
 .dark .hero-sub-text {
   color: var(--color-ksctl-muted-foreground);
