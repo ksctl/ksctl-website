@@ -82,16 +82,6 @@ export const teamMembers = {
       github: "https://github.com/SaiyamPathak",
       twitter: "#",
       linkedin: "#"
-    },
-    {
-      name: "Join Our Team",
-      role: "We're Growing!",
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=ksctl-join",
-      bio: "Interested in sustainable cloud infrastructure? We're always looking for passionate contributors and collaborators.",
-      github: "#",
-      twitter: "#",
-      linkedin: "#",
-      isPlaceholder: true
     }
   ]
 };

@@ -6,7 +6,6 @@ import Container from "../components/Container.astro";
 import AboutCompany from "../components/AboutCompany.astro";
 import MissionVision from "../components/MissionVision.astro";
 import TeamMembers from "../components/TeamMembers.astro";
-import CallToAction from "../components/CallToAction.astro";
 import "../styles/global.css";
 import "../styles/company.css";
 import { meta } from "@/data/about";
@@ -19,22 +18,24 @@ import { meta } from "@/data/about";
 
   <AppHeader />
   <main class="pt-28">
-    <!-- Page Header -->
-    <Container>
-      <div class="text-center max-w-3xl mx-auto">
-        <h1 class="text-5xl md:text-6xl font-bold text-ksctl-foreground mb-6">
-          {meta.heading} <span class="text-ksctl-primary">{meta.headingHighlight}</span>
-        </h1>
-        <p class="text-xl text-ksctl-muted-foreground">
-          {meta.subheading}
-        </p>
-      </div>
-    </Container>
+    <!-- Redirect to home #team anchor -->
+    <section id="team" class="relative py-24">
+      <Container>
+        <!-- Page Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h1 class="text-5xl md:text-6xl font-bold text-ksctl-foreground mb-6">
+            {meta.heading} <span class="text-ksctl-primary">{meta.headingHighlight}</span>
+          </h1>
+          <p class="text-xl text-ksctl-muted-foreground">
+            {meta.subheading}
+          </p>
+        </div>
 
-    <AboutCompany />
-    <MissionVision />
-    <TeamMembers />
-    <!-- <CallToAction /> -->
+        <AboutCompany />
+        <MissionVision />
+        <TeamMembers />
+      </Container>
+    </section>
   </main>
   <AppFooter />
 </Layout>

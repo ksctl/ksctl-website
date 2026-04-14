@@ -16,18 +16,9 @@ function isActivePath(linkPath: string) {
 
 const navigation = {
   links: [
-    {
-      type: "dropdown",
-      label: "Products",
-      items: [
-        { to: "/product/kli", label: "kli", description: "Kubernetes Management CLI" },
-        { to: "/product/kubmin", label: "kubmin", description: "Workload Management Platform" }
-      ]
-    },
-    { type: "link", to: "/manifesto/vrapl", label: "Manifesto" },
-    { type: "link", to: "/aboutus", label: "About Us" },
-    { type: "link", to: "https://discord.ksctl.com", label: "Community", external: true },
-    { type: "link", to: "https://github.com/ksctl", label: "GitHub", external: true }
+    { type: "link", to: "/product/kli", label: "kli" },
+    { type: "link", to: "/product/kubmin", label: "kubmin" },
+    { type: "link", to: "/manifesto/vrapl", label: "Manifesto" }
   ]
 };
 ---

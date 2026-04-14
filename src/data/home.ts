@@ -2,6 +2,10 @@
 // HOME PAGE — All content data
 // ============================================================
 
+import { teamMembers as aboutTeamMembers } from "./about";
+
+export const teamMembers = aboutTeamMembers;
+
 export const meta = {
   title: "ksctl - Efficient and Sustainable Cloud Tooling",
 };

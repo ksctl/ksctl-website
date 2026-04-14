@@ -2,7 +2,7 @@
 import Container from "./Container.astro";
 import { aboutCompany } from "@/data/about";
 
-const { timeline, impact, story } = aboutCompany;
+const { story } = aboutCompany;
 ---
 
 <section class="relative py-24">
@@ -34,65 +34,6 @@ const { timeline, impact, story } = aboutCompany;
               </p>
             ))}
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Timeline -->
-    <div class="max-w-5xl mx-auto">
-      <h3 class="text-3xl font-bold text-ksctl-foreground text-center mb-12">
-        {aboutCompany.journeyHeading}
-      </h3>
-
-      <div class="relative">
-        <!-- Vertical Line -->
-        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-ksctl-primary opacity-30"></div>
-
-        <!-- Timeline Items -->
-        <div class="space-y-12">
-          {timeline.map((item, index) => (
-            <div class:list={[
-              "relative flex items-center",
-              index % 2 === 0 ? "justify-start" : "justify-end"
-            ]}>
-              <!-- Content -->
-              <div class:list={[
-                "w-5/12",
-                index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"
-              ]}>
-                <div class="group bg-ksctl-card rounded-xl border border-ksctl-border p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                  <span class="inline-block text-ksctl-primary font-bold text-lg mb-2">{item.year}</span>
-                  <h4 class="text-xl font-bold text-ksctl-foreground mb-2">
-                    {item.title}
-                  </h4>
-                  <p class="text-ksctl-muted-foreground">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-
-              <!-- Center Dot -->
-              <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-ksctl-primary border-4 border-ksctl-background shadow-lg z-10"></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-
-    <!-- Community Impact -->
-    <div class="mt-20 max-w-5xl mx-auto">
-      <div class="bg-ksctl-primary/5 rounded-2xl border border-ksctl-primary/20 p-8 md:p-12">
-        <h3 class="text-2xl md:text-3xl font-bold text-ksctl-foreground text-center mb-8">
-          {impact.heading}
-        </h3>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {impact.stats.map(stat => (
-            <div class="text-center">
-              <div class="text-4xl md:text-5xl font-bold text-ksctl-primary mb-2">{stat.value}</div>
-              <p class="text-ksctl-muted-foreground">{stat.label}</p>
-            </div>
-          ))}
         </div>
       </div>
     </div>
