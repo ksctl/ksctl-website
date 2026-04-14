@@ -160,12 +160,12 @@ import { hero } from "@/data/kli";
         </div>
       </div>
 
-      <!-- Full-width Terminal Preview — floating with perspective -->
+      <!-- Full-width Terminal Preview -->
       <div class="hero-stagger hero-stagger-6 relative max-w-5xl mx-auto">
         <!-- Dramatic glow behind terminal -->
         <div class="absolute -inset-8 bg-gradient-to-b from-kli-primary/20 via-kli-primary/8 to-transparent rounded-3xl blur-3xl"></div>
 
-        <div class="relative hero-terminal-float">
+        <div class="relative">
           <!-- Terminal window -->
           <div class="bg-gray-900 rounded-xl shadow-2xl shadow-gray-900/30 overflow-hidden border border-gray-700/80">
             <div class="flex items-center bg-gray-800 px-4 py-3 border-b border-gray-700/80">
@@ -259,20 +259,11 @@ import { hero } from "@/data/kli";
 .animate-path-drift-4 { animation: pathDrift4 28s ease-in-out infinite; }
 .animate-path-drift-5 { animation: pathDrift5 18s ease-in-out infinite; }
 
-/* Terminal perspective float */
-.hero-terminal-float {
-  transform: perspective(2000px) rotateX(4deg);
-  transition: transform 0.5s ease;
-}
-.hero-terminal-float:hover {
-  transform: perspective(2000px) rotateX(1deg);
-}
-
-/* Staggered fade-in */
+/* Simple slide-up animation */
 .hero-stagger {
   opacity: 0;
   transform: translateY(24px);
-  animation: heroFadeUp 0.7s ease-out forwards;
+  animation: heroSlideUp 0.6s ease-out forwards;
 }
 .hero-stagger-1 { animation-delay: 0.05s; }
 .hero-stagger-2 { animation-delay: 0.15s; }
@@ -281,7 +272,7 @@ import { hero } from "@/data/kli";
 .hero-stagger-5 { animation-delay: 0.55s; }
 .hero-stagger-6 { animation-delay: 0.65s; }
 
-@keyframes heroFadeUp {
+@keyframes heroSlideUp {
   to {
     opacity: 1;
     transform: translateY(0);

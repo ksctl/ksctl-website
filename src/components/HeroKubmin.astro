@@ -162,11 +162,11 @@ import { hero } from "@/data/kubmin";
   background-size: 128px 128px;
 }
 
-/* Staggered fade-in */
+/* Simple slide-up animation */
 .hero-stagger {
   opacity: 0;
   transform: translateY(28px);
-  animation: heroFadeUp 0.8s ease-out forwards;
+  animation: heroSlideUp 0.6s ease-out forwards;
 }
 .hero-stagger-1 { animation-delay: 0.05s; }
 .hero-stagger-2 { animation-delay: 0.15s; }
@@ -174,7 +174,7 @@ import { hero } from "@/data/kubmin";
 .hero-stagger-4 { animation-delay: 0.4s; }
 .hero-stagger-5 { animation-delay: 0.55s; }
 
-@keyframes heroFadeUp {
+@keyframes heroSlideUp {
   to {
     opacity: 1;
     transform: translateY(0);
