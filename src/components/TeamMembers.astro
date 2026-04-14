@@ -10,7 +10,7 @@ const { members } = teamMembers;
     <!-- Section Header -->
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-ksctl-foreground mb-4">
-        {teamMembers.heading.split(' ')[0]} {teamMembers.heading.split(' ')[1]} <span class="bg-gradient-to-r from-ksctl-primary to-ksctl-secondary bg-clip-text text-transparent">{teamMembers.heading.split(' ').slice(2).join(' ')}</span>
+        {teamMembers.heading.split(' ')[0]} {teamMembers.heading.split(' ')[1]} <span class="text-ksctl-primary">{teamMembers.heading.split(' ').slice(2).join(' ')}</span>
       </h2>
       <p class="text-lg text-ksctl-muted-foreground max-w-2xl mx-auto">
         {teamMembers.subheading}
@@ -23,7 +23,7 @@ const { members } = teamMembers;
         <div class:list={[
           "group relative rounded-2xl border p-6 transition-all duration-300",
           member.isPlaceholder
-            ? "bg-gradient-to-br from-ksctl-primary/5 to-ksctl-secondary/5 border-ksctl-primary/20 hover:border-ksctl-primary/40"
+            ? "bg-ksctl-primary/5 border-ksctl-primary/20 hover:border-ksctl-primary/40"
             : "bg-ksctl-card border-ksctl-border hover:shadow-2xl hover:-translate-y-2"
         ]}>
           <!-- Avatar -->
@@ -37,7 +37,7 @@ const { members } = teamMembers;
             </div>
             {member.isPlaceholder && (
               <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-24 h-24 rounded-full bg-gradient-to-br from-ksctl-primary/20 to-ksctl-secondary/20 animate-pulse"></div>
+                <div class="w-24 h-24 rounded-full bg-ksctl-primary/20 animate-pulse"></div>
               </div>
             )}
           </div>

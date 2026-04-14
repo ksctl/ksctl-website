@@ -1,45 +1,45 @@
-/* Company pages theme — Warm Sunrise palette (orange / rose / lavender / sky) */
+/* Company pages theme — Neutral + ksctl teal */
 
 html {
-  /* Core brand — derived from hero gradient stops */
-  --color-ksctl-primary: #e85d04;
+  /* Core brand */
+  --color-ksctl-primary: #14b8a6;
   --color-ksctl-primary-foreground: #ffffff;
-  --color-ksctl-secondary: #cab3d6;
-  --color-ksctl-secondary-foreground: #3d2952;
-  --color-ksctl-accent: #eeaeca;
-  --color-ksctl-accent-foreground: #4a1e35;
-  --color-ksctl-ring: #e85d04;
-  --color-ksctl-destructive: #c44040;
+  --color-ksctl-secondary: #99f6e4;
+  --color-ksctl-secondary-foreground: #134e4a;
+  --color-ksctl-accent: #5eead4;
+  --color-ksctl-accent-foreground: #134e4a;
+  --color-ksctl-ring: #14b8a6;
+  --color-ksctl-destructive: #dc2626;
   --color-ksctl-destructive-foreground: #ffffff;
 
-  /* Warm neutrals */
-  --color-ksctl-background: #fffaf6;
-  --color-ksctl-foreground: #301a08;
+  /* Neutrals */
+  --color-ksctl-background: #ffffff;
+  --color-ksctl-foreground: #171717;
   --color-ksctl-card: #ffffff;
-  --color-ksctl-card-foreground: #301a08;
+  --color-ksctl-card-foreground: #171717;
   --color-ksctl-popover: #ffffff;
-  --color-ksctl-popover-foreground: #301a08;
-  --color-ksctl-muted: #f5ede5;
-  --color-ksctl-muted-foreground: #78685a;
-  --color-ksctl-border: #e6dbd0;
-  --color-ksctl-input: #f0e6dc;
+  --color-ksctl-popover-foreground: #171717;
+  --color-ksctl-muted: #f5f5f5;
+  --color-ksctl-muted-foreground: #737373;
+  --color-ksctl-border: #e5e5e5;
+  --color-ksctl-input: #f5f5f5;
 
-  /* Charts — one per gradient stop */
-  --color-ksctl-chart-1: #e85d04;
-  --color-ksctl-chart-2: #eeaeca;
-  --color-ksctl-chart-3: #94c9e9;
-  --color-ksctl-chart-4: #cab3d6;
-  --color-ksctl-chart-5: #f5aa64;
+  /* Charts — teal scale + neutral accents */
+  --color-ksctl-chart-1: #14b8a6;
+  --color-ksctl-chart-2: #2dd4bf;
+  --color-ksctl-chart-3: #5eead4;
+  --color-ksctl-chart-4: #0d9488;
+  --color-ksctl-chart-5: #0f766e;
 
   /* Sidebar */
-  --color-ksctl-sidebar: #faf4ee;
-  --color-ksctl-sidebar-foreground: #301a08;
-  --color-ksctl-sidebar-primary: #e85d04;
+  --color-ksctl-sidebar: #fafafa;
+  --color-ksctl-sidebar-foreground: #171717;
+  --color-ksctl-sidebar-primary: #14b8a6;
   --color-ksctl-sidebar-primary-foreground: #ffffff;
-  --color-ksctl-sidebar-accent: #eeaeca;
-  --color-ksctl-sidebar-accent-foreground: #4a1e35;
-  --color-ksctl-sidebar-border: #e6dbd0;
-  --color-ksctl-sidebar-ring: #e85d04;
+  --color-ksctl-sidebar-accent: #5eead4;
+  --color-ksctl-sidebar-accent-foreground: #134e4a;
+  --color-ksctl-sidebar-border: #e5e5e5;
+  --color-ksctl-sidebar-ring: #14b8a6;
 
   /* Map global variables to company theme */
   --color-global-primary: var(--color-ksctl-primary);
@@ -54,58 +54,49 @@ html {
   --color-global-ring: var(--color-ksctl-ring);
   --color-global-input: var(--color-ksctl-input);
 
-  /* Hero gradient tokens — warm sunrise glow from bottom */
-  --ksctl-hero-stop-1: rgba(245, 87, 2, 1);
-  --ksctl-hero-stop-2: rgba(245, 120, 2, 1);
-  --ksctl-hero-stop-3: rgba(245, 140, 2, 1);
-  --ksctl-hero-stop-4: rgba(245, 170, 100, 1);
-  --ksctl-hero-stop-5: rgba(238, 174, 202, 1);
-  --ksctl-hero-stop-6: rgba(202, 179, 214, 1);
-  --ksctl-hero-stop-7: rgba(148, 201, 233, 1);
+  /* Hero accents & grid */
+  --ksctl-hero-glow: #10b981;
+  --ksctl-grid-line: rgba(209, 213, 219, 0.2);
 }
 
 html.dark {
-  --color-ksctl-primary: #f58a3a;
-  --color-ksctl-primary-foreground: #1a0800;
-  --color-ksctl-secondary: #a78bbf;
-  --color-ksctl-secondary-foreground: #f0eaf5;
-  --color-ksctl-accent: #c47090;
-  --color-ksctl-accent-foreground: #fce0ec;
-  --color-ksctl-ring: #f58a3a;
-  --color-ksctl-destructive: #e06060;
-  --color-ksctl-destructive-foreground: #1a0800;
+  --color-ksctl-primary: #2dd4bf;
+  --color-ksctl-primary-foreground: #042f2e;
+  --color-ksctl-secondary: #134e4a;
+  --color-ksctl-secondary-foreground: #ccfbf1;
+  --color-ksctl-accent: #0d9488;
+  --color-ksctl-accent-foreground: #ccfbf1;
+  --color-ksctl-ring: #2dd4bf;
+  --color-ksctl-destructive: #ef4444;
+  --color-ksctl-destructive-foreground: #ffffff;
 
-  --color-ksctl-background: #18120c;
-  --color-ksctl-foreground: #f2e8de;
-  --color-ksctl-card: #221a12;
-  --color-ksctl-card-foreground: #f2e8de;
-  --color-ksctl-popover: #221a12;
-  --color-ksctl-popover-foreground: #f2e8de;
-  --color-ksctl-muted: #2a2018;
-  --color-ksctl-muted-foreground: #a89888;
-  --color-ksctl-border: #3a2e22;
-  --color-ksctl-input: #302418;
+  --color-ksctl-background: #171717;
+  --color-ksctl-foreground: #fafafa;
+  --color-ksctl-card: #262626;
+  --color-ksctl-card-foreground: #fafafa;
+  --color-ksctl-popover: #262626;
+  --color-ksctl-popover-foreground: #fafafa;
+  --color-ksctl-muted: #262626;
+  --color-ksctl-muted-foreground: #a3a3a3;
+  --color-ksctl-border: #404040;
+  --color-ksctl-input: #262626;
 
-  --color-ksctl-chart-1: #f58a3a;
-  --color-ksctl-chart-2: #c47090;
-  --color-ksctl-chart-3: #7bb8d8;
-  --color-ksctl-chart-4: #a78bbf;
-  --color-ksctl-chart-5: #d4944a;
+  --color-ksctl-chart-1: #2dd4bf;
+  --color-ksctl-chart-2: #5eead4;
+  --color-ksctl-chart-3: #14b8a6;
+  --color-ksctl-chart-4: #0d9488;
+  --color-ksctl-chart-5: #99f6e4;
 
-  --color-ksctl-sidebar: #14100a;
-  --color-ksctl-sidebar-foreground: #f2e8de;
-  --color-ksctl-sidebar-primary: #f58a3a;
-  --color-ksctl-sidebar-primary-foreground: #1a0800;
-  --color-ksctl-sidebar-accent: #3a2830;
-  --color-ksctl-sidebar-accent-foreground: #c47090;
-  --color-ksctl-sidebar-border: #302418;
-  --color-ksctl-sidebar-ring: #f58a3a;
+  --color-ksctl-sidebar: #0a0a0a;
+  --color-ksctl-sidebar-foreground: #fafafa;
+  --color-ksctl-sidebar-primary: #2dd4bf;
+  --color-ksctl-sidebar-primary-foreground: #042f2e;
+  --color-ksctl-sidebar-accent: #0d9488;
+  --color-ksctl-sidebar-accent-foreground: #ccfbf1;
+  --color-ksctl-sidebar-border: #404040;
+  --color-ksctl-sidebar-ring: #2dd4bf;
 
-  --ksctl-hero-stop-1: rgba(140, 45, 0, 1);
-  --ksctl-hero-stop-2: rgba(120, 55, 5, 1);
-  --ksctl-hero-stop-3: rgba(100, 58, 10, 1);
-  --ksctl-hero-stop-4: rgba(80, 55, 30, 1);
-  --ksctl-hero-stop-5: rgba(65, 45, 55, 1);
-  --ksctl-hero-stop-6: rgba(45, 38, 55, 1);
-  --ksctl-hero-stop-7: rgba(27, 26, 33, 1);
+  /* Hero accents & grid */
+  --ksctl-hero-glow: #38bdf8;
+  --ksctl-grid-line: rgba(56, 189, 248, 0.125);
 }

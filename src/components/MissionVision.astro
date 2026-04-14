@@ -3,12 +3,12 @@ import Container from "./Container.astro";
 import { missionVision } from "@/data/home";
 ---
 
-<section id="mission" class="relative py-24 bg-gradient-to-b from-background to-ksctl-muted/30">
+<section id="mission" class="relative py-24">
   <Container>
     <!-- Section Header -->
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-ksctl-foreground mb-4">
-        {missionVision.heading.split(' ')[0]} <span class="bg-gradient-to-r from-ksctl-primary to-ksctl-secondary bg-clip-text text-transparent">{missionVision.heading.split(' ').slice(1).join(' ')}</span>
+        {missionVision.heading.split(' ')[0]} <span class="text-ksctl-primary">{missionVision.heading.split(' ').slice(1).join(' ')}</span>
       </h2>
       <p class="text-lg text-ksctl-muted-foreground max-w-2xl mx-auto">
         {missionVision.subheading}
@@ -20,7 +20,7 @@ import { missionVision } from "@/data/home";
       <!-- Mission Card -->
       <div class="group relative bg-ksctl-card rounded-2xl border border-ksctl-border p-8 md:p-10 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
         <!-- Icon -->
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-ksctl-primary to-ksctl-secondary mb-6 shadow-lg shadow-ksctl-primary/30">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-ksctl-primary mb-6 shadow-lg shadow-ksctl-primary/30">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
           </svg>
@@ -43,7 +43,7 @@ import { missionVision } from "@/data/home";
       <!-- Vision Card -->
       <div class="group relative bg-ksctl-card rounded-2xl border border-ksctl-border p-8 md:p-10 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
         <!-- Icon -->
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-ksctl-secondary to-ksctl-accent mb-6 shadow-lg shadow-ksctl-secondary/30">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-ksctl-primary mb-6 shadow-lg shadow-ksctl-primary/30">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
@@ -61,7 +61,7 @@ import { missionVision } from "@/data/home";
         </p>
 
         <!-- Decorative Element -->
-        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-ksctl-secondary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl"></div>
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-ksctl-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl"></div>
       </div>
     </div>
   </Container>

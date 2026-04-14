@@ -5,12 +5,12 @@ import { coreValues } from "@/data/home";
 const { values } = coreValues;
 ---
 
-<section class="relative py-24 bg-ksctl-background">
+<section class="relative py-24">
   <Container>
     <!-- Section Header -->
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-ksctl-foreground mb-4">
-        {coreValues.heading.split(' ')[0]} <span class="bg-gradient-to-r from-ksctl-primary to-ksctl-secondary bg-clip-text text-transparent">{coreValues.heading.split(' ').slice(1).join(' ')}</span>
+        {coreValues.heading.split(' ')[0]} <span class="text-ksctl-primary">{coreValues.heading.split(' ').slice(1).join(' ')}</span>
       </h2>
       <p class="text-lg text-ksctl-muted-foreground max-w-2xl mx-auto">
         {coreValues.subheading}
@@ -21,11 +21,11 @@ const { values } = coreValues;
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {values.map((value) => (
         <div class="group relative bg-ksctl-card rounded-2xl border border-ksctl-border p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-          <!-- Gradient Border on Hover -->
-          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-ksctl-primary to-ksctl-secondary opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+          <!-- Primary overlay on hover -->
+          <div class="absolute inset-0 rounded-2xl bg-ksctl-primary opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
 
           <!-- Top Border Accent -->
-          <div class="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-16 bg-gradient-to-r from-ksctl-primary to-ksctl-secondary rounded-b-full opacity-50 group-hover:opacity-100 group-hover:w-24 transition-all duration-300"></div>
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-16 bg-ksctl-primary rounded-b-full opacity-50 group-hover:opacity-100 group-hover:w-24 transition-all duration-300"></div>
 
           <!-- Icon -->
           <div class="relative mb-4 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-ksctl-primary/10 dark:bg-ksctl-primary/20 text-ksctl-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-ksctl-primary group-hover:text-white">

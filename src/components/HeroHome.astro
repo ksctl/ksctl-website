@@ -3,49 +3,20 @@ import Container from "./Container.astro";
 import { hero } from "@/data/home";
 ---
 
-<div class="relative overflow-hidden z-0 hero-gradient-bg" id="home">
-  <!-- Animated floating blobs — large, visible, slow-moving -->
-  <div class="hero-blob hero-blob-orange"></div>
-  <div class="hero-blob hero-blob-pink"></div>
-  <div class="hero-blob hero-blob-blue"></div>
-  <div class="hero-blob hero-blob-peach"></div>
+<div class="relative overflow-hidden z-0" id="home">
+  <!-- Light: blur glow accent -->
+  <div class="absolute left-1/3 top-1/3 h-[500px] w-[500px] rounded-full bg-[var(--ksctl-hero-glow)] opacity-20 blur-[120px] dark:hidden pointer-events-none"></div>
 
-  <!-- Animated grid overlay -->
-  <div class="absolute inset-0 z-0 pointer-events-none hero-grid"></div>
-
-  <!-- Floating orbs with glow -->
-  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-    <div class="hero-orb hero-orb-3"></div>
-    <div class="hero-orb hero-orb-4"></div>
-    <div class="hero-orb hero-orb-5"></div>
-    <div class="hero-orb hero-orb-6"></div>
-  </div>
-
-  <!-- Shooting meteors -->
-  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-    <div class="hero-meteor hero-meteor-1"></div>
-    <div class="hero-meteor hero-meteor-2"></div>
-    <div class="hero-meteor hero-meteor-3"></div>
-  </div>
-
-  <!-- Animated aurora band -->
-  <div class="absolute inset-0 z-0 pointer-events-none hero-aurora"></div>
-
-  <!-- Noise/grain texture overlay -->
-  <div class="absolute inset-0 z-0 opacity-[0.35] pointer-events-none hero-noise"></div>
-
-  <!-- Subtle scrim behind text for readability -->
-  <div class="absolute inset-0 pointer-events-none hero-text-scrim"></div>
+  <!-- Dark: radial glow accent -->
+  <div class="absolute inset-0 pointer-events-none hidden dark:block bg-[radial-gradient(circle_560px_at_50%_200px,var(--ksctl-hero-glow),transparent)]"></div>
 
   <Container>
     <div class="relative pt-32 md:pt-44 pb-24 md:pb-32">
       <div class="max-w-4xl mx-auto text-center">
         <!-- Badge -->
-        <div class="hero-stagger hero-stagger-1 inline-flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/[0.06] backdrop-blur-sm px-4 py-2 text-sm font-medium text-global-foreground dark:text-ksctl-primary mb-8 border border-white/15 dark:border-ksctl-primary/10">
-          <div class="flex items-center justify-center w-5 h-5 rounded-full bg-white/20 dark:bg-ksctl-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-global-foreground dark:text-primary-foreground" viewBox="0 0 20 20" fill="currentColor">
+        <div class="hero-stagger hero-stagger-1 inline-flex items-center gap-2 rounded-full bg-ksctl-card dark:bg-white/[0.06] backdrop-blur-sm px-4 py-2 text-sm font-medium text-global-foreground dark:text-ksctl-primary mb-8 border border-ksctl-border dark:border-ksctl-primary/10 shadow-sm">
+          <div class="flex items-center justify-center w-5 h-5 rounded-full bg-ksctl-primary/15 dark:bg-ksctl-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-ksctl-primary dark:text-primary-foreground" viewBox="0 0 20 20" fill="currentColor">
               <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
             </svg>
           </div>
@@ -80,7 +51,7 @@ import { hero } from "@/data/home";
 
           <a
             href={hero.secondaryCta.href}
-            class="group flex items-center justify-center h-13 px-8 rounded-xl border border-white/25 dark:border-ksctl-border bg-white/10 dark:bg-ksctl-card backdrop-blur-sm text-global-foreground dark:text-card-foreground font-medium transition-all duration-300 hover:border-white/40 dark:hover:border-ksctl-primary/30 hover:-translate-y-0.5 active:translate-y-0"
+            class="group flex items-center justify-center h-13 px-8 rounded-xl border border-ksctl-border bg-ksctl-card backdrop-blur-sm text-global-foreground dark:text-card-foreground font-medium shadow-sm transition-all duration-300 hover:border-ksctl-primary/50 hover:-translate-y-0.5 active:translate-y-0"
           >
             <span class="flex items-center gap-2">
               {hero.secondaryCta.text}
@@ -93,7 +64,7 @@ import { hero } from "@/data/home";
 
         <!-- Scroll Indicator -->
         <div class="hero-stagger hero-stagger-5 mt-20">
-          <div class="flex flex-col items-center gap-2 text-global-foreground/40 dark:text-muted-foreground/50">
+          <div class="flex flex-col items-center gap-2 text-global-foreground/40 dark:text-ksctl-muted-foreground/50">
             <span class="text-xs tracking-widest uppercase">Scroll</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
@@ -106,119 +77,6 @@ import { hero } from "@/data/home";
 </div>
 
 <style>
-/* Base background — the static radial gradient */
-.hero-gradient-bg {
-  position: relative;
-  background:
-    radial-gradient(
-      125% 125% at 50% 101%,
-      var(--ksctl-hero-stop-1) 10.5%,
-      var(--ksctl-hero-stop-2) 16%,
-      var(--ksctl-hero-stop-3) 17.5%,
-      var(--ksctl-hero-stop-4) 25%,
-      var(--ksctl-hero-stop-5) 40%,
-      var(--ksctl-hero-stop-6) 65%,
-      var(--ksctl-hero-stop-7) 100%
-    );
-}
-
-/* Animated floating blobs — clearly visible color pools */
-.hero-blob {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  filter: blur(100px);
-  will-change: transform;
-}
-
-.hero-blob-orange {
-  width: 600px;
-  height: 600px;
-  background: var(--ksctl-hero-stop-1);
-  opacity: 0.4;
-  bottom: -20%;
-  left: 10%;
-  animation: blobFloat1 12s ease-in-out infinite;
-}
-
-.hero-blob-pink {
-  width: 500px;
-  height: 500px;
-  background: var(--ksctl-hero-stop-5);
-  opacity: 0.35;
-  top: 10%;
-  right: 5%;
-  animation: blobFloat2 15s ease-in-out infinite;
-}
-
-.hero-blob-blue {
-  width: 550px;
-  height: 550px;
-  background: var(--ksctl-hero-stop-7);
-  opacity: 0.3;
-  top: -10%;
-  left: 20%;
-  animation: blobFloat3 18s ease-in-out infinite;
-}
-
-.hero-blob-peach {
-  width: 450px;
-  height: 450px;
-  background: var(--ksctl-hero-stop-4);
-  opacity: 0.35;
-  bottom: 5%;
-  right: 20%;
-  animation: blobFloat4 14s ease-in-out infinite;
-}
-
-@keyframes blobFloat1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(120px, -80px) scale(1.15); }
-  66% { transform: translate(-60px, -40px) scale(0.9); }
-}
-
-@keyframes blobFloat2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-100px, 70px) scale(1.1); }
-  66% { transform: translate(80px, 30px) scale(0.85); }
-}
-
-@keyframes blobFloat3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(90px, 60px) scale(0.9); }
-  66% { transform: translate(-70px, 100px) scale(1.12); }
-}
-
-@keyframes blobFloat4 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-80px, -60px) scale(1.1); }
-  66% { transform: translate(100px, -90px) scale(0.88); }
-}
-
-/* Noise texture via SVG filter */
-.hero-noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 128px 128px;
-}
-
-/* Subtle scrim — gentle darkening behind text area for contrast */
-.hero-text-scrim {
-  background: radial-gradient(
-    ellipse 55% 45% at 50% 42%,
-    rgba(0, 0, 0, 0.18) 0%,
-    transparent 65%
-  );
-}
-.dark .hero-text-scrim {
-  background: radial-gradient(
-    ellipse 60% 50% at 50% 45%,
-    rgba(0, 0, 0, 0.25) 0%,
-    transparent 70%
-  );
-}
-
-/* Headline text — foreground on gradient light, shimmer on dark */
 .hero-headline-text {
   color: var(--color-global-foreground);
 }
@@ -231,16 +89,13 @@ import { hero } from "@/data/home";
   animation: gradient-shift 8s ease-in-out infinite;
 }
 
-/* Subtitle text */
 .hero-sub-text {
   color: var(--color-global-foreground);
-  text-shadow: none;
 }
 .dark .hero-sub-text {
   color: var(--color-ksctl-muted-foreground);
 }
 
-/* Staggered fade-in */
 .hero-stagger {
   opacity: 0;
   transform: translateY(16px);
@@ -259,138 +114,7 @@ import { hero } from "@/data/home";
   }
 }
 
-/* Gradient text shimmer (dark mode only) */
 @keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-/* Animated grid overlay — visible moving grid */
-.hero-grid {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size: 80px 80px;
-  animation: gridShift 25s linear infinite;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
-}
-.dark .hero-grid {
-  background-image:
-    linear-gradient(rgba(20,184,166,0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(20,184,166,0.12) 1px, transparent 1px);
-}
-@keyframes gridShift {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(80px, 80px); }
-}
-
-/* Floating orbs with visible glow */
-.hero-orb {
-  position: absolute;
-  border-radius: 50%;
-  will-change: transform, opacity;
-}
-.hero-orb-1 {
-  width: 8px; height: 8px; left: 12%; top: 30%;
-  background: rgba(255,255,255,0.8);
-  box-shadow: 0 0 20px 8px rgba(255,255,255,0.3), 0 0 60px 20px rgba(255,255,255,0.1);
-  animation: orbFloat 7s ease-in-out infinite;
-}
-.hero-orb-2 {
-  width: 6px; height: 6px; left: 75%; top: 20%;
-  background: rgba(255,255,255,0.7);
-  box-shadow: 0 0 16px 6px rgba(255,255,255,0.25), 0 0 50px 16px rgba(255,255,255,0.08);
-  animation: orbFloat 9s ease-in-out infinite; animation-delay: 2s;
-}
-.hero-orb-3 {
-  width: 10px; height: 10px; left: 30%; top: 65%;
-  background: rgba(255,255,255,0.6);
-  box-shadow: 0 0 24px 10px rgba(255,255,255,0.2), 0 0 70px 24px rgba(255,255,255,0.08);
-  animation: orbFloat 11s ease-in-out infinite; animation-delay: 4s;
-}
-.hero-orb-4 {
-  width: 5px; height: 5px; left: 60%; top: 50%;
-  background: rgba(255,255,255,0.7);
-  box-shadow: 0 0 14px 5px rgba(255,255,255,0.25);
-  animation: orbFloat 8s ease-in-out infinite; animation-delay: 1s;
-}
-.hero-orb-5 {
-  width: 7px; height: 7px; left: 88%; top: 45%;
-  background: rgba(255,255,255,0.6);
-  box-shadow: 0 0 18px 7px rgba(255,255,255,0.2);
-  animation: orbFloat 10s ease-in-out infinite; animation-delay: 3s;
-}
-.hero-orb-6 {
-  width: 6px; height: 6px; left: 45%; top: 15%;
-  background: rgba(255,255,255,0.7);
-  box-shadow: 0 0 16px 6px rgba(255,255,255,0.2);
-  animation: orbFloat 12s ease-in-out infinite; animation-delay: 5s;
-}
-.dark .hero-orb-1 { background: rgba(20,184,166,0.9); box-shadow: 0 0 20px 8px rgba(20,184,166,0.4), 0 0 60px 20px rgba(20,184,166,0.15); }
-.dark .hero-orb-2 { background: rgba(20,184,166,0.8); box-shadow: 0 0 16px 6px rgba(20,184,166,0.35), 0 0 50px 16px rgba(20,184,166,0.12); }
-.dark .hero-orb-3 { background: rgba(20,184,166,0.7); box-shadow: 0 0 24px 10px rgba(20,184,166,0.3), 0 0 70px 24px rgba(20,184,166,0.12); }
-.dark .hero-orb-4 { background: rgba(20,184,166,0.8); box-shadow: 0 0 14px 5px rgba(20,184,166,0.35); }
-.dark .hero-orb-5 { background: rgba(20,184,166,0.7); box-shadow: 0 0 18px 7px rgba(20,184,166,0.3); }
-.dark .hero-orb-6 { background: rgba(20,184,166,0.8); box-shadow: 0 0 16px 6px rgba(20,184,166,0.3); }
-
-@keyframes orbFloat {
-  0%, 100% { transform: translate(0, 0); opacity: 0.4; }
-  25% { transform: translate(40px, -30px); opacity: 1; }
-  50% { transform: translate(-20px, -60px); opacity: 0.6; }
-  75% { transform: translate(30px, 20px); opacity: 1; }
-}
-
-/* Shooting meteor streaks */
-.hero-meteor {
-  position: absolute;
-  width: 120px;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.8), transparent);
-  transform: rotate(-35deg);
-  will-change: transform, opacity;
-}
-.dark .hero-meteor {
-  background: linear-gradient(90deg, rgba(20,184,166,0.8), transparent);
-}
-.hero-meteor-1 { top: 15%; right: -120px; animation: meteorShoot 4s ease-in infinite; animation-delay: 1s; }
-.hero-meteor-2 { top: 35%; right: -120px; animation: meteorShoot 4s ease-in infinite; animation-delay: 3.5s; }
-.hero-meteor-3 { top: 55%; right: -120px; animation: meteorShoot 4s ease-in infinite; animation-delay: 6s; }
-
-@keyframes meteorShoot {
-  0% { transform: rotate(-35deg) translateX(0); opacity: 0; }
-  5% { opacity: 1; }
-  30% { opacity: 1; }
-  60% { transform: rotate(-35deg) translateX(-100vw); opacity: 0; }
-  100% { transform: rotate(-35deg) translateX(-100vw); opacity: 0; }
-}
-
-/* Aurora — wide animated color band */
-.hero-aurora {
-  background: linear-gradient(
-    110deg,
-    transparent 10%,
-    rgba(255,255,255,0.06) 30%,
-    rgba(255,255,255,0.12) 50%,
-    rgba(255,255,255,0.06) 70%,
-    transparent 90%
-  );
-  background-size: 300% 100%;
-  animation: auroraSweep 6s ease-in-out infinite;
-}
-.dark .hero-aurora {
-  background: linear-gradient(
-    110deg,
-    transparent 10%,
-    rgba(20,184,166,0.06) 30%,
-    rgba(20,184,166,0.15) 50%,
-    rgba(20,184,166,0.06) 70%,
-    transparent 90%
-  );
-  background-size: 300% 100%;
-}
-@keyframes auroraSweep {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }

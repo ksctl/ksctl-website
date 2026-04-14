@@ -13,15 +13,19 @@ import { meta } from "@/data/about";
 ---
 
 <Layout title={meta.title} image="/images/og-main.png">
+  <!-- Page-wide grid background -->
+  <div class="fixed inset-0 -z-10 pointer-events-none bg-global-background"></div>
+  <div class="fixed inset-0 -z-10 pointer-events-none bg-[linear-gradient(to_right,var(--ksctl-grid-line)_1px,transparent_1px),linear-gradient(to_bottom,var(--ksctl-grid-line)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+
   <AppHeader />
   <main class="pt-28">
     <!-- Page Header -->
     <Container>
       <div class="text-center max-w-3xl mx-auto">
-        <h1 class="text-5xl md:text-6xl font-bold text-foreground mb-6">
-          {meta.heading} <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{meta.headingHighlight}</span>
+        <h1 class="text-5xl md:text-6xl font-bold text-ksctl-foreground mb-6">
+          {meta.heading} <span class="text-ksctl-primary">{meta.headingHighlight}</span>
         </h1>
-        <p class="text-xl text-muted-foreground">
+        <p class="text-xl text-ksctl-muted-foreground">
           {meta.subheading}
         </p>
       </div>

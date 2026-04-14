@@ -14,6 +14,10 @@ import { meta } from "@/data/home";
 ---
 
 <Layout title={meta.title} image="/images/og-main.png">
+  <!-- Page-wide grid background -->
+  <div class="fixed inset-0 -z-10 pointer-events-none bg-global-background"></div>
+  <div class="fixed inset-0 -z-10 pointer-events-none bg-[linear-gradient(to_right,var(--ksctl-grid-line)_1px,transparent_1px),linear-gradient(to_bottom,var(--ksctl-grid-line)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+
   <AppHeader />
   <main>
     <HeroHome />

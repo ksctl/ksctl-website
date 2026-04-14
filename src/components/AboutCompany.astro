@@ -5,12 +5,12 @@ import { aboutCompany } from "@/data/about";
 const { timeline, impact, story } = aboutCompany;
 ---
 
-<section class="relative py-24 bg-gradient-to-b from-background to-ksctl-muted/30">
+<section class="relative py-24">
   <Container>
     <!-- Section Header -->
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-ksctl-foreground mb-4">
-        {aboutCompany.heading.split(' ')[0]} <span class="bg-gradient-to-r from-ksctl-primary to-ksctl-secondary bg-clip-text text-transparent">{aboutCompany.heading.split(' ').slice(1).join(' ')}</span>
+        {aboutCompany.heading.split(' ')[0]} <span class="text-ksctl-primary">{aboutCompany.heading.split(' ').slice(1).join(' ')}</span>
       </h2>
       <p class="text-lg text-ksctl-muted-foreground max-w-2xl mx-auto">
         {aboutCompany.subheading}
@@ -21,7 +21,7 @@ const { timeline, impact, story } = aboutCompany;
     <div class="max-w-4xl mx-auto mb-20">
       <div class="bg-ksctl-card rounded-2xl border border-ksctl-border p-8 md:p-12">
         <div class="flex items-start mb-6">
-          <div class="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-ksctl-primary to-ksctl-secondary flex items-center justify-center shadow-lg shadow-ksctl-primary/30 mr-6">
+          <div class="flex-shrink-0 w-16 h-16 rounded-xl bg-ksctl-primary flex items-center justify-center shadow-lg shadow-ksctl-primary/30 mr-6">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
             </svg>
@@ -46,7 +46,7 @@ const { timeline, impact, story } = aboutCompany;
 
       <div class="relative">
         <!-- Vertical Line -->
-        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-ksctl-primary to-ksctl-secondary opacity-30"></div>
+        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-ksctl-primary opacity-30"></div>
 
         <!-- Timeline Items -->
         <div class="space-y-12">
@@ -72,7 +72,7 @@ const { timeline, impact, story } = aboutCompany;
               </div>
 
               <!-- Center Dot -->
-              <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-br from-ksctl-primary to-ksctl-secondary border-4 border-background shadow-lg z-10"></div>
+              <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-ksctl-primary border-4 border-ksctl-background shadow-lg z-10"></div>
             </div>
           ))}
         </div>
@@ -81,7 +81,7 @@ const { timeline, impact, story } = aboutCompany;
 
     <!-- Community Impact -->
     <div class="mt-20 max-w-5xl mx-auto">
-      <div class="bg-gradient-to-br from-ksctl-primary/5 to-ksctl-secondary/5 rounded-2xl border border-ksctl-primary/20 p-8 md:p-12">
+      <div class="bg-ksctl-primary/5 rounded-2xl border border-ksctl-primary/20 p-8 md:p-12">
         <h3 class="text-2xl md:text-3xl font-bold text-ksctl-foreground text-center mb-8">
           {impact.heading}
         </h3>
