@@ -3,9 +3,9 @@ import Container from "./Container.astro";
 import { hero } from "@/data/home";
 ---
 
-<div class="relative overflow-hidden z-0" id="home">
-  <!-- Light: blur glow accent -->
-  <div class="absolute left-1/3 top-1/3 h-[500px] w-[500px] rounded-full bg-[var(--ksctl-hero-glow)] opacity-20 blur-[120px] dark:hidden pointer-events-none"></div>
+<div class="relative overflow-hidden z-0 min-h-screen" id="home">
+  <!-- Light: radial spotlight — white center, emerald edges -->
+  <div class="absolute inset-0 z-0 pointer-events-none dark:hidden" style="background: radial-gradient(125% 125% at 50% 10%, var(--color-global-background) 40%, var(--ksctl-hero-glow) 100%);"></div>
 
   <!-- Dark: radial glow accent -->
   <div class="absolute inset-0 pointer-events-none hidden dark:block bg-[radial-gradient(circle_560px_at_50%_200px,var(--ksctl-hero-glow),transparent)]"></div>
