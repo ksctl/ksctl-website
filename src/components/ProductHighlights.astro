@@ -21,7 +21,7 @@ const { items } = products;
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
       {items.map((product) => (
         <div class:list={[
-          "group relative rounded-2xl border p-8 md:p-10 transition-all duration-300",
+          "group relative h-full flex flex-col rounded-2xl border p-8 md:p-10 transition-all duration-300",
           product.available
             ? "bg-ksctl-card border-ksctl-border hover:shadow-2xl hover:-translate-y-2"
             : "bg-ksctl-muted border-ksctl-border/50"
@@ -76,7 +76,7 @@ const { items } = products;
           </p>
 
           <!-- Features List -->
-          <ul class="space-y-3 mb-8">
+          <ul class="space-y-3 mb-8 flex-grow">
             {product.features.map((feature) => (
               <li class="flex items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" class:list={[

@@ -47,7 +47,7 @@ export const features = {
     },
     {
       title: "Developer Velocity",
-      description: "Spin up clusters in minutes for faster workflows. Intuitive CLI reduces the learning curve for development teams.",
+      description: "Spin up clusters in minutes for faster workflows. Intuitive CLI reduces the learning curve for development teams from learning terraform and juggling multiple tools to near zero configuration.",
       stats: { label: "Deployment speed", value: "80% faster", percentage: 80 }
     },
     {
