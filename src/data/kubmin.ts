@@ -5,7 +5,7 @@
 export const meta = {
   title: "Kubmin — Track What Each Deploy Costs in Money and Efficiency",
   description:
-    "Kubmin reveals per-workload cost, energy consumption, and SCI scores across your Kubernetes clusters. Detect idle resources, compare deployments, and get actionable fixes. Free tier available.",
+    "Kubmin reveals per-workload cost, energy consumption, Running Efficiency, and SCI score. Compare release versions. The missing layer between your workloads and your bill.",
 };
 
 export const links = {
@@ -111,27 +111,37 @@ export const productDemo = {
 // ---- CORE FEATURES ----
 export const coreFeatures = {
   label: "What Kubmin Does",
-  heading: "Four things no other Kubernetes tool does together",
+  heading: "Six things no other tool does together",
   features: [
     {
-      title: "Find Idle & Overprovisioned Workloads",
-      body: "Kubmin detects three types of waste: idle workloads burning resources 24/7, overprovisioned containers using a fraction of their requests, and temporal patterns where waste spikes during off-hours. Each detection comes with dollar amounts attached.",
-      tag: "Know exactly what you're wasting",
+      title: "Per-Image-Version Deep Profile",
+      body: "Point kubmin at a specific image tag and get hourly SCI, energy consumption, CPU, memory, and cost — plus the full trend across that version's lifetime. Not generic pod metrics. Version-scoped visibility into what each build actually costs and consumes in production.",
+      tag: "Your deploy's real footprint",
     },
     {
-      title: "kubectl Commands That Save Money",
-      body: "Every waste detection comes with a ready-to-use kubectl command. Scale down idle replicas, right-size resource requests, remove unused deployments — copy, paste, save. No guesswork.",
-      tag: "Fix waste in 30 seconds",
+      title: "Release-over-Release Efficiency Diff",
+      body: "Compare any two image versions across CPU, memory, energy, SCI, SEE, and runtime cost — per functional unit of work. Ship a new release and see within hours whether it regressed 30% on efficiency, before the regression compounds into your bill.",
+      tag: "Release diff for efficiency, not code",
     },
     {
-      title: "Compare Any Two Image Versions",
-      body: "Shipped a new release? Compare it against the previous version across cost, energy, CPU, memory, and SCI score. See exactly how your code change affected efficiency — before it hits your bill.",
-      tag: "Catch regressions before they compound",
+      title: "Workload Profile Classifier",
+      body: "Kubmin classifies each workload as CPU-bound, memory-bound, general, or resource-starved — automatically, from runtime behavior. Idle-time percentage and hourly heatmaps show exactly when waste spikes. No more right-sizing blind.",
+      tag: "Know what your workload actually is",
     },
     {
-      title: "Same Workload, Different Regions, Different Prices",
-      body: "Running in us-east-1 by default? Kubmin compares your workload's cost and carbon footprint across every available region. See exactly how much you'd save by moving — with the sustainability trade-offs laid out side by side.",
-      tag: "Find your cheapest region",
+      title: "Smart Cluster Setup",
+      body: "Spinning up a new cluster? Kubmin filters instance types against your workload profile and shows spec, hourly cost, and embodied carbon for each option. Region picker surfaces real grid carbon intensity and % renewable energy — so cluster decisions are informed, not guessed.",
+      tag: "Right cluster before the first pod",
+    },
+    {
+      title: "Placement & Region Recommender",
+      body: "Running on the default instance type in us-east-1? Kubmin surfaces alternative instance types with similar or better performance at lower cost, plus alternative regions that cut your workload's running cost and run on a cleaner grid. Side-by-side tradeoffs, not guesswork.",
+      tag: "Move once, save every hour",
+    },
+    {
+      title: "Quick Wins — Ranked by Savings",
+      body: "Kubmin turns every finding — idle replicas, overprovisioned limits, cheaper instance types, greener regions — into a ranked action list with estimated monthly cost savings and efficiency gains attached. Each wins ships with a copy-paste kubectl command. Open the dashboard, act on the top three.",
+      tag: "Dollar-ranked actions, not alerts",
     },
   ],
 };

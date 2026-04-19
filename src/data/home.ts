@@ -3,6 +3,8 @@
 // ============================================================
 
 import { teamMembers as aboutTeamMembers } from "./about";
+import { hero as kliHero, features as kliFeatures } from "./kli";
+import { hero as kubminHero, coreFeatures as kubminFeatures, meta as kubminMeta } from "./kubmin";
 
 export const teamMembers = aboutTeamMembers;
 
@@ -63,32 +65,22 @@ export const products = {
   subheading: "Purpose-built tools for sustainable and efficient Kubernetes infrastructure",
   items: [
     {
-      name: "kli",
-      logo: "/kli-logo.svg",
-      tagline: "Simplify K8s cluster Ops by single command",
-      description: "One Command Highly Available Kubernetes cluster creation but also considers Cloud Region's carbonintensity and instancetype embodded carbon along with cost optimization.",
-      features: [
-        "Cloud-agnostic deployment",
-        "Carbon-aware region selection and instance type recommendations",
-        "Cost optimization recommendations",
-        "Choice of Bootstrap, CNI to monitoring add-ons"
-      ],
-      ctaText: "Explore kli",
+      name: kliHero.productName,
+      logo: kliHero.logo,
+      tagline: kliHero.tagline,
+      description: kliHero.description,
+      features: kliFeatures.items.map(item => item.title),
+      ctaText: `Explore ${kliHero.productName}`,
       ctaLink: "/product/kli",
       available: true
     },
     {
-      name: "kubmin",
-      logo: "/kubmin-logo.svg",
-      tagline: "Workload Intelligence",
-      description: "Brings workload intelligence provisioned on runners. Monitor, analyze, and optimize your workloads with energy-powered intelligence.",
-      features: [
-        "Multi-cluster management",
-        "Advanced monitoring & workload sustainability insights",
-        "Reduce Operational Overheads but letting you focus on your workloads",
-        "Cost and Resource optimization"
-      ],
-      ctaText: "Explore kubmin",
+      name: kubminHero.productName,
+      logo: kubminHero.logo,
+      tagline: kubminHero.headline,
+      description: kubminMeta.description,
+      features: kubminFeatures.features.map(item => item.title),
+      ctaText: `Explore ${kubminHero.productName}`,
       ctaLink: "/product/kubmin",
       available: true
     }

@@ -10,7 +10,7 @@ export const hero = {
   logo: "/kli-logo.svg",
   productName: "kli",
   tagline: "Simplify K8s cluster Ops by single command",
-  description: "One Command Highly Available Kubernetes cluster creation but also considers Cloud Region's carbon intensity and instancetype embodded carbon along with cost optimization.",
+  description: "Single Command Highly Available Kubernetes cluster across cloud providers plus sustanability metrics and cost optimization strategies.",
   trustPills: [
     "Single binary",
     "No Terraform",
