@@ -18,10 +18,16 @@ import { missionVision } from "@/data/home";
     <!-- Mission & Vision Cards -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
       <!-- Mission Card -->
-      <div class="group relative bg-ksctl-card rounded-2xl border border-ksctl-border p-8 md:p-10 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+      <div class="group relative overflow-hidden bg-ksctl-card rounded-2xl border border-ksctl-border p-8 md:p-10 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+        <!-- Primary overlay on hover -->
+        <div class="absolute inset-0 rounded-2xl bg-ksctl-primary opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+
+        <!-- Top Border Accent -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-16 bg-ksctl-primary rounded-b-full opacity-50 group-hover:opacity-100 group-hover:w-24 transition-all duration-300"></div>
+
         <!-- Icon -->
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-ksctl-primary mb-6 shadow-lg shadow-ksctl-primary/30">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="relative z-10 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-ksctl-primary/10 dark:bg-ksctl-primary/20 mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-ksctl-primary text-ksctl-primary group-hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
           </svg>
         </div>
@@ -41,10 +47,16 @@ import { missionVision } from "@/data/home";
       </div>
 
       <!-- Vision Card -->
-      <div class="group relative bg-ksctl-card rounded-2xl border border-ksctl-border p-8 md:p-10 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+      <div class="group relative overflow-hidden bg-ksctl-card rounded-2xl border border-ksctl-border p-8 md:p-10 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+        <!-- Primary overlay on hover -->
+        <div class="absolute inset-0 rounded-2xl bg-ksctl-primary opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+
+        <!-- Top Border Accent -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-16 bg-ksctl-primary rounded-b-full opacity-50 group-hover:opacity-100 group-hover:w-24 transition-all duration-300"></div>
+
         <!-- Icon -->
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-ksctl-primary mb-6 shadow-lg shadow-ksctl-primary/30">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="relative z-10 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-ksctl-primary/10 dark:bg-ksctl-primary/20 mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-ksctl-primary text-ksctl-primary group-hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
           </svg>

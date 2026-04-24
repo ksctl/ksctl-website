@@ -72,18 +72,18 @@ import Container from "./Container.astro";
 
       <div class="mt-12 m-auto space-y-8 md:w-9/12 lg:w-8/12">
         <h2
-          class="text-center text-4xl font-bold text-gray-900 dark:text-white md:text-5xl xl:text-6xl tracking-tight"
+          class="text-center text-4xl font-bold text-global-foreground md:text-5xl xl:text-6xl tracking-tight"
         >
-          Join the <span class="bg-gradient-to-r from-ksctl-primary to-green-500 dark:from-ksctl-primary dark:to-green-400 bg-clip-text text-transparent animate-pulse-slow">Community</span>
+          Join the <span class="text-ksctl-primary animate-pulse-slow">Community</span>
         </h2>
-        <p class="text-center text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        <p class="text-center text-xl text-global-foreground/70 max-w-3xl mx-auto">
           Connect with developers building sustainable, cost-efficient deployments
         </p>
         
         <div class="flex flex-wrap justify-center gap-6 pt-8">
           <a
             href="#products"
-            class="relative flex h-16 px-10 items-center justify-center rounded-xl bg-gradient-to-r from-ksctl-primary to-green-500 text-white font-medium shadow-lg shadow-ksctl-primary/20 transition-all hover:shadow-xl hover:shadow-ksctl-primary/30 hover:-translate-y-1 active:translate-y-0 sm:w-max btn-hover-effect"
+            class="relative flex h-16 px-10 items-center justify-center rounded-xl bg-ksctl-primary text-[var(--color-ksctl-primary-foreground)] font-medium shadow-lg shadow-ksctl-primary/20 transition-all hover:shadow-xl hover:shadow-ksctl-primary/30 hover:-translate-y-1 active:translate-y-0 sm:w-max btn-hover-effect"
           >
             <span class="flex items-center text-lg">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -94,7 +94,7 @@ import Container from "./Container.astro";
           </a>
           <a
             href="https://discord.ksctl.com"
-            class="relative flex h-16 px-10 items-center justify-center rounded-xl border-2 border-ksctl-primary/30 dark:border-ksctl-primary/40 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-medium shadow-sm hover:border-ksctl-primary dark:hover:border-ksctl-primary hover:shadow hover:shadow-ksctl-primary/10 hover:-translate-y-1 active:translate-y-0 transition-all sm:w-max"
+            class="relative flex h-16 px-10 items-center justify-center rounded-xl border-2 border-ksctl-border bg-ksctl-card text-ksctl-card-foreground font-medium shadow-sm hover:border-ksctl-primary hover:shadow hover:shadow-ksctl-primary/10 hover:-translate-y-1 active:translate-y-0 transition-all sm:w-max"
           >
             <span class="flex items-center text-lg">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-ksctl-primary dark:text-ksctl-primary" fill="currentColor" viewBox="0 0 24 24">

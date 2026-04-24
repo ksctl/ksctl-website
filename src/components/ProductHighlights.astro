@@ -21,11 +21,17 @@ const { items } = products;
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
       {items.map((product) => (
         <div class:list={[
-          "group relative h-full flex flex-col rounded-2xl border p-8 md:p-10 transition-all duration-300",
+          "group relative overflow-hidden h-full flex flex-col rounded-2xl border p-8 md:p-10 transition-all duration-300",
           product.available
             ? "bg-ksctl-card border-ksctl-border hover:shadow-2xl hover:-translate-y-2"
-            : "bg-ksctl-muted border-ksctl-border/50"
+            : "bg-ksctl-muted border-ksctl-border/50 hover:shadow-xl hover:-translate-y-1"
         ]}>
+          <!-- Primary overlay on hover -->
+          <div class="absolute inset-0 rounded-2xl bg-ksctl-primary opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+
+          <!-- Top Border Accent -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-16 bg-ksctl-primary rounded-b-full opacity-50 group-hover:opacity-100 group-hover:w-24 transition-all duration-300"></div>
+
           <!-- Badge for Coming Soon -->
           {(product as any).badge && (
             <div class="absolute top-6 right-6">
@@ -103,10 +109,10 @@ const { items } = products;
           <a
             href={product.ctaLink}
             class:list={[
-              "block w-full text-center py-4 px-6 rounded-lg font-medium transition-all duration-300",
+              "relative z-10 block w-full text-center py-4 px-6 rounded-lg font-medium transition-all duration-300",
               product.available
-                ? "bg-ksctl-primary text-primary-foreground shadow-lg shadow-ksctl-primary/30 hover:shadow-xl hover:shadow-ksctl-primary/40 hover:translate-y-[-2px] active:translate-y-[1px]"
-                : "bg-ksctl-muted text-ksctl-muted-foreground cursor-not-allowed"
+                ? "bg-ksctl-primary text-[var(--color-ksctl-primary-foreground)] shadow-lg shadow-ksctl-primary/30 hover:shadow-xl hover:shadow-ksctl-primary/40 hover:translate-y-[-2px] active:translate-y-[1px]"
+                : "bg-ksctl-muted text-[var(--color-ksctl-muted-foreground)] cursor-not-allowed"
             ]}
             aria-disabled={!product.available}
           >
