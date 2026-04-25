@@ -1,22 +1,22 @@
 ---
-import AppHeader from "../../components/AppHeader.astro";
-import AppFooter from "../../components/AppFooter.astro";
-import HeroKubmin from "../../components/HeroKubmin.astro";
+import AppHeader from "../../components/shared/AppHeader.astro";
+import AppFooter from "../../components/shared/AppFooter.astro";
+import HeroKubmin from "../../components/kubmin/Hero.astro";
 import Layout from "../../layouts/Layout.astro";
 import "../../styles/global.css";
 import "../../styles/kubmin.css";
 import { meta } from "@/data/kubmin";
 
-import KubminProblem from "../../components/kubmin/KubminProblem.astro";
-import KubminDemo from "../../components/kubmin/KubminDemo.astro";
-import KubminFeatures from "../../components/kubmin/KubminFeatures.astro";
-import KubminEnergy from "../../components/kubmin/KubminEnergy.astro";
-import KubminHowItWorks from "../../components/kubmin/KubminHowItWorks.astro";
-import KubminComparison from "../../components/kubmin/KubminComparison.astro";
-import KubminPricing from "../../components/kubmin/KubminPricing.astro";
-import KubminTrust from "../../components/kubmin/KubminTrust.astro";
-import KubminFAQ from "../../components/kubmin/KubminFAQ.astro";
-import KubminCTA from "../../components/kubmin/KubminCTA.astro";
+import KubminProblem from "../../components/kubmin/Problem.astro";
+import KubminDemo from "../../components/kubmin/Demo.astro";
+import KubminFeatures from "../../components/kubmin/Features.astro";
+import KubminEnergy from "../../components/kubmin/Energy.astro";
+import KubminHowItWorks from "../../components/kubmin/HowItWorks.astro";
+import KubminComparison from "../../components/kubmin/Comparison.astro";
+import KubminPricing from "../../components/kubmin/Pricing.astro";
+import KubminTrust from "../../components/kubmin/Trust.astro";
+import KubminFAQ from "../../components/kubmin/FAQ.astro";
+import KubminCTA from "../../components/kubmin/CTA.astro";
 ---
 
 <Layout title={meta.title} description={meta.description} theme="kubmin" image="/images/og-kubmin.png">
