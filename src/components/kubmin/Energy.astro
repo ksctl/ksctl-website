@@ -3,62 +3,72 @@ import Container from "../shared/Container.astro";
 import { whyEnergy } from "@/data/kubmin";
 ---
 
-<section class="py-24 bg-white">
-  <Container>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-      <div class="max-w-xl">
-        <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight text-kubmin-neutral-900 mb-8 leading-[1.1]">
-          {whyEnergy.heading} <br/>
-          <span class="text-kubmin-primary-600">{whyEnergy.headingAccent}</span>
+<section class="relative py-28 md:py-36 overflow-hidden" style="background: var(--color-kubmin-base);">
+  <div class="km-blob km-blob-foam" style="width: 30rem; height: 30rem; top: -6rem; right: -6rem; opacity: .4"></div>
+  <div class="km-blob km-blob-iris" style="width: 26rem; height: 26rem; bottom: -8rem; left: -6rem; opacity: .35"></div>
+
+  <Container class="relative z-10">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+      <div class="lg:col-span-7">
+        <span class="km-eyebrow">why energy · ch. 03</span>
+        <h2 class="mt-6 text-5xl md:text-7xl leading-[0.98] font-medium" style="color: var(--color-kubmin-text)">
+          CPU metrics
+          <span class="km-italic" style="color: var(--color-kubmin-love)">lie.</span><br/>
+          Energy
+          <span class="km-italic km-grad-iris">doesn't.</span>
         </h2>
-        <div class="prose prose-lg text-kubmin-neutral-600 max-w-none">
-          <p class="font-medium text-kubmin-neutral-900 text-xl leading-relaxed mb-6">{whyEnergy.intro}</p>
-          <p>{whyEnergy.kepler}</p>
-          
-          <div class="mt-8 p-6 bg-kubmin-amber-50 rounded-2xl border border-kubmin-amber-100">
-            <div class="flex items-start gap-4">
-              <div class="mt-1 w-8 h-8 rounded-full bg-kubmin-amber-200 flex items-center justify-center shrink-0 text-kubmin-amber-700">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-              </div>
-              <p class="text-sm text-kubmin-amber-900/80 leading-relaxed m-0">
-                {whyEnergy.accuracyNote}
-              </p>
-            </div>
-          </div>
 
-          <div class="mt-8">
-            <a
-              href="/manifesto/vrapl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group inline-flex items-center gap-3 h-12 px-6 rounded-full bg-gradient-to-r from-kubmin-primary-600 to-kubmin-energy text-white font-semibold text-sm hover:scale-105 hover:shadow-[--shadow-kubmin-primary-glow] transition-all duration-300"
-            >
-              Read our Open VM Energy Manifesto
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
-              </svg>
-            </a>
+        <p class="mt-10 text-xl leading-relaxed font-medium max-w-2xl" style="color: var(--color-kubmin-text)">
+          {whyEnergy.intro}
+        </p>
+
+        <p class="mt-6 leading-relaxed max-w-2xl" style="color: var(--color-kubmin-subtle-text)">
+          {whyEnergy.kepler}
+        </p>
+
+        <div class="mt-10 rounded-2xl p-6 flex items-start gap-4" style="background: var(--color-kubmin-overlay); border: 1px solid var(--color-kubmin-border);">
+          <div class="shrink-0 w-9 h-9 rounded-full flex items-center justify-center mt-0.5" style="background: var(--color-kubmin-primary-100); color: var(--color-kubmin-primary-700); border: 1px solid var(--color-kubmin-primary-200);">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
           </div>
+          <div>
+            <div class="km-mono text-[10px] uppercase tracking-[0.22em] mb-2" style="color: var(--color-kubmin-primary-700)">a note on accuracy</div>
+            <p class="text-sm leading-relaxed" style="color: var(--color-kubmin-text)">
+              {whyEnergy.accuracyNote}
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <a href="/manifesto/vrapl" target="_blank" rel="noopener noreferrer" class="km-btn km-btn-primary">
+            Read the Open VM Energy Manifesto
+            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </a>
         </div>
       </div>
 
-      <div class="lg:sticky lg:top-24 bg-kubmin-neutral-50 p-8 md:p-12 rounded-3xl border border-kubmin-neutral-100">
-        <p class="text-sm font-semibold tracking-wide text-kubmin-neutral-500 uppercase mb-8">{whyEnergy.metricsIntro}</p>
-        
-        <div class="space-y-6">
-          {whyEnergy.metrics.map(metric => (
-            <div class="bg-white p-6 rounded-2xl border border-kubmin-neutral-200 shadow-sm">
-              <div class="flex items-baseline gap-4 mb-3">
-                <span class="text-3xl font-black tracking-tighter text-kubmin-primary-600 font-sans tabular-nums">{metric.name}</span>
-                <span class="text-lg font-semibold text-kubmin-neutral-900">{metric.full}</span>
+      <aside class="lg:col-span-5 lg:sticky lg:top-28">
+        <div class="km-paper rounded-3xl p-8 md:p-10">
+          <div class="km-mono text-[10px] tracking-[0.22em] uppercase mb-8" style="color: var(--color-kubmin-subtle-text)">
+            {whyEnergy.metricsIntro}
+          </div>
+
+          <div class="space-y-5">
+            {whyEnergy.metrics.map((m, i) => (
+              <div class="rounded-2xl p-6" style={`background: ${i === 0 ? 'var(--color-kubmin-overlay)' : 'var(--color-kubmin-muted)'}; border: 1px solid var(--color-kubmin-border);`}>
+                <div class="flex items-baseline gap-4 mb-3">
+                  <span class="km-display text-5xl font-medium" style="color: var(--color-kubmin-primary-700); font-style: italic;">{m.name}</span>
+                  <span class="text-sm font-medium tracking-wide" style="color: var(--color-kubmin-text)">{m.full}</span>
+                </div>
+                <p class="text-sm leading-relaxed" style="color: var(--color-kubmin-subtle-text)">{m.description}</p>
               </div>
-              <p class="text-kubmin-neutral-500">{metric.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <p class="mt-8 km-italic text-base leading-relaxed pl-4 border-l-2" style="color: var(--color-kubmin-text); border-color: var(--color-kubmin-energy)">
+            {whyEnergy.combined}
+          </p>
         </div>
-        
-        <p class="mt-8 text-kubmin-neutral-500 italic border-l-2 border-kubmin-neutral-300 pl-4">{whyEnergy.combined}</p>
-      </div>
+      </aside>
     </div>
   </Container>
 </section>

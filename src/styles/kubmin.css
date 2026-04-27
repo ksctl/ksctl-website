@@ -1,70 +1,362 @@
-/* kubmin product page theme overrides */
+/* ============================================================
+   kubmin product page — Rosé Pine Dawn (light-only)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap');
 
 html {
-  /* Core brand palette (Teal/Emerald) */
-  --color-kubmin-primary-50: #f0fdfa;
-  --color-kubmin-primary-100: #ccfbf1;
-  --color-kubmin-primary-200: #99f6e4;
-  --color-kubmin-primary-300: #5eead4;
-  --color-kubmin-primary-400: #2dd4bf;
-  --color-kubmin-primary-500: #14b8a6;
-  --color-kubmin-primary-600: #0d9488;
-  --color-kubmin-primary-700: #0f766e;
-  --color-kubmin-primary-800: #115e59;
-  --color-kubmin-primary-900: #134e4a;
-  --color-kubmin-primary-950: #042f2e;
+  /* ---- iris ramp (primary) ---- */
+  --color-kubmin-primary-50:  #f5f0fa;
+  --color-kubmin-primary-100: #ebe2f2;
+  --color-kubmin-primary-200: #d9c8e6;
+  --color-kubmin-primary-300: #c1a5d4;
+  --color-kubmin-primary-400: #a890c1;
+  --color-kubmin-primary-500: #907aa9; /* iris */
+  --color-kubmin-primary-600: #7a6492;
+  --color-kubmin-primary-700: #635279;
+  --color-kubmin-primary-800: #4d4060;
+  --color-kubmin-primary-900: #38304a;
+  --color-kubmin-primary-950: #221d2e;
 
-  /* Semantic feature colors */
-  --color-kubmin-cost: #f59e0b; /* amber-500 */
-  --color-kubmin-energy: #10b981; /* emerald-500 */
-  --color-kubmin-efficiency: #0ea5e9; /* sky-500 */
+  /* ---- semantic accents (Rosé Pine Dawn) ---- */
+  --color-kubmin-cost:       #ea9d34; /* gold   — money */
+  --color-kubmin-energy:     #56949f; /* foam   — energy */
+  --color-kubmin-efficiency: #286983; /* pine   — efficiency */
+  --color-kubmin-love:       #b4637a; /* rose   — alarm/regression */
+  --color-kubmin-rose:       #d7827e; /* light rose */
+  --color-kubmin-iris:       #907aa9;
 
-  /* Dark section background */
-  --color-kubmin-dark: #0a0a0a;
+  /* ---- neutrals (mauve text on cream) ---- */
+  --color-kubmin-base:       #faf4ed; /* page bg */
+  --color-kubmin-surface:    #fffaf3; /* card */
+  --color-kubmin-overlay:    #f2e9e1; /* popover/elevated */
+  --color-kubmin-muted:      #f4ede8;
+  --color-kubmin-subtle:     #dfdad9;
+  --color-kubmin-border:     #cecacd;
+  --color-kubmin-text:       #575279;
+  --color-kubmin-subtle-text:#797593;
 
-  /* Neutral palette */
-  --color-kubmin-neutral-50: #f9fafb;
-  --color-kubmin-neutral-100: #f3f4f6;
-  --color-kubmin-neutral-200: #e5e7eb;
-  --color-kubmin-neutral-300: #d1d5db;
-  --color-kubmin-neutral-400: #9ca3af;
-  --color-kubmin-neutral-500: #6b7280;
-  --color-kubmin-neutral-600: #4b5563;
-  --color-kubmin-neutral-900: #111827;
+  /* re-purpose old token names so existing utilities keep working */
+  --color-kubmin-dark:           var(--color-kubmin-base);
+  --color-kubmin-neutral-50:     var(--color-kubmin-base);
+  --color-kubmin-neutral-100:    var(--color-kubmin-muted);
+  --color-kubmin-neutral-200:    var(--color-kubmin-subtle);
+  --color-kubmin-neutral-300:    var(--color-kubmin-border);
+  --color-kubmin-neutral-400:    var(--color-kubmin-subtle-text);
+  --color-kubmin-neutral-500:    var(--color-kubmin-subtle-text);
+  --color-kubmin-neutral-600:    var(--color-kubmin-text);
+  --color-kubmin-neutral-900:    var(--color-kubmin-text);
+  --color-kubmin-amber-50:       #fdf6e7;
+  --color-kubmin-amber-100:      #f8e9c6;
+  --color-kubmin-amber-200:      #f0d28a;
+  --color-kubmin-amber-700:      #a36a13;
+  --color-kubmin-amber-900:      #6e480d;
+  --color-kubmin-orange:         #c8642d;
+  --color-kubmin-yellow:         #ea9d34;
+  --color-kubmin-emerald-400:    #56949f;
+  --color-kubmin-emerald-600:    #286983;
+  --color-kubmin-cyan:           #56949f;
+  --color-kubmin-blue:           #286983;
 
-  /* Amber/warm palette (cost theme extended shades) */
-  --color-kubmin-amber-50: #fffbeb;
-  --color-kubmin-amber-100: #fef3c7;
-  --color-kubmin-amber-200: #fde68a;
-  --color-kubmin-amber-700: #b45309;
-  --color-kubmin-amber-900: #78350f;
+  /* shadows tuned for cream surfaces */
+  --shadow-kubmin-cost-glow:        0 24px 60px -28px rgb(234 157 52 / 0.45);
+  --shadow-kubmin-energy-glow:      0 24px 60px -28px rgb(86 148 159 / 0.45);
+  --shadow-kubmin-energy-glow-soft: 0 40px 100px -40px rgb(86 148 159 / 0.30);
+  --shadow-kubmin-primary-glow:     0 24px 60px -28px rgb(144 122 169 / 0.55);
+  --shadow-kubmin-paper:            0 1px 0 rgb(87 82 121 / 0.04),
+                                    0 12px 28px -16px rgb(87 82 121 / 0.18);
+  --shadow-kubmin-paper-hover:      0 1px 0 rgb(87 82 121 / 0.06),
+                                    0 30px 60px -24px rgb(87 82 121 / 0.22);
 
-  /* Gradient accent colors */
-  --color-kubmin-orange: #9a3412; /* orange-800 */
-  --color-kubmin-yellow: #facc15; /* yellow-400 */
-  --color-kubmin-emerald-400: #34d399;
-  --color-kubmin-emerald-600: #059669;
-  --color-kubmin-cyan: #06b6d4; /* cyan-500 */
-  --color-kubmin-blue: #3b82f6; /* blue-500 */
+  /* fonts */
+  --font-kubmin-display: 'Fraunces', 'Playfair Display', ui-serif, Georgia, serif;
+  --font-kubmin-body:    'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-kubmin-mono:    'JetBrains Mono', ui-monospace, monospace;
+}
 
-  /* Typography */
+/* ---- map global tokens for kubmin theme so shared shell adopts cream ---- */
+html {
+  --color-global-primary:            var(--color-kubmin-primary-600);
+  --color-global-primary-foreground: var(--color-kubmin-base);
+  --color-global-background:         var(--color-kubmin-base);
+  --color-global-foreground:         var(--color-kubmin-text);
+  --color-global-card:               var(--color-kubmin-surface);
+  --color-global-card-foreground:    var(--color-kubmin-text);
+  --color-global-muted:              var(--color-kubmin-muted);
+  --color-global-muted-foreground:   var(--color-kubmin-subtle-text);
+  --color-global-border:             var(--color-kubmin-border);
+  --color-global-ring:               var(--color-kubmin-primary-500);
+}
 
+/* ---- typography on kubmin ---- */
+body.theme-kubmin {
+  font-family: var(--font-kubmin-body);
+  background: var(--color-kubmin-base);
+  color: var(--color-kubmin-text);
+  -webkit-font-smoothing: antialiased;
+}
 
-  /* Glow shadow presets (rgb values match the color tokens above) */
-  --shadow-kubmin-cost-glow: 0 0 32px rgb(245 158 11 / 0.3);
-  --shadow-kubmin-energy-glow-soft: 0 0 60px rgb(16 185 129 / 0.15);
-  --shadow-kubmin-energy-glow: 0 0 20px rgb(16 185 129 / 0.3);
-  --shadow-kubmin-primary-glow: 0 0 32px rgb(20 184 166 / 0.4);
+body.theme-kubmin h1,
+body.theme-kubmin h2,
+body.theme-kubmin h3,
+body.theme-kubmin .km-display {
+  font-family: var(--font-kubmin-display);
+  font-feature-settings: "ss01" on, "ss02" on, "liga" on;
+  letter-spacing: -0.02em;
+}
 
-  /* Map global variables to kubmin theme (dark bg, white fg, teal primary) */
-  --color-global-primary: var(--color-kubmin-primary-500);
-  --color-global-primary-foreground: var(--color-kubmin-primary-50);
-  --color-global-background: var(--color-kubmin-dark);
-  --color-global-foreground: var(--color-kubmin-neutral-50);
-  --color-global-card: var(--color-kubmin-neutral-900);
-  --color-global-card-foreground: var(--color-kubmin-neutral-50);
-  --color-global-muted: var(--color-kubmin-neutral-600);
-  --color-global-muted-foreground: var(--color-kubmin-neutral-300);
-  --color-global-border: var(--color-kubmin-neutral-600);
-  --color-global-ring: var(--color-kubmin-primary-500);
+body.theme-kubmin .km-mono {
+  font-family: var(--font-kubmin-mono);
+  font-feature-settings: "tnum" on;
+}
+
+/* ---- decorative atmosphere ---- */
+.km-paper {
+  background: var(--color-kubmin-surface);
+  border: 1px solid var(--color-kubmin-border);
+  box-shadow: var(--shadow-kubmin-paper);
+}
+
+.km-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: multiply;
+}
+
+/* radial wash anchored to a corner */
+.km-wash-tl {
+  background:
+    radial-gradient(60rem 40rem at 0% 0%,    rgb(144 122 169 / 0.16),  transparent 60%),
+    radial-gradient(50rem 32rem at 100% 0%,  rgb(234 157 52  / 0.10),  transparent 60%),
+    radial-gradient(48rem 30rem at 50% 100%, rgb(86 148 159  / 0.10),  transparent 60%);
+}
+.km-wash-br {
+  background:
+    radial-gradient(50rem 36rem at 100% 100%, rgb(40 105 131 / 0.12), transparent 60%),
+    radial-gradient(50rem 36rem at 0% 60%,    rgb(180 99 122 / 0.08), transparent 60%);
+}
+
+/* hand-drawn underline for accent words */
+.km-underline {
+  position: relative;
+  white-space: nowrap;
+}
+.km-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.12em;
+  height: 0.42em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 Q 50 2 100 6 T 198 5' fill='none' stroke='%23907aa9' stroke-width='2.4' stroke-linecap='round' opacity='0.85'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+}
+.km-underline.km-underline-gold::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 Q 50 2 100 6 T 198 5' fill='none' stroke='%23ea9d34' stroke-width='2.4' stroke-linecap='round' opacity='0.85'/%3E%3C/svg%3E");
+}
+.km-underline.km-underline-rose::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 Q 50 2 100 6 T 198 5' fill='none' stroke='%23b4637a' stroke-width='2.4' stroke-linecap='round' opacity='0.85'/%3E%3C/svg%3E");
+}
+
+/* serif italic emphasis */
+.km-italic {
+  font-family: var(--font-kubmin-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+/* eyebrow label */
+.km-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-kubmin-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-kubmin-subtle-text);
+}
+.km-eyebrow::before {
+  content: "";
+  width: 1.6rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+/* ticker dot */
+.km-dot {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  display: inline-block;
+  background: currentColor;
+}
+
+/* card lift */
+.km-lift {
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease;
+}
+.km-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-kubmin-paper-hover);
+  border-color: var(--color-kubmin-primary-300);
+}
+
+/* hero entrance */
+.km-stagger {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: kmRise .9s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.km-stagger-1 { animation-delay: .04s; }
+.km-stagger-2 { animation-delay: .14s; }
+.km-stagger-3 { animation-delay: .26s; }
+.km-stagger-4 { animation-delay: .38s; }
+.km-stagger-5 { animation-delay: .52s; }
+@keyframes kmRise { to { opacity: 1; transform: none; } }
+
+/* shimmering iris dot grid */
+.km-dotgrid {
+  background-image: radial-gradient(circle at 1px 1px, rgb(87 82 121 / 0.14) 1px, transparent 0);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, black 30%, transparent 75%);
+}
+
+/* mockup browser frame */
+.km-browser {
+  background: var(--color-kubmin-surface);
+  border: 1px solid var(--color-kubmin-border);
+  border-radius: 18px;
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.6) inset,
+    0 60px 100px -40px rgb(87 82 121 / 0.30),
+    0 30px 60px -30px rgb(87 82 121 / 0.18);
+  overflow: hidden;
+}
+.km-browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  background: var(--color-kubmin-overlay);
+  border-bottom: 1px solid var(--color-kubmin-border);
+}
+.km-browser-dot {
+  width: 0.7rem; height: 0.7rem; border-radius: 999px;
+}
+.km-browser-url {
+  flex: 1;
+  font-family: var(--font-kubmin-mono);
+  font-size: 0.72rem;
+  text-align: center;
+  color: var(--color-kubmin-subtle-text);
+  background: var(--color-kubmin-base);
+  border: 1px solid var(--color-kubmin-border);
+  border-radius: 999px;
+  padding: 0.25rem 0.9rem;
+  margin: 0 1.2rem;
+  letter-spacing: 0.01em;
+}
+
+/* gradient text — soft, painterly */
+.km-grad-iris {
+  background: linear-gradient(110deg, var(--color-kubmin-primary-700), var(--color-kubmin-primary-500) 45%, var(--color-kubmin-energy));
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
+.km-grad-warm {
+  background: linear-gradient(110deg, var(--color-kubmin-cost), var(--color-kubmin-rose) 60%, var(--color-kubmin-primary-600));
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
+
+/* ticker hairline */
+.km-hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-kubmin-border) 20%, var(--color-kubmin-border) 80%, transparent);
+}
+
+/* button system */
+.km-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  height: 3rem;
+  padding: 0 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: -0.005em;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  white-space: nowrap;
+}
+.km-btn-primary {
+  background: var(--color-kubmin-text);
+  color: var(--color-kubmin-base);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.35) inset, 0 12px 30px -10px rgb(87 82 121 / 0.5);
+}
+.km-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.35) inset, 0 22px 50px -16px rgb(87 82 121 / 0.6);
+  background: var(--color-kubmin-primary-700);
+}
+.km-btn-ghost {
+  background: transparent;
+  color: var(--color-kubmin-text);
+  border: 1px solid var(--color-kubmin-border);
+}
+.km-btn-ghost:hover {
+  background: var(--color-kubmin-overlay);
+  border-color: var(--color-kubmin-primary-400);
+}
+
+/* tag chip */
+.km-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  border: 1px solid var(--color-kubmin-border);
+  background: var(--color-kubmin-surface);
+  color: var(--color-kubmin-subtle-text);
+  font-family: var(--font-kubmin-mono);
+  letter-spacing: 0.04em;
+}
+
+/* drift atmosphere blobs */
+.km-blob {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(90px);
+  opacity: 0.55;
+  pointer-events: none;
+  will-change: transform;
+}
+.km-blob-iris  { background: radial-gradient(circle, #c1a5d4, transparent 70%); animation: kmDrift1 28s ease-in-out infinite; }
+.km-blob-gold  { background: radial-gradient(circle, #f0d28a, transparent 70%); animation: kmDrift2 32s ease-in-out infinite; }
+.km-blob-foam  { background: radial-gradient(circle, #b6d2d8, transparent 70%); animation: kmDrift3 26s ease-in-out infinite; }
+.km-blob-rose  { background: radial-gradient(circle, #ecc6c6, transparent 70%); animation: kmDrift1 30s ease-in-out infinite reverse; }
+
+@keyframes kmDrift1 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%     { transform: translate(40px,-30px) scale(1.1); }
+}
+@keyframes kmDrift2 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%     { transform: translate(-50px,40px) scale(1.08); }
+}
+@keyframes kmDrift3 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%     { transform: translate(30px,30px) scale(1.12); }
+}
+
+/* respect motion */
+@media (prefers-reduced-motion: reduce) {
+  .km-stagger, .km-blob { animation: none !important; }
+  .km-stagger { opacity: 1; transform: none; }
 }

@@ -21,8 +21,8 @@ export const links = {
 export const images = {
   logo: "/kubmin-logo-purple.svg",
   screenshots: {
-    hero: "/kubmin/kubmin-workload-hero.png",
-    redis: "/kubmin/kubmin-workload-redis.png",
+    hero: "/kubmin/cover.webp",
+    redis: "/kubmin/compare-redis-casestudy.webp",
   },
 };
 
@@ -91,9 +91,9 @@ export const productDemo = {
       detail: "(0.0085 vs 0.0064 kWh)",
     },
     {
-      value: "$0.11 vs $0.18",
-      label: "cost gap — 8.6.1 vs 8.4.0",
-      detail: "per tracked period",
+      value: "$81",
+      label: "/year wasted — 8.6.1 vs 8.4.0",
+      detail: "($0.0297 vs $0.0389/hr median)",
     },
     {
       value: "31%",
@@ -121,12 +121,12 @@ export const coreFeatures = {
     {
       title: "Release-over-Release Efficiency Diff",
       body: "Compare any two image versions across CPU, memory, energy, SCI, SEE, and runtime cost — per functional unit of work. Ship a new release and see within hours whether it regressed 30% on efficiency, before the regression compounds into your bill.",
-      tag: "Release diff for efficiency, not code",
+      tag: "Efficiency measured per release",
     },
     {
       title: "Workload Profile Classifier",
       body: "Kubmin classifies each workload as CPU-bound, memory-bound, general, or resource-starved — automatically, from runtime behavior. Idle-time percentage and hourly heatmaps show exactly when waste spikes. No more right-sizing blind.",
-      tag: "Know what your workload actually is",
+      tag: "Actually know your workload",
     },
     {
       title: "Smart Cluster Setup",

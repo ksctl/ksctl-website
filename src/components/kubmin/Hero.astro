@@ -4,196 +4,120 @@ import ModernMockup from "./ModernMockup.astro";
 import { hero } from "@/data/kubmin";
 ---
 
-<div class="relative min-h-screen overflow-hidden bg-kubmin-dark" id="home">
-  <!-- Gradient blobs — warm amber/emerald/teal on black, animated -->
-  <div class="flex flex-col items-end absolute -right-60 -top-10 blur-xl z-0">
-    <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-kubmin-cost to-kubmin-emerald-600 kubmin-blob kubmin-blob-1"></div>
-    <div class="h-[10rem] rounded-full w-[90rem] bg-gradient-to-b blur-[6rem] from-kubmin-orange to-kubmin-yellow kubmin-blob kubmin-blob-2"></div>
-    <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-kubmin-emerald-600 to-kubmin-cyan kubmin-blob kubmin-blob-3"></div>
-  </div>
+<section class="relative overflow-hidden km-wash-tl" id="home" style="background: var(--color-kubmin-base);">
+  <div class="km-blob km-blob-iris" style="width: 38rem; height: 38rem; top: -10rem; left: -8rem;"></div>
+  <div class="km-blob km-blob-gold" style="width: 30rem; height: 30rem; top: 4rem; right: -8rem; opacity: .35"></div>
+  <div class="km-blob km-blob-foam" style="width: 28rem; height: 28rem; bottom: -10rem; left: 30%;  opacity: .35"></div>
 
-  <!-- Animated grid overlay -->
-  <div class="absolute inset-0 z-0 pointer-events-none kubmin-grid"></div>
+  <div class="absolute inset-0 km-dotgrid pointer-events-none"></div>
+  <div class="absolute inset-0 km-grain opacity-[0.18] pointer-events-none"></div>
 
-  <!-- Aurora band -->
-  <div class="absolute inset-0 z-0 pointer-events-none kubmin-aurora"></div>
+  <Container class="relative z-10">
+    <div class="pt-28 md:pt-36 pb-12">
 
-  <!-- Noise/grain texture overlay -->
-  <div class="absolute inset-0 z-0 opacity-[0.35] pointer-events-none hero-noise"></div>
+      <div class="km-stagger km-stagger-1 flex items-center justify-between gap-4 mb-12 flex-wrap">
+        <a href="/product/kubmin" class="inline-flex items-center gap-3">
+          <img src={hero.logo} alt="kubmin logo" class="h-9 md:h-10 w-auto" />
+          <span class="km-display text-3xl md:text-4xl font-semibold leading-none" style="color: var(--color-kubmin-text); font-style: normal;">{hero.productName}</span>
+          <span class="km-mono text-[10px] uppercase tracking-[0.22em] pl-3 ml-1 border-l" style="color: var(--color-kubmin-subtle-text); border-color: var(--color-kubmin-border)">
+            by ksctl
+          </span>
+        </a>
+        <span class="km-eyebrow">
+          <span>The kubmin dispatch</span>
+          <span class="km-dot" style="color: var(--color-kubmin-cost)"></span>
+          <span>Vol. 01 · Cost &amp; Efficiency</span>
+        </span>
+      </div>
 
-  <!-- Content -->
-  <div class="relative z-10">
-    <Container>
-      <div class="pt-24 md:pt-32 pb-8">
-        <div class="max-w-4xl mx-auto text-center">
-          <!-- Badge -->
-          <div class="hero-stagger hero-stagger-1 mx-auto flex max-w-fit items-center justify-center space-x-3 rounded-full bg-white/[0.08] border border-white/[0.12] px-6 py-3 backdrop-blur-sm mb-10">
-            <img src={hero.logo} alt="kubmin logo" class="h-6 w-auto" />
-            <span class="text-base font-medium text-white/90">{hero.productName}</span>
-          </div>
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-end">
 
-          <!-- Headline -->
-          <h1 class="hero-stagger hero-stagger-2 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] mb-8 text-white">
-            Deploy fast and know what each one costs in <span class="text-transparent bg-clip-text bg-gradient-to-r from-kubmin-emerald-400 via-kubmin-energy to-kubmin-cyan">money</span> and <span class="text-transparent bg-clip-text bg-gradient-to-r from-kubmin-emerald-400 via-kubmin-energy to-kubmin-cyan">efficiency</span>
+        <div class="lg:col-span-8">
+          <h1 class="km-stagger km-stagger-2 text-[3rem] sm:text-[4rem] md:text-[5.25rem] lg:text-[6rem] leading-[0.95] tracking-tight font-semibold" style="color: var(--color-kubmin-text)">
+            Deploy fast<span class="km-italic" style="font-weight:300; color: var(--color-kubmin-subtle-text)">,</span><br/>
+            and know<br/>
+            what each one
+            <span class="km-italic km-grad-warm">costs</span>
+            <span style="color: var(--color-kubmin-subtle-text)" class="km-italic">in</span>
+            <span class="km-underline km-underline-gold">money</span>
+            <span style="color: var(--color-kubmin-subtle-text)" class="km-italic">&amp;</span>
+            <span class="km-underline">efficiency</span><span class="km-italic" style="color: var(--color-kubmin-cost)">.</span>
           </h1>
 
-          <!-- Punchline — bold subheading with emphasis on "Kubmin does." -->
-          <p class="hero-stagger hero-stagger-3 text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-white/80 mb-5">
-            Everyone ships faster with AI. Nobody checks the cost.<br class="hidden sm:inline" />
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-kubmin-cyan via-kubmin-emerald-400 to-kubmin-cost">Kubmin does.</span>
+          <p class="km-stagger km-stagger-3 mt-10 text-xl md:text-2xl leading-snug max-w-2xl" style="color: var(--color-kubmin-text)">
+            Everyone ships faster with AI. Nobody checks the cost.
+            <span class="km-italic" style="color: var(--color-kubmin-primary-700)">Kubmin does.</span>
           </p>
 
-          <!-- Explanation -->
-          <p class="hero-stagger hero-stagger-3 text-lg md:text-xl text-kubmin-neutral-400 leading-relaxed max-w-2xl mx-auto mb-10">
+          <p class="km-stagger km-stagger-3 mt-5 text-base md:text-lg leading-relaxed max-w-xl" style="color: var(--color-kubmin-subtle-text)">
             {hero.explain}
           </p>
 
-          <!-- CTA -->
-          <div class="hero-stagger hero-stagger-4 flex items-center justify-center mb-5">
-            <a
-              href={hero.cta.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group h-12 rounded-full px-10 text-base font-semibold text-white transition-all duration-300 flex items-center justify-center gap-2 hero-cta-gradient hover:scale-105 hover:shadow-[--shadow-kubmin-cost-glow]"
-            >
+          <div class="km-stagger km-stagger-4 mt-10 flex flex-wrap items-center gap-4">
+            <a href={hero.cta.href} target="_blank" rel="noopener noreferrer" class="km-btn km-btn-primary">
               {hero.cta.text}
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
-              </svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </a>
+            <a href="#demo" class="km-btn km-btn-ghost">
+              See the Redis comparison
             </a>
           </div>
 
-          <!-- Trust Badges -->
-          <div class="hero-stagger hero-stagger-4 flex flex-wrap items-center justify-center gap-3 mb-16">
-            {hero.trustBadges.map((badge) => (
-              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.06] text-xs font-medium text-white/70 border border-white/[0.08]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-kubmin-emerald-400" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-                {badge}
-              </span>
+          <div class="km-stagger km-stagger-4 mt-8 flex flex-wrap items-center gap-2">
+            {hero.trustBadges.map((badge, i) => (
+              <>
+                {i > 0 && <span class="text-xs" style="color: var(--color-kubmin-border)">/</span>}
+                <span class="text-xs km-mono tracking-wider uppercase" style="color: var(--color-kubmin-subtle-text)">{badge}</span>
+              </>
             ))}
           </div>
         </div>
 
-        <!-- Floating Mockup -->
-        <div class="hero-stagger hero-stagger-5 relative max-w-6xl mx-auto">
-          <!-- White glow behind mockup -->
-          <div class="absolute inset-0 rounded bg-white blur-[10rem] opacity-[0.08]"></div>
-
-          <div class="relative">
-            <ModernMockup
-              imageSrc={hero.screenshot.src}
-              imageAlt={hero.screenshot.alt}
-              loading="eager"
-              glowColor="cost"
-              className="shadow-2xl shadow-black/50"
-            />
+        <aside class="km-stagger km-stagger-3 lg:col-span-4 lg:pl-6 lg:border-l" style="border-color: var(--color-kubmin-border)">
+          <div class="km-mono text-[10px] tracking-[0.22em] uppercase mb-4" style="color: var(--color-kubmin-subtle-text)">
+            <span class="km-dot mr-2" style="color: var(--color-kubmin-cost)"></span>
+            Field note
           </div>
-        </div>
+          <p class="km-italic text-2xl leading-snug mb-6" style="color: var(--color-kubmin-text)">
+            "AWS shows the bill. Kubecost guesses pods. Neither tells you what a single container actually burns."
+          </p>
+          <div class="grid grid-cols-3 gap-4 pt-4 border-t" style="border-color: var(--color-kubmin-border)">
+            <div>
+              <div class="km-mono text-2xl tabular-nums" style="color: var(--color-kubmin-cost)">$0.18</div>
+              <div class="text-[11px] mt-1" style="color: var(--color-kubmin-subtle-text)">/ workload</div>
+            </div>
+            <div>
+              <div class="km-mono text-2xl tabular-nums" style="color: var(--color-kubmin-energy)">0.0085</div>
+              <div class="text-[11px] mt-1" style="color: var(--color-kubmin-subtle-text)">kWh / hr</div>
+            </div>
+            <div>
+              <div class="km-mono text-2xl tabular-nums" style="color: var(--color-kubmin-iris)">63%</div>
+              <div class="text-[11px] mt-1" style="color: var(--color-kubmin-subtle-text)">CPU drift</div>
+            </div>
+          </div>
+        </aside>
       </div>
-    </Container>
-  </div>
-</div>
 
-<style>
-/* Gradient CTA button — matches the background blobs */
-.hero-cta-gradient {
-  background: linear-gradient(135deg, var(--color-kubmin-blue), var(--color-kubmin-cost), var(--color-kubmin-energy));
-  background-size: 200% 200%;
-  animation: ctaShift 4s ease-in-out infinite;
-}
-@keyframes ctaShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
+      <div class="km-stagger km-stagger-5 relative max-w-6xl mx-auto mt-20">
+        <ModernMockup
+          imageSrc={hero.screenshot.src}
+          imageAlt={hero.screenshot.alt}
+          loading="eager"
+          glowColor="primary"
+          browserUrl={hero.screenshot.browserUrl}
+        />
+      </div>
 
-/* Animated blob drift */
-.kubmin-blob {
-  will-change: transform;
-}
-.kubmin-blob-1 {
-  animation: blobDrift1 22s ease-in-out infinite;
-}
-.kubmin-blob-2 {
-  animation: blobDrift2 26s ease-in-out infinite;
-}
-.kubmin-blob-3 {
-  animation: blobDrift3 20s ease-in-out infinite;
-}
-
-@keyframes blobDrift1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-150px, 60px) scale(1.2); }
-  66% { transform: translate(100px, -40px) scale(0.85); }
-}
-@keyframes blobDrift2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(180px, -80px) scale(1.15); }
-  66% { transform: translate(-120px, 50px) scale(0.88); }
-}
-@keyframes blobDrift3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-130px, -70px) scale(1.25); }
-  66% { transform: translate(160px, 40px) scale(0.82); }
-}
-
-/* Noise texture via SVG filter */
-.hero-noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 128px 128px;
-}
-
-/* Simple slide-up animation */
-.hero-stagger {
-  opacity: 0;
-  transform: translateY(28px);
-  animation: heroSlideUp 0.6s ease-out forwards;
-}
-.hero-stagger-1 { animation-delay: 0.05s; }
-.hero-stagger-2 { animation-delay: 0.15s; }
-.hero-stagger-3 { animation-delay: 0.28s; }
-.hero-stagger-4 { animation-delay: 0.4s; }
-.hero-stagger-5 { animation-delay: 0.55s; }
-
-@keyframes heroSlideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animated grid overlay — visible on dark bg */
-.kubmin-grid {
-  background-image:
-    linear-gradient(rgba(245,158,11,0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(245,158,11,0.1) 1px, transparent 1px);
-  background-size: 80px 80px;
-  animation: kubminGridShift 25s linear infinite;
-  mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 20%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 20%, transparent 70%);
-}
-@keyframes kubminGridShift {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(80px, 80px); }
-}
-
-/* Aurora — amber/emerald color sweep */
-.kubmin-aurora {
-  background: linear-gradient(
-    110deg,
-    transparent 10%,
-    rgba(245,158,11,0.08) 30%,
-    rgba(16,185,129,0.12) 50%,
-    rgba(245,158,11,0.08) 70%,
-    transparent 90%
-  );
-  background-size: 300% 100%;
-  animation: kubminAuroraSweep 7s ease-in-out infinite;
-}
-@keyframes kubminAuroraSweep {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-</style>
+      <div class="km-stagger km-stagger-5 mt-16 km-hairline"></div>
+      <div class="km-stagger km-stagger-5 mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 km-mono text-[11px] uppercase tracking-[0.2em]" style="color: var(--color-kubmin-subtle-text)">
+        <span>per-workload visibility</span>
+        <span>·</span>
+        <span>release-vs-release diff</span>
+        <span>·</span>
+        <span>SCI + SEE scoring</span>
+        <span>·</span>
+        <span>quick wins, kubectl-ready</span>
+      </div>
+    </div>
+  </Container>
+</section>

@@ -1,146 +1,138 @@
 ---
 import Container from "../shared/Container.astro";
-import ModernMockup from './ModernMockup.astro';
-import { productDemo } from '@/data/kubmin';
+import ModernMockup from "./ModernMockup.astro";
+import { productDemo } from "@/data/kubmin";
+
+const accents = ["cost", "energy", "iris", "pine"] as const;
+const accentVar = (k: typeof accents[number]) => ({
+  cost: "var(--color-kubmin-cost)",
+  energy: "var(--color-kubmin-energy)",
+  iris: "var(--color-kubmin-iris)",
+  pine: "var(--color-kubmin-efficiency)",
+}[k]);
 ---
 
-<section class="py-32 relative bg-kubmin-dark overflow-hidden text-white">
-  <!-- Gradient blobs — matching hero section, orange/yellow/green -->
-  <div class="flex flex-col items-start absolute -left-60 top-1/4 blur-xl z-0 opacity-40">
-    <div class="h-[10rem] rounded-full w-[60rem] bg-gradient-to-b blur-[6rem] from-kubmin-cost to-kubmin-energy"></div>
-    <div class="h-[10rem] rounded-full w-[90rem] bg-gradient-to-b blur-[6rem] from-kubmin-orange to-kubmin-yellow"></div>
-  </div>
+<section id="demo" class="relative py-28 md:py-36 overflow-hidden" style="background: var(--color-kubmin-base);">
+  <div class="km-blob km-blob-foam" style="width: 32rem; height: 32rem; top: 10%; left: -8rem; opacity: .35"></div>
+  <div class="km-blob km-blob-iris" style="width: 28rem; height: 28rem; bottom: 0; right: -6rem; opacity: .35"></div>
+  <div class="absolute inset-0 km-dotgrid opacity-60 pointer-events-none"></div>
 
-  <div class="absolute inset-0 z-0 opacity-[0.35] pointer-events-none hero-noise"></div>
-  
   <Container class="relative z-10">
-    <div class="max-w-3xl mx-auto text-center mb-16">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-white/80 text-sm font-semibold tracking-wide uppercase mb-6 backdrop-blur-md">
-        {productDemo.label}
-      </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 text-balance">
-        {productDemo.heading} <span class="text-transparent bg-clip-text bg-gradient-to-r from-kubmin-cost to-kubmin-energy">{productDemo.headingAccent}</span>
+    <div class="max-w-3xl mb-16">
+      <span class="km-eyebrow">{productDemo.label} · field test</span>
+      <h2 class="mt-6 text-4xl md:text-6xl leading-[1.02] font-medium" style="color: var(--color-kubmin-text)">
+        Three Redis versions.<br/>
+        Same workload.<br/>
+        <span class="km-italic km-grad-iris">Wildly different efficiency.</span>
       </h2>
-      <p class="text-lg md:text-xl text-kubmin-neutral-400 max-w-2xl mx-auto">
+      <p class="mt-8 text-lg md:text-xl leading-relaxed max-w-2xl" style="color: var(--color-kubmin-subtle-text)">
         {productDemo.body}
       </p>
     </div>
 
-    <div class="relative max-w-5xl mx-auto mb-20">
+    <div class="relative max-w-6xl mx-auto mb-20">
       <ModernMockup
         imageSrc={productDemo.screenshot.src}
         imageAlt={productDemo.screenshot.alt}
         glowColor="energy"
-        className="shadow-[--shadow-kubmin-energy-glow-soft] ring-1 ring-white/10"
+        browserUrl={productDemo.screenshot.browserUrl}
       />
     </div>
 
-    <!-- Stats Row -->
-    <div 
-      class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-20 max-w-5xl mx-auto"
-      x-data="{ 
+    <!-- editorial stats: numeric typography ledger -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px overflow-hidden rounded-3xl km-paper"
+      x-data="{
         animate(target, duration, callback) {
-          const start = 0;
           const startTime = performance.now();
-          
-          const step = (currentTime) => {
-            const progress = Math.min((currentTime - startTime) / duration, 1);
-            // Ease out cubic
-            const easedProgress = 1 - Math.pow(1 - progress, 3);
-            const current = start + (target - start) * easedProgress;
-            callback(current);
-            if (progress < 1) {
-              requestAnimationFrame(step);
-            }
+          const step = (now) => {
+            const p = Math.min((now - startTime) / duration, 1);
+            const e = 1 - Math.pow(1 - p, 3);
+            callback(target * e);
+            if (p < 1) requestAnimationFrame(step);
           };
           requestAnimationFrame(step);
         }
       }"
     >
       {productDemo.stats.map((stat, i) => {
-        const colors = [
-          'text-kubmin-cost', 
-          'text-kubmin-energy', 
-          'text-kubmin-cost', 
-          'text-white'
-        ];
-        const color = colors[i % colors.length];
-        
+        const k = accents[i % accents.length];
         return (
-          <div 
-            class="flex flex-col items-center justify-center text-center p-6 md:p-8 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-white/20 transition-all duration-300 h-full"
-            x-data={`{ 
+          <div
+            class="relative p-8 md:p-10"
+            style={`background: var(--color-kubmin-surface); outline: 1px solid var(--color-kubmin-border); outline-offset: -1px;`}
+            x-data={`{
               displayValue: '${stat.value}',
               isAnimated: false,
               startAnimation() {
                 if (this.isAnimated) return;
                 this.isAnimated = true;
-                
                 const val = '${stat.value}';
                 if (val.includes(' vs ')) {
                   const parts = val.split(' vs ');
                   this.setupMulti(parts[0], parts[1]);
-                } else {
-                  this.setupSingle(val);
-                }
+                } else { this.setupSingle(val); }
               },
               setupSingle(val) {
-                const match = val.match(/^([^\\d]*)(\\d+(?:\\.\\d+)?)([^\\d]*)$/);
-                if (match) {
-                  const prefix = match[1];
-                  const target = parseFloat(match[2]);
-                  const suffix = match[3];
-                  const isDecimal = match[2].includes('.');
-                  this.animate(target, 2000, (v) => {
-                    this.displayValue = prefix + (isDecimal ? v.toFixed(2) : Math.floor(v)) + suffix;
+                const m = val.match(/^([^\\d]*)(\\d+(?:\\.\\d+)?)([^\\d]*)$/);
+                if (m) {
+                  const pre = m[1], target = parseFloat(m[2]), suf = m[3];
+                  const dec = m[2].includes('.');
+                  this.animate(target, 1800, (v) => {
+                    this.displayValue = pre + (dec ? v.toFixed(2) : Math.floor(v)) + suf;
                   });
                 }
               },
               setupMulti(v1, v2) {
-                const m1 = v1.match(/^([^\\d]*)(\\d+(?:\\.\\d+)?)([^\\d]*)$/);
-                const m2 = v2.match(/^([^\\d]*)(\\d+(?:\\.\\d+)?)([^\\d]*)$/);
-                if (m1 && m2) {
-                  const p1 = m1[1], t1 = parseFloat(m1[2]), s1 = m1[3], d1 = m1[2].includes('.');
-                  const p2 = m2[1], t2 = parseFloat(m2[2]), s2 = m2[3], d2 = m2[2].includes('.');
-                  this.animate(1, 2000, (p) => {
-                    const eased = 1 - Math.pow(1 - p, 3);
-                    const cur1 = t1 * eased;
-                    const cur2 = t2 * eased;
-                    this.displayValue = \`\${p1}\${d1 ? cur1.toFixed(2) : Math.floor(cur1)}\${s1} vs \${p2}\${d2 ? cur2.toFixed(2) : Math.floor(cur2)}\${s2}\`;
+                const a = v1.match(/^([^\\d]*)(\\d+(?:\\.\\d+)?)([^\\d]*)$/);
+                const b = v2.match(/^([^\\d]*)(\\d+(?:\\.\\d+)?)([^\\d]*)$/);
+                if (a && b) {
+                  const p1=a[1],t1=parseFloat(a[2]),s1=a[3],d1=a[2].includes('.');
+                  const p2=b[1],t2=parseFloat(b[2]),s2=b[3],d2=b[2].includes('.');
+                  this.animate(1, 1800, (p) => {
+                    const e = 1 - Math.pow(1 - p, 3);
+                    this.displayValue = \`\${p1}\${d1?(t1*e).toFixed(2):Math.floor(t1*e)}\${s1} vs \${p2}\${d2?(t2*e).toFixed(2):Math.floor(t2*e)}\${s2}\`;
                   });
                 }
               }
             }`}
             x-intersect.once="startAnimation()"
           >
-            <div class="text-4xl md:text-5xl font-black tracking-tighter text-white mb-5 font-sans tabular-nums drop-shadow-sm flex flex-row items-center justify-center leading-none gap-2" x-text="displayValue">
+            <div class="flex items-start justify-between mb-6">
+              <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style="color: var(--color-kubmin-subtle-text)">
+                fig. {String(i + 1).padStart(2, '0')}
+              </span>
+              <span class="km-dot" style={`background: ${accentVar(k)}`}></span>
+            </div>
+            <div
+              class="km-mono font-medium tabular-nums leading-none mb-5"
+              style={`color: ${accentVar(k)}; font-size: clamp(1.75rem, 3.2vw, 2.6rem);`}
+              x-text="displayValue"
+            >
               {stat.value}
             </div>
-            <div class={`text-sm font-bold mb-1.5 tracking-wide ${color}`}>{stat.label}</div>
-            <div class="text-xs text-kubmin-neutral-400 font-medium">{stat.detail}</div>
+            <div class="text-base font-medium leading-snug mb-1" style="color: var(--color-kubmin-text)">
+              {stat.label}
+            </div>
+            <div class="text-xs km-mono" style="color: var(--color-kubmin-subtle-text)">
+              {stat.detail}
+            </div>
           </div>
         );
       })}
     </div>
 
-    <div class="max-w-3xl mx-auto text-center">
-      <blockquote class="text-xl md:text-2xl font-medium text-white/80 italic mb-10 border-l-2 border-kubmin-energy pl-6 text-left leading-relaxed">
+    <div class="mt-20 grid lg:grid-cols-12 gap-8 items-start">
+      <blockquote class="lg:col-span-7 km-italic text-2xl md:text-3xl leading-snug pl-6 border-l-2" style="color: var(--color-kubmin-text); border-color: var(--color-kubmin-cost)">
         {productDemo.insight}
       </blockquote>
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-6 bg-white/[0.03] border border-white/10 p-6 md:p-8 rounded-3xl backdrop-blur-sm shadow-xl">
-        <p class="text-kubmin-neutral-400 text-sm m-0 text-left">{productDemo.caption}</p>
-        <a href={productDemo.cta.href} class="whitespace-nowrap px-8 py-4 rounded-full bg-gradient-to-r from-kubmin-cost to-kubmin-energy text-white font-bold hover:scale-105 transition-all shadow-[--shadow-kubmin-energy-glow]">
+      <div class="lg:col-span-5 km-paper rounded-3xl p-8 flex flex-col gap-6">
+        <p class="text-sm" style="color: var(--color-kubmin-subtle-text)">{productDemo.caption}</p>
+        <a href={productDemo.cta.href} class="km-btn km-btn-primary self-start">
           {productDemo.cta.text}
+          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
         </a>
       </div>
     </div>
   </Container>
 </section>
-
-<style>
-.hero-noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 128px 128px;
-}
-</style>

@@ -3,17 +3,23 @@ import Container from "../shared/Container.astro";
 import { trustSignals } from "@/data/kubmin";
 ---
 
-<section class="py-16 bg-white border-y border-kubmin-neutral-100">
+<section class="relative py-20 md:py-24" style="background: var(--color-kubmin-base); border-top: 1px solid var(--color-kubmin-border); border-bottom: 1px solid var(--color-kubmin-border);">
   <Container>
-    <p class="text-center text-sm font-semibold tracking-widest text-kubmin-neutral-400 uppercase mb-10">{trustSignals.label}</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-kubmin-neutral-100">
-      {trustSignals.items.map(item => (
-        <a href={item.href} target="_blank" rel="noopener noreferrer" class="group block md:px-8 py-4 md:py-0">
-          <h4 class="text-lg font-bold text-kubmin-neutral-900 mb-2 group-hover:text-kubmin-primary-600 transition-colors flex items-center justify-center md:justify-start gap-2">
+    <div class="text-center mb-12">
+      <span class="km-eyebrow" style="justify-content: center;">{trustSignals.label}</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px overflow-hidden rounded-2xl km-paper">
+      {trustSignals.items.map((item, i) => (
+        <a href={item.href} target="_blank" rel="noopener noreferrer" class="group relative p-8 md:p-10 transition-colors" style="background: var(--color-kubmin-surface); outline: 1px solid var(--color-kubmin-border); outline-offset: -1px;">
+          <div class="km-mono text-[10px] tracking-[0.22em] uppercase mb-6" style="color: var(--color-kubmin-subtle-text)">
+            <span class="km-dot mr-2" style="background: var(--color-kubmin-iris)"></span>
+            foundation · 0{i + 1}
+          </div>
+          <h4 class="km-display italic text-2xl font-medium mb-3 flex items-center gap-2 transition-colors group-hover:[color:var(--color-kubmin-primary-700)]" style="color: var(--color-kubmin-text)">
             {item.title}
-            <svg class="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            <svg class="w-4 h-4 -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </h4>
-          <p class="text-kubmin-neutral-500 text-sm leading-relaxed">{item.body}</p>
+          <p class="text-sm leading-relaxed" style="color: var(--color-kubmin-subtle-text)">{item.body}</p>
         </a>
       ))}
     </div>

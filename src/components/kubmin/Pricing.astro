@@ -3,55 +3,80 @@ import Container from "../shared/Container.astro";
 import { pricing } from "@/data/kubmin";
 ---
 
-<section class="py-24 bg-kubmin-neutral-50">
-  <Container>
+<section class="relative py-28 md:py-36 overflow-hidden" style="background: var(--color-kubmin-overlay);">
+  <div class="km-blob km-blob-iris" style="width: 30rem; height: 30rem; top: -6rem; left: 30%; opacity: .3"></div>
+  <div class="absolute inset-0 km-grain opacity-[0.15] pointer-events-none"></div>
+
+  <Container class="relative z-10">
     <div class="text-center max-w-3xl mx-auto mb-20">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kubmin-primary-50 border border-kubmin-primary-100 text-kubmin-primary-700 text-sm font-semibold tracking-wide uppercase mb-6">
-        {pricing.label}
-      </div>
-      <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-kubmin-neutral-900 mb-6">
-        {pricing.heading} <span class="text-kubmin-primary-600">{pricing.headingAccent}</span>
+      <span class="km-eyebrow" style="justify-content: center;">{pricing.label} · ch. 06</span>
+      <h2 class="mt-6 text-4xl md:text-6xl leading-[1.02] font-medium" style="color: var(--color-kubmin-text)">
+        Start free.<br/>
+        <span class="km-italic km-grad-warm">{pricing.headingAccent}</span>
       </h2>
-      <p class="text-lg text-kubmin-neutral-500">
+      <p class="mt-8 text-lg leading-relaxed" style="color: var(--color-kubmin-subtle-text)">
         {pricing.subheading}
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
-      {pricing.tiers.map((tier) => (
-        <div class={`relative bg-white rounded-3xl p-8 md:p-10 flex flex-col h-full transition-transform duration-300 ${tier.popular ? 'ring-2 ring-kubmin-primary-500 shadow-xl md:scale-105 z-10' : 'border border-kubmin-neutral-200 shadow-sm hover:shadow-md'}`}>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
+      {pricing.tiers.map((tier, i) => (
+        <div
+          class="relative rounded-3xl p-8 md:p-10 flex flex-col km-lift"
+          style={tier.popular
+            ? `background: var(--color-kubmin-text); color: var(--color-kubmin-base); border: 1px solid var(--color-kubmin-text); box-shadow: 0 30px 80px -30px rgb(87 82 121 / 0.45);`
+            : `background: var(--color-kubmin-surface); border: 1px solid var(--color-kubmin-border); box-shadow: var(--shadow-kubmin-paper);`}
+        >
           {tier.popular && (
-            <div class="absolute -top-4 left-0 right-0 flex justify-center">
-              <span class="bg-kubmin-primary-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide shadow-sm">Most Popular</span>
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="km-mono text-[10px] uppercase tracking-[0.22em] px-4 py-1.5 rounded-full" style="background: var(--color-kubmin-cost); color: var(--color-kubmin-text);">
+                most popular
+              </span>
             </div>
           )}
-          
-          <div class="mb-8 mt-2">
-            <h3 class="text-xl font-semibold text-kubmin-neutral-900 mb-4">{tier.name}</h3>
-            <div class="flex items-baseline gap-1">
-              <span class="text-4xl md:text-5xl font-extrabold text-kubmin-neutral-900 tracking-tight">{tier.price}</span>
-              <span class="text-kubmin-neutral-500 font-medium">{tier.period}</span>
-            </div>
+
+          <div class="flex items-center justify-between mb-8 mt-2">
+            <h3 class="km-display text-2xl font-medium italic" style={tier.popular ? '' : 'color: var(--color-kubmin-text)'}>
+              {tier.name}
+            </h3>
+            <span class="km-mono text-[10px] uppercase tracking-[0.22em]" style={tier.popular ? 'color: var(--color-kubmin-primary-300)' : 'color: var(--color-kubmin-subtle-text)'}>
+              tier {String(i + 1).padStart(2, '0')}
+            </span>
           </div>
 
-          <ul class="space-y-4 mb-10 flex-1">
-            {tier.features.map(feature => (
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-kubmin-primary-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                <span class="text-kubmin-neutral-600">{feature}</span>
+          <div class="flex items-baseline gap-1 mb-2">
+            <span class="km-mono text-5xl font-medium tabular-nums tracking-tight">{tier.price}</span>
+            <span class="text-sm" style={tier.popular ? 'color: var(--color-kubmin-primary-300)' : 'color: var(--color-kubmin-subtle-text)'}>{tier.period}</span>
+          </div>
+
+          <div class="mt-8 mb-10 km-hairline" style={tier.popular ? 'background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.18), transparent);' : ''}></div>
+
+          <ul class="space-y-3.5 mb-10 flex-1">
+            {tier.features.map((feature) => (
+              <li class="flex items-start gap-3 text-sm">
+                <span class="shrink-0 mt-1 w-4 h-4 rounded-full flex items-center justify-center" style={tier.popular ? 'background: var(--color-kubmin-cost); color: var(--color-kubmin-text);' : 'background: var(--color-kubmin-primary-100); color: var(--color-kubmin-primary-700);'}>
+                  <svg class="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </span>
+                <span style={tier.popular ? 'color: var(--color-kubmin-primary-200)' : 'color: var(--color-kubmin-subtle-text)'}>{feature}</span>
               </li>
             ))}
           </ul>
 
-          <a href="#" class={`w-full py-4 px-6 rounded-xl font-bold text-center transition-all ${tier.popular ? 'bg-gradient-to-r from-kubmin-primary-500 to-kubmin-energy text-white hover:shadow-lg hover:shadow-kubmin-primary-500/40 hover:-translate-y-0.5' : 'bg-kubmin-neutral-100 text-kubmin-neutral-900 hover:bg-kubmin-neutral-200'}`}>
+          <a
+            href="#"
+            class="w-full text-center px-6 py-3.5 rounded-full font-semibold text-sm transition-all"
+            style={tier.popular
+              ? 'background: var(--color-kubmin-cost); color: var(--color-kubmin-text);'
+              : 'background: var(--color-kubmin-text); color: var(--color-kubmin-base);'}
+          >
             {tier.cta}
           </a>
         </div>
       ))}
     </div>
-    
-    <div class="mt-12 text-center text-kubmin-neutral-500 text-sm">
+
+    <p class="mt-12 text-center text-sm km-italic" style="color: var(--color-kubmin-subtle-text)">
       {pricing.footer}
-    </div>
+    </p>
   </Container>
 </section>

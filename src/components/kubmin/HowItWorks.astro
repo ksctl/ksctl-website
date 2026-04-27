@@ -3,39 +3,52 @@ import Container from "../shared/Container.astro";
 import { howItWorks } from "@/data/kubmin";
 ---
 
-<section class="py-24 bg-kubmin-neutral-50 relative border-t border-kubmin-neutral-200/50">
-  <Container>
-    <div class="text-center max-w-2xl mx-auto mb-20">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kubmin-primary-50 border border-kubmin-primary-100 text-kubmin-primary-700 text-sm font-semibold tracking-wide uppercase mb-6">
-        {howItWorks.label}
-      </div>
-      <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-kubmin-neutral-900 text-balance mb-4">
-        {howItWorks.heading} <span class="text-kubmin-primary-600">{howItWorks.headingAccent}</span>
+<section class="relative py-28 md:py-36 overflow-hidden" style="background: var(--color-kubmin-overlay);">
+  <div class="absolute inset-0 km-grain opacity-[0.15] pointer-events-none"></div>
+
+  <Container class="relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <span class="km-eyebrow" style="justify-content: center;">{howItWorks.label} · ch. 04</span>
+      <h2 class="mt-6 text-4xl md:text-6xl leading-[1.02] font-medium" style="color: var(--color-kubmin-text)">
+        {howItWorks.heading}<br/>
+        <span class="km-italic km-grad-iris">{howItWorks.headingAccent}</span>
       </h2>
     </div>
 
-    <div class="relative max-w-5xl mx-auto">
+    <div class="relative max-w-6xl mx-auto">
+      <!-- connecting hairline -->
+      <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-px" style="background: repeating-linear-gradient(90deg, var(--color-kubmin-border) 0 6px, transparent 6px 14px);"></div>
 
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 relative">
         {howItWorks.steps.map((step, i) => (
           <div class="relative flex flex-col items-center text-center group">
-            <div class="w-24 h-24 rounded-full bg-white border-[6px] border-kubmin-neutral-50 flex items-center justify-center shadow-lg mb-8 group-hover:scale-110 group-hover:border-kubmin-primary-50 group-hover:shadow-kubmin-primary-500/20 transition-all duration-500 z-10">
-              <span class="text-3xl font-black tracking-tighter text-kubmin-primary-600 font-sans tabular-nums drop-shadow-sm">0{i+1}</span>
+            <div class="relative w-24 h-24 rounded-full flex items-center justify-center mb-8 km-lift" style="background: var(--color-kubmin-base); border: 1px solid var(--color-kubmin-border); box-shadow: var(--shadow-kubmin-paper);">
+              <span class="km-display italic text-4xl font-medium" style="color: var(--color-kubmin-primary-700)">
+                0{i + 1}
+              </span>
+              <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 km-mono text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 rounded-full" style="background: var(--color-kubmin-base); color: var(--color-kubmin-subtle-text); border: 1px solid var(--color-kubmin-border)">
+                step
+              </span>
             </div>
-            <h3 class="text-xl font-bold text-kubmin-neutral-900 mb-4 px-4">{step.title}</h3>
-            <p class="text-kubmin-neutral-500 leading-relaxed px-2 md:px-0 text-[1.05rem]">{step.body}</p>
+            <h3 class="text-xl md:text-2xl font-medium mb-4" style="color: var(--color-kubmin-text)">
+              {step.title}
+            </h3>
+            <p class="leading-relaxed max-w-sm" style="color: var(--color-kubmin-subtle-text)">
+              {step.body}
+            </p>
           </div>
         ))}
       </div>
     </div>
 
-    <div class="mt-20 flex flex-col items-center">
-      <a href={howItWorks.cta.href} class="h-14 px-8 rounded-full bg-kubmin-neutral-900 text-white font-bold flex items-center gap-2 hover:scale-105 hover:bg-kubmin-primary-600 transition-all duration-300 shadow-xl shadow-kubmin-neutral-900/20 hover:shadow-kubmin-primary-600/30">
+    <div class="mt-20 flex flex-col items-center gap-6">
+      <a href={howItWorks.cta.href} class="km-btn km-btn-primary">
         {howItWorks.cta.text}
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
       </a>
-      <p class="mt-6 text-sm text-kubmin-neutral-400 max-w-md text-center font-medium">{howItWorks.disclaimer}</p>
+      <p class="km-italic text-sm max-w-md text-center" style="color: var(--color-kubmin-subtle-text)">
+        {howItWorks.disclaimer}
+      </p>
     </div>
   </Container>
 </section>

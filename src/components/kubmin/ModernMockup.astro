@@ -5,6 +5,7 @@ interface Props {
   loading?: 'lazy' | 'eager';
   className?: string;
   glowColor?: 'cost' | 'energy' | 'primary' | 'none';
+  browserUrl?: string;
 }
 
 const {
@@ -13,39 +14,38 @@ const {
   loading = 'lazy',
   className = '',
   glowColor = 'primary',
+  browserUrl = 'kubmin.ksctl.com',
 } = Astro.props;
 
-const glowClasses = {
-  cost: 'shadow-[0_0_50px_-12px_rgba(245,158,11,0.3)] border-kubmin-cost/30',
-  energy: 'shadow-[0_0_50px_-12px_rgba(16,185,129,0.3)] border-kubmin-energy/30',
-  primary: 'shadow-[0_0_50px_-12px_rgba(20,184,166,0.3)] border-kubmin-primary-500/30',
-  none: 'shadow-2xl border-white/10',
+const glowMap = {
+  cost:    'rgb(234 157 52 / 0.32)',
+  energy:  'rgb(86 148 159 / 0.32)',
+  primary: 'rgb(144 122 169 / 0.40)',
+  none:    'rgb(87 82 121 / 0.18)',
 };
-
-const selectedGlow = glowClasses[glowColor];
+const glow = glowMap[glowColor];
 ---
 
 <div class={`relative ${className}`}>
-  <!-- Static Glow Effect -->
-  <div class={`absolute -inset-1 bg-gradient-to-r ${glowColor === 'cost' ? 'from-kubmin-orange to-kubmin-cost' : glowColor === 'energy' ? 'from-kubmin-energy to-kubmin-cyan' : 'from-kubmin-primary-600 to-kubmin-primary-400'} rounded-[2rem] blur-2xl opacity-20`}></div>
-  
-  <div class={`relative bg-kubmin-dark/80 backdrop-blur-sm rounded-[1.8rem] overflow-hidden border ${selectedGlow}`}>
-    <!-- Subtle Glass Header -->
-    <div class="h-2 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
-    
-    <!-- Screenshot -->
-    <div class="relative">
-      <div class="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.4)] pointer-events-none z-10"></div>
-      <img
-        src={imageSrc}
-        alt={imageAlt}
-        loading={loading}
-        decoding="async"
-        class="w-full h-auto block"
-      />
-    </div>
+  <div
+    class="absolute -inset-4 rounded-[28px] blur-3xl opacity-90 pointer-events-none"
+    style={`background: radial-gradient(ellipse at 50% 80%, ${glow}, transparent 65%);`}
+  ></div>
 
-    <!-- Bottom Reflection -->
-    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white/5 to-transparent pointer-events-none"></div>
+  <div class="relative km-browser">
+    <div class="km-browser-bar">
+      <span class="km-browser-dot" style="background:#e0a3a3"></span>
+      <span class="km-browser-dot" style="background:#e6c890"></span>
+      <span class="km-browser-dot" style="background:#a9c4b6"></span>
+      <span class="km-browser-url">{browserUrl}</span>
+      <span class="text-[10px] km-mono tracking-[0.18em] uppercase" style="color: var(--color-kubmin-subtle-text); opacity:0.55;">live</span>
+    </div>
+    <img
+      src={imageSrc}
+      alt={imageAlt}
+      loading={loading}
+      decoding="async"
+      class="w-full h-auto block"
+    />
   </div>
 </div>

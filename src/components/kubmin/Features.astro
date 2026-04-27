@@ -1,76 +1,122 @@
 ---
 import Container from "../shared/Container.astro";
 import { coreFeatures } from "@/data/kubmin";
+
+const accents = [
+  "var(--color-kubmin-iris)",
+  "var(--color-kubmin-energy)",
+  "var(--color-kubmin-cost)",
+  "var(--color-kubmin-efficiency)",
+  "var(--color-kubmin-love)",
+  "var(--color-kubmin-primary-700)",
+];
 ---
 
-<section class="py-24 bg-kubmin-neutral-50">
-  <Container>
-    <div class="mb-16">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kubmin-primary-50 border border-kubmin-primary-100 text-kubmin-primary-700 text-sm font-semibold tracking-wide uppercase mb-6">
-        {coreFeatures.label}
+<section class="relative py-28 md:py-36 overflow-hidden" style="background: var(--color-kubmin-overlay);">
+  <div class="absolute inset-0 km-grain opacity-[0.18] pointer-events-none"></div>
+
+  <Container class="relative z-10">
+    <div class="grid lg:grid-cols-12 gap-10 mb-20 items-end">
+      <div class="lg:col-span-7">
+        <span class="km-eyebrow">{coreFeatures.label} · ch. 02</span>
+        <h2 class="mt-6 text-4xl md:text-6xl leading-[1.02] font-medium" style="color: var(--color-kubmin-text)">
+          Six things <span class="km-italic" style="color: var(--color-kubmin-primary-700)">no other tool</span><br/>
+          does together.
+        </h2>
       </div>
-      <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-kubmin-neutral-900 max-w-2xl text-balance">
-        {coreFeatures.heading}
-      </h2>
+      <div class="lg:col-span-4 lg:col-start-9">
+        <div class="km-mono text-xs uppercase tracking-[0.22em] flex items-center gap-3" style="color: var(--color-kubmin-subtle-text)">
+          <span class="km-dot" style="background: var(--color-kubmin-iris)"></span>
+          The kubmin moat
+        </div>
+        <p class="mt-4 text-base leading-relaxed" style="color: var(--color-kubmin-subtle-text)">
+          Each capability ships standalone. Together they form a unified ledger — cost, energy, and efficiency, per workload, per release.
+        </p>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Feature 1: THE MOAT — span 2, primary accent to call out flagship differentiator without leaving the card family -->
-      <div class="md:col-span-2 bg-gradient-to-br from-kubmin-primary-50/60 to-white rounded-3xl p-8 md:p-12 border-2 border-kubmin-primary-200 shadow-sm hover:shadow-xl hover:shadow-kubmin-primary-500/15 hover:-translate-y-1 flex flex-col justify-between group hover:border-kubmin-primary-300 transition-all duration-300">
-        <div>
-          <div class="flex items-center gap-2 mb-6">
-            <span class="inline-block px-3 py-1 bg-kubmin-primary-100 text-kubmin-primary-700 rounded-full text-xs font-semibold">{coreFeatures.features[0].tag}</span>
-            <span class="inline-block px-2 py-1 bg-kubmin-primary-600 text-white rounded-full text-[10px] font-bold uppercase tracking-wider">Flagship</span>
+    <div class="grid grid-cols-12 gap-5 md:gap-6 auto-rows-[minmax(0,auto)]">
+      <!-- 01 — flagship, span 8 -->
+      <article class="col-span-12 lg:col-span-8 relative km-lift rounded-[28px] p-8 md:p-12 overflow-hidden" style="background: linear-gradient(135deg, var(--color-kubmin-primary-50), var(--color-kubmin-surface)); border: 1px solid var(--color-kubmin-primary-200);">
+        <div class="absolute -top-20 -right-20 w-60 h-60 rounded-full" style="background: radial-gradient(circle, rgb(144 122 169 / 0.18), transparent 70%);"></div>
+        <div class="relative">
+          <div class="flex items-center justify-between mb-10">
+            <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style="color: var(--color-kubmin-primary-700)">
+              <span class="km-dot mr-2" style="background: var(--color-kubmin-iris)"></span>
+              flagship · 01
+            </span>
+            <span class="km-chip" style="border-color: var(--color-kubmin-primary-300); color: var(--color-kubmin-primary-700);">{coreFeatures.features[0].tag}</span>
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold text-kubmin-neutral-900 mb-4">{coreFeatures.features[0].title}</h3>
-          <p class="text-kubmin-neutral-600 text-lg leading-relaxed max-w-xl">{coreFeatures.features[0].body}</p>
+          <h3 class="text-3xl md:text-5xl font-medium leading-[1.05] mb-6" style="color: var(--color-kubmin-text)">
+            {coreFeatures.features[0].title}
+          </h3>
+          <p class="text-lg leading-relaxed max-w-2xl" style="color: var(--color-kubmin-subtle-text)">
+            {coreFeatures.features[0].body}
+          </p>
         </div>
-      </div>
+      </article>
 
-      <!-- Feature 2: Small -->
-      <div class="bg-white rounded-3xl p-8 border border-kubmin-neutral-100 shadow-sm hover:shadow-xl hover:shadow-kubmin-primary-500/10 hover:-translate-y-1 flex flex-col justify-between group hover:border-kubmin-primary-200 transition-all duration-300">
-        <div>
-          <span class="inline-block px-3 py-1 bg-kubmin-neutral-100 text-kubmin-neutral-600 rounded-full text-xs font-medium mb-6">{coreFeatures.features[1].tag}</span>
-          <h3 class="text-xl font-bold text-kubmin-neutral-900 mb-4">{coreFeatures.features[1].title}</h3>
-          <p class="text-kubmin-neutral-500 leading-relaxed">{coreFeatures.features[1].body}</p>
-        </div>
-      </div>
+      <!-- 02, 03 — small, stacked -->
+      {[1,2].map((i) => (
+        <article class="col-span-12 md:col-span-6 lg:col-span-4 km-paper km-lift rounded-[28px] p-8 flex flex-col">
+          <div class="flex items-center justify-between mb-8">
+            <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style={`color: ${accents[i]}`}>
+              <span class="km-dot mr-2" style={`background: ${accents[i]}`}></span>
+              0{i + 1}
+            </span>
+            <span class="km-chip">{coreFeatures.features[i].tag}</span>
+          </div>
+          <h3 class="text-2xl font-medium leading-snug mb-4" style="color: var(--color-kubmin-text)">
+            {coreFeatures.features[i].title}
+          </h3>
+          <p class="text-sm md:text-base leading-relaxed" style="color: var(--color-kubmin-subtle-text)">
+            {coreFeatures.features[i].body}
+          </p>
+        </article>
+      ))}
 
-      <!-- Feature 3: Small -->
-      <div class="bg-white rounded-3xl p-8 border border-kubmin-neutral-100 shadow-sm hover:shadow-xl hover:shadow-kubmin-primary-500/10 hover:-translate-y-1 flex flex-col justify-between group hover:border-kubmin-primary-200 transition-all duration-300">
-        <div>
-          <span class="inline-block px-3 py-1 bg-kubmin-neutral-100 text-kubmin-neutral-600 rounded-full text-xs font-medium mb-6">{coreFeatures.features[2].tag}</span>
-          <h3 class="text-xl font-bold text-kubmin-neutral-900 mb-4">{coreFeatures.features[2].title}</h3>
-          <p class="text-kubmin-neutral-500 leading-relaxed">{coreFeatures.features[2].body}</p>
-        </div>
-      </div>
+      <!-- 04 — span 6 -->
+      {[3,4].map((i) => (
+        <article class="col-span-12 md:col-span-6 km-paper km-lift rounded-[28px] p-8 md:p-10 flex flex-col">
+          <div class="flex items-center justify-between mb-8">
+            <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style={`color: ${accents[i]}`}>
+              <span class="km-dot mr-2" style={`background: ${accents[i]}`}></span>
+              0{i + 1}
+            </span>
+            <span class="km-chip">{coreFeatures.features[i].tag}</span>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-medium leading-snug mb-4" style="color: var(--color-kubmin-text)">
+            {coreFeatures.features[i].title}
+          </h3>
+          <p class="leading-relaxed" style="color: var(--color-kubmin-subtle-text)">
+            {coreFeatures.features[i].body}
+          </p>
+        </article>
+      ))}
 
-      <!-- Feature 4: Medium (span 2) -->
-      <div class="md:col-span-2 bg-white rounded-3xl p-8 md:p-10 border border-kubmin-neutral-100 shadow-sm hover:shadow-xl hover:shadow-kubmin-primary-500/10 hover:-translate-y-1 flex flex-col justify-between group hover:border-kubmin-primary-200 transition-all duration-300">
-        <div>
-          <span class="inline-block px-3 py-1 bg-kubmin-neutral-100 text-kubmin-neutral-600 rounded-full text-xs font-medium mb-6">{coreFeatures.features[3].tag}</span>
-          <h3 class="text-2xl font-bold text-kubmin-neutral-900 mb-4">{coreFeatures.features[3].title}</h3>
-          <p class="text-kubmin-neutral-500 leading-relaxed max-w-2xl">{coreFeatures.features[3].body}</p>
+      <!-- 06 — full width banner -->
+      <article class="col-span-12 km-lift rounded-[28px] p-8 md:p-12 overflow-hidden relative" style="background: var(--color-kubmin-text); color: var(--color-kubmin-base);">
+        <div class="absolute -bottom-20 -right-10 w-80 h-80 rounded-full" style="background: radial-gradient(circle, rgb(234 157 52 / 0.25), transparent 70%);"></div>
+        <div class="relative grid md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7">
+            <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style="color: var(--color-kubmin-primary-300)">
+              <span class="km-dot mr-2" style="background: var(--color-kubmin-cost)"></span>
+              06 · the lever
+            </span>
+            <h3 class="mt-6 text-3xl md:text-5xl font-medium leading-[1.05]">
+              {coreFeatures.features[5].title}
+            </h3>
+          </div>
+          <div class="md:col-span-5">
+            <p class="leading-relaxed mb-6" style="color: var(--color-kubmin-primary-200)">
+              {coreFeatures.features[5].body}
+            </p>
+            <span class="km-chip" style="background: rgb(255 255 255 / 0.06); border-color: rgb(255 255 255 / 0.18); color: var(--color-kubmin-primary-200);">
+              {coreFeatures.features[5].tag}
+            </span>
+          </div>
         </div>
-      </div>
-
-      <!-- Feature 5: Medium (span 2) -->
-      <div class="md:col-span-2 bg-white rounded-3xl p-8 md:p-10 border border-kubmin-neutral-100 shadow-sm hover:shadow-xl hover:shadow-kubmin-primary-500/10 hover:-translate-y-1 flex flex-col justify-between group hover:border-kubmin-primary-200 transition-all duration-300">
-        <div>
-          <span class="inline-block px-3 py-1 bg-kubmin-neutral-100 text-kubmin-neutral-600 rounded-full text-xs font-medium mb-6">{coreFeatures.features[4].tag}</span>
-          <h3 class="text-2xl font-bold text-kubmin-neutral-900 mb-4">{coreFeatures.features[4].title}</h3>
-          <p class="text-kubmin-neutral-500 leading-relaxed max-w-2xl">{coreFeatures.features[4].body}</p>
-        </div>
-      </div>
-
-      <!-- Feature 6: Small — Quick Wins, same family as the rest -->
-      <div class="bg-white rounded-3xl p-8 border border-kubmin-neutral-100 shadow-sm hover:shadow-xl hover:shadow-kubmin-primary-500/10 hover:-translate-y-1 flex flex-col justify-between group hover:border-kubmin-primary-200 transition-all duration-300">
-        <div>
-          <span class="inline-block px-3 py-1 bg-kubmin-neutral-100 text-kubmin-neutral-600 rounded-full text-xs font-medium mb-6">{coreFeatures.features[5].tag}</span>
-          <h3 class="text-xl font-bold text-kubmin-neutral-900 mb-4">{coreFeatures.features[5].title}</h3>
-          <p class="text-kubmin-neutral-500 leading-relaxed">{coreFeatures.features[5].body}</p>
-        </div>
-      </div>
+      </article>
     </div>
   </Container>
 </section>

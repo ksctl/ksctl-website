@@ -3,27 +3,48 @@ import Container from "../shared/Container.astro";
 import { problemStatement } from "@/data/kubmin";
 ---
 
-<section class="py-24 bg-white relative">
-  <Container>
-    <div class="max-w-3xl mb-16">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kubmin-amber-50 border border-kubmin-amber-100 text-kubmin-cost text-sm font-semibold tracking-wide uppercase mb-6">
-        {problemStatement.label}
+<section class="relative py-28 md:py-36 overflow-hidden" style="background: var(--color-kubmin-overlay);">
+  <div class="absolute inset-0 km-grain opacity-[0.15] pointer-events-none"></div>
+  <div class="km-blob km-blob-rose" style="width: 26rem; height: 26rem; top: 0; right: -6rem; opacity: .35"></div>
+
+  <Container class="relative z-10">
+    <div class="grid lg:grid-cols-12 gap-10 mb-20">
+      <div class="lg:col-span-5">
+        <span class="km-eyebrow">{problemStatement.label} · ch. 01</span>
+        <h2 class="mt-6 text-4xl md:text-6xl leading-[1.02] font-medium" style="color: var(--color-kubmin-text)">
+          You're spending<br/>
+          <span class="km-italic" style="color: var(--color-kubmin-love)">thousands</span>
+          on Kubernetes.
+        </h2>
       </div>
-      <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-kubmin-neutral-900 text-balance">
-        {problemStatement.heading}
-      </h2>
+      <div class="lg:col-span-6 lg:col-start-7 lg:pt-6">
+        <p class="text-xl md:text-2xl leading-snug" style="color: var(--color-kubmin-text)">
+          But do you know what each workload <em class="km-italic" style="color: var(--color-kubmin-primary-700)">actually</em> costs?
+        </p>
+        <div class="mt-6 km-hairline"></div>
+        <div class="mt-6 km-mono text-xs uppercase tracking-[0.2em]" style="color: var(--color-kubmin-subtle-text)">
+          Three blind spots, every cluster, every release.
+        </div>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-      {problemStatement.problems.map((problem, i) => (
-        <div class="group relative bg-white p-8 rounded-2xl border border-kubmin-neutral-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col gap-4 overflow-hidden">
-          <div class="absolute top-0 left-0 bottom-0 w-1 bg-kubmin-cost transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"></div>
-          <div class="text-4xl font-extrabold text-kubmin-neutral-100 italic mb-2">
-            0{i + 1}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      {problemStatement.problems.map((p, i) => (
+        <article class="relative km-paper km-lift rounded-3xl p-8 md:p-10">
+          <div class="flex items-baseline justify-between mb-8">
+            <div class="km-display text-[5.5rem] leading-none font-light" style="color: var(--color-kubmin-primary-300); font-style: italic;">
+              0{i + 1}
+            </div>
+            <span class="km-mono text-[10px] tracking-[0.2em] uppercase" style="color: var(--color-kubmin-subtle-text)">
+              blind spot
+            </span>
           </div>
-          <h3 class="text-xl font-semibold text-kubmin-neutral-900">{problem.title}</h3>
-          <p class="text-kubmin-neutral-500 leading-relaxed">{problem.body}</p>
-        </div>
+          <h3 class="text-2xl leading-snug font-medium mb-4" style="color: var(--color-kubmin-text)">
+            {p.title}
+          </h3>
+          <p class="leading-relaxed" style="color: var(--color-kubmin-subtle-text)">{p.body}</p>
+          <div class="mt-8 h-[2px] w-12" style="background: var(--color-kubmin-love)"></div>
+        </article>
       ))}
     </div>
   </Container>
