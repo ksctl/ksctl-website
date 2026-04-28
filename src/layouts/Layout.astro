@@ -1,14 +1,29 @@
 ---
-const { 
-  title = "ksctl - Strive towards Fast, Efficient and Sustainable Computing", 
-  description = "Strive towards Fast, Efficient and Sustainable Computing", 
+const {
+  title = "ksctl - Strive towards Fast, Efficient and Sustainable Computing",
+  description = "ksctl is a cloud-agnostic Kubernetes management platform for fast, efficient and sustainable cluster deployment across AWS, Azure, GCP and on-prem.",
   theme = "default",
-  image = "/ksctl-logo.svg" 
+  image = "/ksctl-logo.svg",
 } = Astro.props;
 
 const isKubmin = theme === "kubmin";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL(image, Astro.site);
+
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ksctl",
+  url: "https://ksctl.com",
+  logo: "https://ksctl.com/ksctl-logo.svg",
+  description: "Cloud-agnostic Kubernetes management for sustainable, cost-efficient cluster deployment.",
+  sameAs: [
+    "https://github.com/ksctl",
+    "https://twitter.com/ksctl_org",
+    "https://discord.ksctl.com",
+    "https://www.linkedin.com/company/ksctl",
+  ],
+};
 ---
 
 <!doctype html>
@@ -16,14 +31,16 @@ const socialImageURL = new URL(image, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- Primary Meta Tags -->
     <title>{title}</title>
-    <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -31,14 +48,19 @@ const socialImageURL = new URL(image, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:site_name" content="ksctl" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={socialImageURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ksctl_org" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageURL} />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
