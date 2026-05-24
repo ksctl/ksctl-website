@@ -1,0 +1,43 @@
+---
+title: "kli v2.4 Release — Smarter Cost & Emission Optimization for Dynamic Region Switching"
+description: "kli v2.4 introduces dynamic region switching to optimize costs and reduce emissions based on region."
+author: "ksctl Team"
+date: "2025-04-10"
+tags: ["kli", "release", "cost-optimization", "emission-optimization", "region-switching", "sustainability"]
+image: "/images/blogs/kli-new-recommendation.webp"
+product: "ksctl"
+---
+
+We are thrilled to announce the release of **kli v2.4**! This update introduces **Dynamic Region Switching**, an intelligent cost and emission optimization feature that helps you minimize infrastructure expenses by selecting the most efficient region for your Kubernetes clusters—without changing your instance type.
+
+## 🌟 What's New in kli v2.4?
+
+### 📌 Dynamic Region Switching for Cost & Emission Optimization
+
+kli can now **switch regions** to optimize costs while maintaining the same instance type. This feature ensures that your clusters run in both the **most cost-effective** and **least emission** region without manual intervention.
+- 🚀 **Automatic Region Optimization**: kli intelligently identifies and switches to the most cost-effective and environmentally friendly regions.
+- 🛠️ **Flexible Region Control**: Prefer to stay in your current region? You can opt to keep your cluster where it is.
+- 💰 **Cost Savings**: Dynamically adapts to pricing changes across regions, reducing your infrastructure expenses.
+- 🌱 **Eco-Friendly Operations**: Minimizes carbon footprint by selecting regions based on:
+    - **Direct Carbon Intensity**: (Lower is better) Measures the carbon emissions from energy production.
+    - **LCA (Life Cycle Assessment) Carbon Intensity**: (Lower is better) Evaluates the lifecycle carbon emissions of energy sources.
+    - **Renewable Power Percentage**: (Higher is better) Highlights regions with higher renewable energy usage.
+    - **Low CO₂ Power Percentage**: (Higher is better) Focuses on regions with a lower share of carbon-intensive power.
+
+> This feature ensures you get **maximum cost efficiency** and **minimum emissions** while maintaining performance and reliability.
+>
+> This feature works with the `kli cluster create` command.
+
+---
+
+## 🔄 How to Upgrade to kli v2.4
+
+To upgrade your kli CLI to the latest version, simply run:
+
+```shell
+kli self-update
+```
+
+This ensures you're using the latest version with all the new features and improvements. 🚀
+
+With kli v2.4, managing Kubernetes just got more efficient and cost-effective! Upgrade today and take advantage of smart region switching to optimize your cloud expenses.

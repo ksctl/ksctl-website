@@ -1,0 +1,44 @@
+---
+title: "K8s Cluster Autoscaling — Findings and Research"
+description: "Our findings on how Kubernetes Cluster Autoscaling works, including insights on Karpenter and Cluster Autoscaler."
+author: "ksctl Team"
+date: "2024-01-23"
+tags: ["kubernetes", "autoscaling", "karpenter", "cluster-autoscaler", "research"]
+image: "/ksctl-logo.svg"
+product: "company"
+---
+
+## Pod Auto-scaler
+
+- [HorizontalPodAutoscaler — Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/docs/concepts/horizontalpodautoscaler)
+- [Horizontal Pod Autoscale — Kubernetes Docs](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
+
+## Cluster Auto-Scaler
+
+This blog might help: [The Guide To Kubernetes Cluster Autoscaler by Example](https://www.kubecost.com/kubernetes-autoscaling/kubernetes-cluster-autoscaler/)
+
+### Insights from the Kubernetes Community
+
+Information gathered from the Kubernetes Slack channels (`#karpenter`, `#auto-scaler`).
+
+### How Does Karpenter Do It?
+
+- Karpenter scales using pending pod pressure.
+- There are two primary controllers for scale up and scale down.
+- **Provisioning trigger controller**: Creates nodeclaims or initializes a scale request. It watches for pending pods, and in response checks if they can be scheduled on existing nodes. If not, Karpenter solves scheduling by creating additional nodeclaims. Node lifecycle controllers watch for these nodeclaims and launch VMs accordingly.
+  - [Source: provisioning/controller.go](https://github.com/kubernetes-sigs/karpenter/blob/main/pkg/controllers/provisioning/controller.go#L58)
+- **Disruption Controller**: Tells Karpenter to scale down the nodes. It polls the cluster every 10 seconds and iterates through disruption methods to determine if any disruption action can be initiated.
+  - [Source: disruption/controller.go](https://github.com/kubernetes-sigs/karpenter/blob/main/pkg/controllers/disruption/controller.go#L126)
+
+### How Does Cluster Auto-Scaler (CAS) Do It?
+
+- For **scale up**, CAS looks for pending pods.
+- For **scale down**, it looks for under-utilized nodes (calculated by resource usage).
+- Resource usage = sum(resource_requests) / node_allocatable
+- It has nothing to do with "real" utilization.
+- CAS's job is to make all pods able to schedule using as few nodes as possible — it only looks at scheduling.
+- You can use HPA/VPA to update pods based on actual resource usage, which will in turn trigger CA to add/remove nodes.
+
+### Research Paper on CO₂-Efficient Karpenter
+
+Andreasen, J. V. (2024). *Carbon Efficient Karpenter: Optimizing Kubernetes Cluster Autoscaling for Carbon Efficiency*. [GitHub Repository](https://github.com/JacobValdemar/carbon-efficient-karpenter-thesis)

@@ -1,0 +1,58 @@
+---
+title: "kli v2.5 Release — Smart Selection for Region and Instance Type"
+description: "Introducing smart card-based selection for regions and instance types in kli v2.5."
+author: "ksctl Team"
+date: "2025-04-13"
+tags: ["kli", "release", "smart-selection", "region", "instance-type", "sustainability"]
+image: "/images/blogs/new_selection_region.webp"
+product: "ksctl"
+---
+
+We are thrilled to announce the release of **kli v2.5**! This update introduces **Smart Card Selection**, an intelligent feature that helps you select the best region and instance type for your Kubernetes clusters based on your requirements.
+
+## 🌟 What's New in kli v2.5?
+
+### 📌 Region Selection Sorted Based on Emission Optimization
+
+kli can help you choose the most efficient region based on emission metrics, ensuring that your Kubernetes clusters are not only cost-effective but also environmentally friendly.
+- 🌱 **Minimizes carbon footprint** by prioritizing regions with lower emissions, contributing to a greener environment.
+- 🚀 **Automatically ranks regions** using advanced emission metrics, including:
+    - **Direct Carbon Intensity**: (Lower is better) Measures the carbon emissions from energy production.
+    - **LCA Carbon Intensity**: (Lower is better) Evaluates the lifecycle carbon emissions of energy sources.
+    - **Renewable Power Percentage**: (Higher is better) Highlights regions with higher renewable energy usage.
+    - **Low CO₂ Power Percentage**: (Higher is better) Focuses on regions with a lower share of carbon-intensive power.
+
+This intelligent selection ensures your Kubernetes clusters are deployed in regions that align with both cost-efficiency and sustainability goals.
+
+![Smart Region Selection Interface](/images/blogs/new_selection_region.webp)
+*Visualization of region selection optimization based on emission metrics.*
+
+### 📌 Instance Type Selection Sorted Based on Cost and Embodied Emissions Optimization
+
+kli can help you choose the most efficient instance type based on cost and embodied emissions, ensuring that your Kubernetes clusters are not only cost-effective but also environmentally friendly.
+- 💰 **Cost Optimization**: Dynamically adapts to pricing changes across instance types, reducing infrastructure costs.
+- 🌱 **Sustainability Focus**: Prioritizes instance types with lower embodied emissions, minimizing your carbon footprint. Automatically ranks instance types using advanced metrics, including:
+    - **Embodied Emissions**: (Lower is better) Evaluates the environmental impact of manufacturing and deploying the instance type.
+
+This ensures your Kubernetes clusters are optimized for both cost-efficiency and environmental sustainability.
+
+![Instance Type Selection Optimization](/images/blogs/new_selection_instance_type.webp)
+*Visualization of instance type selection optimization based on cost and embodied emissions.*
+
+> This feature ensures you get **maximum cost efficiency** and **minimum emissions** while maintaining performance and reliability.
+>
+> This feature works with the `kli cluster create` command.
+
+---
+
+## 🔄 How to Upgrade to kli v2.5
+
+To upgrade your kli CLI to the latest version, simply run:
+
+```shell
+kli self-update
+```
+
+This ensures you're using the latest version with all the new features and improvements. 🚀
+
+With kli v2.5, managing Kubernetes just got more efficient and cost-effective! Upgrade today and take advantage of smart region switching to optimize your cloud expenses.

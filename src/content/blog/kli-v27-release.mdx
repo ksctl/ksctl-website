@@ -1,0 +1,45 @@
+---
+title: "kli v2.7 Release — New Cluster Summary and Recommendation"
+description: "Introducing the new cluster summary and recommendation feature in kli v2.7 for enhanced debugging and security recommendations."
+author: "ksctl Team"
+date: "2025-04-27"
+tags: ["kli", "release", "cluster-summary", "logging", "security", "recommendations"]
+image: "/images/blogs/new-logging-v2.webp"
+product: "ksctl"
+---
+
+We are thrilled to announce the release of **kli v2.7**! This significant update introduces **Cluster Summary**, empowering you to gain both debugging information and security recommendations for your Kubernetes clusters.
+
+## 🌟 What's New in kli v2.7?
+
+### 📌 New Logging System
+
+This new logging system is designed to provide most minimalistic and easy to read logs. It will help you to debug your cluster in a single command.
+
+![New logging interface](/images/blogs/new-logging-v2.webp)
+
+### 📌 Cluster Summary and Recommendation
+
+The new cluster summary and recommendation feature provides you with a comprehensive overview of your cluster's configuration and offers both debugging information and security recommendations.
+
+In our latest release, kli v2.7 introduces a powerful feature that provides a comprehensive summary of your cluster's configuration. This feature is designed to enhance both debugging and security recommendations. With a single command, `$ kli cluster summary`, users can access critical details about their cluster.
+
+This includes insights into **pod errors**, **node metrics**, **cluster events**, and **latency reports**.
+
+Additionally, the feature offers recommendations for improving cluster security by checking for issues like **PodSecurityPolicy**, **NamespaceQuota**, **PodResourceLimits & Requests**, and **NodePort** configurations.
+
+This tool is invaluable for users looking to optimize their cluster's performance and security effortlessly.
+
+---
+
+## 🔄 How to Upgrade to kli v2.7
+
+To upgrade your kli CLI to the latest version, simply run:
+
+```shell
+kli self-update
+```
+
+This ensures you're using the latest version with all the new features and improvements. 🚀
+
+With kli v2.7, managing Kubernetes has never been more flexible and powerful! Upgrade today to take advantage of these advanced features.

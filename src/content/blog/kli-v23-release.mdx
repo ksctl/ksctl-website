@@ -1,0 +1,44 @@
+---
+title: "kli v2.3 Release — Smarter Cost Optimization with Dynamic Region Switching"
+description: "kli v2.3 introduces dynamic region switching to optimize cluster costs, along with important fixes and improvements."
+author: "ksctl Team"
+date: "2025-03-27"
+tags: ["kli", "release", "cost-optimization", "region-switching"]
+image: "/images/blogs/cost-optimize-instance-across-region.webp"
+product: "ksctl"
+---
+
+We are thrilled to announce the release of **kli v2.3**! This update introduces **Dynamic Region Switching**, an intelligent cost-optimization feature that helps you minimize infrastructure expenses by selecting the most cost-effective region for your Kubernetes clusters—without changing your instance type.
+
+## 🌟 What's New in kli v2.3?
+
+### 📌 Dynamic Region Switching for Cost Optimization
+
+kli can now **automatically switch regions** to optimize costs while maintaining the same instance type. This feature ensures that your clusters run in the **most cost-effective region** without manual intervention.
+
+- 🚀 **Automatically identifies and switches to one of the top 5 best-priced regions**
+- 🛠️ **Optional setting**: Keep your cluster in the current region if preferred
+- 💰 **Reduces infrastructure costs** by dynamically adapting to pricing changes across regions
+
+> This feature ensures you get **maximum cost efficiency** while maintaining performance and reliability.
+>
+> This feature works with the `kli cluster create` command.
+
+### 🔧 Fixes and Improvements
+
+- 🌍 **Expanded AWS Support** – European regions are now available after fixing the pricing API
+- ⚡ **Upgraded Compilation** – kli CLI is now built with **Go v1.24** for better performance and stability
+
+---
+
+## 🔄 How to Upgrade to kli v2.3
+
+To upgrade your kli CLI to the latest version, simply run:
+
+```shell
+kli self-update
+```
+
+This ensures you're using the latest version with all the new features and improvements. 🚀
+
+With kli v2.3, managing Kubernetes just got more efficient and cost-effective! Upgrade today and take advantage of smart region switching to optimize your cloud expenses.

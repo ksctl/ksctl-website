@@ -1,0 +1,43 @@
+---
+title: "kli v2.2.1 Release — Cluster Efficiency at a Whole New Level"
+description: "Instance types are now categorized by workload, making cluster provisioning smarter and more cost-effective."
+author: "ksctl Team"
+date: "2025-03-23"
+tags: ["kli", "release", "instance-types", "workload-categorization"]
+image: "/ksctl-logo.svg"
+product: "ksctl"
+---
+
+We are excited to announce the release of kli v2.2.1! This release brings a host of bugfixes and new features to transform your kli experience.
+
+---
+
+## 🆕 What's New in kli v2.2.1?
+
+### Now Instance Types Are Categorized Based on the Workload
+
+*No need to know which instance type falls under which category. Just select the category and kli will take care of the rest.*
+
+Here is the new categorization of instance types with respect to the cluster type you have selected:
+
+- **Self managed**
+  - Controlplane: ComputeIntensive
+  - Etcd: MemoryIntensive
+  - Loadbalancer: GeneralPurpose
+  - WorkerNode: User defined (ComputeIntensive | MemoryIntensive | GeneralPurpose | Burstable)
+- **Managed**
+  - Controlplane: Managed so no option
+  - WorkerNode: User defined (ComputeIntensive | MemoryIntensive | GeneralPurpose | Burstable)
+
+> All these will help increase the performance and also reduce the cost of the cluster.
+
+| Category | Amazon Web Services | Microsoft Azure |
+| - | - | - |
+| cpu-intensive | c5 | F-series |
+| memory-intensive | r5 | E-series |
+| general-purpose | m5 | D-series |
+| burstable | t3 | B-series |
+
+### Moved to ksctl/ksctl@v2.1.0 Core
+
+It has new security fixes and bug fixes.

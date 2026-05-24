@@ -1,0 +1,79 @@
+---
+title: "kli v2.6 Release — Advanced Customization for Cilium and Flannel CNI"
+description: "Introducing enhanced customization options for Cilium and Flannel CNI in kli v2.6 to optimize your Kubernetes networking."
+author: "ksctl Team"
+date: "2025-04-27"
+tags: ["kli", "release", "cilium", "flannel", "cni", "networking"]
+image: "/images/cni-addon-ver.webp"
+product: "ksctl"
+---
+
+We are thrilled to announce the release of **kli v2.6**! This significant update introduces **Advanced Customization for Cilium and Flannel CNI**, empowering you to tailor your Kubernetes clusters' networking to match your specific requirements and operational environment.
+
+## 🌟 What's New in kli v2.6?
+
+### 📌 Cilium Customization Options
+
+**Version Selection**
+
+![Cilium Version Selection Interface](/images/cni-addon-ver.webp)
+
+With the new Cilium customization options, you can precisely configure your Kubernetes network environment with granular control over security policies, load balancing, and network connectivity.
+
+#### Customization Modes
+
+![Cilium Customization Modes](/images/cni-addon-other-modes.webp)
+
+Choose from three flexible modes of customization:
+
+1. **Default Mode**: Pre-configured setup with best practices implemented for immediate deployment
+   - Optimized for general use cases
+   - Zero configuration required
+
+2. **Advanced Mode**: Maximum flexibility for networking experts
+   - Specify custom Helm chart `values.yml` files
+
+3. **Guided Mode**: User-friendly interface with component-level control
+   - Interactive menu for enabling/disabling specific features
+   - Simplified configuration of complex networking options
+   - Guided approach to optimizing performance and security
+
+![Guided Mode Interface](/images/cni-addon-guided.webp)
+
+### 📌 Flannel Customization Options
+
+Flannel, known for its simplicity and reliability, now also offers similar customization capabilities:
+
+**Version Selection**
+
+![Flannel Version Selection Interface](/images/cni-addon-0.webp)
+
+#### Available Customization Modes
+
+- **Default Mode**: Simple, reliable configuration for general use cases
+- **Advanced Mode**: Custom configuration through Helm values
+- **Guided Mode**: Step-by-step configuration with recommended options
+
+> **Note**: These customization features work with the `kli cluster create` command when specifying your CNI preference.
+
+## 💪 Benefits of CNI Customization
+
+- **Optimized Performance**: Fine-tune your network for specific workloads
+- **Enhanced Security**: Configure network policies to match your security requirements
+- **Resource Efficiency**: Allocate network resources according to your needs
+- **Operational Flexibility**: Adapt to different infrastructure environments
+- **Future-Proof Deployments**: Easily upgrade or modify as requirements change
+
+---
+
+## 🔄 How to Upgrade to kli v2.6
+
+To upgrade your kli CLI to the latest version, simply run:
+
+```shell
+kli self-update
+```
+
+This ensures you're using the latest version with all the new features and improvements. 🚀
+
+With kli v2.6, managing Kubernetes networking has never been more flexible and powerful! Upgrade today to take advantage of these advanced CNI customization options.
