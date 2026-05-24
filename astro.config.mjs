@@ -3,6 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import alpinejs from "@astrojs/alpinejs";
 import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +12,7 @@ export default defineConfig({
   integrations: [
     alpinejs(),
     icon(),
+    mdx(),
     sitemap({
       lastmod: new Date(),
     }),
