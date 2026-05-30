@@ -26,19 +26,18 @@ const glowMap = {
 const glow = glowMap[glowColor];
 ---
 
-<div class={`relative ${className}`}>
+<div class={`relative max-w-full min-w-0 ${className}`}>
   <div
     class="absolute -inset-4 rounded-[28px] blur-3xl opacity-90 pointer-events-none"
     style={`background: radial-gradient(ellipse at 50% 80%, ${glow}, transparent 65%);`}
   ></div>
 
-  <div class="relative km-browser">
-    <div class="km-browser-bar">
-      <span class="km-browser-dot" style="background:#e0a3a3"></span>
-      <span class="km-browser-dot" style="background:#e6c890"></span>
-      <span class="km-browser-dot" style="background:#a9c4b6"></span>
-      <span class="km-browser-url">{browserUrl}</span>
-      <span class="text-[10px] km-mono tracking-[0.18em] uppercase" style="color: var(--color-kubmin-subtle-text); opacity:0.55;">live</span>
+  <div class="relative km-browser max-w-full min-w-0">
+    <div class="km-browser-bar min-w-0">
+      <span class="km-browser-dot shrink-0" style="background:#e0a3a3"></span>
+      <span class="km-browser-dot shrink-0" style="background:#e6c890"></span>
+      <span class="km-browser-dot shrink-0" style="background:#a9c4b6"></span>
+      <span class="km-browser-url min-w-0 truncate">{browserUrl}</span>
     </div>
     <img
       src={imageSrc}

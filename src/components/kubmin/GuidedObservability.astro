@@ -11,35 +11,35 @@ import { guidedObservability } from "@/data/kubmin";
   <div class="km-blob km-blob-iris" style="width: 24rem; height: 24rem; bottom: -8rem; left: 4rem; opacity: .22"></div>
 
   <Container class="relative z-10">
-    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-      <div class="lg:col-span-5">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center min-w-0">
+      <div class="lg:col-span-5 min-w-0">
         <span class="km-eyebrow">{guidedObservability.label} · ch. 04b</span>
         <h2 class="mt-6 text-4xl md:text-6xl leading-[1.02] font-medium" style="color: var(--color-kubmin-text)">
           {guidedObservability.heading}<br />
           <span class="km-italic km-grad-iris">{guidedObservability.headingAccent}</span>
         </h2>
 
-        <p class="mt-8 text-lg leading-relaxed" style="color: var(--color-kubmin-subtle-text)">
+        <p class="mt-8 text-lg leading-relaxed max-w-full min-w-0" style="color: var(--color-kubmin-subtle-text)">
           {guidedObservability.body}
         </p>
 
         <div class="mt-10 space-y-4">
           {guidedObservability.bullets.map((bullet, i) => (
-            <div class="flex gap-4 rounded-2xl p-4 km-paper">
-              <span class="shrink-0 mt-0.5 w-8 h-8 rounded-full flex items-center justify-center km-mono text-[10px]" style="background: var(--color-kubmin-primary-100); color: var(--color-kubmin-primary-700); border: 1px solid var(--color-kubmin-primary-200);">
+            <div class="flex gap-4 rounded-2xl p-4 km-paper min-w-0">
+              <span class="shrink-0 mt-0.5 w-8 h-8 rounded-full flex items-center justify-center km-mono text-xs" style="background: var(--color-kubmin-primary-100); color: var(--color-kubmin-primary-700); border: 1px solid var(--color-kubmin-primary-200);">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p class="text-sm leading-relaxed" style="color: var(--color-kubmin-text)">{bullet}</p>
+              <p class="text-sm leading-relaxed min-w-0" style="color: var(--color-kubmin-text)">{bullet}</p>
             </div>
           ))}
         </div>
 
-        <p class="mt-8 km-italic text-sm leading-relaxed" style="color: var(--color-kubmin-subtle-text)">
+        <p class="mt-8 km-italic text-sm leading-relaxed max-w-full min-w-0" style="color: var(--color-kubmin-subtle-text)">
           {guidedObservability.note}
         </p>
       </div>
 
-      <div class="lg:col-span-7">
+      <div class="lg:col-span-7 min-w-0">
         <ModernMockup
           imageSrc={guidedObservability.screenshot.src}
           imageAlt={guidedObservability.screenshot.alt}
