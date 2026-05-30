@@ -1,6 +1,10 @@
 ---
 import Container from "../shared/Container.astro";
 import { trustSignals } from "@/data/kubmin";
+
+const trustGridClass = trustSignals.items.length >= 4
+  ? "md:grid-cols-2 lg:grid-cols-4"
+  : "md:grid-cols-3";
 ---
 
 <section class="relative py-20 md:py-24" style="background: var(--color-kubmin-base); border-top: 1px solid var(--color-kubmin-border); border-bottom: 1px solid var(--color-kubmin-border);">
@@ -8,7 +12,7 @@ import { trustSignals } from "@/data/kubmin";
     <div class="text-center mb-12">
       <span class="km-eyebrow" style="justify-content: center;">{trustSignals.label}</span>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-px overflow-hidden rounded-2xl km-paper">
+    <div class={`grid grid-cols-1 ${trustGridClass} gap-px overflow-hidden rounded-2xl km-paper`}>
       {trustSignals.items.map((item, i) => (
         <a href={item.href} target="_blank" rel="noopener noreferrer" class="group relative p-8 md:p-10 transition-colors" style="background: var(--color-kubmin-surface); outline: 1px solid var(--color-kubmin-border); outline-offset: -1px;">
           <div class="km-mono text-[10px] tracking-[0.22em] uppercase mb-6" style="color: var(--color-kubmin-subtle-text)">

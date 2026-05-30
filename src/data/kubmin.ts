@@ -5,7 +5,7 @@
 export const meta = {
   title: "Kubmin — Track What Each Deploy Costs in Money and Efficiency",
   description:
-    "Kubmin reveals per-workload cost, energy consumption, Running Efficiency, and SCI score. Compare release versions. The missing layer between your workloads and your bill.",
+    "Kubmin reveals per-workload cost, energy consumption, Running Efficiency, and SCI score. Compare release versions across clusters you create or import.",
 };
 
 export const links = {
@@ -14,6 +14,7 @@ export const links = {
   discord: "https://discord.ksctl.com",
   kepler: "https://sustainable-computing.io/",
   gsf: "https://sci.greensoftware.foundation/",
+  otel: "https://opentelemetry.io/",
   blog: "https://dipankar-das.com/blog/kubelet-config-rabbit-hole-sizing-kubernetes-nodes/",
 };
 
@@ -23,22 +24,52 @@ export const images = {
   screenshots: {
     hero: "/kubmin/cover.webp",
     redis: "/kubmin/compare-redis-casestudy.webp",
+    guidedObservability: "/kubmin/guided-observability.webp",
   },
 };
 
 // ---- HERO ----
 export const hero = {
-  headline: "Deploy fast and know what each one costs in money and efficiency",
+  headline: "Deploying fast? Know what every deploy costs — in money, energy, and efficiency.",
+  displayHeadline: {
+    lines: ["Deploying fast?"],
+    bridge: "Know what every deploy costs —",
+    accent: "in money, energy, and efficiency",
+    terminal: ".",
+  },
   punchline: "Everyone ships faster with AI. Nobody checks the cost. Kubmin does.",
-  explain: "Per-workload cost and efficiency tracking across deployments. The missing layer between your workloads and your bill.",
+  punchlineAccent: "Kubmin does.",
+  explain:
+    "Per-workload cost and efficiency tracking across deployments. The missing layer between your workloads and your bill — now for clusters you create or import.",
   cta: { text: "Start Free", href: links.app },
+  secondaryCta: { text: "See the Redis comparison", href: "#demo" },
   logo: images.logo,
   productName: "kubmin",
-
+  dispatch: {
+    title: "The kubmin dispatch",
+    meta: "Vol. 01 · Cost & Efficiency",
+  },
+  fieldNote: {
+    label: "Field note",
+    quote:
+      "AWS shows the bill. Kubecost guesses pods. Neither tells you what a single container actually burns.",
+    stats: [
+      { value: "$0.18", label: "/ workload" },
+      { value: "0.0085", label: "kWh / hr" },
+      { value: "63%", label: "CPU drift" },
+    ],
+  },
   trustBadges: [
     "Kepler (CNCF)",
     "SCI-aligned (GSF)",
-    "Powered by ksctl",
+    "EKS/AKS/GKE/K3s/Kubeadm",
+    "OpenTelemetry",
+  ],
+  proofPoints: [
+    "per-workload visibility",
+    "release-vs-release diff",
+    "SCI + SEE scoring",
+    "quick wins, kubectl-ready",
   ],
   screenshot: {
     src: images.screenshots.hero,
@@ -50,8 +81,11 @@ export const hero = {
 // ---- PROBLEM STATEMENT ----
 export const problemStatement = {
   label: "The Problem",
-  heading:
-    "You're spending thousands on Kubernetes. But do you know what each workload actually costs?",
+  heading: "You're spending thousands on Kubernetes.",
+  headingAccent: "thousands",
+  prompt: "But do you know what each workload actually costs?",
+  promptAccent: "actually",
+  summary: "Three blind spots, every cluster, every release.",
   problems: [
     {
       title: "No Per-Container Visibility",
@@ -111,7 +145,11 @@ export const productDemo = {
 // ---- CORE FEATURES ----
 export const coreFeatures = {
   label: "What Kubmin Does",
-  heading: "Six things no other tool does together",
+  heading: "Eight things no other tool does together",
+  headingAccent: "no other tool",
+  sideLabel: "The kubmin moat",
+  description:
+    "Each capability ships standalone. Together they form a unified ledger — cost, energy, and efficiency, per workload, per release, across clusters you create or import.",
   features: [
     {
       title: "Per-Image-Version Deep Profile",
@@ -129,8 +167,18 @@ export const coreFeatures = {
       tag: "Actually know your workload",
     },
     {
-      title: "Smart Cluster Setup",
-      body: "Spinning up a new cluster? Kubmin filters instance types against your workload profile and shows spec, hourly cost, and embodied carbon for each option. Region picker surfaces real grid carbon intensity and % renewable energy — so cluster decisions are informed, not guessed.",
+      title: "Existing Cluster Import",
+      body: "Bring existing EKS, AKS, GKE Standard, or self-managed Kubernetes clusters into Kubmin. Managed imports discover clusters by cloud and region; self-managed imports use kubeconfig. Imported clusters keep their infrastructure ownership while Kubmin adds workload intelligence on top.",
+      tag: "Use the clusters you already run",
+    },
+    {
+      title: "Guided Observability",
+      body: "Use your existing Prometheus, Tempo, Loki, and Grafana stack, or let Kubmin deploy the missing pieces. Kubmin configures an OpenTelemetry Collector bridge for metrics, logs, and traces, plus Kepler for energy attribution.",
+      tag: "Bring your stack or create one",
+    },
+    {
+      title: "Smart Cluster Setup and Import",
+      body: "Spinning up a new cluster or importing an existing one? Kubmin filters instance types against your workload profile and shows spec, hourly cost, and embodied carbon for each option. Region picker surfaces real grid carbon intensity and % renewable energy — so cluster decisions are informed, not guessed.",
       tag: "Right cluster before the first pod",
     },
     {
@@ -140,7 +188,7 @@ export const coreFeatures = {
     },
     {
       title: "Quick Wins — Ranked by Savings",
-      body: "Kubmin turns every finding — idle replicas, overprovisioned limits, cheaper instance types, greener regions — into a ranked action list with estimated monthly cost savings and efficiency gains attached. Each wins ships with a copy-paste kubectl command. Open the dashboard, act on the top three.",
+      body: "Kubmin turns every finding — idle replicas, overprovisioned limits, cheaper instance types, greener regions — into a ranked action list with estimated monthly cost savings and efficiency gains attached. Each win ships with a copy-paste kubectl command. Open the dashboard, act on the top three.",
       tag: "Dollar-ranked actions, not alerts",
     },
   ],
@@ -182,21 +230,42 @@ export const howItWorks = {
   headingAccent: "what you're wasting",
   steps: [
     {
-      title: "Sign Up & Create a Cluster",
-      body: "Sign up at kubmin.ksctl.com and create your Kubernetes cluster from the dashboard. Kubmin provisions the full monitoring stack automatically — Prometheus, Kepler, and the kubmin agent. You don't install anything manually.",
+      title: "Create or Import a Cluster",
+      body: "Start with a new ksctl-managed cluster or import an existing EKS, AKS, GKE Standard, or self-managed Kubernetes cluster. Managed imports discover clusters by cloud and region; self-managed imports use kubeconfig.",
     },
     {
-      title: "Label Your Workloads",
-      body: "Add one label and one annotation to the Deployments, StatefulSets, or DaemonSets you want to monitor. The dashboard shows you exactly what to add. That's the only configuration you do.",
+      title: "Choose Your Observability Path",
+      body: "Connect existing Prometheus, Tempo, Loki, and Grafana endpoints, or let Kubmin deploy the missing pieces. Kubmin always installs the agent, Kepler, Gateway API, and an OpenTelemetry Collector bridge.",
     },
     {
-      title: "See Your Results",
-      body: "Kubmin aggregates data hourly and surfaces waste analysis, efficiency grades, cost breakdowns, and Quick Wins automatically. Open the dashboard and start saving.",
+      title: "Instrument Apps and See Results",
+      body: "Point your apps at Kubmin's in-cluster OTLP gRPC or HTTP endpoint. Kubmin turns metrics, logs, traces, and Kepler energy data into workload cost, efficiency, SCI/SEE, and Quick Wins.",
     },
   ],
   cta: { text: "Start Free", href: links.app },
   disclaimer:
-    "Currently, clusters are created via ksctl. Support for importing existing clusters is coming soon.",
+    "Imported clusters must have cert-manager installed and healthy. Kubmin installs Gateway API CRDs during import and configures the Kubmin agent, Kepler, and OpenTelemetry Collector automatically.",
+};
+
+// ---- GUIDED OBSERVABILITY ----
+export const guidedObservability = {
+  label: "New capability",
+  heading: "Guided Observability",
+  headingAccent: "without glue work",
+  body:
+    "Keep your Prometheus, Tempo, Loki, and Grafana stack, or let Kubmin deploy the missing pieces during create/import. Kubmin wires telemetry back to the cost and energy ledger, so metrics, logs, traces, and Kepler data support the same workload decisions.",
+  bullets: [
+    "Bring existing Prometheus, Tempo, Loki, and Grafana endpoints",
+    "Use Kubmin's in-cluster OpenTelemetry Collector for OTLP gRPC and HTTP",
+    "Let Kubmin deploy missing backends while always installing the agent, Kepler, Gateway API, and collector",
+  ],
+  note:
+    "For imported clusters, cert-manager must already be installed and healthy. Kubmin installs Gateway API CRDs during import.",
+  screenshot: {
+    src: images.screenshots.guidedObservability,
+    alt: "Kubmin Guided Observability setup showing choices for existing or Kubmin-managed telemetry backends",
+    browserUrl: "kubmin.ksctl.com/clusters/import/observability",
+  },
 };
 
 // ---- COMPARISON TABLE ----
@@ -204,6 +273,8 @@ export const comparisonTable = {
   label: "The Gap",
   heading: "What your current tools",
   headingAccent: "can't tell you",
+  intro:
+    "Kubmin doesn't replace your monitoring stack. It connects cluster onboarding, OpenTelemetry, energy, and workload cost intelligence around it.",
   competitors: [
     "AWS Cost Explorer",
     "Kubecost",
@@ -218,6 +289,22 @@ export const comparisonTable = {
     {
       capability: "Energy consumption per workload",
       values: ["✗", "✗", "✗", "✓"],
+    },
+    {
+      capability: "Existing cluster import",
+      values: ["✗", "Manual", "Manual", "✓ EKS/AKS/GKE + kubeconfig"],
+    },
+    {
+      capability: "Guided observability setup",
+      values: ["✗", "✗", "Manual", "✓ Bring yours or deploy"],
+    },
+    {
+      capability: "OpenTelemetry logs/traces/metrics bridge",
+      values: ["✗", "✗", "Manual", "✓ OTEL Collector"],
+    },
+    {
+      capability: "GKE Standard import",
+      values: ["✗", "✗", "Manual", "✓"],
     },
     {
       capability: "Idle workload detection",
@@ -245,11 +332,11 @@ export const comparisonTable = {
     },
     {
       capability: "Setup time",
-      values: ["N/A", "~30 min", "Hours/Days", "~10 min"],
+      values: ["N/A", "~30 min", "Hours/Days", "Minutes to create/import"],
     },
   ],
   footer:
-    "Kubmin doesn't replace your monitoring stack. It sees what your monitoring stack can't — the energy layer that drives real waste.",
+    "Kubmin doesn't replace your monitoring stack. It sees what your monitoring stack can't — the energy layer that drives real waste, plus the release context that turns metrics into action.",
 };
 
 // ---- PRICING ----
@@ -258,16 +345,18 @@ export const pricing = {
   heading: "Start free.",
   headingAccent: "Scale when you need to.",
   subheading:
-    "Fixed monthly pricing. No per-node fees. No surprise bills. All plans include auto-deployed Prometheus, Kepler, and Grafana.",
+    "Fixed monthly pricing. No per-node fees. No surprise bills. All plans include the Kubmin agent, Kepler energy insights, and Guided Observability with OpenTelemetry Collector.",
+  ctaHref: links.app,
   tiers: [
     {
       name: "Explore",
       price: "$0",
       period: "/month",
       features: [
-        "1 cluster",
+        "1 cluster to create or import",
         "1 workload",
         "1 team member",
+        "Guided Observability setup",
         "6h hourly metrics retention",
         "Basic workload overview",
         "Community support",
@@ -280,13 +369,14 @@ export const pricing = {
       price: "$19.99",
       period: "/month",
       features: [
-        "5 clusters",
+        "5 clusters to create or import",
         "5 workloads",
         "10 team members",
         "72h (3d) hourly metrics retention",
         "Full workload analysis",
         "Deployment comparison",
         "Quick Wins with kubectl commands",
+        "Bring or deploy observability backends",
         "Priority support",
       ],
       cta: "Start Affordable",
@@ -297,7 +387,7 @@ export const pricing = {
       price: "$49.99",
       period: "/month",
       features: [
-        "20 clusters",
+        "20 clusters to create or import",
         "20 workloads",
         "50 team members",
         "168h (7d) hourly metrics retention",
@@ -309,7 +399,7 @@ export const pricing = {
     },
   ],
   footer:
-    "No hidden fees · Cancel anytime · All plans include Prometheus & Grafana",
+    "No hidden fees · Cancel anytime · Bring your stack or let Kubmin deploy one",
 };
 
 // ---- TRUST SIGNALS ----
@@ -320,6 +410,11 @@ export const trustSignals = {
       title: "CNCF Project",
       body: "Energy measurement powered by Kepler — kernel-level container energy attribution",
       href: links.kepler,
+    },
+    {
+      title: "OpenTelemetry-native",
+      body: "Kubmin installs an OpenTelemetry Collector bridge for OTLP metrics, logs, and traces while keeping Prometheus, Tempo, Loki, and Grafana optional.",
+      href: links.otel,
     },
     {
       title: "Green Software Foundation",
@@ -359,11 +454,11 @@ Indirect efficiency gains: When you right-size inefficient workloads, they consu
 
 Kubecost tracks pod-level cost allocation based on resource requests — it's a FinOps tool, not an efficiency tool. Prometheus + Grafana gives you raw metrics but requires manual setup for any waste detection or version comparison. AWS Cost Explorer operates at the EC2 level and has no visibility into individual containers.
 
-None of these tools track per-workload energy consumption, compare efficiency across deployment versions, or provide SCI/SEE sustainability scores. Kubmin was built specifically because this gap existed.`,
+None of these tools track per-workload energy consumption, compare efficiency across deployment versions, import existing clusters with guided observability, or provide SCI/SEE sustainability scores. Kubmin was built specifically because this gap existed.`,
     },
     {
       q: "Do I need to change my deployment workflow?",
-      a: "No. Add one label and one annotation to the workloads you want to monitor. That's it. Kubmin works alongside your existing CI/CD pipeline. The full monitoring stack (Prometheus, Kepler, Grafana) is deployed automatically.",
+      a: "No. For workload intelligence, add the Kubmin label and annotation to the workloads you want to track. For observability, either keep your existing Prometheus, Tempo, Loki, and Grafana endpoints or let Kubmin deploy them. Applications can send OTLP telemetry to Kubmin's in-cluster OpenTelemetry Collector endpoints.",
     },
     {
       q: "How accurate are the energy measurements?",
@@ -371,7 +466,11 @@ None of these tools track per-workload energy consumption, compare efficiency ac
     },
     {
       q: "What clusters does kubmin support?",
-      a: "Kubmin works with clusters created via ksctl — including EKS, AKS, GKE, K3s, and Kubeadm (both cloud-managed and self-managed). Support for importing existing clusters not created by ksctl is in active development.",
+      a: "Kubmin supports clusters created through ksctl and imported existing clusters. Managed import supports EKS, AKS, and GKE Standard. Self-managed import supports Kubernetes clusters on AWS, Azure, or Google Cloud via kubeconfig. GKE Autopilot is not included in the current import path.",
+    },
+    {
+      q: "What does Kubmin install on imported clusters?",
+      a: "Imported clusters must already have cert-manager installed and healthy. During import, Kubmin installs Gateway API CRDs and configures the Kubmin agent, Kepler, and OpenTelemetry Collector. If you do not provide Prometheus, Tempo, Loki, or Grafana endpoints, Kubmin can deploy the missing observability backends for you.",
     },
   ],
 };
@@ -383,5 +482,5 @@ export const finalCta = {
   subtitle: "Sign up free. Connect a cluster. See your waste in minutes.",
   primaryAction: { text: "Get Started", href: links.app },
   secondaryAction: { text: "Join Discord", href: links.discord },
+  footerNote: "kubmin.ksctl.com · sign in with github · setup in minutes",
 };
-

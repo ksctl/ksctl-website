@@ -9,13 +9,13 @@ import { comparisonTable } from "@/data/kubmin";
       <div class="lg:col-span-7">
         <span class="km-eyebrow">{comparisonTable.label} · ch. 05</span>
         <h2 class="mt-6 text-4xl md:text-6xl leading-[1.02] font-medium" style="color: var(--color-kubmin-text)">
-          What your current tools<br/>
+          {comparisonTable.heading}<br/>
           <span class="km-italic km-grad-iris">{comparisonTable.headingAccent}</span>
         </h2>
       </div>
       <div class="lg:col-span-4 lg:col-start-9">
         <p class="km-italic text-lg leading-relaxed" style="color: var(--color-kubmin-subtle-text)">
-          We don't replace your monitoring stack. We see what your monitoring stack can't.
+          {comparisonTable.intro}
         </p>
       </div>
     </div>
@@ -33,9 +33,6 @@ import { comparisonTable } from "@/data/kubmin";
                       style={isKubmin
                         ? `background: linear-gradient(180deg, var(--color-kubmin-primary-50), transparent); border-bottom: 2px solid var(--color-kubmin-primary-500); color: var(--color-kubmin-primary-700); font-weight: 600;`
                         : `border-bottom: 1px solid var(--color-kubmin-border); color: var(--color-kubmin-subtle-text); font-weight: 500;`}>
-                    <div class="km-mono text-[10px] tracking-[0.2em] uppercase mb-2" style="opacity: 0.6">
-                      {isKubmin ? 'us' : `vs ${String.fromCharCode(64 + i + 1)}`}
-                    </div>
                     <div class="text-sm">{comp}</div>
                   </th>
                 );

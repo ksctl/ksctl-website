@@ -2,6 +2,11 @@
 import Container from "../shared/Container.astro";
 import ModernMockup from "./ModernMockup.astro";
 import { hero } from "@/data/kubmin";
+
+const { displayHeadline } = hero;
+const punchlineParts = hero.punchlineAccent
+  ? hero.punchline.split(hero.punchlineAccent)
+  : [hero.punchline];
 ---
 
 <section class="relative overflow-hidden km-wash-tl" id="home" style="background: var(--color-kubmin-base);">
@@ -24,9 +29,9 @@ import { hero } from "@/data/kubmin";
           </span>
         </a>
         <span class="km-eyebrow">
-          <span>The kubmin dispatch</span>
+          <span>{hero.dispatch.title}</span>
           <span class="km-dot" style="color: var(--color-kubmin-cost)"></span>
-          <span>Vol. 01 · Cost &amp; Efficiency</span>
+          <span>{hero.dispatch.meta}</span>
         </span>
       </div>
 
@@ -34,19 +39,21 @@ import { hero } from "@/data/kubmin";
 
         <div class="lg:col-span-8">
           <h1 class="km-stagger km-stagger-2 text-[3rem] sm:text-[4rem] md:text-[5.25rem] lg:text-[6rem] leading-[0.95] tracking-tight font-semibold" style="color: var(--color-kubmin-text)">
-            Deploy fast<span class="km-italic" style="font-weight:300; color: var(--color-kubmin-subtle-text)">,</span><br/>
-            and know<br/>
-            what each one
-            <span class="km-italic km-grad-warm">costs</span>
-            <span style="color: var(--color-kubmin-subtle-text)" class="km-italic">in</span>
-            <span class="km-underline km-underline-gold">money</span>
-            <span style="color: var(--color-kubmin-subtle-text)" class="km-italic">&amp;</span>
-            <span class="km-underline">efficiency</span><span class="km-italic" style="color: var(--color-kubmin-cost)">.</span>
+            {displayHeadline.lines.map((line) => (
+              <>
+                {line}<br />
+              </>
+            ))}
+            <span style="color: var(--color-kubmin-subtle-text)">{displayHeadline.bridge}</span><br />
+            <span class="km-italic km-grad-warm">{displayHeadline.accent}</span><span class="km-italic" style="color: var(--color-kubmin-cost)">{displayHeadline.terminal}</span>
           </h1>
 
           <p class="km-stagger km-stagger-3 mt-10 text-xl md:text-2xl leading-snug max-w-2xl" style="color: var(--color-kubmin-text)">
-            Everyone ships faster with AI. Nobody checks the cost.
-            <span class="km-italic" style="color: var(--color-kubmin-primary-700)">Kubmin does.</span>
+            {punchlineParts[0]}
+            {hero.punchlineAccent && (
+              <span class="km-italic" style="color: var(--color-kubmin-primary-700)">{hero.punchlineAccent}</span>
+            )}
+            {punchlineParts.slice(1).join(hero.punchlineAccent)}
           </p>
 
           <p class="km-stagger km-stagger-3 mt-5 text-base md:text-lg leading-relaxed max-w-xl" style="color: var(--color-kubmin-subtle-text)">
@@ -58,8 +65,8 @@ import { hero } from "@/data/kubmin";
               {hero.cta.text}
               <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
             </a>
-            <a href="#demo" class="km-btn km-btn-ghost">
-              See the Redis comparison
+            <a href={hero.secondaryCta.href} class="km-btn km-btn-ghost">
+              {hero.secondaryCta.text}
             </a>
           </div>
 
@@ -76,24 +83,18 @@ import { hero } from "@/data/kubmin";
         <aside class="km-stagger km-stagger-3 lg:col-span-4 lg:pl-6 lg:border-l" style="border-color: var(--color-kubmin-border)">
           <div class="km-mono text-[10px] tracking-[0.22em] uppercase mb-4" style="color: var(--color-kubmin-subtle-text)">
             <span class="km-dot mr-2" style="color: var(--color-kubmin-cost)"></span>
-            Field note
+            {hero.fieldNote.label}
           </div>
           <p class="km-italic text-2xl leading-snug mb-6" style="color: var(--color-kubmin-text)">
-            "AWS shows the bill. Kubecost guesses pods. Neither tells you what a single container actually burns."
+            “{hero.fieldNote.quote}”
           </p>
           <div class="grid grid-cols-3 gap-4 pt-4 border-t" style="border-color: var(--color-kubmin-border)">
-            <div>
-              <div class="km-mono text-2xl tabular-nums" style="color: var(--color-kubmin-cost)">$0.18</div>
-              <div class="text-[11px] mt-1" style="color: var(--color-kubmin-subtle-text)">/ workload</div>
-            </div>
-            <div>
-              <div class="km-mono text-2xl tabular-nums" style="color: var(--color-kubmin-energy)">0.0085</div>
-              <div class="text-[11px] mt-1" style="color: var(--color-kubmin-subtle-text)">kWh / hr</div>
-            </div>
-            <div>
-              <div class="km-mono text-2xl tabular-nums" style="color: var(--color-kubmin-iris)">63%</div>
-              <div class="text-[11px] mt-1" style="color: var(--color-kubmin-subtle-text)">CPU drift</div>
-            </div>
+            {hero.fieldNote.stats.map((stat, i) => (
+              <div>
+                <div class="km-mono text-xl md:text-2xl tabular-nums break-words" style={`color: ${i === 0 ? 'var(--color-kubmin-cost)' : i === 1 ? 'var(--color-kubmin-energy)' : 'var(--color-kubmin-iris)'}`}>{stat.value}</div>
+                <div class="text-[11px] mt-1" style="color: var(--color-kubmin-subtle-text)">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </aside>
       </div>
@@ -110,13 +111,12 @@ import { hero } from "@/data/kubmin";
 
       <div class="km-stagger km-stagger-5 mt-16 km-hairline"></div>
       <div class="km-stagger km-stagger-5 mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 km-mono text-[11px] uppercase tracking-[0.2em]" style="color: var(--color-kubmin-subtle-text)">
-        <span>per-workload visibility</span>
-        <span>·</span>
-        <span>release-vs-release diff</span>
-        <span>·</span>
-        <span>SCI + SEE scoring</span>
-        <span>·</span>
-        <span>quick wins, kubectl-ready</span>
+        {hero.proofPoints.map((point, i) => (
+          <>
+            {i > 0 && <span>·</span>}
+            <span>{point}</span>
+          </>
+        ))}
       </div>
     </div>
   </Container>

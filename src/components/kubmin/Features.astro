@@ -9,7 +9,46 @@ const accents = [
   "var(--color-kubmin-efficiency)",
   "var(--color-kubmin-love)",
   "var(--color-kubmin-primary-700)",
+  "var(--color-kubmin-energy)",
+  "var(--color-kubmin-cost)",
 ];
+
+const featureCount = coreFeatures.features.length;
+const headingParts = coreFeatures.headingAccent
+  ? coreFeatures.heading.split(coreFeatures.headingAccent)
+  : [coreFeatures.heading];
+
+const getAccent = (index: number) => accents[index % accents.length];
+
+const getFeatureKind = (index: number, total: number) => {
+  if (index === 0) return "lead";
+  if (index === total - 1) return "final";
+  if (index === 1 || index === 2) return "compact";
+  return "standard";
+};
+
+const getArticleClass = (kind: string) => {
+  if (kind === "lead") {
+    return "col-span-12 lg:col-span-8 relative km-lift rounded-[28px] p-8 md:p-12 overflow-hidden";
+  }
+  if (kind === "final") {
+    return "col-span-12 km-lift rounded-[28px] p-8 md:p-12 overflow-hidden relative";
+  }
+  if (kind === "compact") {
+    return "col-span-12 md:col-span-6 lg:col-span-4 km-paper km-lift rounded-[28px] p-8 flex flex-col";
+  }
+  return "col-span-12 md:col-span-6 km-paper km-lift rounded-[28px] p-8 md:p-10 flex flex-col";
+};
+
+const getArticleStyle = (kind: string) => {
+  if (kind === "lead") {
+    return "background: linear-gradient(135deg, var(--color-kubmin-primary-50), var(--color-kubmin-surface)); border: 1px solid var(--color-kubmin-primary-200);";
+  }
+  if (kind === "final") {
+    return "background: var(--color-kubmin-text); color: var(--color-kubmin-base);";
+  }
+  return undefined;
+};
 ---
 
 <section class="relative py-28 md:py-36 overflow-hidden" style="background: var(--color-kubmin-overlay);">
@@ -20,103 +59,81 @@ const accents = [
       <div class="lg:col-span-7">
         <span class="km-eyebrow">{coreFeatures.label} · ch. 02</span>
         <h2 class="mt-6 text-4xl md:text-6xl leading-[1.02] font-medium" style="color: var(--color-kubmin-text)">
-          Six things <span class="km-italic" style="color: var(--color-kubmin-primary-700)">no other tool</span><br/>
-          does together.
+          {headingParts[0]}
+          {coreFeatures.headingAccent && (
+            <span class="km-italic" style="color: var(--color-kubmin-primary-700)">{coreFeatures.headingAccent}</span>
+          )}
+          {headingParts.slice(1).join(coreFeatures.headingAccent)}
         </h2>
       </div>
       <div class="lg:col-span-4 lg:col-start-9">
         <div class="km-mono text-xs uppercase tracking-[0.22em] flex items-center gap-3" style="color: var(--color-kubmin-subtle-text)">
           <span class="km-dot" style="background: var(--color-kubmin-iris)"></span>
-          The kubmin moat
+          {coreFeatures.sideLabel}
         </div>
         <p class="mt-4 text-base leading-relaxed" style="color: var(--color-kubmin-subtle-text)">
-          Each capability ships standalone. Together they form a unified ledger — cost, energy, and efficiency, per workload, per release.
+          {coreFeatures.description}
         </p>
       </div>
     </div>
 
     <div class="grid grid-cols-12 gap-5 md:gap-6 auto-rows-[minmax(0,auto)]">
-      <!-- 01 — flagship, span 8 -->
-      <article class="col-span-12 lg:col-span-8 relative km-lift rounded-[28px] p-8 md:p-12 overflow-hidden" style="background: linear-gradient(135deg, var(--color-kubmin-primary-50), var(--color-kubmin-surface)); border: 1px solid var(--color-kubmin-primary-200);">
-        <div class="absolute -top-20 -right-20 w-60 h-60 rounded-full" style="background: radial-gradient(circle, rgb(144 122 169 / 0.18), transparent 70%);"></div>
-        <div class="relative">
-          <div class="flex items-center justify-between mb-10">
-            <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style="color: var(--color-kubmin-primary-700)">
-              <span class="km-dot mr-2" style="background: var(--color-kubmin-iris)"></span>
-              flagship · 01
-            </span>
-            <span class="km-chip" style="border-color: var(--color-kubmin-primary-300); color: var(--color-kubmin-primary-700);">{coreFeatures.features[0].tag}</span>
-          </div>
-          <h3 class="text-3xl md:text-5xl font-medium leading-[1.05] mb-6" style="color: var(--color-kubmin-text)">
-            {coreFeatures.features[0].title}
-          </h3>
-          <p class="text-lg leading-relaxed max-w-2xl" style="color: var(--color-kubmin-subtle-text)">
-            {coreFeatures.features[0].body}
-          </p>
-        </div>
-      </article>
+      {coreFeatures.features.map((feature, i) => {
+        const kind = getFeatureKind(i, featureCount);
+        const isLead = kind === "lead";
+        const isFinal = kind === "final";
+        const accent = getAccent(i);
+        const indexLabel = String(i + 1).padStart(2, "0");
 
-      <!-- 02, 03 — small, stacked -->
-      {[1,2].map((i) => (
-        <article class="col-span-12 md:col-span-6 lg:col-span-4 km-paper km-lift rounded-[28px] p-8 flex flex-col">
-          <div class="flex items-center justify-between mb-8">
-            <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style={`color: ${accents[i]}`}>
-              <span class="km-dot mr-2" style={`background: ${accents[i]}`}></span>
-              0{i + 1}
-            </span>
-            <span class="km-chip">{coreFeatures.features[i].tag}</span>
-          </div>
-          <h3 class="text-2xl font-medium leading-snug mb-4" style="color: var(--color-kubmin-text)">
-            {coreFeatures.features[i].title}
-          </h3>
-          <p class="text-sm md:text-base leading-relaxed" style="color: var(--color-kubmin-subtle-text)">
-            {coreFeatures.features[i].body}
-          </p>
-        </article>
-      ))}
+        return (
+          <article class={getArticleClass(kind)} style={getArticleStyle(kind)}>
+            {isLead && (
+              <div class="absolute -top-20 -right-20 w-60 h-60 rounded-full" style="background: radial-gradient(circle, color-mix(in srgb, var(--color-kubmin-primary-500) 18%, transparent), transparent 70%);"></div>
+            )}
+            {isFinal && (
+              <div class="absolute -bottom-20 -right-10 w-80 h-80 rounded-full" style="background: radial-gradient(circle, color-mix(in srgb, var(--color-kubmin-cost) 25%, transparent), transparent 70%);"></div>
+            )}
 
-      <!-- 04 — span 6 -->
-      {[3,4].map((i) => (
-        <article class="col-span-12 md:col-span-6 km-paper km-lift rounded-[28px] p-8 md:p-10 flex flex-col">
-          <div class="flex items-center justify-between mb-8">
-            <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style={`color: ${accents[i]}`}>
-              <span class="km-dot mr-2" style={`background: ${accents[i]}`}></span>
-              0{i + 1}
-            </span>
-            <span class="km-chip">{coreFeatures.features[i].tag}</span>
-          </div>
-          <h3 class="text-2xl md:text-3xl font-medium leading-snug mb-4" style="color: var(--color-kubmin-text)">
-            {coreFeatures.features[i].title}
-          </h3>
-          <p class="leading-relaxed" style="color: var(--color-kubmin-subtle-text)">
-            {coreFeatures.features[i].body}
-          </p>
-        </article>
-      ))}
-
-      <!-- 06 — full width banner -->
-      <article class="col-span-12 km-lift rounded-[28px] p-8 md:p-12 overflow-hidden relative" style="background: var(--color-kubmin-text); color: var(--color-kubmin-base);">
-        <div class="absolute -bottom-20 -right-10 w-80 h-80 rounded-full" style="background: radial-gradient(circle, rgb(234 157 52 / 0.25), transparent 70%);"></div>
-        <div class="relative grid md:grid-cols-12 gap-8 items-center">
-          <div class="md:col-span-7">
-            <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style="color: var(--color-kubmin-primary-300)">
-              <span class="km-dot mr-2" style="background: var(--color-kubmin-cost)"></span>
-              06 · the lever
-            </span>
-            <h3 class="mt-6 text-3xl md:text-5xl font-medium leading-[1.05]">
-              {coreFeatures.features[5].title}
-            </h3>
-          </div>
-          <div class="md:col-span-5">
-            <p class="leading-relaxed mb-6" style="color: var(--color-kubmin-primary-200)">
-              {coreFeatures.features[5].body}
-            </p>
-            <span class="km-chip" style="background: rgb(255 255 255 / 0.06); border-color: rgb(255 255 255 / 0.18); color: var(--color-kubmin-primary-200);">
-              {coreFeatures.features[5].tag}
-            </span>
-          </div>
-        </div>
-      </article>
+            {isFinal ? (
+              <div class="relative grid md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7">
+                  <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style="color: var(--color-kubmin-primary-300)">
+                    <span class="km-dot mr-2" style="background: var(--color-kubmin-cost)"></span>
+                    {indexLabel}
+                  </span>
+                  <h3 class="mt-6 text-3xl md:text-5xl font-medium leading-[1.05]">
+                    {feature.title}
+                  </h3>
+                </div>
+                <div class="md:col-span-5">
+                  <p class="leading-relaxed mb-6" style="color: var(--color-kubmin-primary-200)">
+                    {feature.body}
+                  </p>
+                  <span class="km-chip" style="background: transparent; border-color: var(--color-kubmin-primary-300); color: var(--color-kubmin-primary-200);">
+                    {feature.tag}
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <div class="relative">
+                <div class="flex items-center justify-between gap-4 mb-8 md:mb-10">
+                  <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style={`color: ${isLead ? "var(--color-kubmin-primary-700)" : accent}`}>
+                    <span class="km-dot mr-2" style={`background: ${isLead ? "var(--color-kubmin-iris)" : accent}`}></span>
+                    {indexLabel}
+                  </span>
+                  <span class="km-chip" style={isLead ? "border-color: var(--color-kubmin-primary-300); color: var(--color-kubmin-primary-700);" : undefined}>{feature.tag}</span>
+                </div>
+                <h3 class={isLead ? "text-3xl md:text-5xl font-medium leading-[1.05] mb-6" : "text-2xl md:text-3xl font-medium leading-snug mb-4"} style="color: var(--color-kubmin-text)">
+                  {feature.title}
+                </h3>
+                <p class={isLead ? "text-lg leading-relaxed max-w-2xl" : "text-sm md:text-base leading-relaxed"} style="color: var(--color-kubmin-subtle-text)">
+                  {feature.body}
+                </p>
+              </div>
+            )}
+          </article>
+        );
+      })}
     </div>
   </Container>
 </section>

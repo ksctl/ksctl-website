@@ -1,6 +1,16 @@
 ---
 import Container from "../shared/Container.astro";
 import { problemStatement } from "@/data/kubmin";
+
+const headingParts = problemStatement.headingAccent
+  ? problemStatement.heading.split(problemStatement.headingAccent)
+  : [problemStatement.heading];
+const promptParts = problemStatement.promptAccent
+  ? problemStatement.prompt.split(problemStatement.promptAccent)
+  : [problemStatement.prompt];
+const problemGridClass = problemStatement.problems.length >= 4
+  ? "md:grid-cols-2 xl:grid-cols-4"
+  : "md:grid-cols-3";
 ---
 
 <section class="relative py-28 md:py-36 overflow-hidden" style="background: var(--color-kubmin-overlay);">
@@ -12,23 +22,29 @@ import { problemStatement } from "@/data/kubmin";
       <div class="lg:col-span-5">
         <span class="km-eyebrow">{problemStatement.label} · ch. 01</span>
         <h2 class="mt-6 text-4xl md:text-6xl leading-[1.02] font-medium" style="color: var(--color-kubmin-text)">
-          You're spending<br/>
-          <span class="km-italic" style="color: var(--color-kubmin-love)">thousands</span>
-          on Kubernetes.
+          {headingParts[0]}
+          {problemStatement.headingAccent && (
+            <span class="km-italic" style="color: var(--color-kubmin-love)">{problemStatement.headingAccent}</span>
+          )}
+          {headingParts.slice(1).join(problemStatement.headingAccent)}
         </h2>
       </div>
       <div class="lg:col-span-6 lg:col-start-7 lg:pt-6">
         <p class="text-xl md:text-2xl leading-snug" style="color: var(--color-kubmin-text)">
-          But do you know what each workload <em class="km-italic" style="color: var(--color-kubmin-primary-700)">actually</em> costs?
+          {promptParts[0]}
+          {problemStatement.promptAccent && (
+            <em class="km-italic" style="color: var(--color-kubmin-primary-700)">{problemStatement.promptAccent}</em>
+          )}
+          {promptParts.slice(1).join(problemStatement.promptAccent)}
         </p>
         <div class="mt-6 km-hairline"></div>
         <div class="mt-6 km-mono text-xs uppercase tracking-[0.2em]" style="color: var(--color-kubmin-subtle-text)">
-          Three blind spots, every cluster, every release.
+          {problemStatement.summary}
         </div>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+    <div class={`grid grid-cols-1 ${problemGridClass} gap-6 lg:gap-8`}>
       {problemStatement.problems.map((p, i) => (
         <article class="relative km-paper km-lift rounded-3xl p-8 md:p-10">
           <div class="flex items-baseline justify-between mb-8">

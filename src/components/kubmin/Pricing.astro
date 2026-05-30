@@ -11,7 +11,7 @@ import { pricing } from "@/data/kubmin";
     <div class="text-center max-w-3xl mx-auto mb-20">
       <span class="km-eyebrow" style="justify-content: center;">{pricing.label} · ch. 06</span>
       <h2 class="mt-6 text-4xl md:text-6xl leading-[1.02] font-medium" style="color: var(--color-kubmin-text)">
-        Start free.<br/>
+        {pricing.heading}<br/>
         <span class="km-italic km-grad-warm">{pricing.headingAccent}</span>
       </h2>
       <p class="mt-8 text-lg leading-relaxed" style="color: var(--color-kubmin-subtle-text)">
@@ -63,7 +63,9 @@ import { pricing } from "@/data/kubmin";
           </ul>
 
           <a
-            href="#"
+            href={pricing.ctaHref}
+            target="_blank"
+            rel="noopener noreferrer"
             class="w-full text-center px-6 py-3.5 rounded-full font-semibold text-sm transition-all"
             style={tier.popular
               ? 'background: var(--color-kubmin-cost); color: var(--color-kubmin-text);'
