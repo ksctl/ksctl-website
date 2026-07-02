@@ -45,7 +45,7 @@ const punchlineParts = hero.punchlineAccent
               </>
             ))}
             <span style="color: var(--color-kubmin-subtle-text)">{displayHeadline.bridge}</span><br />
-            <span class="km-italic km-grad-warm">{displayHeadline.accent}</span><span class="km-italic" style="color: var(--color-kubmin-cost)">{displayHeadline.terminal}</span>
+            <span class="km-italic km-grad-warm km-underline km-underline-draw">{displayHeadline.accent}</span><span class="km-italic" style="color: var(--color-kubmin-cost)">{displayHeadline.terminal}</span>
           </h1>
 
           <p class="km-stagger km-stagger-3 mt-10 text-xl md:text-2xl leading-snug max-w-2xl" style="color: var(--color-kubmin-text)">
@@ -80,8 +80,24 @@ const punchlineParts = hero.punchlineAccent
           </div>
         </div>
 
-        <aside class="km-stagger km-stagger-3 lg:col-span-4">
-          <div class="km-paper rounded-3xl overflow-hidden">
+        <aside class="km-stagger km-stagger-3 lg:col-span-4 lg:self-center">
+          <div
+            class="km-paper rounded-3xl overflow-hidden km-pipeline"
+            x-data={`{
+              shown: 0, settled: 0,
+              run() {
+                const n = ${hero.releaseReport.rows.length}, start = 500, step = 420, spin = 320;
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { this.shown = n; this.settled = n; return; }
+                this.$el.classList.add('is-animating');
+                for (let i = 0; i < n; i++) {
+                  setTimeout(() => this.shown++, start + i * step);
+                  setTimeout(() => this.settled++, start + i * step + spin);
+                }
+                setTimeout(() => this.$el.classList.add('is-done'), start + (n - 1) * step + spin + 200);
+              }
+            }`}
+            x-init="run()"
+          >
             <div class="flex items-center justify-between gap-4 px-6 py-4" style="background: var(--color-kubmin-overlay); border-bottom: 1px solid var(--color-kubmin-border);">
               <span class="km-mono text-xs uppercase tracking-[0.22em] inline-flex items-center gap-2" style="color: var(--color-kubmin-subtle-text)">
                 <span class="km-dot" style="background: var(--color-kubmin-cost)"></span>
@@ -90,12 +106,16 @@ const punchlineParts = hero.punchlineAccent
               <span class="km-mono text-xs truncate" style="color: var(--color-kubmin-subtle-text)">{hero.releaseReport.release}</span>
             </div>
             <div class="px-6 py-4">
-              {hero.releaseReport.rows.map((row) => (
-                <div class={`km-report-row ${row.pass ? 'is-pass' : 'is-fail'}`}>
+              {hero.releaseReport.rows.map((row, i) => (
+                <div
+                  class={`km-report-row ${row.pass ? 'is-pass' : 'is-fail'}`}
+                  x-bind:class={`{ 'is-shown': shown > ${i}, 'is-settled': settled > ${i} }`}
+                >
+                  <svg class="km-spin w-3.5 h-3.5 shrink-0 animate-spin" style="color: var(--color-kubmin-subtle-text)" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 3a9 9 0 1 1-9 9"/></svg>
                   {row.pass ? (
-                    <svg class="w-3.5 h-3.5 shrink-0" style="color: var(--color-kubmin-efficiency)" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    <svg class="km-mark w-3.5 h-3.5 shrink-0" style="color: var(--color-kubmin-efficiency)" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
                   ) : (
-                    <svg class="w-3.5 h-3.5 shrink-0" style="color: var(--color-kubmin-love)" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                    <svg class="km-mark w-3.5 h-3.5 shrink-0" style="color: var(--color-kubmin-love)" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
                   )}
                   <span class="km-report-name shrink-0">{row.name}</span>
                   <span class="km-report-leader" aria-hidden="true"></span>
@@ -103,7 +123,7 @@ const punchlineParts = hero.punchlineAccent
                 </div>
               ))}
             </div>
-            <p class="km-italic text-sm leading-relaxed px-6 pb-6" style="color: var(--color-kubmin-subtle-text)">
+            <p class="km-caption km-italic text-sm leading-relaxed px-6 pb-6" style="color: var(--color-kubmin-subtle-text)">
               {hero.releaseReport.caption}
             </p>
           </div>
