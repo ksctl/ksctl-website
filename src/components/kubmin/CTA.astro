@@ -10,10 +10,16 @@ import { finalCta } from "@/data/kubmin";
 
   <Container class="relative z-10">
     <div class="max-w-5xl mx-auto text-center">
-      <span class="km-eyebrow" style="justify-content: center;">
+      <span class="km-eyebrow" style="justify-content: center; flex-wrap: wrap;">
         <span>finale</span>
-        <span class="km-dot" style="color: var(--color-kubmin-cost)"></span>
-        <span>The bill is running</span>
+        <span class="km-dot animate-pulse" style="color: var(--color-kubmin-cost)"></span>
+        <span
+          x-data="{ s: 0, fmt() { return String(Math.floor(this.s / 60)).padStart(2, '0') + ':' + String(this.s % 60).padStart(2, '0') } }"
+          x-init="setInterval(() => s++, 1000)"
+        >
+          the bill has been running for
+          <span class="tabular-nums" style="color: var(--color-kubmin-cost)" x-text="fmt()">00:00</span>
+        </span>
       </span>
 
       <h2 class="mt-10 text-5xl md:text-7xl lg:text-8xl leading-[0.95] font-medium" style="color: var(--color-kubmin-text)">
@@ -36,7 +42,7 @@ import { finalCta } from "@/data/kubmin";
       </div>
 
       <div class="mt-20 km-hairline max-w-md mx-auto"></div>
-      <div class="mt-6 km-mono text-[11px] uppercase tracking-[0.22em]" style="color: var(--color-kubmin-subtle-text)">
+      <div class="mt-6 km-mono text-xs uppercase tracking-[0.22em]" style="color: var(--color-kubmin-subtle-text)">
         {finalCta.footerNote}
       </div>
     </div>
