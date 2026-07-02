@@ -1,0 +1,97 @@
+---
+import Container from "../shared/Container.astro";
+import { functionalUnit as fu } from "@/data/kubmin";
+
+const outputAccents = ["#f0d28a", "#b6d2d8", "#e8b4c0"];
+
+// light YAML tinting: key before colon, value after
+const codeLines = fu.annotation.split("\n").map((line) => {
+  const m = line.match(/^(\s*)([^:\s][^:]*):(.*)$/);
+  if (m) return { indent: m[1], key: m[2], value: m[3], raw: null };
+  return { indent: "", key: null, value: null, raw: line };
+});
+---
+
+<section id="functional-units" class="relative py-28 md:py-36 overflow-hidden km-invert">
+  <div class="absolute inset-0 km-grain opacity-[0.2] pointer-events-none"></div>
+
+  <Container class="relative z-10">
+    <div class="max-w-4xl">
+      <span class="km-eyebrow">{fu.label}</span>
+      <h2 class="mt-6 text-4xl md:text-6xl leading-[1.05] font-medium" style="color: var(--color-kubmin-base)">
+        {fu.heading}<br />
+        <span class="km-italic km-grad-gold">{fu.headingAccent}</span>
+      </h2>
+    </div>
+
+    <div class="mt-16 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div class="lg:col-span-5">
+        <p class="text-lg md:text-xl leading-relaxed" style="color: rgb(250 244 237 / 0.85)">
+          {fu.intro}
+        </p>
+
+        <div class="mt-10 km-mono text-[10px] uppercase tracking-[0.22em]" style="color: rgb(250 244 237 / 0.55)">
+          {fu.unitsLabel}
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {fu.units.map((unit) => (
+            <span class="km-mono text-xs px-3.5 py-1.5 rounded-full" style="border: 1px solid rgb(250 244 237 / 0.25); color: rgb(250 244 237 / 0.85); letter-spacing: 0.04em;">
+              {unit}
+            </span>
+          ))}
+        </div>
+
+        <p class="mt-10 text-sm leading-relaxed pl-5 border-l-2" style="color: rgb(250 244 237 / 0.7); border-color: #b6d2d8;">
+          {fu.sciNote}
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 min-w-0">
+        <div class="km-code">
+          <div class="km-code-bar">
+            <span>{fu.annotationTitle}</span>
+            <span style="letter-spacing: 0.06em; text-transform: none;">{fu.annotationFile}</span>
+          </div>
+          <pre><code>{codeLines.map((line) => (
+            <span class="block whitespace-pre">{line.raw !== null ? (
+              <span class="tok-dim">{line.raw}</span>
+            ) : (
+              <>{line.indent}<span class="tok-key">{line.key}</span><span class="tok-dim">:</span><span class="tok-val">{line.value}</span></>
+            )}</span>
+          ))}</code></pre>
+        </div>
+
+        <div class="mt-8 km-mono text-[10px] uppercase tracking-[0.22em]" style="color: rgb(250 244 237 / 0.55)">
+          {fu.outputsTitle}
+        </div>
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {fu.outputs.map((out, i) => (
+            <div class="pl-4" style={`border-left: 1px solid rgb(250 244 237 / 0.18);`}>
+              <div class="km-mono text-lg md:text-xl tabular-nums leading-tight" style={`color: ${outputAccents[i % outputAccents.length]}`}>
+                {out.value}
+              </div>
+              <div class="mt-2 text-xs leading-relaxed" style="color: rgb(250 244 237 / 0.6)">{out.note}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-24 pt-16" style="border-top: 1px solid rgb(250 244 237 / 0.12)">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-center">
+        <div class="flex items-baseline gap-5">
+          <span class="km-display italic text-5xl md:text-6xl font-medium" style="color: var(--color-kubmin-base)">{fu.formula.lead}</span>
+          <span class="km-display text-4xl" style="color: rgb(250 244 237 / 0.5)">=</span>
+        </div>
+        <div class="flex flex-col items-center px-2">
+          <span class="text-lg md:text-xl" style="color: rgb(250 244 237 / 0.85)">{fu.formula.numerator}</span>
+          <span class="my-3 h-px w-full min-w-[16rem]" style="background: rgb(250 244 237 / 0.35)"></span>
+          <span class="km-italic text-lg md:text-xl km-grad-gold">{fu.formula.denominator}</span>
+        </div>
+      </div>
+      <p class="mt-10 text-center text-sm leading-relaxed max-w-xl mx-auto" style="color: rgb(250 244 237 / 0.55)">
+        {fu.formula.caption}
+      </p>
+    </div>
+  </Container>
+</section>

@@ -80,21 +80,32 @@ const punchlineParts = hero.punchlineAccent
           </div>
         </div>
 
-        <aside class="km-stagger km-stagger-3 lg:col-span-4 lg:pl-6 lg:border-l" style="border-color: var(--color-kubmin-border)">
-          <div class="km-mono text-[10px] tracking-[0.22em] uppercase mb-4" style="color: var(--color-kubmin-subtle-text)">
-            <span class="km-dot mr-2" style="color: var(--color-kubmin-cost)"></span>
-            {hero.fieldNote.label}
-          </div>
-          <p class="km-italic text-2xl leading-snug mb-6" style="color: var(--color-kubmin-text)">
-            “{hero.fieldNote.quote}”
-          </p>
-          <div class="grid grid-cols-3 gap-4 pt-4 border-t" style="border-color: var(--color-kubmin-border)">
-            {hero.fieldNote.stats.map((stat, i) => (
-              <div>
-                <div class="km-mono text-xl md:text-2xl tabular-nums break-words" style={`color: ${i === 0 ? 'var(--color-kubmin-cost)' : i === 1 ? 'var(--color-kubmin-energy)' : 'var(--color-kubmin-iris)'}`}>{stat.value}</div>
-                <div class="text-[11px] mt-1" style="color: var(--color-kubmin-subtle-text)">{stat.label}</div>
-              </div>
-            ))}
+        <aside class="km-stagger km-stagger-3 lg:col-span-4">
+          <div class="km-paper rounded-3xl overflow-hidden">
+            <div class="flex items-center justify-between gap-4 px-6 py-4" style="background: var(--color-kubmin-overlay); border-bottom: 1px solid var(--color-kubmin-border);">
+              <span class="km-mono text-[10px] uppercase tracking-[0.22em] inline-flex items-center gap-2" style="color: var(--color-kubmin-subtle-text)">
+                <span class="km-dot" style="background: var(--color-kubmin-cost)"></span>
+                {hero.releaseReport.label}
+              </span>
+              <span class="km-mono text-[10px] truncate" style="color: var(--color-kubmin-subtle-text)">{hero.releaseReport.release}</span>
+            </div>
+            <div class="px-6 py-4">
+              {hero.releaseReport.rows.map((row) => (
+                <div class={`km-report-row ${row.pass ? 'is-pass' : 'is-fail'}`}>
+                  {row.pass ? (
+                    <svg class="w-3.5 h-3.5 shrink-0" style="color: var(--color-kubmin-efficiency)" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  ) : (
+                    <svg class="w-3.5 h-3.5 shrink-0" style="color: var(--color-kubmin-love)" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                  )}
+                  <span class="km-report-name shrink-0">{row.name}</span>
+                  <span class="km-report-leader" aria-hidden="true"></span>
+                  <span class="km-report-value shrink-0 tabular-nums">{row.value}</span>
+                </div>
+              ))}
+            </div>
+            <p class="km-italic text-sm leading-relaxed px-6 pb-6" style="color: var(--color-kubmin-subtle-text)">
+              {hero.releaseReport.caption}
+            </p>
           </div>
         </aside>
       </div>
