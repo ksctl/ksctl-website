@@ -3,9 +3,9 @@
 // ============================================================
 
 export const meta = {
-  title: "Kubmin — Track What Each Deploy Costs in Money and Efficiency",
+  title: "Kubmin — The Test Your Pipeline Is Missing: What Each Release Costs to Run",
   description:
-    "Kubmin reveals per-workload cost, energy consumption, Running Efficiency, and SCI score. Compare release versions across clusters you create or import.",
+    "Every release is tested; almost none are measured. Kubmin tracks cost, energy, and SCI/SEE carbon per release — in your environment, on your configuration, divided by your app's own functional unit like the HTTP requests it served.",
 };
 
 export const links = {
@@ -30,34 +30,39 @@ export const images = {
 
 // ---- HERO ----
 export const hero = {
-  headline: "Deploying fast? Know what every deploy costs — in money, energy, and efficiency.",
+  headline: "Every release is tested. Almost none are measured.",
   displayHeadline: {
-    lines: ["Deploying fast?"],
-    bridge: "Know what every deploy costs —",
-    accent: "in money, energy, and efficiency",
+    lines: ["Every release", "is tested."],
+    bridge: "Almost none are",
+    accent: "measured",
     terminal: ".",
   },
-  punchline: "Everyone ships faster with AI. Nobody checks the cost. Kubmin does.",
-  punchlineAccent: "Kubmin does.",
+  punchline:
+    "Unit tests pass. Chaos drills survive. Nobody measures what the release costs to run. Kubmin is that missing check.",
+  punchlineAccent: "Kubmin is that missing check.",
   explain:
-    "Per-workload cost and efficiency tracking across deployments. The missing layer between your workloads and your bill — now for clusters you create or import.",
+    "Kubmin measures every release in your environment, on your configuration — cost, energy, and SCI/SEE carbon, divided by your application's own functional unit: the requests it served, the jobs it ran. Then it points at the fix — idle time, a better region, a better instance type.",
   cta: { text: "Start Free", href: links.app },
   secondaryCta: { text: "See the Redis comparison", href: "#demo" },
   logo: images.logo,
   productName: "kubmin",
   dispatch: {
     title: "The kubmin dispatch",
-    meta: "Vol. 01 · Cost & Efficiency",
+    meta: "Vol. 02 · The Missing Test",
   },
-  fieldNote: {
-    label: "Field note",
-    quote:
-      "AWS shows the bill. Kubecost guesses pods. Neither tells you what a single container actually burns.",
-    stats: [
-      { value: "$0.18", label: "/ workload" },
-      { value: "0.0085", label: "kWh / hr" },
-      { value: "63%", label: "CPU drift" },
+  releaseReport: {
+    label: "release check",
+    release: "checkout-api · v2.4.1",
+    rows: [
+      { name: "unit tests", value: "482 passed", pass: true },
+      { name: "integration", value: "61 passed", pass: true },
+      { name: "chaos drill", value: "survived", pass: true },
+      { name: "cost / release", value: "unmeasured", pass: false },
+      { name: "kWh / request", value: "unmeasured", pass: false },
+      { name: "gCO₂e · SCI", value: "unmeasured", pass: false },
     ],
+    caption:
+      "The checks every pipeline runs — and the three it never does. Kubmin runs the last three.",
   },
   trustBadges: [
     "Kepler (CNCF)",
@@ -66,9 +71,9 @@ export const hero = {
     "OpenTelemetry",
   ],
   proofPoints: [
-    "per-workload visibility",
-    "release-vs-release diff",
-    "SCI + SEE scoring",
+    "cost per release",
+    "measured in your environment",
+    "SCI + SEE per functional unit",
     "quick wins, kubectl-ready",
   ],
   screenshot: {
@@ -83,21 +88,21 @@ export const problemStatement = {
   label: "The Problem",
   heading: "You're spending thousands on Kubernetes.",
   headingAccent: "thousands",
-  prompt: "But do you know what each workload actually costs?",
-  promptAccent: "actually",
-  summary: "Three blind spots, every cluster, every release.",
+  prompt: "But which release made the bill worse? You can't answer that.",
+  promptAccent: "which release",
+  summary: "Three blind spots, every release, every cluster.",
   problems: [
     {
-      title: "No Per-Container Visibility",
-      body: "AWS Cost Explorer shows you EC2 bills. Kubecost estimates pod costs. Neither tells you what a single container actually consumes in energy and compute — the real drivers of your bill.",
+      title: "Tested, Never Measured",
+      body: "Unit tests, integration suites, even chaos drills — every release clears the pipeline. But no stage measures what that release consumes: CPU, memory, energy, money. Efficiency regressions ship behind green checkmarks, and the waste compounds with every deploy.",
     },
     {
-      title: "Overprovisioned and Flying Blind",
-      body: "Most teams request 2-4x the resources their workloads actually use. Without per-workload waste detection, you're paying for idle CPU and memory every hour of every day.",
+      title: "Someone Else's Numbers",
+      body: "Cloud calculators and vendor benchmarks price an idealized app. Your bill comes from your environment — your configuration, your instance types, your region, your traffic. A cost model that wasn't measured there is a guess.",
     },
     {
-      title: "Deploys Make It Worse (Silently)",
-      body: "You ship a new image version — maybe AI-generated, maybe hand-written. CPU goes up 15%. Memory creeps up. Nobody notices because no tool tracks efficiency changes between deployments. The waste compounds with every release.",
+      title: "Metrics Without a Unit",
+      body: "40% CPU says nothing about work done. Cost per request does. Without a functional unit, dashboards are trivia — you can't compare two releases honestly, justify an optimization, or report carbon the way SCI intends.",
     },
   ],
 };
@@ -221,6 +226,43 @@ export const whyEnergy = {
     "Combined with energy trend graphs over time, you get both the financial picture and the sustainability picture in one dashboard.",
   accuracyNote:
     "In cloud environments, energy measurements are estimates based on ML models trained on real hardware data. They're highly reliable for relative comparison and trend analysis — which is exactly what kubmin needs. The patterns matter more than the absolute numbers.",
+};
+
+// ---- FUNCTIONAL UNITS (interlude) ----
+export const functionalUnit = {
+  label: "interlude · ch. 03b",
+  heading: "Cost per container-hour is generic.",
+  headingAccent: "Per request, it's yours.",
+  intro:
+    "Every application does one thing that matters — serves a request, processes a job, settles a transaction. Kubmin lets you declare that unit with a single annotation, then divides everything by it: energy, carbon, cost.",
+  sciNote:
+    "This is SCI the way the Green Software Foundation defines it — carbon per functional unit — computed next to your application, from your cluster's real energy data. Not an industry average pasted into a slide.",
+  unitsLabel: "declare work in your own vocabulary",
+  units: ["request", "transaction", "job", "container-hour", "custom"],
+  annotationTitle: "one annotation on your workload",
+  annotationFile: "deployment.yaml",
+  annotation: `kubmin.ksctl.com/functional-units: |
+  version: 1
+  containers:
+    api:
+      unit: request
+      metric: http_server_request_duration_seconds_count
+      scope: workload
+    worker:
+      unit: container-hour`,
+  outputsTitle: "what you read back, per release",
+  outputs: [
+    { value: "kWh / request", note: "SEE — energy per unit of work" },
+    { value: "gCO₂e / request", note: "SCI — carbon per unit of work" },
+    { value: "$ / 1M requests", note: "runtime cost, in your units" },
+  ],
+  formula: {
+    lead: "SCI",
+    numerator: "operational + embodied carbon",
+    denominator: "R — your functional unit",
+    caption:
+      "R is whatever your application calls work: requests served, jobs processed, transactions settled. You declare it once — kubmin divides by it forever.",
+  },
 };
 
 // ---- HOW IT WORKS ----

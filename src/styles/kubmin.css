@@ -355,8 +355,97 @@ body.theme-kubmin .km-mono {
   50%     { transform: translate(30px,30px) scale(1.12); }
 }
 
+/* ---- inverted interlude panel (deep mauve, cream type) ---- */
+body.theme-kubmin .km-invert {
+  background:
+    radial-gradient(52rem 32rem at 88% 0%,  rgb(234 157 52  / 0.10), transparent 62%),
+    radial-gradient(46rem 30rem at 0% 100%, rgb(86 148 159  / 0.14), transparent 62%),
+    var(--color-kubmin-text);
+  color: var(--color-kubmin-base);
+}
+.km-invert .km-eyebrow { color: rgb(250 244 237 / 0.65); }
+.km-invert .km-hairline {
+  background: linear-gradient(90deg, transparent, rgb(250 244 237 / 0.22) 20%, rgb(250 244 237 / 0.22) 80%, transparent);
+}
+
+/* gradient text on dark — gold to rose */
+.km-grad-gold {
+  background: linear-gradient(110deg, var(--color-kubmin-cost), var(--color-kubmin-rose) 70%, #e8b4c0);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
+
+/* code exhibit (used inside km-invert) */
+.km-code {
+  background: rgb(34 29 46 / 0.5);
+  border: 1px solid rgb(250 244 237 / 0.14);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -40px rgb(34 29 46 / 0.8);
+}
+.km-code-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 1.1rem;
+  border-bottom: 1px solid rgb(250 244 237 / 0.1);
+  font-family: var(--font-kubmin-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(250 244 237 / 0.55);
+}
+.km-code pre {
+  margin: 0;
+  padding: 1.4rem 1.5rem;
+  overflow-x: auto;
+  font-family: var(--font-kubmin-mono);
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: rgb(250 244 237 / 0.88);
+}
+.km-code .tok-key   { color: #b6d2d8; }            /* foam tint  */
+.km-code .tok-val   { color: #f0d28a; }            /* gold tint  */
+.km-code .tok-dim   { color: rgb(250 244 237 / 0.45); }
+
+/* release report card (hero aside) */
+.km-report-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.62rem 0;
+  font-family: var(--font-kubmin-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+}
+.km-report-row + .km-report-row {
+  border-top: 1px dashed var(--color-kubmin-subtle);
+}
+.km-report-leader {
+  flex: 1;
+  border-bottom: 1px dotted var(--color-kubmin-border);
+  transform: translateY(0.22em);
+}
+.km-report-row.is-pass .km-report-name  { color: var(--color-kubmin-text); }
+.km-report-row.is-pass .km-report-value { color: var(--color-kubmin-efficiency); }
+.km-report-row.is-fail .km-report-name  { color: var(--color-kubmin-love); }
+.km-report-row.is-fail .km-report-value {
+  color: var(--color-kubmin-love);
+  font-style: italic;
+}
+
+/* scroll reveal — class pair added by JS, removed on animationend */
+.km-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.km-reveal.km-in {
+  animation: kmRise .8s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
 /* respect motion */
 @media (prefers-reduced-motion: reduce) {
-  .km-stagger, .km-blob { animation: none !important; }
-  .km-stagger { opacity: 1; transform: none; }
+  .km-stagger, .km-blob, .km-reveal.km-in { animation: none !important; }
+  .km-stagger, .km-reveal { opacity: 1; transform: none; }
 }
