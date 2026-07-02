@@ -272,6 +272,18 @@ export const whyEnergy = {
   ],
   combined:
     "Combined with energy trend graphs over time, you get both the financial picture and the sustainability picture in one dashboard.",
+  exhibit: {
+    figLabel: "fig. 03 · one node, 24 hours",
+    figMeta: "utilization vs energy vs work",
+    bandLabel: ["idle burn", "full power · zero work"],
+    legend: [
+      { key: "energy", label: "energy draw — near constant" },
+      { key: "cpu", label: "cpu ~40% — “looks fine”" },
+      { key: "work", label: "requests served — the work that matters" },
+    ],
+    caption:
+      "Monitoring reads a healthy node all night and moves on. Divide the same night by work done and it's six hours of energy serving nobody — billed, burned, invisible until you measure it.",
+  },
   accuracyNote:
     "In cloud environments, energy measurements are estimates based on ML models trained on real hardware data. They're highly reliable for relative comparison and trend analysis — which is exactly what kubmin needs. The patterns matter more than the absolute numbers.",
 };

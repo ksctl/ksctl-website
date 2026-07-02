@@ -29,7 +29,7 @@ import { pricing } from "@/data/kubmin";
         >
           {tier.popular && (
             <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span class="km-mono text-[10px] uppercase tracking-[0.22em] px-4 py-1.5 rounded-full" style="background: var(--color-kubmin-cost); color: var(--color-kubmin-text);">
+              <span class="km-mono text-xs uppercase tracking-[0.22em] px-4 py-1.5 rounded-full" style="background: var(--color-kubmin-cost); color: var(--color-kubmin-text);">
                 most popular
               </span>
             </div>
@@ -39,7 +39,7 @@ import { pricing } from "@/data/kubmin";
             <h3 class="km-display text-2xl font-medium italic" style={tier.popular ? '' : 'color: var(--color-kubmin-text)'}>
               {tier.name}
             </h3>
-            <span class="km-mono text-[10px] uppercase tracking-[0.22em]" style={tier.popular ? 'color: var(--color-kubmin-primary-300)' : 'color: var(--color-kubmin-subtle-text)'}>
+            <span class="km-mono text-xs uppercase tracking-[0.22em]" style={tier.popular ? 'color: var(--color-kubmin-primary-300)' : 'color: var(--color-kubmin-subtle-text)'}>
               tier {String(i + 1).padStart(2, '0')}
             </span>
           </div>

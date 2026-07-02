@@ -3,6 +3,7 @@ import Container from "../shared/Container.astro";
 import ModernMockup from "./ModernMockup.astro";
 import { productDemo } from "@/data/kubmin";
 
+const headingLines = productDemo.heading.split(/(?<=\.)\s+/);
 const accents = ["cost", "energy", "iris", "pine"] as const;
 const accentVar = (k: typeof accents[number]) => ({
   cost: "var(--color-kubmin-cost)",
@@ -21,9 +22,12 @@ const accentVar = (k: typeof accents[number]) => ({
     <div class="max-w-3xl mb-16">
       <span class="km-eyebrow">{productDemo.label} · field test</span>
       <h2 class="mt-6 text-4xl md:text-6xl leading-[1.02] font-medium" style="color: var(--color-kubmin-text)">
-        Three Redis versions.<br/>
-        Same workload.<br/>
-        <span class="km-italic km-grad-iris">Wildly different efficiency.</span>
+        {headingLines.map((line) => (
+          <>
+            {line}<br/>
+          </>
+        ))}
+        <span class="km-italic km-grad-iris">{productDemo.headingAccent}</span>
       </h2>
       <p class="mt-8 text-lg md:text-xl leading-relaxed max-w-2xl" style="color: var(--color-kubmin-subtle-text)">
         {productDemo.body}
@@ -99,7 +103,7 @@ const accentVar = (k: typeof accents[number]) => ({
             x-intersect.once="startAnimation()"
           >
             <div class="flex items-start justify-between mb-6">
-              <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style="color: var(--color-kubmin-subtle-text)">
+              <span class="km-mono text-xs tracking-[0.22em] uppercase" style="color: var(--color-kubmin-subtle-text)">
                 fig. {String(i + 1).padStart(2, '0')}
               </span>
               <span class="km-dot" style={`background: ${accentVar(k)}`}></span>

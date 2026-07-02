@@ -43,7 +43,7 @@ import { comparisonTable } from "@/data/kubmin";
             {comparisonTable.rows.map((row, ri) => (
               <tr style={`border-top: 1px solid var(--color-kubmin-border);`}>
                 <td class="p-5 text-sm font-medium" style="color: var(--color-kubmin-text);">
-                  <span class="km-mono text-[10px] mr-3" style="color: var(--color-kubmin-subtle-text)">
+                  <span class="km-mono text-xs mr-3" style="color: var(--color-kubmin-subtle-text)">
                     {String(ri + 1).padStart(2, '0')}
                   </span>
                   {row.capability}

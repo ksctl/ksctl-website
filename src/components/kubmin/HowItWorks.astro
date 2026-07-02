@@ -1,6 +1,12 @@
 ---
 import Container from "../shared/Container.astro";
 import { howItWorks } from "@/data/kubmin";
+
+const stepAccents = [
+  "var(--color-kubmin-iris)",
+  "var(--color-kubmin-energy)",
+  "var(--color-kubmin-cost)",
+];
 ---
 
 <section class="relative py-28 md:py-36 overflow-hidden" style="background: var(--color-kubmin-overlay);">
@@ -16,17 +22,15 @@ import { howItWorks } from "@/data/kubmin";
     </div>
 
     <div class="relative max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-3">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
         {howItWorks.steps.map((step, i) => (
-          <div
-            class={`relative py-10 md:py-2 md:px-10 md:first:pl-0 md:last:pr-0 ${i > 0 ? "border-t md:border-t-0 md:border-l" : ""}`}
-            style="border-color: var(--color-kubmin-border)"
-          >
+          <article class="relative km-paper km-lift rounded-3xl p-8 md:p-9 flex flex-col">
+            <div class="absolute inset-x-8 top-0 h-[2px] rounded-b" style={`background: ${stepAccents[i % stepAccents.length]}; opacity: 0.8;`}></div>
             <div class="flex items-baseline justify-between gap-4">
-              <span class="km-display italic text-7xl md:text-8xl font-light leading-none" style="color: var(--color-kubmin-primary-300)">
+              <span class="km-display italic text-7xl md:text-8xl font-light leading-none" style={`color: color-mix(in srgb, ${stepAccents[i % stepAccents.length]} 45%, var(--color-kubmin-surface));`}>
                 0{i + 1}
               </span>
-              <span class="km-mono text-[10px] uppercase tracking-[0.22em]" style="color: var(--color-kubmin-subtle-text)">
+              <span class="km-mono text-xs uppercase tracking-[0.22em]" style="color: var(--color-kubmin-subtle-text)">
                 step
               </span>
             </div>
@@ -36,7 +40,7 @@ import { howItWorks } from "@/data/kubmin";
             <p class="mt-4 leading-relaxed text-sm md:text-base" style="color: var(--color-kubmin-subtle-text)">
               {step.body}
             </p>
-          </div>
+          </article>
         ))}
       </div>
     </div>

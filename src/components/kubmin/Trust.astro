@@ -15,7 +15,7 @@ const trustGridClass = trustSignals.items.length >= 4
     <div class={`grid grid-cols-1 ${trustGridClass} gap-px overflow-hidden rounded-2xl km-paper`}>
       {trustSignals.items.map((item, i) => (
         <a href={item.href} target="_blank" rel="noopener noreferrer" class="group relative p-8 md:p-10 transition-colors" style="background: var(--color-kubmin-surface); outline: 1px solid var(--color-kubmin-border); outline-offset: -1px;">
-          <div class="km-mono text-[10px] tracking-[0.22em] uppercase mb-6" style="color: var(--color-kubmin-subtle-text)">
+          <div class="km-mono text-xs tracking-[0.22em] uppercase mb-6" style="color: var(--color-kubmin-subtle-text)">
             <span class="km-dot mr-2" style="background: var(--color-kubmin-iris)"></span>
             foundation · 0{i + 1}
           </div>
