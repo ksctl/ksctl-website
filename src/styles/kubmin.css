@@ -36,8 +36,7 @@ html {
   --color-kubmin-text:       #575279;
   --color-kubmin-subtle-text:#797593;
 
-  /* re-purpose old token names so existing utilities keep working */
-  --color-kubmin-dark:           var(--color-kubmin-base);
+  /* aliases kept only for the shared AppFooter kubmin variant */
   --color-kubmin-neutral-50:     var(--color-kubmin-base);
   --color-kubmin-neutral-100:    var(--color-kubmin-muted);
   --color-kubmin-neutral-200:    var(--color-kubmin-subtle);
@@ -59,10 +58,6 @@ html {
   --color-kubmin-blue:           #286983;
 
   /* shadows tuned for cream surfaces */
-  --shadow-kubmin-cost-glow:        0 24px 60px -28px rgb(234 157 52 / 0.45);
-  --shadow-kubmin-energy-glow:      0 24px 60px -28px rgb(86 148 159 / 0.45);
-  --shadow-kubmin-energy-glow-soft: 0 40px 100px -40px rgb(86 148 159 / 0.30);
-  --shadow-kubmin-primary-glow:     0 24px 60px -28px rgb(144 122 169 / 0.55);
   --shadow-kubmin-paper:            0 1px 0 rgb(87 82 121 / 0.04),
                                     0 12px 28px -16px rgb(87 82 121 / 0.18);
   --shadow-kubmin-paper-hover:      0 1px 0 rgb(87 82 121 / 0.06),
@@ -130,11 +125,6 @@ body.theme-kubmin .km-mono {
     radial-gradient(50rem 32rem at 100% 0%,  rgb(234 157 52  / 0.10),  transparent 60%),
     radial-gradient(48rem 30rem at 50% 100%, rgb(86 148 159  / 0.10),  transparent 60%);
 }
-.km-wash-br {
-  background:
-    radial-gradient(50rem 36rem at 100% 100%, rgb(40 105 131 / 0.12), transparent 60%),
-    radial-gradient(50rem 36rem at 0% 60%,    rgb(180 99 122 / 0.08), transparent 60%);
-}
 
 /* hand-drawn underline for accent words */
 .km-underline {
@@ -150,12 +140,13 @@ body.theme-kubmin .km-mono {
   height: 0.42em;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 Q 50 2 100 6 T 198 5' fill='none' stroke='%23907aa9' stroke-width='2.4' stroke-linecap='round' opacity='0.85'/%3E%3C/svg%3E") center/100% 100% no-repeat;
 }
-.km-underline.km-underline-gold::after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 Q 50 2 100 6 T 198 5' fill='none' stroke='%23ea9d34' stroke-width='2.4' stroke-linecap='round' opacity='0.85'/%3E%3C/svg%3E");
+/* pen-stroke draw-in: underline sweeps left→right after the headline settles */
+.km-underline-draw::after {
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: kmUnderlineDraw .7s cubic-bezier(.2,.8,.2,1) 1.25s forwards;
 }
-.km-underline.km-underline-rose::after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 Q 50 2 100 6 T 198 5' fill='none' stroke='%23b4637a' stroke-width='2.4' stroke-linecap='round' opacity='0.85'/%3E%3C/svg%3E");
-}
+@keyframes kmUnderlineDraw { to { transform: scaleX(1); } }
 
 /* serif italic emphasis */
 .km-italic {
@@ -435,6 +426,31 @@ body.theme-kubmin .km-invert {
   font-style: italic;
 }
 
+/* pipeline run: rows appear one by one, spin briefly, then resolve.
+   All states are classes added by Alpine — without JS the card renders static. */
+.km-pipeline .km-spin { display: none; }
+.km-pipeline.is-animating .km-report-row {
+  transition: opacity .4s ease, transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.km-pipeline.is-animating .km-report-row:not(.is-shown) {
+  opacity: 0;
+  transform: translateY(6px);
+}
+.km-pipeline.is-animating .km-report-row:not(.is-settled) .km-spin { display: inline-block; }
+.km-pipeline.is-animating .km-report-row:not(.is-settled) .km-mark { display: none; }
+.km-pipeline .km-report-value { transition: opacity .25s ease; }
+.km-pipeline.is-animating .km-report-row:not(.is-settled) .km-report-value { opacity: 0; }
+.km-pipeline.is-animating .km-report-row.is-fail.is-settled .km-mark,
+.km-pipeline.is-animating .km-report-row.is-fail.is-settled .km-report-value {
+  animation: kmStamp .45s cubic-bezier(.2,.8,.2,1) both;
+}
+.km-pipeline.is-animating .km-caption { opacity: 0; transition: opacity .6s ease .15s; }
+.km-pipeline.is-animating.is-done .km-caption { opacity: 1; }
+@keyframes kmStamp {
+  0%   { opacity: 0; transform: scale(1.6); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
 /* ---- capability console (features index) ---- */
 [x-cloak] { display: none !important; }
 
@@ -522,6 +538,7 @@ body.theme-kubmin .km-invert {
 @media (prefers-reduced-motion: reduce) {
   .km-stagger, .km-blob, .km-reveal.km-in { animation: none !important; }
   .km-stagger, .km-reveal { opacity: 1; transform: none; }
+  .km-underline-draw::after { animation: none; transform: none; }
   .km-chart .km-chart-line { stroke-dasharray: none; stroke-dashoffset: 0; animation: none !important; }
   .km-chart .km-chart-fill, .km-chart .km-chart-band { opacity: 1; transition: none; }
 }

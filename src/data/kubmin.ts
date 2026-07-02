@@ -30,7 +30,6 @@ export const images = {
 
 // ---- HERO ----
 export const hero = {
-  headline: "Every release is tested. Almost none are measured.",
   displayHeadline: {
     lines: ["Every release", "is tested."],
     bridge: "Almost none are",
@@ -249,8 +248,10 @@ export const coreFeatures = {
 
 // ---- WHY ENERGY ----
 export const whyEnergy = {
-  heading: "CPU metrics lie.",
-  headingAccent: "Energy doesn't.",
+  displayHeading: {
+    line1: { text: "CPU metrics", accent: "lie." },
+    line2: { text: "Energy", accent: "doesn't." },
+  },
   intro:
     "A workload can show 40% CPU utilization and still be wasting energy. How? Polling loops, idle connections, inefficient memory access patterns — they all consume power without producing value. Traditional monitoring tools see 40% busy and move on. Kubmin sees the full picture — CPU usage alongside actual energy consumption over time — so you can spot the workloads where high utilization doesn't mean productive utilization.",
   kepler:
