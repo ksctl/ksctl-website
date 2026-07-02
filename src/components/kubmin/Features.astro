@@ -13,49 +13,49 @@ const accents = [
   "var(--color-kubmin-cost)",
 ];
 
-const featureCount = coreFeatures.features.length;
+const features = coreFeatures.features;
+const total = features.length;
 const headingParts = coreFeatures.headingAccent
   ? coreFeatures.heading.split(coreFeatures.headingAccent)
   : [coreFeatures.heading];
 
-const getAccent = (index: number) => accents[index % accents.length];
+const urls = JSON.stringify(features.map((f) => f.screenshot.browserUrl));
+const tags = JSON.stringify(features.map((f) => f.tag));
+const pad = (n: number) => String(n).padStart(2, "0");
+const counterExpr = `'0' + (active + 1) + ' / ${pad(total)}'`;
 
-const getFeatureKind = (index: number, total: number) => {
-  if (index === 0) return "lead";
-  if (index === total - 1) return "final";
-  if (index === 1 || index === 2) return "compact";
-  return "standard";
-};
-
-const getArticleClass = (kind: string) => {
-  if (kind === "lead") {
-    return "col-span-12 lg:col-span-8 relative km-lift rounded-[28px] p-8 md:p-12 overflow-hidden";
+// scroll-driven focus: the console pins while the wrapper scrolls; progress selects the capability
+const consoleState = `{
+  active: 0,
+  total: ${total},
+  urls: ${urls},
+  tags: ${tags},
+  isDesktop() { return window.matchMedia('(min-width: 1024px)').matches },
+  progress() {
+    const r = this.$root.getBoundingClientRect();
+    const span = r.height - window.innerHeight;
+    if (span <= 0) return 0;
+    return Math.min(1, Math.max(0, -r.top / span));
+  },
+  sync() {
+    if (!this.isDesktop()) return;
+    this.active = Math.min(this.total - 1, Math.floor(this.progress() * this.total));
+  },
+  goTo(i) {
+    if (!this.isDesktop()) { this.active = i; return; }
+    const r = this.$root.getBoundingClientRect();
+    const span = r.height - window.innerHeight;
+    window.scrollTo({ top: window.scrollY + r.top + ((i + 0.5) / this.total) * span, behavior: 'auto' });
+    this.active = i;
   }
-  if (kind === "final") {
-    return "col-span-12 km-lift rounded-[28px] p-8 md:p-12 overflow-hidden relative";
-  }
-  if (kind === "compact") {
-    return "col-span-12 md:col-span-6 lg:col-span-4 km-paper km-lift rounded-[28px] p-8 flex flex-col";
-  }
-  return "col-span-12 md:col-span-6 km-paper km-lift rounded-[28px] p-8 md:p-10 flex flex-col";
-};
-
-const getArticleStyle = (kind: string) => {
-  if (kind === "lead") {
-    return "background: linear-gradient(135deg, var(--color-kubmin-primary-50), var(--color-kubmin-surface)); border: 1px solid var(--color-kubmin-primary-200);";
-  }
-  if (kind === "final") {
-    return "background: var(--color-kubmin-text); color: var(--color-kubmin-base);";
-  }
-  return undefined;
-};
+}`;
 ---
 
-<section class="relative py-28 md:py-36 overflow-hidden" style="background: var(--color-kubmin-overlay);">
+<section id="features" class="relative py-28 md:py-36 overflow-clip" style="background: var(--color-kubmin-overlay);">
   <div class="absolute inset-0 km-grain opacity-[0.18] pointer-events-none"></div>
 
   <Container class="relative z-10">
-    <div class="grid lg:grid-cols-12 gap-10 mb-20 items-end">
+    <div class="grid lg:grid-cols-12 gap-10 mb-16 md:mb-20 items-end">
       <div class="lg:col-span-7">
         <span class="km-eyebrow">{coreFeatures.label} · ch. 02</span>
         <h2 class="mt-6 text-4xl md:text-6xl leading-[1.02] font-medium" style="color: var(--color-kubmin-text)">
@@ -77,63 +77,103 @@ const getArticleStyle = (kind: string) => {
       </div>
     </div>
 
-    <div class="grid grid-cols-12 gap-5 md:gap-6 auto-rows-[minmax(0,auto)]">
-      {coreFeatures.features.map((feature, i) => {
-        const kind = getFeatureKind(i, featureCount);
-        const isLead = kind === "lead";
-        const isFinal = kind === "final";
-        const accent = getAccent(i);
-        const indexLabel = String(i + 1).padStart(2, "0");
+    <!-- scroll runway: console pins, scrolling advances the capability -->
+    <div
+      class="lg:h-[360vh]"
+      x-data={consoleState}
+      x-on:scroll.window="sync()"
+      x-on:resize.window="sync()"
+    >
+      <div class="lg:sticky lg:top-20 grid lg:grid-cols-12 gap-12 lg:gap-14 items-start">
 
-        return (
-          <article class={getArticleClass(kind)} style={getArticleStyle(kind)}>
-            {isLead && (
-              <div class="absolute -top-20 -right-20 w-60 h-60 rounded-full" style="background: radial-gradient(circle, color-mix(in srgb, var(--color-kubmin-primary-500) 18%, transparent), transparent 70%);"></div>
-            )}
-            {isFinal && (
-              <div class="absolute -bottom-20 -right-10 w-80 h-80 rounded-full" style="background: radial-gradient(circle, color-mix(in srgb, var(--color-kubmin-cost) 25%, transparent), transparent 70%);"></div>
-            )}
+        <!-- capability index -->
+        <div class="lg:col-span-5" role="tablist" aria-label={coreFeatures.label}>
+          <div class="km-hairline"></div>
+          {features.map((f, i) => (
+            <div class="km-cap" x-bind:class={`active === ${i} && 'is-active'`} style={`--cap-accent: ${accents[i % accents.length]}`}>
+              <button
+                type="button"
+                class="km-cap-head"
+                x-on:click={`goTo(${i})`}
+                x-bind:aria-expanded={`String(active === ${i})`}
+                aria-controls={`km-cap-body-${i}`}
+              >
+                <span class="km-cap-num">{pad(i + 1)}</span>
+                <h3 class="km-cap-title">{f.title}</h3>
+                <svg class="km-cap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
 
-            {isFinal ? (
-              <div class="relative grid md:grid-cols-12 gap-8 items-center">
-                <div class="md:col-span-7">
-                  <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style="color: var(--color-kubmin-primary-300)">
-                    <span class="km-dot mr-2" style="background: var(--color-kubmin-cost)"></span>
-                    {indexLabel}
-                  </span>
-                  <h3 class="mt-6 text-3xl md:text-5xl font-medium leading-[1.05]">
-                    {feature.title}
-                  </h3>
-                </div>
-                <div class="md:col-span-5">
-                  <p class="leading-relaxed mb-6" style="color: var(--color-kubmin-primary-200)">
-                    {feature.body}
-                  </p>
-                  <span class="km-chip" style="background: transparent; border-color: var(--color-kubmin-primary-300); color: var(--color-kubmin-primary-200);">
-                    {feature.tag}
-                  </span>
-                </div>
-              </div>
-            ) : (
-              <div class="relative">
-                <div class="flex items-center justify-between gap-4 mb-8 md:mb-10">
-                  <span class="km-mono text-[10px] tracking-[0.22em] uppercase" style={`color: ${isLead ? "var(--color-kubmin-primary-700)" : accent}`}>
-                    <span class="km-dot mr-2" style={`background: ${isLead ? "var(--color-kubmin-iris)" : accent}`}></span>
-                    {indexLabel}
-                  </span>
-                  <span class="km-chip" style={isLead ? "border-color: var(--color-kubmin-primary-300); color: var(--color-kubmin-primary-700);" : undefined}>{feature.tag}</span>
-                </div>
-                <h3 class={isLead ? "text-3xl md:text-5xl font-medium leading-[1.05] mb-6" : "text-2xl md:text-3xl font-medium leading-snug mb-4"} style="color: var(--color-kubmin-text)">
-                  {feature.title}
-                </h3>
-                <p class={isLead ? "text-lg leading-relaxed max-w-2xl" : "text-sm md:text-base leading-relaxed"} style="color: var(--color-kubmin-subtle-text)">
-                  {feature.body}
+              <div
+                id={`km-cap-body-${i}`}
+                class="km-cap-body"
+                x-show={`active === ${i}`}
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 -translate-y-1"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-cloak={i !== 0 ? "" : undefined}
+              >
+                <p class="text-sm md:text-[0.95rem] leading-relaxed" style="color: var(--color-kubmin-subtle-text)">
+                  {f.body}
                 </p>
+                <div class="mt-4">
+                  <span class="km-chip" style={`border-color: color-mix(in srgb, ${accents[i % accents.length]} 45%, transparent); color: ${accents[i % accents.length]};`}>
+                    <span class="km-dot" style={`background: ${accents[i % accents.length]}`}></span>
+                    {f.metric}
+                  </span>
+                </div>
+
+                <!-- mobile / tablet screenshot -->
+                <div class="lg:hidden mt-6 km-browser">
+                  <div class="km-browser-bar">
+                    <span class="km-browser-dot shrink-0" style="background:#e0a3a3"></span>
+                    <span class="km-browser-dot shrink-0" style="background:#e6c890"></span>
+                    <span class="km-browser-dot shrink-0" style="background:#a9c4b6"></span>
+                    <span class="km-browser-url min-w-0 truncate">{f.screenshot.browserUrl}</span>
+                  </div>
+                  <img src={f.screenshot.src} alt={f.screenshot.alt} loading="lazy" decoding="async" class="w-full h-auto block" />
+                </div>
               </div>
-            )}
-          </article>
-        );
-      })}
+            </div>
+          ))}
+        </div>
+
+        <!-- product viewport -->
+        <div class="hidden lg:block lg:col-span-7">
+          <div class="relative">
+            <div
+              class="absolute -inset-4 rounded-[28px] blur-3xl opacity-90 pointer-events-none"
+              style="background: radial-gradient(ellipse at 50% 80%, rgb(144 122 169 / 0.35), transparent 65%);"
+            ></div>
+
+            <div class="relative km-browser">
+              <div class="km-browser-bar">
+                <span class="km-browser-dot shrink-0" style="background:#e0a3a3"></span>
+                <span class="km-browser-dot shrink-0" style="background:#e6c890"></span>
+                <span class="km-browser-dot shrink-0" style="background:#a9c4b6"></span>
+                <span class="km-browser-url min-w-0 truncate"><span x-text="urls[active]">{features[0].screenshot.browserUrl}</span></span>
+                <span class="km-mono text-[10px] tracking-[0.18em] shrink-0" style="color: var(--color-kubmin-subtle-text)" x-text={counterExpr}>01 / {pad(total)}</span>
+              </div>
+              <div class="relative w-full" style="aspect-ratio: 3360 / 2258;">
+                {features.map((f, i) => (
+                  <img
+                    src={f.screenshot.src}
+                    alt={f.screenshot.alt}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                    class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-300"
+                    style={`opacity: ${i === 0 ? 1 : 0};`}
+                    x-bind:style={`{ opacity: active === ${i} ? 1 : 0 }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-6 text-center km-italic text-lg" style="color: var(--color-kubmin-subtle-text)">
+            “<span x-text="tags[active]">{features[0].tag}</span>”
+          </p>
+        </div>
+      </div>
     </div>
   </Container>
 </section>

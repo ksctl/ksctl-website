@@ -149,9 +149,9 @@ export const productDemo = {
 
 // ---- CORE FEATURES ----
 export const coreFeatures = {
-  label: "What Kubmin Does",
-  heading: "Eight things no other tool does together",
-  headingAccent: "no other tool",
+  label: "The capability index",
+  heading: "What kubmin does.",
+  headingAccent: "does.",
   sideLabel: "The kubmin moat",
   description:
     "Each capability ships standalone. Together they form a unified ledger — cost, energy, and efficiency, per workload, per release, across clusters you create or import.",
@@ -160,41 +160,89 @@ export const coreFeatures = {
       title: "Per-Image-Version Deep Profile",
       body: "Point kubmin at a specific image tag and get hourly SCI, energy consumption, CPU, memory, and cost — plus the full trend across that version's lifetime. Not generic pod metrics. Version-scoped visibility into what each build actually costs and consumes in production.",
       tag: "Your deploy's real footprint",
+      metric: "hourly SCI · kWh · $ · P95 utilization",
+      screenshot: {
+        src: "/kubmin/workload-detail-hourly.webp",
+        alt: "Kubmin hourly deep profile for redis 8.2.1 — SCI score, SEE score, operational and embodied carbon, energy, and P95 utilization",
+        browserUrl: "kubmin.ksctl.com/workloads/details",
+      },
     },
     {
       title: "Release-over-Release Efficiency Diff",
       body: "Compare any two image versions across CPU, memory, energy, SCI, SEE, and runtime cost — per functional unit of work. Ship a new release and see within hours whether it regressed 30% on efficiency, before the regression compounds into your bill.",
       tag: "Efficiency measured per release",
+      metric: "caught +63% CPU drift between tags",
+      screenshot: {
+        src: "/kubmin/workload-compare-image.webp",
+        alt: "Kubmin image version comparison — SEE, overall carbon, energy, and SCI per tracked version",
+        browserUrl: "kubmin.ksctl.com/workloads/compareall",
+      },
     },
     {
       title: "Workload Profile Classifier",
       body: "Kubmin classifies each workload as CPU-bound, memory-bound, general, or resource-starved — automatically, from runtime behavior. Idle-time percentage and hourly heatmaps show exactly when waste spikes. No more right-sizing blind.",
       tag: "Actually know your workload",
+      metric: "cpu-intensive · idle % · waste $/mo",
+      screenshot: {
+        src: "/kubmin/workload-analyse-idle-overprovision-instancetype.webp",
+        alt: "Kubmin waste analysis — workload classified CPU-intensive, idle time, overprovisioning ratios, energy efficiency grade",
+        browserUrl: "kubmin.ksctl.com/workloads/analyse",
+      },
     },
     {
       title: "Existing Cluster Import",
       body: "Bring existing EKS, AKS, GKE Standard, or self-managed Kubernetes clusters into Kubmin. Managed imports discover clusters by cloud and region; self-managed imports use kubeconfig. Imported clusters keep their infrastructure ownership while Kubmin adds workload intelligence on top.",
       tag: "Use the clusters you already run",
+      metric: "EKS · AKS · GKE · kubeconfig",
+      screenshot: {
+        src: "/kubmin/kubmin-dashboard.webp",
+        alt: "Kubmin dashboard — clusters, workloads, resource utilization, and carbon hotspots across your fleet",
+        browserUrl: "kubmin.ksctl.com/dashboard",
+      },
     },
     {
       title: "Guided Observability",
       body: "Use your existing Prometheus, Tempo, Loki, and Grafana stack, or let Kubmin deploy the missing pieces. Kubmin configures an OpenTelemetry Collector bridge for metrics, logs, and traces, plus Kepler for energy attribution.",
       tag: "Bring your stack or create one",
+      metric: "prometheus · tempo · loki · grafana · otel",
+      screenshot: {
+        src: "/kubmin/guided-observability.webp",
+        alt: "Kubmin guided observability setup — connect existing backends or let Kubmin deploy the missing pieces",
+        browserUrl: "kubmin.ksctl.com/clusters/import/observability",
+      },
     },
     {
       title: "Smart Cluster Setup and Import",
       body: "Spinning up a new cluster or importing an existing one? Kubmin filters instance types against your workload profile and shows spec, hourly cost, and embodied carbon for each option. Region picker surfaces real grid carbon intensity and % renewable energy — so cluster decisions are informed, not guessed.",
       tag: "Right cluster before the first pod",
+      metric: "178 instances ranked · cost + embodied carbon",
+      screenshot: {
+        src: "/kubmin/create-runner-k8s-instancetype.webp",
+        alt: "Kubmin cluster setup — worker node instance types filtered by workload category with monthly cost and embodied carbon",
+        browserUrl: "kubmin.ksctl.com/runners/create",
+      },
     },
     {
       title: "Placement & Region Recommender",
       body: "Running on the default instance type in us-east-1? Kubmin surfaces alternative instance types with similar or better performance at lower cost, plus alternative regions that cut your workload's running cost and run on a cleaner grid. Side-by-side tradeoffs, not guesswork.",
       tag: "Move once, save every hour",
+      metric: "found −$52.71/mo on one workload",
+      screenshot: {
+        src: "/kubmin/workload-analyse-region.webp",
+        alt: "Kubmin region recommendation — alternative regions compared on running cost and grid carbon intensity",
+        browserUrl: "kubmin.ksctl.com/workloads/analyse",
+      },
     },
     {
       title: "Quick Wins — Ranked by Savings",
       body: "Kubmin turns every finding — idle replicas, overprovisioned limits, cheaper instance types, greener regions — into a ranked action list with estimated monthly cost savings and efficiency gains attached. Each win ships with a copy-paste kubectl command. Open the dashboard, act on the top three.",
       tag: "Dollar-ranked actions, not alerts",
+      metric: "ranked by $/mo · kubectl-ready",
+      screenshot: {
+        src: "/kubmin/workload-analyse-quickwins.webp",
+        alt: "Kubmin quick wins — ranked actions with estimated monthly savings and copy-paste kubectl commands",
+        browserUrl: "kubmin.ksctl.com/workloads/analyse",
+      },
     },
   ],
 };

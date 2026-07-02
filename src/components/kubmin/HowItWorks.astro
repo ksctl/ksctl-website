@@ -16,24 +16,24 @@ import { howItWorks } from "@/data/kubmin";
     </div>
 
     <div class="relative max-w-6xl mx-auto">
-      <!-- connecting hairline -->
-      <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-px" style="background: repeating-linear-gradient(90deg, var(--color-kubmin-border) 0 6px, transparent 6px 14px);"></div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 relative">
+      <div class="grid grid-cols-1 md:grid-cols-3">
         {howItWorks.steps.map((step, i) => (
-          <div class="relative flex flex-col items-center text-center group">
-            <div class="relative w-24 h-24 rounded-full flex items-center justify-center mb-8 km-lift" style="background: var(--color-kubmin-base); border: 1px solid var(--color-kubmin-border); box-shadow: var(--shadow-kubmin-paper);">
-              <span class="km-display italic text-4xl font-medium" style="color: var(--color-kubmin-primary-700)">
+          <div
+            class={`relative py-10 md:py-2 md:px-10 md:first:pl-0 md:last:pr-0 ${i > 0 ? "border-t md:border-t-0 md:border-l" : ""}`}
+            style="border-color: var(--color-kubmin-border)"
+          >
+            <div class="flex items-baseline justify-between gap-4">
+              <span class="km-display italic text-7xl md:text-8xl font-light leading-none" style="color: var(--color-kubmin-primary-300)">
                 0{i + 1}
               </span>
-              <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 km-mono text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 rounded-full" style="background: var(--color-kubmin-base); color: var(--color-kubmin-subtle-text); border: 1px solid var(--color-kubmin-border)">
+              <span class="km-mono text-[10px] uppercase tracking-[0.22em]" style="color: var(--color-kubmin-subtle-text)">
                 step
               </span>
             </div>
-            <h3 class="text-xl md:text-2xl font-medium mb-4" style="color: var(--color-kubmin-text)">
+            <h3 class="mt-8 text-xl md:text-2xl font-medium leading-snug" style="color: var(--color-kubmin-text)">
               {step.title}
             </h3>
-            <p class="leading-relaxed max-w-sm" style="color: var(--color-kubmin-subtle-text)">
+            <p class="mt-4 leading-relaxed text-sm md:text-base" style="color: var(--color-kubmin-subtle-text)">
               {step.body}
             </p>
           </div>
