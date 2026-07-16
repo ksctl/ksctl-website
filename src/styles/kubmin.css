@@ -126,28 +126,6 @@ body.theme-kubmin .km-mono {
     radial-gradient(48rem 30rem at 50% 100%, rgb(86 148 159  / 0.10),  transparent 60%);
 }
 
-/* hand-drawn underline for accent words */
-.km-underline {
-  position: relative;
-  white-space: nowrap;
-}
-.km-underline::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -0.12em;
-  height: 0.42em;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7 Q 50 2 100 6 T 198 5' fill='none' stroke='%23907aa9' stroke-width='2.4' stroke-linecap='round' opacity='0.85'/%3E%3C/svg%3E") center/100% 100% no-repeat;
-}
-/* pen-stroke draw-in: underline sweeps left→right after the headline settles */
-.km-underline-draw::after {
-  transform: scaleX(0);
-  transform-origin: left center;
-  animation: kmUnderlineDraw .7s cubic-bezier(.2,.8,.2,1) 1.25s forwards;
-}
-@keyframes kmUnderlineDraw { to { transform: scaleX(1); } }
-
 /* serif italic emphasis */
 .km-italic {
   font-family: var(--font-kubmin-display);
@@ -538,7 +516,6 @@ body.theme-kubmin .km-invert {
 @media (prefers-reduced-motion: reduce) {
   .km-stagger, .km-blob, .km-reveal.km-in { animation: none !important; }
   .km-stagger, .km-reveal { opacity: 1; transform: none; }
-  .km-underline-draw::after { animation: none; transform: none; }
   .km-chart .km-chart-line { stroke-dasharray: none; stroke-dashoffset: 0; animation: none !important; }
   .km-chart .km-chart-fill, .km-chart .km-chart-band { opacity: 1; transition: none; }
 }
