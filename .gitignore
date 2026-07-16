@@ -2,6 +2,9 @@
 dist/
 .output/
 
+# Astro build cache
+.astro/
+
 # dependencies
 node_modules/
 
@@ -11,10 +14,20 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
 # environment variables
 .env
 .env.production
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
 
 # macOS-specific files
 .DS_Store
+
+# TypeScript
+*.tsbuildinfo
