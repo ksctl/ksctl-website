@@ -5,7 +5,7 @@
 export const meta = {
   title: "Kubmin — The Test Your Pipeline Is Missing: What Each Release Costs to Run",
   description:
-    "Every release is tested; almost none are measured. Kubmin tracks cost, energy, and SCI/SEE carbon per release — in your environment, on your configuration, divided by your app's own functional unit like the HTTP requests it served.",
+    "Every release is tested; almost none are measured. Kubmin tracks cost, energy, and SCI/SEE carbon per release — in your environment, on your configuration, divided by your app's own measurement unit like the HTTP requests it served.",
 };
 
 export const links = {
@@ -24,7 +24,6 @@ export const images = {
   screenshots: {
     hero: "/kubmin/cover.webp",
     redis: "/kubmin/compare-redis-casestudy.webp",
-    guidedObservability: "/kubmin/guided-observability.webp",
   },
 };
 
@@ -40,7 +39,7 @@ export const hero = {
     "Unit tests pass. Chaos drills survive. Nobody measures what the release costs to run. Kubmin is that missing check.",
   punchlineAccent: "Kubmin is that missing check.",
   explain:
-    "Kubmin measures every release in your environment, on your configuration — cost, energy, and SCI/SEE carbon, divided by your application's own functional unit: the requests it served, the jobs it ran. Then it points at the fix — idle time, a better region, a better instance type.",
+    "Kubmin measures every release in your environment, on your configuration — cost, energy, and SCI/SEE carbon, divided by your application's own measurement unit: the requests it served, the jobs it ran. Then it points at the fix — idle time, a better region, a better instance type.",
   cta: { text: "Start Free", href: links.app },
   secondaryCta: { text: "See the Redis comparison", href: "#demo" },
   logo: images.logo,
@@ -72,7 +71,7 @@ export const hero = {
   proofPoints: [
     "cost per release",
     "measured in your environment",
-    "SCI + SEE per functional unit",
+    "SCI + SEE per measurement unit",
     "quick wins, kubectl-ready",
   ],
   screenshot: {
@@ -146,20 +145,28 @@ export const productDemo = {
   cta: { text: "Try It On Your Workloads", href: links.app },
 };
 
-// ---- CORE FEATURES ----
+// ---- CORE FEATURES (five chapters) ----
 export const coreFeatures = {
   label: "The capability index",
   heading: "What kubmin does.",
   headingAccent: "does.",
   sideLabel: "The kubmin moat",
   description:
-    "Each capability ships standalone. Together they form a unified ledger — cost, energy, and efficiency, per workload, per release, across clusters you create or import.",
+    "Five capabilities, one ledger — cost, energy, and carbon per image version, measured in your environment. Read them in order, or jump straight to the one you came for.",
+  crossRef: {
+    text: "per measurement unit · see ch. 03b",
+    href: "#measurement-unit",
+  },
   features: [
     {
-      title: "Per-Image-Version Deep Profile",
-      body: "Point kubmin at a specific image tag and get hourly SCI, energy consumption, CPU, memory, and cost — plus the full trend across that version's lifetime. Not generic pod metrics. Version-scoped visibility into what each build actually costs and consumes in production.",
-      tag: "Your deploy's real footprint",
-      metric: "hourly SCI · kWh · $ · P95 utilization",
+      id: "deep-profile",
+      chapter: "02a",
+      title: "Image Version Deep Profile",
+      tag: "your deploy's real footprint",
+      body: "Point kubmin at an image tag and get that version's full running story: hourly SCI and SEE, energy, CPU, memory — and the lifetime cost of running it as a container, from first deploy to today. Not generic pod metrics. Version-scoped truth about what each build costs and consumes in production.",
+      metric: "hourly SCI · SEE · kWh · lifetime $",
+      hasCrossRef: true,
+      glow: "primary",
       screenshot: {
         src: "/kubmin/workload-detail-hourly.webp",
         alt: "Kubmin hourly deep profile for redis 8.2.1 — SCI score, SEE score, operational and embodied carbon, energy, and P95 utilization",
@@ -167,80 +174,63 @@ export const coreFeatures = {
       },
     },
     {
-      title: "Release-over-Release Efficiency Diff",
-      body: "Compare any two image versions across CPU, memory, energy, SCI, SEE, and runtime cost — per functional unit of work. Ship a new release and see within hours whether it regressed 30% on efficiency, before the regression compounds into your bill.",
-      tag: "Efficiency measured per release",
+      id: "version-comparison",
+      chapter: "02b",
+      title: "Version-over-Version Comparison",
+      tag: "efficiency measured per release",
+      body: "Compare image versions across CPU, memory, energy, SCI, SEE, and runtime cost — per measurement unit of work. Ship a new release and know within hours whether it regressed 30% on efficiency, before the regression compounds into your bill.",
       metric: "caught +63% CPU drift between tags",
+      hasCrossRef: true,
+      glow: "energy",
       screenshot: {
-        src: "/kubmin/workload-compare-image.webp",
+        src: "/kubmin/compare-redis-casestudy.webp",
         alt: "Kubmin image version comparison — SEE, overall carbon, energy, and SCI per tracked version",
         browserUrl: "kubmin.ksctl.com/workloads/compareall",
       },
     },
     {
-      title: "Workload Profile Classifier",
-      body: "Kubmin classifies each workload as CPU-bound, memory-bound, general, or resource-starved — automatically, from runtime behavior. Idle-time percentage and hourly heatmaps show exactly when waste spikes. No more right-sizing blind.",
-      tag: "Actually know your workload",
-      metric: "cpu-intensive · idle % · waste $/mo",
-      screenshot: {
-        src: "/kubmin/workload-analyse-idle-overprovision-instancetype.webp",
-        alt: "Kubmin waste analysis — workload classified CPU-intensive, idle time, overprovisioning ratios, energy efficiency grade",
-        browserUrl: "kubmin.ksctl.com/workloads/analyse",
-      },
-    },
-    {
-      title: "Existing Cluster Import",
-      body: "Bring existing EKS, AKS, GKE Standard, or self-managed Kubernetes clusters into Kubmin. Managed imports discover clusters by cloud and region; self-managed imports use kubeconfig. Imported clusters keep their infrastructure ownership while Kubmin adds workload intelligence on top.",
-      tag: "Use the clusters you already run",
-      metric: "EKS · AKS · GKE · kubeconfig",
-      screenshot: {
-        src: "/kubmin/kubmin-dashboard.webp",
-        alt: "Kubmin dashboard — clusters, workloads, resource utilization, and carbon hotspots across your fleet",
-        browserUrl: "kubmin.ksctl.com/dashboard",
-      },
-    },
-    {
-      title: "Guided Observability",
-      body: "Use your existing Prometheus, Tempo, Loki, and Grafana stack, or let Kubmin deploy the missing pieces. Kubmin configures an OpenTelemetry Collector bridge for metrics, logs, and traces, plus Kepler for energy attribution.",
-      tag: "Bring your stack or create one",
-      metric: "prometheus · tempo · loki · grafana · otel",
-      screenshot: {
-        src: "/kubmin/guided-observability.webp",
-        alt: "Kubmin guided observability setup — connect existing backends or let Kubmin deploy the missing pieces",
-        browserUrl: "kubmin.ksctl.com/clusters/import/observability",
-      },
-    },
-    {
-      title: "Smart Cluster Setup and Import",
-      body: "Spinning up a new cluster or importing an existing one? Kubmin filters instance types against your workload profile and shows spec, hourly cost, and embodied carbon for each option. Region picker surfaces real grid carbon intensity and % renewable energy — so cluster decisions are informed, not guessed.",
-      tag: "Right cluster before the first pod",
-      metric: "178 instances ranked · cost + embodied carbon",
-      screenshot: {
-        src: "/kubmin/create-runner-k8s-instancetype.webp",
-        alt: "Kubmin cluster setup — worker node instance types filtered by workload category with monthly cost and embodied carbon",
-        browserUrl: "kubmin.ksctl.com/runners/create",
-      },
-    },
-    {
-      title: "Placement & Region Recommender",
-      body: "Running on the default instance type in us-east-1? Kubmin surfaces alternative instance types with similar or better performance at lower cost, plus alternative regions that cut your workload's running cost and run on a cleaner grid. Side-by-side tradeoffs, not guesswork.",
-      tag: "Move once, save every hour",
+      id: "placement-intelligence",
+      chapter: "02c",
+      title: "Placement & Region Intelligence",
+      tag: "move once, save every hour",
+      body: "For every workload, kubmin ranks alternative instance types and regions — similar or better performance at lower cost, on a cleaner grid. Recommendations are grounded in real cloud-provider data: per-region grid carbon intensity, percent renewable energy, and per-instance embodied carbon. Side-by-side tradeoffs, not guesswork.",
       metric: "found −$52.71/mo on one workload",
+      hasCrossRef: false,
+      glow: "energy",
       screenshot: {
-        src: "/kubmin/workload-analyse-region.webp",
+        src: "/kubmin/workload-optimization-instancetype.webp",
         alt: "Kubmin region recommendation — alternative regions compared on running cost and grid carbon intensity",
         browserUrl: "kubmin.ksctl.com/workloads/analyse",
       },
     },
     {
-      title: "Quick Wins — Ranked by Savings",
-      body: "Kubmin turns every finding — idle replicas, overprovisioned limits, cheaper instance types, greener regions — into a ranked action list with estimated monthly cost savings and efficiency gains attached. Each win ships with a copy-paste kubectl command. Open the dashboard, act on the top three.",
-      tag: "Dollar-ranked actions, not alerts",
+      id: "quick-wins",
+      chapter: "02d",
+      title: "Quick Wins, Ranked by Savings",
+      tag: "dollar-ranked actions, not alerts",
+      body: "Kubmin turns every finding — idle replicas, overprovisioned limits, cheaper instance types, greener regions — into a ranked action list with estimated monthly savings attached. Each win ships with a copy-paste kubectl command. Open the dashboard, act on the top three.",
       metric: "ranked by $/mo · kubectl-ready",
+      hasCrossRef: false,
+      glow: "cost",
       screenshot: {
         src: "/kubmin/workload-analyse-quickwins.webp",
         alt: "Kubmin quick wins — ranked actions with estimated monthly savings and copy-paste kubectl commands",
         browserUrl: "kubmin.ksctl.com/workloads/analyse",
+      },
+    },
+    {
+      id: "guided-observability",
+      chapter: "02e",
+      title: "Guided Observability",
+      tag: "bring your stack or create one",
+      body: "Keep your existing Prometheus, Tempo, Loki, and Grafana stack, or let kubmin deploy the missing pieces during create or import. Kubmin wires an OpenTelemetry Collector bridge for metrics, logs, and traces — plus Kepler for energy attribution — so every signal feeds the same cost and energy ledger.",
+      metric: "prometheus · tempo · loki · grafana · otel",
+      hasCrossRef: false,
+      glow: "primary",
+      screenshot: {
+        src: "/kubmin/guided-observability.webp",
+        alt: "Kubmin guided observability setup — connect existing backends or let Kubmin deploy the missing pieces",
+        browserUrl: "kubmin.ksctl.com/clusters/import/observability",
       },
     },
   ],
@@ -262,13 +252,13 @@ export const whyEnergy = {
       name: "SCI",
       full: "Software Carbon Intensity",
       description:
-        "tracks the carbon cost of your workloads, aligned with the Green Software Foundation specification.",
+        "an ISO-accredited standard (ISO/IEC 21031:2024): the rate of carbon emissions per measurement unit of software — sensitive to energy efficiency, hardware efficiency, and carbon awareness.",
     },
     {
       name: "SEE",
       full: "Software Energy Efficiency",
       description:
-        "catches pure efficiency regressions that carbon intensity alone can mask.",
+        "raw energy (kWh) per measurement unit — deliberately blind to grid carbon intensity, so pure efficiency regressions can't hide behind a cleaner grid.",
     },
   ],
   combined:
@@ -289,38 +279,40 @@ export const whyEnergy = {
     "In cloud environments, energy measurements are estimates based on ML models trained on real hardware data. They're highly reliable for relative comparison and trend analysis — which is exactly what kubmin needs. The patterns matter more than the absolute numbers.",
 };
 
-// ---- FUNCTIONAL UNITS (interlude) ----
-export const functionalUnit = {
+// ---- MEASUREMENT UNITS (interlude) ----
+export const measurementUnit = {
   label: "interlude · ch. 03b",
   heading: "Cost per container-hour is generic.",
   headingAccent: "Per request, it's yours.",
   intro:
-    "Every application does one thing that matters — serves a request, processes a job, settles a transaction. Kubmin lets you declare that unit with a single annotation, then divides everything by it: energy, carbon, cost.",
+    "Every application does one thing that matters — serves a request, processes a job, settles a transaction. Kubmin lets you declare that as your measurement unit with a single annotation, then divides everything by it: energy, carbon, cost.",
   sciNote:
-    "This is SCI the way the Green Software Foundation defines it — carbon per functional unit — computed next to your application, from your cluster's real energy data. Not an industry average pasted into a slide.",
+    "The SCI standard (ISO/IEC 21031:2024) calls this the functional unit — the R in the formula. Kubmin calls it your measurement unit, computed next to your application from your cluster's real energy data. Not an industry average pasted into a slide.",
   unitsLabel: "declare work in your own vocabulary",
   units: ["request", "transaction", "job", "container-hour", "custom"],
   annotationTitle: "one annotation on your workload",
   annotationFile: "deployment.yaml",
-  annotation: `kubmin.ksctl.com/functional-units: |
+  annotation: `kubmin.ksctl.com/measure: |
   version: 1
   containers:
+    webserver:
+      unit: container-hour
     api:
       unit: request
-      metric: http_server_request_duration_seconds_count
-      scope: workload
-    worker:
-      unit: container-hour`,
+      scope: pod
+      metric: http_requests_total
+      match:
+        container: $KUBMIN_CONTAINER_NAME`,
   outputsTitle: "what you read back, per release",
   outputs: [
-    { value: "kWh / request", note: "SEE — energy per unit of work" },
-    { value: "gCO₂e / request", note: "SCI — carbon per unit of work" },
+    { value: "kWh / request", note: "SEE — energy per measurement unit" },
+    { value: "gCO₂e / request", note: "SCI — carbon per measurement unit" },
     { value: "$ / 1M requests", note: "runtime cost, in your units" },
   ],
   formula: {
     lead: "SCI",
     numerator: "operational + embodied carbon",
-    denominator: "R — your functional unit",
+    denominator: "R — your measurement unit",
     caption:
       "R is whatever your application calls work: requests served, jobs processed, transactions settled. You declare it once — kubmin divides by it forever.",
   },
@@ -348,27 +340,6 @@ export const howItWorks = {
   cta: { text: "Start Free", href: links.app },
   disclaimer:
     "Imported clusters must have cert-manager installed and healthy. Kubmin installs Gateway API CRDs during import and configures the Kubmin agent, Kepler, and OpenTelemetry Collector automatically.",
-};
-
-// ---- GUIDED OBSERVABILITY ----
-export const guidedObservability = {
-  label: "New capability",
-  heading: "Guided Observability",
-  headingAccent: "without glue work",
-  body:
-    "Keep your Prometheus, Tempo, Loki, and Grafana stack, or let Kubmin deploy the missing pieces during create/import. Kubmin wires telemetry back to the cost and energy ledger, so metrics, logs, traces, and Kepler data support the same workload decisions.",
-  bullets: [
-    "Bring existing Prometheus, Tempo, Loki, and Grafana endpoints",
-    "Use Kubmin's in-cluster OpenTelemetry Collector for OTLP gRPC and HTTP",
-    "Let Kubmin deploy missing backends while always installing the agent, Kepler, Gateway API, and collector",
-  ],
-  note:
-    "For imported clusters, cert-manager must already be installed and healthy. Kubmin installs Gateway API CRDs during import.",
-  screenshot: {
-    src: images.screenshots.guidedObservability,
-    alt: "Kubmin Guided Observability setup showing choices for existing or Kubmin-managed telemetry backends",
-    browserUrl: "kubmin.ksctl.com/clusters/import/observability",
-  },
 };
 
 // ---- COMPARISON TABLE ----
