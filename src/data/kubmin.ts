@@ -365,12 +365,36 @@ export const comparisonTable = {
   ],
   rows: [
     {
-      capability: "Per-container cost tracking",
-      values: ["EC2 only", "Est.", "Manual", "✓"],
+      capability: "Cost & energy profile per image version",
+      values: ["✗", "✗", "Manual", "✓ Hourly + lifetime"],
+    },
+    {
+      capability: "Image version comparison (efficiency diff)",
+      values: ["✗", "✗", "✗", "✓"],
+    },
+    {
+      capability: "SCI + SEE per measurement unit (ISO/IEC 21031)",
+      values: ["✗", "✗", "✗", "✓"],
     },
     {
       capability: "Energy consumption per workload",
-      values: ["✗", "✗", "✗", "✓"],
+      values: ["✗", "✗", "Manual", "✓ Kepler built-in"],
+    },
+    {
+      capability: "Region & instance-type recommendations",
+      values: ["Partial", "✗", "✗", "✓ Cost + grid carbon"],
+    },
+    {
+      capability: "Idle workload detection",
+      values: ["✗", "Basic", "Manual", "✓ Auto"],
+    },
+    {
+      capability: "Ready-to-use kubectl fixes",
+      values: ["✗", "✗", "✗", "✓ Ranked by $/mo"],
+    },
+    {
+      capability: "Per-container cost tracking",
+      values: ["EC2 only", "Est.", "Manual", "✓"],
     },
     {
       capability: "Existing cluster import",
@@ -383,34 +407,6 @@ export const comparisonTable = {
     {
       capability: "OpenTelemetry logs/traces/metrics bridge",
       values: ["✗", "✗", "Manual", "✓ OTEL Collector"],
-    },
-    {
-      capability: "GKE Standard import",
-      values: ["✗", "✗", "Manual", "✓"],
-    },
-    {
-      capability: "Idle workload detection",
-      values: ["✗", "Basic", "Manual", "✓ Auto"],
-    },
-    {
-      capability: "Deployment version comparison",
-      values: ["✗", "✗", "✗", "✓"],
-    },
-    {
-      capability: "SCI + SEE sustainability scoring",
-      values: ["✗", "✗", "✗", "✓"],
-    },
-    {
-      capability: "Regional cost comparison",
-      values: ["Partial", "✗", "✗", "✓"],
-    },
-    {
-      capability: "Ready-to-use kubectl fixes",
-      values: ["✗", "✗", "✗", "✓"],
-    },
-    {
-      capability: "Instance type optimization",
-      values: ["✗", "✗", "✗", "✓"],
     },
     {
       capability: "Setup time",
