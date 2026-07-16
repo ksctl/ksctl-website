@@ -111,6 +111,10 @@ export const productDemo = {
   heading: "Three Redis versions. Same workload.",
   headingAccent: "Wildly different efficiency.",
   body: "We ran redis-benchmark across versions 8.6.1, 8.4.0, and 8.2.1. Here's what kubmin found — no other tool surfaces this.",
+  repoLink: {
+    label: "reproduce this demo yourself",
+    href: "https://github.com/ksctl/kubmin-demos/tree/main/redis-8-4-version-compare",
+  },
   screenshot: {
     src: images.screenshots.redis,
     alt: "Kubmin multi-version comparison showing CPU, memory, energy, SCI, SEE, and cost differences across Redis 8.6.1, 8.4.0, and 8.2.1",
@@ -266,14 +270,14 @@ export const whyEnergy = {
   exhibit: {
     figLabel: "fig. 03 · one node, 24 hours",
     figMeta: "utilization vs energy vs work",
-    bandLabel: ["idle burn", "full power · zero work"],
+    bandLabel: ["idle burn", "zero work · power still flowing"],
     legend: [
-      { key: "energy", label: "energy draw — near constant" },
-      { key: "cpu", label: "cpu ~40% — “looks fine”" },
-      { key: "work", label: "requests served — the work that matters" },
+      { key: "energy", label: "energy draw — follows cpu, floors high" },
+      { key: "cpu", label: "cpu — rises and falls with the work" },
+      { key: "work", label: "requests served — zero overnight" },
     ],
     caption:
-      "Monitoring reads a healthy node all night and moves on. Divide the same night by work done and it's six hours of energy serving nobody — billed, burned, invisible until you measure it.",
+      "Energy follows CPU — but only partway down. Overnight, requests hit zero and CPU idles, yet the node still draws well over half its peak power: idle cores, allocated memory holding its refresh, the platform itself. Divide the night by work done and it's pure waste — billed, burned, invisible until you measure it.",
   },
   accuracyNote:
     "In cloud environments, energy measurements are estimates based on ML models trained on real hardware data. They're highly reliable for relative comparison and trend analysis — which is exactly what kubmin needs. The patterns matter more than the absolute numbers.",
@@ -292,6 +296,10 @@ export const measurementUnit = {
   units: ["request", "transaction", "job", "container-hour", "custom"],
   annotationTitle: "one annotation on your workload",
   annotationFile: "deployment.yaml",
+  prLink: {
+    label: "see how we added it to the Redis demo · PR #1",
+    href: "https://github.com/ksctl/kubmin-demos/pull/1",
+  },
   annotation: `kubmin.ksctl.com/measure: |
   version: 1
   containers:
@@ -554,6 +562,7 @@ export const finalCta = {
   headlinePrefix: "Every hour you wait, your clusters",
   headlineAccent: "keep wasting.",
   subtitle: "Sign up free. Connect a cluster. See your waste in minutes.",
+  journeyNote: "Join us on this journey — the future of software is measured.",
   primaryAction: { text: "Get Started", href: links.app },
   secondaryAction: { text: "Join Discord", href: links.discord },
   footerNote: "kubmin.ksctl.com · sign in with github · setup in minutes",

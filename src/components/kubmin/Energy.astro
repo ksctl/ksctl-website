@@ -41,7 +41,7 @@ const legendSwatch: Record<string, string> = {
           </div>
 
           <div class="px-4 pt-5 sm:px-6">
-            <svg viewBox="0 0 640 290" class="w-full h-auto block" role="img" aria-label="Chart of one node over 24 hours: energy draw stays near constant and CPU sits around 40 percent, while requests served drop to zero overnight — six hours of idle burn.">
+            <svg viewBox="0 0 640 290" class="w-full h-auto block" role="img" aria-label="Chart of one node over 24 hours: energy draw rises and falls with CPU utilization but never drops near zero — overnight, requests hit zero and CPU idles, yet the node still draws well over half its peak power. Six hours of idle burn.">
               <!-- gridlines -->
               {[60, 108, 156, 204].map((y) => (
                 <line x1="16" y1={y} x2="624" y2={y} stroke="var(--color-kubmin-subtle)" stroke-width="1" stroke-dasharray="2 7" />
@@ -69,18 +69,18 @@ const legendSwatch: Record<string, string> = {
                 fill="none" stroke="var(--color-kubmin-energy)" stroke-width="1.8" stroke-linecap="round"
               />
 
-              <!-- cpu utilization — flat, reassuring, useless -->
+              <!-- cpu utilization — rises and falls with the work -->
               <path
                 class="km-chart-fill"
-                d="M16,170 C80,164 120,174 168,168 C240,162 280,174 350,166 C420,160 470,172 540,166 C580,162 610,170 624,168"
+                d="M16,238 C60,240 120,239 168,232 C220,215 260,165 320,152 C380,142 430,150 480,166 C540,182 590,196 624,202"
                 fill="none" stroke="var(--color-kubmin-subtle-text)" stroke-width="1.4" stroke-dasharray="5 5" stroke-linecap="round" opacity="0.75"
               />
 
-              <!-- energy draw — the meter keeps spinning -->
+              <!-- energy draw — follows cpu, but floors far above zero -->
               <path
                 class="km-chart-line"
                 pathLength="1"
-                d="M16,100 C60,92 100,104 168,98 C230,90 260,104 320,96 C380,88 420,102 480,94 C540,88 590,100 624,96"
+                d="M16,152 C60,153 120,152 168,148 C220,138 260,106 320,96 C380,88 430,94 480,106 C540,118 590,126 624,130"
                 fill="none" stroke="var(--color-kubmin-cost)" stroke-width="2" stroke-linecap="round"
               />
 
