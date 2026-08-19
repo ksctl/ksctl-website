@@ -66,15 +66,6 @@ export const teamMembers = {
       linkedin: "#"
     },
     {
-      name: "Praful",
-      role: "Core Team",
-      avatar: "/images/avatars/praful.jpg",
-      bio: "Passionate about cloud-native technologies and sustainable Kubernetes infrastructure solutions.",
-      github: "https://github.com/Horiodino",
-      twitter: "#",
-      linkedin: "#"
-    },
-    {
       name: "Saiyam Pathak",
       role: "Core Team",
       avatar: "https://avatars.githubusercontent.com/u/8190114",

@@ -85,7 +85,7 @@ public/
 
 **Routing Structure:**
 - `/` → Home page with company overview and product highlights
-- `/aboutus` → About Us page with team members (Dipankar Das, Praful, Saiyam Pathak)
+- `/aboutus` → About Us page with team members (Dipankar Das, Saiyam Pathak)
 - `/product/ksctl` → ksctl CLI product page with features, how it works, sustainability info, stats, blog, and FAQ
 - `/product/kubmin` → kubmin coming soon page
 
