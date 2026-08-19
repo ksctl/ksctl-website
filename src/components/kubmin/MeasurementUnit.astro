@@ -4,6 +4,17 @@ import { measurementUnit as mu } from "@/data/kubmin";
 
 const outputAccents = ["#f0d28a", "#b6d2d8", "#e8b4c0"];
 
+const chartSwatch: Record<string, string> = {
+  grid: "var(--color-kubmin-iris)",
+  sci: "var(--color-kubmin-energy)",
+  sei: "var(--color-kubmin-efficiency)",
+};
+
+const chartAria: Record<string, string> = {
+  sci: "Conceptual chart: when the region's grid turns greener, grid carbon intensity and SCI both drop together — SCI reflects where the software runs, not just how it runs.",
+  sei: "Conceptual chart: in the same moment the grid turns greener, grid carbon intensity drops but SEI stays flat — SEI measures pure software efficiency, independent of the grid.",
+};
+
 // light YAML tinting: key before colon, value after
 const codeLines = mu.annotation.split("\n").map((line) => {
   const m = line.match(/^(\s*)([^:\s][^:]*):(.*)$/);
@@ -90,20 +101,92 @@ const codeLines = mu.annotation.split("\n").map((line) => {
     </div>
 
     <div class="mt-24 pt-16" style="border-top: 1px solid rgb(250 244 237 / 0.12)">
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-center">
-        <div class="flex items-baseline gap-5">
-          <span class="km-display italic text-5xl md:text-6xl font-medium" style="color: var(--color-kubmin-base)">{mu.formula.lead}</span>
-          <span class="km-display text-4xl" style="color: rgb(250 244 237 / 0.5)">=</span>
-        </div>
-        <div class="flex flex-col items-center px-2">
-          <span class="text-lg md:text-xl" style="color: rgb(250 244 237 / 0.85)">{mu.formula.numerator}</span>
-          <span class="my-3 h-px w-full min-w-[16rem]" style="background: rgb(250 244 237 / 0.35)"></span>
-          <span class="km-italic text-lg md:text-xl km-grad-gold">{mu.formula.denominator}</span>
-        </div>
+      <div class="max-w-3xl">
+        <h3 class="text-3xl md:text-4xl font-medium leading-[1.1]" style="color: var(--color-kubmin-base)">
+          {mu.insightCharts.heading.replace(mu.insightCharts.headingAccent, "")}
+          <span class="km-italic km-grad-gold">{mu.insightCharts.headingAccent}</span>
+        </h3>
+        <p class="mt-4 text-base md:text-lg leading-relaxed" style="color: rgb(250 244 237 / 0.7)">
+          {mu.insightCharts.intro}
+        </p>
       </div>
-      <p class="mt-10 text-center text-sm leading-relaxed max-w-xl mx-auto" style="color: rgb(250 244 237 / 0.55)">
-        {mu.formula.caption}
-      </p>
+
+      <div class="mt-12 grid lg:grid-cols-2 gap-6">
+        {mu.insightCharts.charts.map((chart) => (
+          <figure
+            class="km-chart km-paper rounded-3xl overflow-hidden flex flex-col"
+            x-data
+            x-intersect.once="$el.classList.add('is-drawn')"
+          >
+            <div class="flex items-center justify-between gap-4 px-6 py-4" style="background: var(--color-kubmin-overlay); border-bottom: 1px solid var(--color-kubmin-border);">
+              <span class="km-mono text-xs uppercase tracking-[0.22em]" style="color: var(--color-kubmin-text)">{chart.label}</span>
+              <span class="km-mono text-xs tracking-[0.06em] px-2.5 py-1 rounded-full" style="background: var(--color-kubmin-muted); color: var(--color-kubmin-primary-700);">{chart.tag}</span>
+            </div>
+
+            <div class="px-4 pt-5 sm:px-6">
+              <svg viewBox="0 0 640 290" class="w-full h-auto block" role="img" aria-label={chartAria[chart.id]}>
+                {[60, 108, 156, 204].map((y) => (
+                  <line x1="16" y1={y} x2="624" y2={y} stroke="var(--color-kubmin-subtle)" stroke-width="1" stroke-dasharray="2 7" />
+                ))}
+                <line x1="16" y1="252" x2="624" y2="252" stroke="var(--color-kubmin-border)" stroke-width="1" />
+
+                <!-- greener grid band -->
+                <g class="km-chart-band">
+                  <rect x="400" y="24" width="224" height="228" fill="rgb(144 122 169 / 0.08)" />
+                  <line x1="400" y1="24" x2="400" y2="252" stroke="var(--color-kubmin-iris)" stroke-width="1" stroke-dasharray="4 5" opacity="0.5" />
+                  <text x="412" y="46" class="km-mono" font-size="12" letter-spacing="2" fill="var(--color-kubmin-iris)" style="text-transform: uppercase;">greener grid</text>
+                </g>
+
+                <!-- grid carbon intensity (shared context, same shape in both charts) -->
+                <path
+                  class="km-chart-fill"
+                  d="M16,68 C120,66 200,72 320,64 C360,61 380,60 400,62 L400,194 C460,192 520,194 580,190 L624,190"
+                  fill="none" stroke="var(--color-kubmin-iris)" stroke-width="1.5" stroke-dasharray="5 5" stroke-linecap="round"
+                />
+
+                {chart.id === "sci" ? (
+                  <path
+                    class="km-chart-line"
+                    pathLength="1"
+                    d="M16,92 C90,86 150,100 230,84 C300,76 350,98 400,88 L400,206 L460,202 C520,208 560,200 610,204 L624,202"
+                    fill="none" stroke="var(--color-kubmin-energy)" stroke-width="2" stroke-linecap="round"
+                  />
+                ) : (
+                  <path
+                    class="km-chart-line"
+                    pathLength="1"
+                    d="M16,132 C90,128 150,136 230,130 C300,126 350,134 400,130 C460,134 540,128 590,132 L624,130"
+                    fill="none" stroke="var(--color-kubmin-efficiency)" stroke-width="2" stroke-linecap="round"
+                  />
+                )}
+              </svg>
+            </div>
+
+            <div class="px-6 pb-3 pt-2 flex flex-wrap gap-x-5 gap-y-1.5">
+              {chart.legend.map((item) => (
+                <span class="inline-flex items-center gap-2 km-mono text-xs tracking-[0.08em]" style="color: var(--color-kubmin-subtle-text)">
+                  <span
+                    class="inline-block w-4 h-0 border-t-2 shrink-0"
+                    style={`border-color: ${chartSwatch[item.key]}; ${item.key === "grid" ? "border-top-style: dashed;" : ""}`}
+                  ></span>
+                  {item.label}
+                </span>
+              ))}
+            </div>
+
+            <figcaption class="km-italic text-sm leading-relaxed px-6 pb-5" style="color: var(--color-kubmin-subtle-text)">
+              {chart.caption}
+            </figcaption>
+
+            <div class="mt-auto px-6 py-4" style="border-top: 1px solid var(--color-kubmin-border); background: var(--color-kubmin-overlay);">
+              <p class="text-sm leading-relaxed" style="color: var(--color-kubmin-text)">
+                <span class="km-mono text-[11px] uppercase tracking-[0.2em] mr-2" style="color: var(--color-kubmin-primary-700)">what it tells you</span>
+                {chart.takeaway}
+              </p>
+            </div>
+          </figure>
+        ))}
+      </div>
     </div>
   </Container>
 </section>

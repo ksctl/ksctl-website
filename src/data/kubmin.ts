@@ -5,7 +5,7 @@
 export const meta = {
   title: "Kubmin — The Test Your Pipeline Is Missing: What Each Release Costs to Run",
   description:
-    "Every release is tested; almost none are measured. Kubmin tracks cost, energy, and SCI/SEE carbon per release — in your environment, on your configuration, divided by your app's own measurement unit like the HTTP requests it served.",
+    "Every release is tested; almost none are measured. Kubmin tracks cost, energy, and SCI/SEI carbon per release — in your environment, on your configuration, divided by your app's own measurement unit like the HTTP requests it served.",
 };
 
 export const links = {
@@ -39,7 +39,7 @@ export const hero = {
     "Unit tests pass. Chaos drills survive. Nobody measures what the release costs to run. Kubmin is that missing check.",
   punchlineAccent: "Kubmin is that missing check.",
   explain:
-    "Kubmin measures every release in your environment, on your configuration — cost, energy, and SCI/SEE carbon, divided by your application's own measurement unit: the requests it served, the jobs it ran. Then it points at the fix — idle time, a better region, a better instance type.",
+    "Kubmin measures every release in your environment, on your configuration — cost, energy, and SCI/SEI carbon, divided by your application's own measurement unit: the requests it served, the jobs it ran. Then it points at the fix — idle time, a better region, a better instance type.",
   cta: { text: "Start Free", href: links.app },
   secondaryCta: { text: "See the Redis comparison", href: "#demo" },
   logo: images.logo,
@@ -71,7 +71,7 @@ export const hero = {
   proofPoints: [
     "cost per release",
     "measured in your environment",
-    "SCI + SEE per measurement unit",
+    "SCI + SEI per measurement unit",
     "quick wins, kubectl-ready",
   ],
   screenshot: {
@@ -117,7 +117,7 @@ export const productDemo = {
   },
   screenshot: {
     src: images.screenshots.redis,
-    alt: "Kubmin multi-version comparison showing CPU, memory, energy, SCI, SEE, and cost differences across Redis 8.6.1, 8.4.0, and 8.2.1",
+    alt: "Kubmin multi-version comparison showing CPU, memory, energy, SCI, SEI, and cost differences across Redis 8.6.1, 8.4.0, and 8.2.1",
     browserUrl: "kubmin.ksctl.com/workloads/compareall",
   },
   stats: [
@@ -139,7 +139,7 @@ export const productDemo = {
     {
       value: "31%",
       label: "more efficient — 8.2.1 vs 8.4.0",
-      detail: "on SEE score",
+      detail: "on SEI score",
     },
   ],
   insight:
@@ -167,13 +167,13 @@ export const coreFeatures = {
       chapter: "02a",
       title: "Image Version Deep Profile",
       tag: "your deploy's real footprint",
-      body: "Point kubmin at an image tag and get that version's full running story: hourly SCI and SEE, energy, CPU, memory — and the lifetime cost of running it as a container, from first deploy to today. Not generic pod metrics. Version-scoped truth about what each build costs and consumes in production.",
-      metric: "hourly SCI · SEE · kWh · lifetime $",
+      body: "Point kubmin at an image tag and get that version's full running story: hourly SCI and SEI, energy, CPU, memory — and the lifetime cost of running it as a container, from first deploy to today. Not generic pod metrics. Version-scoped truth about what each build costs and consumes in production.",
+      metric: "hourly SCI · SEI · kWh · lifetime $",
       hasCrossRef: true,
       glow: "primary",
       screenshot: {
         src: "/kubmin/workload-detail-hourly.webp",
-        alt: "Kubmin hourly deep profile for redis 8.2.1 — SCI score, SEE score, operational and embodied carbon, energy, and P95 utilization",
+        alt: "Kubmin hourly deep profile for redis 8.2.1 — SCI score, SEI score, operational and embodied carbon, energy, and P95 utilization",
         browserUrl: "kubmin.ksctl.com/workloads/details",
       },
     },
@@ -182,13 +182,13 @@ export const coreFeatures = {
       chapter: "02b",
       title: "Version-over-Version Comparison",
       tag: "efficiency measured per release",
-      body: "Compare image versions across CPU, memory, energy, SCI, SEE, and runtime cost — per measurement unit of work. Ship a new release and know within hours whether it regressed 30% on efficiency, before the regression compounds into your bill.",
+      body: "Compare image versions across CPU, memory, energy, SCI, SEI, and runtime cost — per measurement unit of work. Ship a new release and know within hours whether it regressed 30% on efficiency, before the regression compounds into your bill.",
       metric: "caught +63% CPU drift between tags",
       hasCrossRef: true,
       glow: "energy",
       screenshot: {
         src: "/kubmin/compare-redis-casestudy.webp",
-        alt: "Kubmin image version comparison — SEE, overall carbon, energy, and SCI per tracked version",
+        alt: "Kubmin image version comparison — SEI, overall carbon, energy, and SCI per tracked version",
         browserUrl: "kubmin.ksctl.com/workloads/compareall",
       },
     },
@@ -259,10 +259,10 @@ export const whyEnergy = {
         "an ISO-accredited standard (ISO/IEC 21031:2024): the rate of carbon emissions per measurement unit of software — sensitive to energy efficiency, hardware efficiency, and carbon awareness.",
     },
     {
-      name: "SEE",
-      full: "Software Energy Efficiency",
+      name: "SEI",
+      full: "Software Energy Intensity",
       description:
-        "raw energy (kWh) per measurement unit — deliberately blind to grid carbon intensity, so pure efficiency regressions can't hide behind a cleaner grid.",
+        "facility energy (kWh) per measurement unit — Kepler's IT energy scaled by each cloud's facility PUE — deliberately blind to grid carbon intensity, so pure efficiency regressions can't hide behind a cleaner grid. A GSF pre-draft; Kubmin tracks it as provisional.",
     },
   ],
   combined:
@@ -310,19 +310,47 @@ export const measurementUnit = {
       scope: pod
       metric: http_requests_total
       match:
+        pod: $KUBMIN_POD_NAME
         container: $KUBMIN_CONTAINER_NAME`,
   outputsTitle: "what you read back, per release",
   outputs: [
-    { value: "kWh / request", note: "SEE — energy per measurement unit" },
+    { value: "kWh / request", note: "SEI — facility energy per measurement unit (PUE-adjusted)" },
     { value: "gCO₂e / request", note: "SCI — carbon per measurement unit" },
     { value: "$ / 1M requests", note: "runtime cost, in your units" },
   ],
-  formula: {
-    lead: "SCI",
-    numerator: "operational + embodied carbon",
-    denominator: "R — your measurement unit",
-    caption:
-      "R is whatever your application calls work: requests served, jobs processed, transactions settled. You declare it once — kubmin divides by it forever.",
+  insightCharts: {
+    heading: "Two scores. Two questions.",
+    headingAccent: "Two questions.",
+    intro:
+      "Same workload, same moment — the only thing that changes at the marker is the region's grid. Watch what each score does, and what it can tell you.",
+    charts: [
+      {
+        id: "sci",
+        label: "SCI · carbon per request",
+        tag: "gCO₂e / request",
+        legend: [
+          { key: "grid", label: "grid carbon intensity — where you run" },
+          { key: "sci", label: "SCI — follows the grid" },
+        ],
+        caption:
+          "Same code, same traffic. At the marker the region's grid gets greener — and SCI falls. SCI counts where you run: the full carbon per request, grid included.",
+        takeaway:
+          "How clean is this release for the planet? A greener region or a more efficient image both improve SCI — you see the total, not the cause.",
+      },
+      {
+        id: "sei",
+        label: "SEI · energy per request",
+        tag: "kWh / request",
+        legend: [
+          { key: "grid", label: "grid carbon intensity — same moment" },
+          { key: "sei", label: "SEI — ignores the grid" },
+        ],
+        caption:
+          "The same workload, the same moment — SEI doesn't flinch. Facility energy per request is pure efficiency, grid left out.",
+        takeaway:
+          "Is the code actually more efficient? When SEI climbs, your release regressed — no cleaner region can hide it, no dirtier grid can fake it.",
+      },
+    ],
   },
 };
 
@@ -342,7 +370,7 @@ export const howItWorks = {
     },
     {
       title: "Instrument Apps and See Results",
-      body: "Point your apps at Kubmin's in-cluster OTLP gRPC or HTTP endpoint. Kubmin turns metrics, logs, traces, and Kepler energy data into workload cost, efficiency, SCI/SEE, and Quick Wins.",
+      body: "Point your apps at Kubmin's in-cluster OTLP gRPC or HTTP endpoint. Kubmin turns metrics, logs, traces, and Kepler energy data into workload cost, efficiency, SCI/SEI, and Quick Wins.",
     },
   ],
   cta: { text: "Start Free", href: links.app },
@@ -373,7 +401,7 @@ export const comparisonTable = {
       values: ["✗", "✗", "✗", "✓"],
     },
     {
-      capability: "SCI + SEE per measurement unit (ISO/IEC 21031)",
+      capability: "SCI + SEI per measurement unit (ISO/IEC 21031)",
       values: ["✗", "✗", "✗", "✓"],
     },
     {
@@ -532,7 +560,7 @@ Indirect efficiency gains: When you right-size inefficient workloads, they consu
 
 Kubecost tracks pod-level cost allocation based on resource requests — it's a FinOps tool, not an efficiency tool. Prometheus + Grafana gives you raw metrics but requires manual setup for any waste detection or version comparison. AWS Cost Explorer operates at the EC2 level and has no visibility into individual containers.
 
-None of these tools track per-workload energy consumption, compare efficiency across deployment versions, import existing clusters with guided observability, or provide SCI/SEE sustainability scores. Kubmin was built specifically because this gap existed.`,
+None of these tools track per-workload energy consumption, compare efficiency across deployment versions, import existing clusters with guided observability, or provide SCI/SEI sustainability scores. Kubmin was built specifically because this gap existed.`,
     },
     {
       q: "Do I need to change my deployment workflow?",
