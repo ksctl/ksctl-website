@@ -134,16 +134,16 @@ export const productDemo = {
     {
       value: "$81",
       label: "annualized runtime cost estimate gap — 8.6.1 vs 8.4.0",
-      detail: "($0.0297 vs $0.0389/hr median)",
+      detail: "($0.0389 vs $0.0297/hr median)",
     },
     {
-      value: "31%",
+      value: "29%",
       label: "lower energy intensity — 8.2.1 vs 8.4.0",
-      detail: "on SEI",
-    },
+      detail: "on SEI (0.007197 vs 0.010104 kWh/container-hour)",
+    }
   ],
   insight:
-    "CPU alone misses the tradeoff. 8.4.0 used 87.8% CPU without the highest cost estimate; 8.2.1 used 51.2% CPU yet had a higher one. Kubmin puts cost estimates, energy, and efficiency side by side.",
+    "CPU alone misses the tradeoff. Redis 8.4.0 recorded the highest P95 CPU at 243m yet the lowest median cost estimate at $0.0297/hr. Redis 8.2.1 recorded 149m CPU but $0.0388/hr. Kubmin puts cost estimates, energy, and efficiency side by side.",
   caption:
     "One reproducible workload. The same release-level view for every version you track.",
   cta: { text: "Try It On Your Workloads", href: links.app },
@@ -468,7 +468,7 @@ export const pricing = {
     },
     {
       name: "Affordable",
-      price: "$19.99",
+      price: "$20.00",
       period: "/month",
       features: [
         "5 clusters to create or import",
@@ -486,7 +486,7 @@ export const pricing = {
     },
     {
       name: "Premium",
-      price: "$49.99",
+      price: "$50.00",
       period: "/month",
       features: [
         "20 clusters to create or import",
