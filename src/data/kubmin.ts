@@ -212,8 +212,8 @@ export const coreFeatures = {
       chapter: "02d",
       title: "Quick Wins, Ranked by Impact",
       tag: "estimated savings, not just alerts",
-      body: "Turn idle replicas, overprovisioned limits, and placement options into a ranked list of estimated monthly savings. Kubmin includes a kubectl command when a Kubernetes change applies.",
-      metric: "ranked by estimated $/mo · kubectl-ready",
+      body: "Turn idle replicas, overprovisioned limits, and placement options into a ranked list of estimated monthly savings.",
+      metric: "ranked by estimated $/mo",
       hasCrossRef: false,
       glow: "cost",
       screenshot: {
@@ -361,8 +361,8 @@ export const howItWorks = {
   headingAccent: "release intelligence",
   steps: [
     {
-      title: "Create or Import a Cluster",
-      body: "Create a ksctl cluster or import EKS, AKS, GKE Standard, or self-managed Kubernetes with kubeconfig.",
+      title: "Import a Kubernetes Cluster",
+      body: "Import EKS, AKS, GKE Standard, or self-managed Kubernetes.",
     },
     {
       title: "Choose Your Observability Path",
@@ -370,7 +370,7 @@ export const howItWorks = {
     },
     {
       title: "Run a Release. See What Changed.",
-      body: "Send OTLP telemetry to Kubmin, then run your workload. Kubmin compares image versions and ranks changes in estimated workload cost, energy, and resource efficiency.",
+      body: "Point your apps at Kubmin's in-cluster OTLP gRPC or HTTP endpoint. Kubmin compares image versions and ranks changes in estimated workload cost, energy, and resource efficiency.",
     },
   ],
   cta: { text: "Start Free", href: links.app },
@@ -434,7 +434,7 @@ export const comparisonTable = {
     },
     {
       capability: "Setup approach",
-      values: ["Connect billing scope", "Deploy/connect tooling", "Configure sources + queries", "✓ Create/import; collect runtime data"],
+      values: ["Connect billing scope", "Deploy/connect tooling", "Configure sources + queries", "✓ Import; collect runtime data"],
     },
   ],
   footer:
