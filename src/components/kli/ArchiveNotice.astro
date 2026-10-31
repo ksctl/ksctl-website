@@ -1,6 +1,6 @@
 ---
 import Container from "../shared/Container.astro";
-import { archive } from "@/data/kli";
+import { archive, hero } from "@/data/kli";
 
 const ArrowIcon =
   "M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z";
@@ -24,9 +24,11 @@ const ArrowIcon =
 
       <!-- Hero -->
       <div class="max-w-4xl mx-auto text-center">
-        <div class="hero-stagger hero-stagger-1 inline-flex items-center gap-3 rounded-full border border-kli-border bg-kli-muted px-6 py-3 text-base font-medium text-kli-muted-foreground mb-10">
-          <span class="inline-block h-2 w-2 rounded-full bg-kli-muted-foreground/50"></span>
-          <span class="font-mono text-sm uppercase tracking-widest">{archive.status}</span>
+        <div class="hero-stagger hero-stagger-1 inline-flex items-center gap-3 rounded-full border border-kli-border bg-kli-muted px-6 py-3 mb-10">
+          <img src={hero.logo} alt="kli logo" class="h-6 w-auto" />
+          <span class="text-base font-medium text-kli-foreground">{hero.productName}</span>
+          <span class="h-5 w-px bg-kli-border" aria-hidden="true"></span>
+          <span class="font-mono text-sm uppercase tracking-widest text-kli-muted-foreground">{archive.status}</span>
         </div>
 
         <h1 class="hero-stagger hero-stagger-2 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] mb-8">
