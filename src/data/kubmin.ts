@@ -3,9 +3,9 @@
 // ============================================================
 
 export const meta = {
-  title: "Kubmin — Release Intelligence for Cost, Energy, and Carbon",
+  title: "Kubmin — The Release Check Your Pipeline Skips",
   description:
-    "After a release runs, Kubmin uses your cluster's runtime evidence to show which image version increased estimated workload cost, energy per unit of work, or resource waste.",
+    "For Kubernetes workloads, Kubmin shows which image version raised estimated workload cost, energy per request, or carbon.",
 };
 
 export const links = {
@@ -49,15 +49,15 @@ export const hero = {
     meta: "Vol. 02 · Runtime Evidence",
   },
   releaseReport: {
-    label: "runtime release evidence",
+    label: "pipeline report",
     release: "checkout-api · v2.4.1",
     rows: [
       { name: "unit tests", value: "482 passed", pass: true },
       { name: "integration", value: "61 passed", pass: true },
       { name: "chaos drill", value: "survived", pass: true },
-      { name: "estimated workload $ / hr", value: "collecting runtime", pass: false },
-      { name: "kWh / request", value: "collecting runtime", pass: false },
-      { name: "gCO₂e · SCI", value: "collecting runtime", pass: false },
+      { name: "estimated cost / hr", value: "unmeasured", pass: false },
+      { name: "kWh / request", value: "unmeasured", pass: false },
+      { name: "gCO₂e · SCI", value: "unmeasured", pass: false },
     ],
     caption:
       "The pipeline checks whether it ships. Kubmin shows what changed after it runs.",
@@ -127,7 +127,7 @@ export const productDemo = {
       detail: "(243m vs 149m)",
     },
     {
-      value: "31%",
+      value: "33%",
       label: "more energy — 8.4.0 vs 8.6.1",
       detail: "(0.0085 vs 0.0064 kWh)",
     },
