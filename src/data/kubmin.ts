@@ -72,7 +72,7 @@ export const hero = {
     "estimated workload cost",
     "runtime evidence by image version",
     "SCI carbon + SEI energy",
-    "ranked fixes, kubectl-ready",
+    "ranked fixes by estimated impact",
   ],
   screenshot: {
     src: images.screenshots.hero,
@@ -143,7 +143,7 @@ export const productDemo = {
     }
   ],
   insight:
-    "CPU alone misses the tradeoff. Redis 8.4.0 recorded the highest P95 CPU at 243m yet the lowest median cost estimate at $0.0297/hr. Redis 8.2.1 recorded 149m CPU but $0.0388/hr. Kubmin puts cost estimates, energy, and efficiency side by side.",
+    "CPU alone misses the tradeoff. Redis 8.4.0 recorded the highest P95 CPU at 243m yet the lowest median cost estimate at $0.0297/hr. Redis 8.2.1 recorded 149m CPU but $0.0389/hr. Kubmin puts cost estimates, energy, and efficiency side by side.",
   caption:
     "One reproducible workload. The same release-level view for every version you track.",
   cta: { text: "Try It On Your Workloads", href: links.app },
@@ -422,7 +422,7 @@ export const comparisonTable = {
     },
     {
       capability: "Remediation path",
-      values: ["Provider actions", "Varies by tool", "Build automation", "✓ Ranked estimates + kubectl"],
+      values: ["Provider actions", "Varies by tool", "Build automation", "✓ Ranked fix estimates"],
     },
     {
       capability: "Functional-unit normalization",
@@ -477,7 +477,7 @@ export const pricing = {
         "72h (3d) hourly metrics retention",
         "Full workload analysis",
         "Deployment comparison",
-        "Quick Wins with kubectl commands",
+        "Quick Wins with ranked fix estimates",
         "Bring or deploy observability backends",
         "Priority support",
       ],
@@ -540,7 +540,7 @@ export const faq = {
     },
     {
       q: "How much money can kubmin save me?",
-      a: `Kubmin finds savings opportunities in idle workloads, overprovisioning, and instance or region choices. Each finding includes an estimated monthly impact and, when applicable, a kubectl command.
+      a: `Kubmin finds savings opportunities in idle workloads, overprovisioning, and instance or region choices. Each finding includes an estimated monthly impact and the specific change that would realize it.
 
 These are workload cost estimates, not invoice data or guaranteed savings. Your bill changes only when a recommendation lets you reduce or change paid infrastructure.`,
       link: {
