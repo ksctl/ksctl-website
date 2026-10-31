@@ -3,14 +3,82 @@
 // ============================================================
 
 export const meta = {
-  title: "kli - Sustainable, Cloud-Agnostic Kubernetes Management",
+  title: "kli (archived) - Multi-cloud Kubernetes CLI",
+  description: "kli is an archived multi-cloud Kubernetes provisioning CLI. No longer maintained. Source, docs and release binaries remain available as a record of the work.",
+};
+
+export const archive = {
+  status: "ARCHIVED - OCT 2026",
+  heading: "kli is archived.",
+  lede: "kli was the CLI over the ksctl engine: one command, any cloud, carbon-aware region selection. It shipped 27 releases across AWS, Azure, Civo, and self-managed clusters. It is no longer maintained.",
+  facts: ["27 releases", "AWS / Azure / Civo", "Apache-2.0", "No longer maintained"],
+  reasons: {
+    heading: "Why",
+    subheading: "Three reasons, in order of how much they mattered.",
+    items: [
+      {
+        title: "Kubmin took the question further.",
+        body: "kli could pick an efficient region at create time. It could not tell you what your workloads actually cost or emitted afterwards, per release, per image tag. That turned out to be the part people needed.",
+      },
+      {
+        title: "Provisioning whole clusters is a full-time commitment.",
+        body: "New cloud APIs, new Kubernetes versions, new provider quirks. I cannot honestly give it that alongside everything else I build.",
+      },
+      {
+        title: "Stopping is part of engineering.",
+        body: "A tool that says it is unmaintained is more useful than one that quietly rots. Nobody should be shipping production on top of kli in 2026.",
+      },
+    ],
+  },
+  now: {
+    heading: "What I build now",
+    subheading: "The same questions, taken further. These are maintained.",
+    items: [
+      {
+        name: "Kubmin",
+        body: "Per-workload cost, efficiency and SCI/SEI tracking, including release-over-release diffs per image tag.",
+        href: "/product/kubmin",
+      },
+      {
+        name: "infai",
+        body: "One profile shape for llama.cpp and vLLM, live tokens/sec plus CPU, RAM and VRAM telemetry.",
+        href: "https://infai.dipankar-das.com",
+      },
+      {
+        name: "infaiw",
+        body: "A daemon-based harness where sidecar loops must pass an acceptance check and every event lands on a durable timeline.",
+        href: "https://infai.dipankar-das.com",
+      },
+    ],
+  },
+  stillUsing: {
+    heading: "Still using kli?",
+    items: [
+      "Source, documentation and release binaries stay available as they are.",
+      "No support, no security updates, no new provider or Kubernetes version support.",
+      "Bugs will not be fixed. If a cloud API changes and kli breaks, it stays broken.",
+      "If you are migrating off: kubectl, kubeadm or K3s, and Terraform cover what kli was wrapping underneath anyway.",
+    ],
+  },
+  maintainer: {
+    heading: "Want to take over?",
+    body: "If you still depend on kli and want to become its maintainer, say so. The code is Apache-2.0 and the surface area is small enough for one person.",
+    ctas: [
+      { text: "Reach out on Discord", href: "https://discord.ksctl.com" },
+      { text: "Open an issue", href: "https://github.com/ksctl/kli/issues" },
+    ],
+  },
+  history: {
+    heading: "What kli did",
+    body: "Everything below is kept as a record of what was built: multi-cloud provisioning, carbon-aware region selection, sustainability metrics, and the release notes. Read it as history, not as a feature list.",
+  },
 };
 
 export const hero = {
   logo: "/kli-logo.svg",
   productName: "kli",
-  tagline: "Simplify K8s cluster Ops by single command",
-  description: "Single Command Highly Available Kubernetes cluster across cloud providers plus sustanability metrics and cost optimization strategies.",
+  tagline: "Simplify Kubernetes cluster Ops by single command, archived",
+  description: "Single Command Highly Available Kubernetes cluster across cloud providers plus sustanability metrics and cost optimization strategies. Archived in November 2026.",
   trustPills: [
     "Single binary",
     "No Terraform",
@@ -36,9 +104,9 @@ export const hero = {
 };
 
 export const features = {
-  badge: "Powerful Features",
+  badge: "Features",
   heading: "Smart Kubernetes Management",
-  subheading: "Our latest features focus on sustainability and cost optimization, helping you reduce both your cloud expenses and environmental impact.",
+  subheading: "What kli could do: one-command clusters across providers, with sustainability and cost built into the decision rather than bolted on afterwards.",
   items: [
     {
       title: "Simplified Cluster Setup",
@@ -68,7 +136,7 @@ export const features = {
   cliDemo: {
     badge: "Command Line Interface",
     heading: "Simple Commands, Powerful Results",
-    description: "Our CLI is designed for simplicity without sacrificing power. Get started with kli in seconds and transform your Kubernetes workflow.",
+    description: "The CLI was built for simplicity without sacrificing power: one binary, one command, no Terraform or Ansible to wire up first.",
     bullets: [
       "Create clusters across any cloud provider",
       "Scale up and down with a single command",
@@ -92,14 +160,14 @@ export const features = {
 
 export const howItWorks = {
   badge: "Simple Process",
-  heading: "How kli Works",
+  heading: "How kli Worked",
   subheading: "From installation to production-ready Kubernetes clusters in minutes, not hours",
   steps: [
     {
       number: 1,
       title: "Install kli",
-      description: "Quick installation with a single command. Works on Linux, macOS, and Windows through WSL.",
-      command: "curl -sSfL https://get.kli.ksctl.com | python3 -",
+      description: "Installed with a single command on Linux, macOS and Windows via WSL. Prebuilt binaries still exist on GitHub Releases; the install script is no longer maintained.",
+      command: "# archived - releases remain on github.com/ksctl/kli/releases",
       terminal: [
         { text: "INFO Downloading kli...", color: "blue" },
         { text: "INFO Installing to /usr/local/bin/kli...", color: "blue" },
@@ -146,13 +214,13 @@ export const howItWorks = {
       command: "kli cluster summary"
     }
   ],
-  cta: { text: "Get Started Now", href: "https://docs.kli.ksctl.com/docs/getting-started/" }
+  cta: { text: "Read the Documentation", href: "https://docs.kli.ksctl.com" }
 };
 
 export const sustainabilityVisual = {
   badge: "Eco-Friendly Infrastructure",
-  heading: "Kubernetes that Loves Green Energy",
-  subheading: "kli intelligently selects regions and instances with lower carbon footprints, helping you build sustainable infrastructure without compromising performance.",
+  heading: "Built Around Green Energy",
+  subheading: "kli selected regions and instances based on carbon intensity and renewable mix, so sustainability was a property of the cluster rather than a report you ran later.",
   metrics: [
     {
       title: "Intelligent Region Selection",
@@ -173,13 +241,13 @@ export const sustainabilityVisual = {
       label: "45% Cost Savings"
     }
   ],
-  cta: { text: "Explore Our Green Features", href: "https://docs.kli.ksctl.com/docs/concepts/smart-optimization/" }
+  cta: { text: "Read the Methodology", href: "https://docs.kli.ksctl.com/docs/concepts/smart-optimization/" }
 };
 
 export const stats = {
   badge: "Powerful Simplicity",
-  heading: "Create Kubernetes Clusters in Minutes",
-  subheading: "Deploy production-ready Kubernetes with a single command - no complex configuration required",
+  heading: "Clusters Created in Minutes",
+  subheading: "Production-ready Kubernetes from a single command, with no Terraform or Ansible to wire up first",
   cards: [
     {
       title: "One Command Setup",
@@ -198,8 +266,8 @@ export const stats = {
     }
   ],
   comparison: {
-    heading: "Why Choose kli?",
-    subheading: "See how kli simplifies your workflow compared to other Kubernetes management tools",
+    heading: "How kli Compared, Then",
+    subheading: "Measured against the Kubernetes tooling of 2024. This is a record, not a recommendation.",
     rows: [
       { feature: "Setup Time", kli: "5-10 minutes", others: "30-60+ minutes" },
       { feature: "Commands Required", kli: "Single Command", others: "Multiple Complex Commands" },
@@ -207,14 +275,14 @@ export const stats = {
       { feature: "Cloud Provider Support", kli: "Multiple with Unified API", others: "Limited or Provider-Specific" },
       { feature: "Carbon Aware Deployments", kli: "Built-in", others: "Not Available" }
     ],
-    cta: { text: "See Detailed Comparison", href: "https://docs.kli.ksctl.com/docs/comparisons" }
+    cta: { text: "Read the Documentation", href: "https://docs.kli.ksctl.com" }
   }
 };
 
 export const blog = {
   badge: "Latest Updates",
-  heading: "What's New in kli",
-  subheading: "Discover our newest sustainability and cost optimization features that help you reduce both infrastructure costs and environmental impact",
+  heading: "Highlights from kli",
+  subheading: "The sustainability and cost features shipped across the project's lifetime",
   posts: [
     {
       version: "v2.5",
@@ -241,31 +309,31 @@ export const blog = {
 export const faq = {
   badge: "Common Questions",
   heading: "Frequently Asked Questions",
-  subheading: "Everything you need to know about kli and sustainable Kubernetes management",
+  subheading: "What happens to kli now that it is archived",
   items: [
     {
-      question: "What is kli and how is it different?",
-      answer: "kli is a cloud-agnostic Kubernetes management tool designed with sustainability and simplicity as core principles. Unlike other tools, kli prioritizes both cost optimization and environmental impact by intelligently selecting regions and instance types based on carbon intensity and renewable energy availability. It provides a unified interface across major cloud providers, making it easy to deploy, manage, and optimize your Kubernetes clusters regardless of where they're hosted. Can create clusters ranging from their own local machine to cloud provider managed (For ex. AKS, EKS) to Self Managed (For Ex. K3s, kubeadm), with no need for manual intervention."
+      question: "Can I still use kli?",
+      answer: "Yes, in the sense that nothing has been deleted. The source, the documentation and the published release binaries remain available. But it is not maintained: no bug fixes, no security updates, and no support for new cloud providers or Kubernetes versions. Treat it as a frozen snapshot, not a dependency."
     },
     {
-      question: "What cloud providers does kli support?",
-      answer: "kli currently supports AWS(EKS) and Azure(AKS) along with self-managed Kubernetes deployments. Our unified API approach means you can use the same commands and workflows across all providers, making multi-cloud management seamless. We're constantly adding support for additional cloud providers based on community feedback."
+      question: "Why was kli archived?",
+      answer: "Two reasons. First, Kubmin took the problem further: kli could choose an efficient region at create time, but it could not tell you what your workloads actually cost or emitted afterwards, per release and per image tag. Second, provisioning whole clusters is a full-time commitment, and maintaining it honestly alongside everything else I build was not possible."
     },
     {
-      question: "How does kli optimize for sustainability?",
-      answerHtml: `<p class="text-muted-foreground mb-4">kli uses multiple strategies to optimize for sustainability:</p><ul class="list-disc pl-6 space-y-2 text-muted-foreground"><li><span class="font-medium">Carbon-aware region selection</span>: We analyze real-time and historical data about the carbon intensity of different cloud regions and prioritize those with higher renewable energy percentages.</li><li><span class="font-medium">Energy-efficient instance types</span>: Our algorithms select instance types that which tries to have lower emboddied carbon and also instance-group filteration for your specific workload requirements.</li><li><span class="font-medium">Dynamic region switching</span>: For non-latency-sensitive workloads, kli can dynamically move workloads to regions with lower carbon intensity as conditions change.</li></ul>`
+      question: "Should I migrate off it?",
+      answer: "If you are running it in production, yes. What kli wrapped was kubectl, cloud provider APIs, Helm and Terraform. For kubeadm or K3s you can reproduce the cluster directly; for AWS and Azure the provider CLIs or Terraform do the same job. There is no migration tool and none is planned."
     },
     {
-      question: "How much can I save with kli?",
-      answerHtml: `<p class="text-muted-foreground mb-4">Savings vary depending on your specific workloads and current setup, but our users typically see:</p><ul class="list-disc pl-6 space-y-2 text-muted-foreground"><li><span class="font-medium">20-40% cost reduction</span> through optimized instance selection and scaling</li><li><span class="font-medium">30-60% carbon footprint reduction</span> through intelligent region selection and workload specific Instance Type</li><li><span class="font-medium">50-70% time savings</span> on cluster management and operations</li></ul>`
+      question: "Is the sustainability work lost?",
+      answer: "No. Carbon-aware region selection, embodied emissions and SCI/SEI measurement moved into Kubmin, where the same ideas are applied to running workloads rather than to region choice at creation time. The Green Software Foundation and CNCF TAG Green work continues there."
     },
     {
-      question: "How can I get started with kli?",
-      answerHtml: `<p class="text-muted-foreground mb-4">Getting started is simple:</p><ol class="list-decimal pl-6 space-y-2 text-muted-foreground"><li>Install kli with our one-line installer: <code class="bg-muted px-2 py-0.5 rounded">curl -sSfL https://get.kli.ksctl.com | python3 -</code></li><li>Configure your cloud provider credentials <code class="bg-muted px-2 py-0.5 rounded">kli configure cloud</code></li><li>Create your first cluster with <code class="bg-muted px-2 py-0.5 rounded">kli cluster create</code></li></ol><p class="text-muted-foreground mt-4">Check out our <a href="https://docs.kli.ksctl.com/docs/getting-started/" class="text-primary hover:text-primary-dark dark:hover:text-primary-light font-medium">Getting Started guide</a> for detailed instructions and tutorials. We also offer free community support through our Discord channel.</p>`
+      question: "Can I become the maintainer?",
+      answer: "You can ask. The code is Apache-2.0 and the surface area is small enough for one person. Reach out on Discord or open an issue on the repository and we can talk about what a handover would involve."
     }
   ],
   ctas: [
-    { text: "Check Documentation", href: "https://docs.kli.ksctl.com" },
+    { text: "Read the Documentation", href: "https://docs.kli.ksctl.com" },
     { text: "Join Discord Community", href: "https://discord.ksctl.com" }
   ]
 };

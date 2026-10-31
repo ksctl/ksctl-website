@@ -72,6 +72,7 @@ export const products = {
       features: kliFeatures.items.map(item => item.title),
       ctaText: `Explore ${kliHero.productName}`,
       ctaLink: "/product/kli",
+      badge: "Archived",
       available: true
     },
     {

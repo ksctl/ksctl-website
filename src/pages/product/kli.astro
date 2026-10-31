@@ -1,5 +1,5 @@
 ---
-import HeroProduct from "../../components/kli/Hero.astro";
+import ArchiveNotice from "../../components/kli/ArchiveNotice.astro";
 import Features from "../../components/kli/Features.astro";
 import HowItWorks from "../../components/kli/HowItWorks.astro";
 import SustainabilityMetrics from "../../components/kli/SustainabilityMetrics.astro";
@@ -8,16 +8,27 @@ import Blog from "../../components/kli/Blog.astro";
 import FAQ from "../../components/kli/FAQ.astro";
 import AppHeader from "../../components/shared/AppHeader.astro";
 import AppFooter from "../../components/shared/AppFooter.astro";
+import Container from "../../components/shared/Container.astro";
 import Layout from "../../layouts/Layout.astro";
 import "../../styles/global.css";
 import "../../styles/kli.css";
-import { meta } from "@/data/kli";
+import { meta, archive } from "@/data/kli";
 ---
 
-<Layout title={meta.title} image="/images/og-kli.png">
+<Layout title={meta.title} description={meta.description} image="/images/og-kli.png">
   <AppHeader />
   <main class="space-y-32 mb-32">
-    <HeroProduct />
+    <ArchiveNotice />
+
+    <section class="relative" id="history">
+      <Container>
+        <div class="max-w-3xl mx-auto border-t border-kli-border pt-10">
+          <h2 class="text-2xl font-bold text-kli-foreground mb-4">{archive.history.heading}</h2>
+          <p class="text-kli-muted-foreground leading-relaxed">{archive.history.body}</p>
+        </div>
+      </Container>
+    </section>
+
     <Features />
     <HowItWorks />
     <SustainabilityMetrics />
