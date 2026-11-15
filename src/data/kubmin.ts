@@ -10,7 +10,6 @@ export const meta = {
 
 export const links = {
   app: "https://kubmin.ksctl.com",
-  github: "https://github.com/ksctl",
   discord: "https://discord.ksctl.com",
   kepler: "https://sustainable-computing.io/",
   gsf: "https://sci.greensoftware.foundation/",
@@ -233,9 +232,38 @@ export const coreFeatures = {
       glow: "primary",
       screenshot: {
         src: "/kubmin/guided-observability.webp",
-        alt: "Kubmin guided observability setup — connect existing backends or let Kubmin deploy the missing pieces",
-        browserUrl: "kubmin.ksctl.com/clusters/import/observability",
+        alt: "Kubmin add-cluster wizard — pick a distribution, then connect existing observability backends or let Kubmin deploy the missing pieces",
+        browserUrl: "kubmin.ksctl.com/kubernetes-cluster/import",
       },
+    },
+  ],
+};
+
+// ---- EXPLORE (transparency) ----
+export const explore = {
+  label: "interlude · ch. 02f · explore",
+  heading: "Transparency,",
+  headingAccent: "built in.",
+  intro:
+    "Explore opens the reference data behind Kubmin's carbon and placement math: grid carbon intensity, renewable share, data-centre PUE, and embodied emissions for every region and instance type. Each value carries its dataset, method, and year. No black-box scores.",
+  screenshots: [
+    {
+      src: "/kubmin/explore-summary.webp",
+      alt: "Kubmin Explore summary showing cleanest and median grid intensity, renewable share, and data-centre PUE",
+      browserUrl: "kubmin.ksctl.com/explore?tab=summary",
+      caption: "Summary · cleanest, median, renewable share, PUE",
+    },
+    {
+      src: "/kubmin/explore-region.webp",
+      alt: "Kubmin Explore regions tab listing cloud regions by grid carbon intensity and renewable share",
+      browserUrl: "kubmin.ksctl.com/explore?tab=regions",
+      caption: "Regions · where your runners run, and how every region of the same provider compares",
+    },
+    {
+      src: "/kubmin/explore-instance-type.webp",
+      alt: "Kubmin Explore instance types tab with embodied emissions and their source per instance type",
+      browserUrl: "kubmin.ksctl.com/explore?tab=instances",
+      caption: "Instance types · embodied emissions with source, method, and dataset year",
     },
   ],
 };
@@ -361,21 +389,26 @@ export const howItWorks = {
   headingAccent: "release intelligence",
   steps: [
     {
-      title: "Import a Kubernetes Cluster",
-      body: "Import EKS, AKS, GKE Standard, or self-managed Kubernetes.",
+      title: "Add a Kubernetes Cluster as a Runner",
+      body: "Pick EKS, AKS, GKE Standard, k3s, or kubeadm and run one helm command. It installs the Kubmin controller; Kubmin never needs your kubeconfig or cloud credentials.",
     },
     {
       title: "Choose Your Observability Path",
-      body: "Connect Prometheus, Tempo, Loki, and Grafana, or let Kubmin deploy what is missing. Kubmin adds its agent, Kepler, Gateway API, and OpenTelemetry Collector.",
+      body: "Connect Prometheus, Tempo, Loki, and Grafana, or let Kubmin deploy what is missing. The controller installs the Kubmin agent, Kepler, and OpenTelemetry Collector for you.",
     },
     {
       title: "Run a Release. See What Changed.",
       body: "Point your apps at Kubmin's in-cluster OTLP gRPC or HTTP endpoint. Kubmin compares image versions and ranks changes in estimated workload cost, energy, and resource efficiency.",
     },
   ],
+  screenshot: {
+    src: "/kubmin/controller-install.webp",
+    alt: "Kubmin runner page showing the single helm command that installs the Kubmin controller in your cluster",
+    browserUrl: "kubmin.ksctl.com/runners/detail",
+  },
   cta: { text: "Start Free", href: links.app },
   disclaimer:
-    "Imported clusters must have cert-manager installed and healthy. Kubmin installs Gateway API CRDs during import and configures the Kubmin agent, Kepler, and OpenTelemetry Collector automatically.",
+    "Runners currently support Kubernetes clusters with amd64 nodes. cert-manager must be installed and healthy; the Kubmin controller installs and upgrades everything else it needs.",
 };
 
 // ---- COMPARISON TABLE ----
@@ -434,7 +467,7 @@ export const comparisonTable = {
     },
     {
       capability: "Setup approach",
-      values: ["Connect billing scope", "Deploy/connect tooling", "Configure sources + queries", "✓ Import; collect runtime data"],
+      values: ["Connect billing scope", "Deploy/connect tooling", "Configure sources + queries", "✓ One helm command; no kubeconfig"],
     },
   ],
   footer:
@@ -455,7 +488,7 @@ export const pricing = {
       price: "$0",
       period: "/month",
       features: [
-        "1 cluster to create or import",
+        "1 runner (Kubernetes cluster)",
         "1 workload",
         "1 team member",
         "Guided Observability setup",
@@ -471,7 +504,7 @@ export const pricing = {
       price: "$20.00",
       period: "/month",
       features: [
-        "5 clusters to create or import",
+        "5 runners (Kubernetes clusters)",
         "5 workloads",
         "10 team members",
         "72h (3d) hourly metrics retention",
@@ -489,7 +522,7 @@ export const pricing = {
       price: "$50.00",
       period: "/month",
       features: [
-        "20 clusters to create or import",
+        "20 runners (Kubernetes clusters)",
         "20 workloads",
         "50 team members",
         "168h (7d) hourly metrics retention",
@@ -523,11 +556,6 @@ export const trustSignals = {
       body: "SCI-aligned carbon reporting with provisional SEI energy efficiency",
       href: links.gsf,
     },
-    {
-      title: "Open Source",
-      body: "Cluster management powered by ksctl — fully open source on GitHub",
-      href: links.github,
-    },
   ],
 };
 
@@ -559,16 +587,24 @@ Kubmin connects those views around the release: image-version comparisons, Keple
       a: "No. Kubmin is not a pre-deploy gate today. Label and annotate the workloads you want to track, then let the release run while Kubmin collects its runtime evidence. Keep your observability stack or let Kubmin deploy the missing pieces.",
     },
     {
+      q: "Where do Kubmin's numbers come from?",
+      a: "Grid carbon intensity comes from the Green Software Foundation dataset, with Electricity Maps LCA as a labelled fallback. Renewable share comes from Ember at country level, PUE from the cloud provider, and embodied emissions from Green Software Foundation / Cloud Carbon Footprint coefficients. Container energy comes from Kepler, and workload cost is Kubmin's runtime estimate. The Explore page shows the source, method, and dataset year beside each value.",
+      link: {
+        text: "See it in Explore",
+        href: "#explore",
+      },
+    },
+    {
       q: "How accurate are the energy measurements?",
       a: "Kepler uses hardware counters where available and models trained on hardware measurements elsewhere. Cloud readings are often estimates. Compare like-for-like workloads and infrastructure with the same sampling window and model; do not treat modeled energy as a meter reading.",
     },
     {
-      q: "What clusters does kubmin support?",
-      a: "Kubmin supports clusters created through ksctl and imported existing clusters. Managed import supports EKS, AKS, and GKE Standard. Self-managed import supports Kubernetes clusters on AWS, Azure, or Google Cloud via kubeconfig. GKE Autopilot is not included in the current import path.",
+      q: "What can Kubmin use as a runner?",
+      a: "A runner is where Kubmin collects runtime evidence. Kubmin currently supports Kubernetes clusters as runners: EKS, AKS, GKE Standard, k3s, and kubeadm, with amd64 nodes. You add one by running a single helm command that installs the Kubmin controller; Kubmin never asks for your kubeconfig or cloud credentials. GKE Autopilot is not supported today.",
     },
     {
-      q: "What does Kubmin install on imported clusters?",
-      a: "Imported clusters must already have cert-manager installed and healthy. During import, Kubmin installs Gateway API CRDs and configures the Kubmin agent, Kepler, and OpenTelemetry Collector. If you do not provide Prometheus, Tempo, Loki, or Grafana endpoints, Kubmin can deploy the missing observability backends for you.",
+      q: "What does the Kubmin controller install?",
+      a: "You install cert-manager and keep it healthy; Kubmin never touches it. The controller you install with helm then installs and upgrades everything else Kubmin needs: the Kubmin agent, Kepler, and the OpenTelemetry Collector. If you do not provide Prometheus, Tempo, Loki, or Grafana endpoints, it also deploys the missing observability backends.",
     },
   ],
 };
@@ -577,7 +613,7 @@ Kubmin connects those views around the release: image-version comparisons, Keple
 export const finalCta = {
   headlinePrefix: "Every release leaves a",
   headlineAccent: "runtime footprint.",
-  subtitle: "Connect a cluster. Run a release. See which image version raised estimated workload cost, energy, or waste.",
+  subtitle: "Add a cluster as a runner. Run a release. See which image version raised estimated workload cost, energy, or waste.",
   journeyNote: "Join us on this journey — the future of software is measured.",
   primaryAction: { text: "Get Started", href: links.app },
   secondaryAction: { text: "Join Discord", href: links.discord },

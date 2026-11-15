@@ -1,5 +1,6 @@
 ---
 import Container from "../shared/Container.astro";
+import ModernMockup from "./ModernMockup.astro";
 import { howItWorks } from "@/data/kubmin";
 
 const stepAccents = [
@@ -43,6 +44,15 @@ const stepAccents = [
           </article>
         ))}
       </div>
+    </div>
+
+    <div class="mt-16 max-w-5xl mx-auto">
+      <ModernMockup
+        imageSrc={howItWorks.screenshot.src}
+        imageAlt={howItWorks.screenshot.alt}
+        browserUrl={howItWorks.screenshot.browserUrl}
+        glowColor="primary"
+      />
     </div>
 
     <div class="mt-20 flex flex-col items-center gap-6">
