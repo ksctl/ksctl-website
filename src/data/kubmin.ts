@@ -80,6 +80,17 @@ export const hero = {
   },
 };
 
+// ---- RELEASE SIMULATOR ----
+export const releaseSimulator = {
+  label: "See the gap",
+  heading: "The feedback loop",
+  headingAccent: "your pipeline is missing",
+  nodes: ["CI Pipeline", "Your Cluster", "Kubmin"] as const,
+  release: "checkout-api · v2.4.1",
+  caption:
+    "Your pipeline checks whether it ships. Kubmin shows what changed after it runs — estimated cost, energy, and carbon by image version.",
+};
+
 // ---- PROBLEM STATEMENT ----
 export const problemStatement = {
   label: "The Problem",

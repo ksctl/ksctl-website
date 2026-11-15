@@ -512,10 +512,241 @@ body.theme-kubmin .km-invert {
   animation: kmRise .8s cubic-bezier(.2,.8,.2,1) forwards;
 }
 
+/* ---- release simulator (morphing panel + step track) ---- */
+.km-sim {
+  border: 1px solid var(--color-kubmin-border);
+  background: var(--color-kubmin-surface);
+  border-radius: 18px;
+  box-shadow: var(--shadow-kubmin-paper);
+  overflow: hidden;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+.km-sim-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem 1.5rem;
+  padding: 0.9rem 1.2rem;
+  border-bottom: 1px solid var(--color-kubmin-border);
+  background: var(--color-kubmin-overlay);
+}
+.km-sim-ctl { display: flex; align-items: center; gap: 0.4rem; }
+.km-sim-btn,
+.km-sim-play {
+  font-family: var(--font-kubmin-mono);
+  font-size: 0.7rem;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  color: var(--color-kubmin-text);
+  background: var(--color-kubmin-base);
+  border: 1px solid var(--color-kubmin-border);
+  border-radius: 6px;
+  transition: border-color .2s ease;
+}
+.km-sim-btn:hover { border-color: var(--color-kubmin-text); }
+.km-sim-play {
+  min-width: 6.5rem;
+  background: var(--color-kubmin-text);
+  border-color: var(--color-kubmin-text);
+  color: var(--color-kubmin-base);
+  font-weight: 500;
+}
+.km-sim-play:hover { background: var(--color-kubmin-primary-700); border-color: var(--color-kubmin-primary-700); }
+.km-sim-count {
+  font-family: var(--font-kubmin-mono);
+  font-size: 0.66rem;
+  color: var(--color-kubmin-subtle-text);
+  margin-left: 0.4rem;
+  min-width: 3.5rem;
+}
+
+/* stage: track on left, panel on right */
+.km-sim-stage {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  gap: 0;
+  min-height: 22rem;
+}
+
+/* vertical dot track */
+.km-track {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem 0;
+}
+.km-track-line {
+  position: absolute;
+  top: 1.2rem;
+  bottom: 1.2rem;
+  width: 2px;
+  background: var(--color-kubmin-border);
+}
+.km-track-dots {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.km-track-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 999px;
+  background: var(--color-kubmin-border);
+  border: 2px solid var(--color-kubmin-surface);
+  cursor: pointer;
+  transition: background .25s ease, transform .25s ease;
+}
+.km-track-dot.is-past { background: var(--color-kubmin-primary-400); }
+.km-track-dot.is-now {
+  background: var(--color-kubmin-text);
+  transform: scale(1.5);
+  box-shadow: 0 0 0 3px var(--color-kubmin-primary-100);
+}
+
+/* morphing panel */
+.km-panel {
+  padding: 1.4rem 1.6rem 1.4rem 1rem;
+  border-left: 1px solid var(--color-kubmin-border);
+}
+.km-panel-phase {
+  display: inline-block;
+  font-family: var(--font-kubmin-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  transition: background .3s ease, color .3s ease;
+}
+.km-panel-phase.is-iris       { background: var(--color-kubmin-primary-100); color: var(--color-kubmin-primary-700); }
+.km-panel-phase.is-cost       { background: #fdf6e7; color: #a36a13; }
+.km-panel-phase.is-efficiency  { background: #e8f4f6; color: var(--color-kubmin-efficiency); }
+.km-panel-phase.is-love       { background: #fce8ec; color: var(--color-kubmin-love); }
+
+/* mock screen */
+.km-screen {
+  background: var(--color-kubmin-base);
+  border: 1px solid var(--color-kubmin-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.km-screen-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.9rem;
+  background: var(--color-kubmin-overlay);
+  border-bottom: 1px solid var(--color-kubmin-border);
+}
+.km-screen-dot { width: 0.55rem; height: 0.55rem; border-radius: 999px; opacity: 0.6; }
+.km-screen-url {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-kubmin-mono);
+  font-size: 0.66rem;
+  color: var(--color-kubmin-subtle-text);
+  background: var(--color-kubmin-surface);
+  border: 1px solid var(--color-kubmin-border);
+  border-radius: 999px;
+  padding: 0.2rem 0.8rem;
+  margin: 0 0.5rem;
+}
+.km-screen-body { padding: 1rem 1.2rem 1.2rem; }
+.km-screen-section { margin-bottom: 1rem; }
+.km-screen-section:last-child { margin-bottom: 0; }
+.km-screen-section[hidden] { display: none; }
+.km-screen-label {
+  font-family: var(--font-kubmin-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-kubmin-subtle-text);
+  margin-bottom: 0.5rem;
+}
+.km-screen-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* data rows inside mock screen */
+.km-row {
+  display: grid;
+  grid-template-columns: 1.4rem 1fr auto;
+  gap: 0.3rem;
+  align-items: baseline;
+  padding: 0.38rem 0;
+  font-family: var(--font-kubmin-mono);
+  font-size: 0.76rem;
+  line-height: 1.4;
+  border-bottom: 1px dashed var(--color-kubmin-subtle);
+}
+.km-row:last-child { border-bottom: none; }
+.km-row-icon {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--color-kubmin-subtle-text);
+}
+.km-row-label { color: var(--color-kubmin-text); }
+.km-row-value {
+  text-align: right;
+  color: var(--color-kubmin-subtle-text);
+  font-size: 0.72rem;
+}
+.km-row.is-pass .km-row-icon  { color: var(--color-kubmin-efficiency); }
+.km-row.is-pass .km-row-value { color: var(--color-kubmin-efficiency); }
+.km-row.is-regress .km-row-icon,
+.km-row.is-regress .km-row-label,
+.km-row.is-regress .km-row-value { color: var(--color-kubmin-love); font-weight: 500; }
+.km-row.is-busy .km-row-icon { color: var(--color-kubmin-iris); }
+.km-row.is-gap .km-row-icon,
+.km-row.is-gap .km-row-label,
+.km-row.is-gap .km-row-value { color: var(--color-kubmin-border); }
+.km-row.is-empty .km-row-label { color: var(--color-kubmin-subtle-text); font-style: italic; }
+.km-row.is-sep {
+  grid-template-columns: 1fr;
+  border-bottom: none;
+  padding: 0.15rem 0;
+}
+.km-row.is-sep .km-row-label {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 0.6rem;
+  color: var(--color-kubmin-border);
+  letter-spacing: 0.2em;
+}
+
+/* caption */
+.km-sim-cap {
+  min-height: 2.8em;
+  margin: 0;
+  padding: 0.9rem 1.2rem 1.1rem;
+  border-top: 1px solid var(--color-kubmin-border);
+  font-family: var(--font-kubmin-body);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-kubmin-text);
+}
+
+@media (max-width: 600px) {
+  .km-sim-stage { grid-template-columns: 1.6rem 1fr; }
+  .km-panel { padding: 1rem 1rem 1rem 0.6rem; }
+  .km-row { font-size: 0.68rem; }
+}
+
 /* respect motion */
 @media (prefers-reduced-motion: reduce) {
   .km-stagger, .km-blob, .km-reveal.km-in { animation: none !important; }
   .km-stagger, .km-reveal { opacity: 1; transform: none; }
+  .km-track-dot, .km-panel-phase { transition: none; }
   .km-chart .km-chart-line { stroke-dasharray: none; stroke-dashoffset: 0; animation: none !important; }
   .km-chart .km-chart-fill, .km-chart .km-chart-band { opacity: 1; transition: none; }
 }

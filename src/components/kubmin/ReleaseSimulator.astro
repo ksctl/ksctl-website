@@ -1,0 +1,297 @@
+---
+import Container from "../shared/Container.astro";
+import { releaseSimulator } from "@/data/kubmin";
+---
+
+<section class="relative py-28 md:py-36 overflow-hidden" style="background: var(--color-kubmin-base);">
+  <div class="absolute inset-0 km-grain opacity-[0.12] pointer-events-none"></div>
+  <div class="km-blob km-blob-iris" style="width: 30rem; height: 30rem; bottom: -8rem; right: -6rem; opacity: .25"></div>
+
+  <Container class="relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="km-eyebrow" style="justify-content: center;">{releaseSimulator.label} · ch. 01b</span>
+      <h2 class="mt-6 text-4xl md:text-6xl leading-[1.02] font-medium" style="color: var(--color-kubmin-text)">
+        {releaseSimulator.heading}<br/>
+        <span class="km-italic km-grad-warm">{releaseSimulator.headingAccent}</span>
+      </h2>
+    </div>
+
+    <div class="km-sim" id="km-sim">
+      <!-- toolbar -->
+      <div class="km-sim-bar">
+        <div class="km-sim-ctl">
+          <button type="button" class="km-sim-btn" data-sim="prev" aria-label="Previous step">◀</button>
+          <button type="button" class="km-sim-btn km-sim-play" data-sim="play">▶ play</button>
+          <button type="button" class="km-sim-btn" data-sim="next" aria-label="Next step">▶</button>
+          <span class="km-sim-count" aria-hidden="true"></span>
+        </div>
+        <span class="km-mono text-xs" style="color: var(--color-kubmin-subtle-text)">{releaseSimulator.release}</span>
+      </div>
+
+      <!-- main stage: step dots on left, morphing panel on right -->
+      <div class="km-sim-stage">
+        <!-- vertical step track -->
+        <div class="km-track" aria-hidden="true">
+          <div class="km-track-line"></div>
+          <div class="km-track-dots"></div>
+        </div>
+
+        <!-- single morphing panel -->
+        <div class="km-panel">
+          <!-- phase label -->
+          <div class="km-panel-phase" data-f="phase"></div>
+
+          <!-- the "screen" that shows evolving content -->
+          <div class="km-screen">
+            <div class="km-screen-bar">
+              <span class="km-screen-dot" style="background: var(--color-kubmin-efficiency)"></span>
+              <span class="km-screen-dot" style="background: var(--color-kubmin-cost)"></span>
+              <span class="km-screen-dot" style="background: var(--color-kubmin-love)"></span>
+              <span class="km-screen-url" data-f="screenUrl">ci.internal/checkout-api</span>
+            </div>
+            <div class="km-screen-body">
+              <!-- pipeline checks -->
+              <div class="km-screen-section" data-section="pipeline">
+                <p class="km-screen-label">pipeline · checkout-api v2.4.1</p>
+                <div class="km-screen-rows" data-f="pipeline"></div>
+              </div>
+              <!-- runtime metrics -->
+              <div class="km-screen-section" data-section="runtime" hidden>
+                <p class="km-screen-label">runtime telemetry</p>
+                <div class="km-screen-rows" data-f="runtime"></div>
+              </div>
+              <!-- kubmin findings -->
+              <div class="km-screen-section" data-section="kubmin" hidden>
+                <p class="km-screen-label">kubmin · version comparison</p>
+                <div class="km-screen-rows" data-f="kubmin"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- narration -->
+      <p class="km-sim-cap" aria-live="polite">{releaseSimulator.caption}</p>
+    </div>
+  </Container>
+</section>
+
+<script>
+(() => {
+  const root = document.getElementById('km-sim');
+  if (!root) return;
+
+  type Step = {
+    phase: string; phaseColor: string; screenUrl: string;
+    showSections: string[];
+    pipeline: string; runtime: string; kubmin: string;
+    cap: string;
+  };
+
+  const STEPS: Step[] = [
+    {
+      phase: 'CI Pipeline', phaseColor: 'iris', screenUrl: 'ci.internal/checkout-api/v2.4.1',
+      showSections: ['pipeline'],
+      pipeline: '',
+      runtime: '', kubmin: '',
+      cap: 'A developer pushes checkout-api v2.4.1. The CI pipeline starts.',
+    },
+    {
+      phase: 'CI Pipeline', phaseColor: 'iris', screenUrl: 'ci.internal/checkout-api/v2.4.1',
+      showSections: ['pipeline'],
+      pipeline: '✓|unit tests|482 passed',
+      runtime: '', kubmin: '',
+      cap: 'Unit tests pass. 482 of 482.',
+    },
+    {
+      phase: 'CI Pipeline', phaseColor: 'iris', screenUrl: 'ci.internal/checkout-api/v2.4.1',
+      showSections: ['pipeline'],
+      pipeline: '✓|unit tests|482 passed\n✓|integration|61 passed',
+      runtime: '', kubmin: '',
+      cap: 'Integration tests pass. Pipeline is green so far.',
+    },
+    {
+      phase: 'CI Pipeline', phaseColor: 'iris', screenUrl: 'ci.internal/checkout-api/v2.4.1',
+      showSections: ['pipeline'],
+      pipeline: '✓|unit tests|482 passed\n✓|integration|61 passed\n✓|chaos drill|survived\n—|est. cost / hr|not checked\n—|kWh / request|not checked\n—|gCO₂e · SCI|not checked\n—|SEI energy|not checked',
+      runtime: '', kubmin: '',
+      cap: 'Pipeline is fully green. But estimated cost, energy, SCI, and SEI were never checked.',
+    },
+    {
+      phase: 'Deploying', phaseColor: 'cost', screenUrl: 'ci.internal/checkout-api/v2.4.1',
+      showSections: ['pipeline', 'runtime'],
+      pipeline: '✓|unit tests|482 passed\n✓|integration|61 passed\n✓|chaos drill|survived\n—|est. cost / hr|not checked\n—|kWh / request|not checked\n—|gCO₂e · SCI|not checked\n—|SEI energy|not checked',
+      runtime: '◐|deployment|rolling out v2.4.1',
+      kubmin: '',
+      cap: 'The pipeline deploys v2.4.1 to the cluster. It considers its job done.',
+    },
+    {
+      phase: 'Running', phaseColor: 'efficiency', screenUrl: 'cluster / checkout-api',
+      showSections: ['pipeline', 'runtime'],
+      pipeline: '✓|unit tests|482 passed\n✓|integration|61 passed\n✓|chaos drill|survived\n—|est. cost / hr|not checked\n—|kWh / request|not checked\n—|gCO₂e · SCI|not checked\n—|SEI energy|not checked',
+      runtime: '✓|deployment|v2.4.1 healthy\n·|cpu P95|340m\n·|memory|412 Mi',
+      kubmin: '',
+      cap: 'v2.4.1 is live. Pods are healthy. But the pipeline has already moved on.',
+    },
+    {
+      phase: 'Kubmin collecting', phaseColor: 'iris', screenUrl: 'kubmin.ksctl.com/workloads',
+      showSections: ['runtime', 'kubmin'],
+      pipeline: '✓|unit tests|482 passed\n✓|integration|61 passed\n✓|chaos drill|survived\n—|est. cost / hr|not checked\n—|kWh / request|not checked\n—|gCO₂e · SCI|not checked',
+      runtime: '✓|deployment|v2.4.1 healthy\n·|cpu P95|340m\n·|memory|412 Mi\n·|energy|0.0087 kWh',
+      kubmin: '◐|collecting|OTLP telemetry flowing',
+      cap: 'Kubmin receives runtime telemetry: CPU, memory, energy via Kepler, traces via OpenTelemetry.',
+    },
+    {
+      phase: 'Kubmin comparing', phaseColor: 'iris', screenUrl: 'kubmin.ksctl.com/workloads/compare',
+      showSections: ['kubmin'],
+      pipeline: '✓|unit tests|482 passed\n✓|integration|61 passed\n✓|chaos drill|survived\n—|est. cost / hr|not checked\n—|kWh / request|not checked\n—|gCO₂e · SCI|not checked',
+      runtime: '✓|deployment|v2.4.1 healthy\n·|cpu P95|340m\n·|memory|412 Mi\n·|energy|0.0087 kWh',
+      kubmin: '◐|comparing|v2.4.0 → v2.4.1',
+      cap: 'Kubmin compares v2.4.1 against the previous version\'s runtime profile.',
+    },
+    {
+      phase: 'Evidence found', phaseColor: 'cost', screenUrl: 'kubmin.ksctl.com/workloads/compare',
+      showSections: ['kubmin'],
+      pipeline: '', runtime: '',
+      kubmin: '▲|est. cost|+18% / hr ($0.041 → $0.048)',
+      cap: 'Estimated workload cost rose 18% per hour. The pipeline never measured this.',
+    },
+    {
+      phase: 'Evidence found', phaseColor: 'love', screenUrl: 'kubmin.ksctl.com/workloads/compare',
+      showSections: ['kubmin'],
+      pipeline: '', runtime: '',
+      kubmin: '▲|est. cost|+18% / hr ($0.041 → $0.048)\n▲|energy / req|+23% (0.0071 → 0.0087 kWh)',
+      cap: 'Energy per request increased 23%. Kepler telemetry reveals the regression.',
+    },
+    {
+      phase: 'Evidence found', phaseColor: 'love', screenUrl: 'kubmin.ksctl.com/workloads/compare',
+      showSections: ['kubmin'],
+      pipeline: '', runtime: '',
+      kubmin: '▲|est. cost|+18% / hr ($0.041 → $0.048)\n▲|energy / req|+23% (0.0071 → 0.0087 kWh)\n▲|SCI carbon|+0.4 gCO₂e / req\n▲|SEI energy|+21% (0.0072 → 0.0087 kWh/c·hr)',
+      cap: 'SCI carbon and SEI energy intensity both increased. Every metric the pipeline skipped — now visible.',
+    },
+    {
+      phase: 'Your runtime evidence', phaseColor: 'efficiency', screenUrl: 'kubmin.ksctl.com/workloads/compare',
+      showSections: ['kubmin'],
+      pipeline: '', runtime: '',
+      kubmin: '▲|est. cost|+18% / hr ($0.041 → $0.048)\n▲|energy / req|+23% (0.0071 → 0.0087 kWh)\n▲|SCI carbon|+0.4 gCO₂e / req\n▲|SEI energy|+21% (0.0072 → 0.0087 kWh/c·hr)\n───\n·|v2.4.0|$0.041/hr · 0.0071 kWh/req\n·|v2.4.1|$0.048/hr · 0.0087 kWh/req',
+      cap: 'Kubmin shows you the full comparison. You have the evidence — you decide what to do next.',
+    },
+  ];
+
+  const panel = root.querySelector('.km-panel') as HTMLElement;
+  const cap = root.querySelector('.km-sim-cap') as HTMLElement;
+  const countEl = root.querySelector('.km-sim-count') as HTMLElement;
+  const playBtn = root.querySelector('.km-sim-play') as HTMLButtonElement;
+  const trackDots = root.querySelector('.km-track-dots') as HTMLElement;
+  const sections = root.querySelectorAll<HTMLElement>('.km-screen-section');
+  const STEP_MS = 2200;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let at = 0;
+  let timer: ReturnType<typeof setInterval> | null = null;
+
+  // Build step dots
+  STEPS.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.className = 'km-track-dot';
+    dot.dataset.step = String(i);
+    trackDots.appendChild(dot);
+  });
+  const dots = [...trackDots.querySelectorAll('.km-track-dot')] as HTMLElement[];
+
+  function renderRow(line: string): string {
+    // separator line
+    if (!line.includes('|')) {
+      return `<div class="km-row is-sep"><span class="km-row-label">${line}</span></div>`;
+    }
+    const [icon, label, value] = line.split('|');
+    let cls = 'km-row';
+    if (icon === '✓') cls += ' is-pass';
+    else if (icon === '▲') cls += ' is-regress';
+    else if (icon === '◐') cls += ' is-busy';
+    else if (icon === '—') cls += ' is-gap';
+    return `<div class="${cls}"><span class="km-row-icon">${icon}</span><span class="km-row-label">${label}</span><span class="km-row-value">${value}</span></div>`;
+  }
+
+  function paint(step: Step) {
+    // Phase badge
+    const phaseEl = panel.querySelector('[data-f="phase"]') as HTMLElement;
+    phaseEl.textContent = step.phase;
+    phaseEl.className = 'km-panel-phase is-' + step.phaseColor;
+
+    // Screen URL
+    (panel.querySelector('[data-f="screenUrl"]') as HTMLElement).textContent = step.screenUrl;
+
+    // Show/hide sections
+    sections.forEach(s => {
+      const name = s.dataset.section!;
+      s.hidden = !step.showSections.includes(name);
+    });
+
+    // Render rows for each section
+    (['pipeline', 'runtime', 'kubmin'] as const).forEach(key => {
+      const rowsEl = panel.querySelector(`[data-f="${key}"]`) as HTMLElement;
+      const lines = (step[key] || '').split('\n').filter(Boolean);
+      if (lines.length === 0) {
+        rowsEl.innerHTML = '<div class="km-row is-empty"><span class="km-row-label">waiting…</span></div>';
+      } else if (lines[0].includes('|')) {
+        rowsEl.innerHTML = lines.map(renderRow).join('');
+      } else {
+        rowsEl.innerHTML = lines.map(l => `<div class="km-row"><span class="km-row-label">${l}</span></div>`).join('');
+      }
+    });
+
+    // Dots
+    dots.forEach((d, i) => {
+      d.classList.toggle('is-past', i < at);
+      d.classList.toggle('is-now', i === at);
+    });
+
+    // Caption + counter
+    cap.textContent = step.cap;
+    countEl.textContent = `${at + 1} / ${STEPS.length}`;
+  }
+
+  function show(i: number) {
+    at = Math.max(0, Math.min(i, STEPS.length - 1));
+    paint(STEPS[at]);
+  }
+
+  function stop() {
+    if (timer) clearInterval(timer);
+    timer = null;
+    playBtn.textContent = at === STEPS.length - 1 ? '↺ replay' : '▶ play';
+  }
+
+  function play() {
+    if (timer) { stop(); return; }
+    if (at >= STEPS.length - 1) at = -1;
+    playBtn.textContent = '■ pause';
+    show(at + 1);
+    timer = setInterval(() => {
+      if (at >= STEPS.length - 1) { stop(); return; }
+      show(at + 1);
+    }, STEP_MS);
+  }
+
+  root.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('[data-sim]') as HTMLElement | null;
+    if (!btn) return;
+    const action = btn.dataset.sim;
+    if (action === 'play') play();
+    else if (action === 'next') { stop(); show(at + 1); }
+    else if (action === 'prev') { stop(); show(at - 1); }
+  });
+
+  // Clickable dots
+  trackDots.addEventListener('click', (e) => {
+    const dot = (e.target as HTMLElement).closest('.km-track-dot') as HTMLElement | null;
+    if (!dot) return;
+    stop();
+    show(Number(dot.dataset.step));
+  });
+
+  show(0);
+})();
+</script>
